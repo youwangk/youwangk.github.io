@@ -1,7 +1,8 @@
+google_analytics: "G-5RW688RKHW"
 # Analytics
-analytics:
-  provider               : "google-gtag" 
-                          # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          : "G-5RW688RKHW"
-    anonymize_ip         : # true, false (default)
+#analytics:
+#  provider               : "google-gtag"
+#                          # false (default), "google", "google-universal", "google-gtag", "custom"
+#  google:
+#    tracking_id          : "G-5RW688RKHW"
+#    anonymize_ip         : # true, false (default)
