@@ -246,6 +246,42 @@
         </td>
       </tr>
       </table>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+        <tr onmouseout="t2a_stop()" onmouseover="t2a_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 't2a_shape'>
+            <video  width="192" height="108" muted autoplay loop>
+                    Your browser does not support the video tag.
+                <source src="media/t2a.mp4" type="video/mp4">
+                </video></div>
+            <img src='media/t2a.jpg' width="192" height="108"></div>
+            <script type="text/javascript">
+            function t2a_start() {
+            document.getElementById('t2a_shape').style.opacity = "1";
+            }
+            function t2a_stop() {
+            document.getElementById('t2a_shape').style.opacity = "0";
+            }
+            t2a_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+    <!--              <a href="">-->
+                <papertitle>
+                  (Ongoing) Text-to-4D human avatar generation
+                </papertitle>
+    <!--              </a>-->
+          <br>
+            <p></p>
+            Generating high quality 4D human avatars from a single text.
+          <br>
+<!--            (Improved ver. of CLIP-Actor)-->
+            <p></p>
+          </td>
+        </tr>
+
+
 
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
     
