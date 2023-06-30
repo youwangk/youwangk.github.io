@@ -229,11 +229,11 @@
         <td width="100%" valign="middle">
           <heading>Research Interests</heading>
             <p>
-                I am interested in <strong>3D/4D virtual humans</strong>. My goal is to realize an virtual world communication through efficient and realistic <strong>virtual humans</strong>.
+                I am interested in <strong>3D/4D virtual humans</strong>. My goal is to enrich a virtual world through efficient, realistic and creative <strong>virtual humans</strong>.
                 Currently, I'm focusing on below topics, but not limited to.
             <li>Accurate 3D pose and shape reconstruction of humans and animals.</li>
-            <li>Multi-modal 3D content generation for virtual world.</li>
-            <li>Human body texture reconstruction with limited visual cues.</li>
+            <li>Multi-modal 3D/4D human generation for virtual world.</li>
+            <li>Human body texture estimation with limited visual cues.</li>
             </p>
         </td>
       </tr>
@@ -253,9 +253,9 @@
             <div class="two" id = 't2a_shape'>
             <video  width="192" height="108" muted autoplay loop>
                     Your browser does not support the video tag.
-                <source src="media/t2a.mp4" type="video/mp4">
+                <source src="media/tex_avatar.mp4" type="video/mp4">
                 </video></div>
-            <img src='media/t2a.jpg' width="192" height="108"></div>
+            <img src='media/tex_avatar.jpg' width="192" height="108"></div>
             <script type="text/javascript">
             function t2a_start() {
             document.getElementById('t2a_shape').style.opacity = "1";
@@ -276,11 +276,43 @@
             <p></p>
             Generating high quality 4D human avatars from a single text.
           <br>
-<!--            (Improved ver. of CLIP-Actor)-->
             <p></p>
           </td>
         </tr>
 
+
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+        <tr onmouseout="facedata_stop()" onmouseover="facedata_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 'facedata_shape'>
+            <video  width="192" height="128" muted autoplay loop>
+                <source src="media/4d_face.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video></div>
+            <img src='media/4d_face.png' width="192" height="128"></div>
+            <script type="text/javascript">
+            function facedata_start() {
+            document.getElementById('facedata_shape').style.opacity = "1";
+            }
+            function facedata_stop() {
+            document.getElementById('facedata_shape').style.opacity = "0";
+            }
+            facedata_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+<!--              <a href="">-->
+                <papertitle>
+                  (Ongoing) Large-scale human 3D face dataset
+                </papertitle>
+<!--              </a>-->
+          <br>
+            <p></p>
+            Generating reliable 3D face labels for large-scale facial video datasets.
+          <br>
+          </td>
+        </tr>
 
 
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
@@ -289,11 +321,11 @@
           <td width="30%">
             <div class="one">
             <div class="two" id = 'stream_shape'>
-            <video  width="192" height="128" muted autoplay loop>
-                <source src="media/stream_teaser.mp4" type="video/mp4">
+            <video  width="192" height="108" muted autoplay loop>
+                <source src="media/stream.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video></div>
-            <img src='media/stream_img.png' width="192" height="128"></div>
+            <img src='media/stream.jpg' width="192" height="108"></div>
             <script type="text/javascript">
             function stream_start() {
             document.getElementById('stream_shape').style.opacity = "1";
