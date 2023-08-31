@@ -248,39 +248,6 @@
       </tr>
       </table>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
-        <tr onmouseout="t2a_stop()" onmouseover="t2a_start()">
-          <td width="30%">
-            <div class="one">
-            <div class="two" id = 't2a_shape'>
-            <video  width="192" height="108" muted autoplay loop>
-                    Your browser does not support the video tag.
-                <source src="media/tex_avatar.mp4" type="video/mp4">
-                </video></div>
-            <img src='media/tex_avatar.jpg' width="192" height="108"></div>
-            <script type="text/javascript">
-            function t2a_start() {
-            document.getElementById('t2a_shape').style.opacity = "1";
-            }
-            function t2a_stop() {
-            document.getElementById('t2a_shape').style.opacity = "0";
-            }
-            t2a_stop()
-            </script>
-          </td>
-          <td valign="top" width="75%">
-    <!--              <a href="">-->
-                <papertitle>
-                  (Ongoing) Text-to-4D human avatar generation
-                </papertitle>
-    <!--              </a>-->
-          <p>
-            &nbsp • Generating high quality 4D human avatars from a single text.
-          </p>
-          </td>
-        </tr>
-
-
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
         <tr onmouseout="facedata_stop()" onmouseover="facedata_start()">
           <td width="30%">
             <div class="one">
@@ -312,6 +279,75 @@
           </td>
         </tr>
 
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+        <tr onmouseout="scenestyle_stop()" onmouseover="scenestyle_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 'scenestyle_shape'>
+            <video  width="192" height="144" muted autoplay loop>
+                <source src="media/flower_style.mp4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video></div>
+            <img src='media/flower.png' width="192" height="144"></div>
+            <script type="text/javascript">
+            function scenestyle_start() {
+            document.getElementById('scenestyle_shape').style.opacity = "1";
+            }
+            function scenestyle_stop() {
+            document.getElementById('scenestyle_shape').style.opacity = "0";
+            }
+            scenestyle_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+<!--              <a href="">-->
+                <papertitle>
+                  (Ongoing) 3D scene stylization
+                </papertitle>
+<!--              </a>-->
+          <p>
+            &nbsp • Realistic stylization method for 3D scenes.
+          </p>
+          </td>
+        </tr>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+        <tr onmouseout="t2a_stop()" onmouseover="t2a_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 't2a_shape'>
+            <video  width="192" height="108" muted autoplay loop>
+                    Your browser does not support the video tag.
+                <source src="media/tex_avatar.mp4" type="video/mp4">
+                </video></div>
+            <img src='media/tex_avatar.jpg' width="192" height="108"></div>
+            <script type="text/javascript">
+            function t2a_start() {
+            document.getElementById('t2a_shape').style.opacity = "1";
+            }
+            function t2a_stop() {
+            document.getElementById('t2a_shape').style.opacity = "0";
+            }
+            t2a_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+    <!--              <a href="">-->
+                <papertitle>
+                  Text-driven Human Avatar Generation by Neural Re-parameterized Texture Optimization
+                </papertitle>
+    <!--              </a>-->
+          <p>
+              <strong>Kim Youwang</strong>,
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
+          <br>
+          <em>The IEEE/CVF International Conference on Computer Vision (<strong>ICCV</strong>) Workshops</em>, 2023.
+              <br>
+            </p>
+            &nbsp • Generating high quality 4D human avatars from a single text.
+          </p>
+          </td>
+        </tr>
 
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
     
@@ -550,7 +586,7 @@
         <td>
           <heading>Academic Services</heading>
             <ul>
-                <li> <strong>Conference Reviewer</strong>: ICCV (2023)<br>
+                <li> <strong>Conference Reviewer</strong>: ICCV (2023), WACV (2023)<br>
                 <li> <strong>Journal Reviewer</strong>: TMM (2023)
             </div></div>
             </ul>
