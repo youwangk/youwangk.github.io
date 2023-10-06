@@ -248,34 +248,35 @@
         </td>
       </tr>
       </table>
+
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
-        <tr onmouseout="facedata_stop()" onmouseover="facedata_start()">
+        <tr onmouseout="objmesh_stop()" onmouseover="objmesh_start()">
           <td width="30%">
             <div class="one">
-            <div class="two" id = 'facedata_shape'>
-            <video  width="192" height="128" muted autoplay loop>
-                <source src="media/4d_face.mp4" type="video/mp4">
+            <div class="two" id = 'objmesh_shape'>
+            <video  width="192" height="133" muted autoplay loop>
+                <source src="media/obj_mesh.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video></div>
-            <img src='media/4d_face.png' width="192" height="128"></div>
+            <img src='media/obj_mesh.jpg' width="192" height="133"></div>
             <script type="text/javascript">
-            function facedata_start() {
-            document.getElementById('facedata_shape').style.opacity = "1";
+            function objmesh_start() {
+            document.getElementById('objmesh_shape').style.opacity = "1";
             }
-            function facedata_stop() {
-            document.getElementById('facedata_shape').style.opacity = "0";
+            function objmesh_stop() {
+            document.getElementById('objmesh_shape').style.opacity = "0";
             }
-            facedata_stop()
+            scenestyle_stop()
             </script>
           </td>
           <td valign="top" width="75%">
 <!--              <a href="">-->
                 <papertitle>
-                  (Ongoing) Large-scale human 3D face dataset
+                  (Ongoing) Monocular 3D object mesh reconstruction
                 </papertitle>
 <!--              </a>-->
           <p>
-            &nbsp • Reliable 3D face mesh labels for large-scale facial video datasets.
+            &nbsp • Reconstructing 3D textured mesh from a single image.
           </p>
           </td>
         </tr>
@@ -309,6 +310,51 @@
           <p>
             &nbsp • Realistic stylization method for 3D scenes.
           </p>
+          </td>
+        </tr>
+
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+        <tr onmouseout="facedata_stop()" onmouseover="facedata_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 'facedata_shape'>
+            <video  width="192" height="128" muted autoplay loop>
+                <source src="media/4d_face.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video></div>
+            <img src='media/4d_face.png' width="192" height="128"></div>
+            <script type="text/javascript">
+            function facedata_start() {
+            document.getElementById('facedata_shape').style.opacity = "1";
+            }
+            function facedata_stop() {
+            document.getElementById('facedata_shape').style.opacity = "0";
+            }
+            facedata_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+<!--              <a href="">-->
+                <papertitle>
+                  A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization
+                </papertitle>
+<!--              </a>-->
+                        <br>
+          <p>
+              <strong>Kim Youwang</strong>,
+              <a href="https://hyunlee103.github.io/">Lee Hyun*</a>,
+              <a href="https://ami.postech.ac.kr/members/kim-sung-bin">Kim Sung-Bin*</a>,
+              Suekyeong Nam,
+              Janghoon Ju,
+          <br>
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
+          <br>
+              <em>arXiv preprint, 2023.</em>
+          <br>
+            [ <a href="https://arxiv.org/abs/2310.03205">paper</a> ]
+<!--                    |-->
+          </p>
+            &nbsp • Reliable 3D face mesh labels for large-scale facial video datasets.
           </td>
         </tr>
 
@@ -383,6 +429,7 @@
               <a href="https://ami.postech.ac.kr/members/kim-sung-bin">Kim Sung-Bin*</a>,
               Suekyeong Nam,
               Janghoon Ju,
+          <br>
               <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
           <br>
           <em>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>) Workshops</em>, 2023.
