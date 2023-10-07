@@ -8,7 +8,6 @@
   <style type="text/css">
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300);
   /* @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons); */
-    /* Color scheme stolen from Sergey Karayev */
     a {
     /*color: #b60a1c;*/
     /*color: #6fa8dc;*/
@@ -47,6 +46,14 @@
     /*font-family: 'Avenir Next';*/
     /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
     font-size: 15.5px;
+    font-weight:500;
+    }
+    author {
+    /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
+    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Avenir Next';*/
+    /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
+    font-size: 13.0px;
     font-weight:500;
     }
     name {
@@ -266,7 +273,7 @@
             function objmesh_stop() {
             document.getElementById('objmesh_shape').style.opacity = "0";
             }
-            scenestyle_stop()
+            objmesh_stop()
             </script>
           </td>
           <td valign="top" width="75%">
@@ -281,7 +288,7 @@
           </td>
         </tr>
 
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
         <tr onmouseout="scenestyle_stop()" onmouseover="scenestyle_start()">
           <td width="30%">
             <div class="one">
@@ -313,7 +320,7 @@
           </td>
         </tr>
 
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
         <tr onmouseout="facedata_stop()" onmouseover="facedata_start()">
           <td width="30%">
             <div class="one">
@@ -346,20 +353,18 @@
               <a href="https://ami.postech.ac.kr/members/kim-sung-bin">Kim Sung-Bin*</a>,
               Suekyeong Nam,
               Janghoon Ju,
-          <br>
               <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
           <br>
               <em>arXiv preprint, 2023.</em>
           <br>
             [ <a href="https://arxiv.org/abs/2310.03205">paper</a> |
               <a href="https://neuface-dataset.github.io">project page</a> ]
-<!--                    |-->
           </p>
             &nbsp • Reliable 3D face mesh labels for large-scale facial video datasets.
           </td>
         </tr>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
         <tr onmouseout="t2a_stop()" onmouseover="t2a_start()">
           <td width="30%">
             <div class="one">
@@ -397,7 +402,7 @@
           </td>
         </tr>
 
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
     
         <tr onmouseout="stream_stop()" onmouseover="stream_start()">
           <td width="30%">
@@ -430,7 +435,6 @@
               <a href="https://ami.postech.ac.kr/members/kim-sung-bin">Kim Sung-Bin*</a>,
               Suekyeong Nam,
               Janghoon Ju,
-          <br>
               <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a>
           <br>
           <em>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>) Workshops</em>, 2023.
@@ -441,7 +445,7 @@
           </td>
         </tr>
 
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
         <tr onmouseout="rankpruning_stop()" onmouseover="rankpruning_start()">
           <td width="30%">
             <div class="one">
@@ -478,7 +482,7 @@
         </tr>
 
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
     
           <tr onmouseout="clipactor_stop()" onmouseover="clipactor_start()">
             <td width="30%">
@@ -514,7 +518,7 @@
             <br>
                 <em>European Conference on Computer Vision (<strong>ECCV</strong>)</em>, 2022
             <br>
-                (<span style="color:#ff0000;">Qualcomm Innovation Award Winner 2022</span>)
+                <span style="color:#ff0000;">Qualcomm Innovation Award Winner 2022</span>
             <br>
               [ <a href="https://arxiv.org/abs/2206.04382">paper</a> |
               <a href="https://clip-actor.github.io">project page</a> |
@@ -527,7 +531,7 @@
           </tr>
   
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<!--        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >-->
     
           <tr onmouseout="fastmetro_stop()" onmouseover="fastmetro_start()">
             <td width="30%">
@@ -606,10 +610,99 @@
                 &nbsp • An efficient multi-task model for multi-class mesh reconstruction.
             </td>
           </tr>
-  
-  </table>
-    
+        </table>
 
+
+        <tr>
+        <td>
+          <heading>Invited Talks</heading>
+            <ul>
+              <li><strong>Towards Efficient & Realistic Virtual World Communication</strong>, <em>INNERVERZ, Korea</em>, 2023</li>
+<!--            </div></div>-->
+            </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <heading>Academic Services</heading>
+            <ul>
+                <li> <strong>Conference Reviewer</strong>: ICCV (<span style="color:#ff0000;">Outstanding reviewer</span> in 2023)
+                    <br>
+                <li> <strong>Journal Reviewer</strong>: TMM (2023)
+<!--            </div></div>-->
+            </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <heading>Misc.</heading>
+<!--            <td>-->
+            <ul>
+                Come visit my <a href="https://www.youtube.com/@kimyouwang"> Youtube channel</a>! I regularly upload paper reviews (in Korean).
+                <br>
+                As a guitarist of the <a href="https://www.youtube.com/@postechsteeler1150">band STEELER</a>, I also upload some music covers or gigs.
+            </ul>
+            <br>
+        </td>
+<!--        <td>-->
+<!--            <ul>-->
+<!--                +) As a guitarist of the <a href="https://www.youtube.com/@postechsteeler1150">band STEELER</a>, I also upload some music covers or gigs.-->
+<!--            </ul>-->
+<!--                <br>-->
+<!--        </td>-->
+      </tr>
+<!--      <tr>-->
+<!--            <td width="25%">-->
+<!--                <iframe width="384" height="216" src="https://www.youtube.com/embed/FSG5bCkNWWo" title="NeRF seminar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+<!--            </td>-->
+<!--            <td width="25%">-->
+<!--                <iframe width="384" height="216" src="https://www.youtube.com/embed/cg7x99Vs7f0" title="Steven Wilson - 3 Years Older (Cover by Steeler)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+<!--            </td>-->
+<!--        </tr>-->
+  </table>
+
+<!--  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">-->
+
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <heading>Misc.</heading>-->
+<!--                <br>-->
+<!--                Come visit my <a href="https://www.youtube.com/@kimyouwang"> Youtube channel</a>! I regularly upload paper reviews (in Korean).-->
+
+<!--            </td>-->
+<!--            <td>-->
+<!--                <br>-->
+<!--                +) As a guitarist of the <a href="https://www.youtube.com/@postechsteeler1150">band STEELER</a>, I also upload some music covers or gigs.-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td width="25%">-->
+<!--                <iframe width="384" height="216" src="https://www.youtube.com/embed/FSG5bCkNWWo" title="NeRF seminar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+<!--            </td>-->
+<!--            <td width="25%">-->
+<!--                <iframe width="384" height="216" src="https://www.youtube.com/embed/cg7x99Vs7f0" title="Steven Wilson - 3 Years Older (Cover by Steeler)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--&lt;!&ndash;    </table>&ndash;&gt;-->
+
+
+
+<!--      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">-->
+      <tr>
+        <td>
+        <br>
+        <p align="right">
+          <font size="2">
+          template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
+          <!-- <br> -->
+          <!-- Last updated: Mar 2023 -->
+        </font>
+        </p>
+        </td>
+      </tr>
+      </table>
   <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
       <tr>
         <td>
@@ -620,27 +713,7 @@
 
   <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"> -->
 <!--    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:collapse;margin-right:auto;margin-left:auto;">-->
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <tr>
-        <td>
-          <heading>Invited Talks</heading>
-            <ul>
-              <li><strong>Towards Efficient & Realistic Virtual World Communication</strong>, <em>INNERVERZ, Korea</em>, 2023</li>
-            </div></div>
-            </ul>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <heading>Academic Services</heading>
-            <ul>
-                <li> <strong>Conference Reviewer</strong>: ICCV (Outstanding reviewer in 2023)<br>
-                <li> <strong>Journal Reviewer</strong>: TMM (2023)
-            </div></div>
-            </ul>
-        </td>
-      </tr>
+<!--    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">-->
 <!--        <tr>-->
 <!--            <heading>Invited Talks</heading>-->
 <!--                <ul>-->
@@ -648,7 +721,7 @@
 <!--                </ul>-->
 <!--            <br><br>-->
 <!--        </tr>-->
-    </table>
+<!--    </table>-->
 <!--      &lt;!&ndash; Teaching &ndash;&gt;-->
 <!--        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">-->
 <!--          <heading>Teaching</heading>-->
@@ -701,45 +774,8 @@
 <!--          </tr>-->
 <!--      </table>-->
 
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <tr>
-            <td>
-                <heading>Misc.</heading>
-                <br>
-                Come visit my <a href="https://www.youtube.com/@kimyouwang"> Youtube channel</a>! I regularly upload paper reviews (in Korean).
-
-            </td>
-            <td>
-                <br>
-                +) As a guitarist of the <a href="https://www.youtube.com/@postechsteeler1150">band STEELER</a>, I also upload some music covers or gigs.
-            </td>
-        </tr>
-        <tr>
-            <td width="25%">
-                <iframe width="384" height="216" src="https://www.youtube.com/embed/FSG5bCkNWWo" title="NeRF seminar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </td>
-            <td width="25%">
-                <iframe width="384" height="216" src="https://www.youtube.com/embed/cg7x99Vs7f0" title="Steven Wilson - 3 Years Older (Cover by Steeler)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </td>
-        </tr>
-    </table>
-
-
-
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tr>
-        <td>
-        <br>
-        <p align="right">
-          <font size="2">
-          template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
-          <!-- <br> -->
-          <!-- Last updated: Mar 2023 -->
-        </font>
-        </p>
-        </td>
-      </tr>
-      </table>
+<!--    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">-->
+<!--      </table>-->
         <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
     <script>
