@@ -236,13 +236,13 @@
       <tr>
         <td width="100%" valign="middle">
           <heading>Research Interests</heading>
-            <p>I am interested in <strong>3D/4D virtual humans</strong>. My goal is to enrich a virtual world through efficient, realistic and creative <strong>virtual humans</strong>.
+            <p>I am interested in <strong>3D/4D virtual humans, animals and objects</strong>. My goal is to enrich a virtual world through efficient, realistic and creative <strong>virtual humans</strong>.
                 Currently, I'm focusing on below topics, but not limited to.
             </p>
             <ul>
             <li>Accurate 3D pose and shape reconstruction of humans and animals.</li>
-            <li>Multi-modal 3D/4D human generation for virtual world.</li>
-            <li>Human body texture reconstruction with limited visual cues.</li>
+            <li>Realistic 3D/4D human and animal generation for virtual world.</li>
+<!--            <li>Human body texture reconstruction from limited visual cues.</li>-->
             </ul>
         </td>
       </tr>
@@ -257,6 +257,36 @@
       </table>
 
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+       <tr onmouseout="gentex_stop()" onmouseover="gentex_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 'gentex_shape'>
+            <video  width="192" height="96" muted autoplay loop>
+                <source src="media/gen_tex.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video></div>
+            <img src='media/gen_tex.jpg' width="192" height="96"></div>
+            <script type="text/javascript">
+            function gentex_start() {
+            document.getElementById('gentex_shape').style.opacity = "1";
+            }
+            function gentex_stop() {
+            document.getElementById('gentex_shape').style.opacity = "0";
+            }
+            gentex_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+<!--              <a href="">-->
+                <papertitle>
+                  (Ongoing) Text-driven texture generation
+                </papertitle>
+<!--              </a>-->
+          <p>
+            &nbsp • Generating realistic texture from a text.
+          </p>
+          </td>
+        </tr>
         <tr onmouseout="objmesh_stop()" onmouseover="objmesh_start()">
           <td width="30%">
             <div class="one">
