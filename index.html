@@ -107,7 +107,7 @@
           <em>youwang.kim@postech.ac.kr</em>
         </p>
         <p>
-          I am a 2nd year Ph.D. student at <a href="https://ami.postech.ac.kr/">AMILab</a> in Electrical Engineering at <a href="https://postech.ac.kr/eng">POSTECH</a>, supervised by <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Prof. Dr. Tae-Hyun Oh</a>.
+          I am a Ph.D. student at <a href="https://ami.postech.ac.kr/">AMILab</a> in Electrical Engineering at <a href="https://postech.ac.kr/eng">POSTECH</a>, supervised by <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Prof. Dr. Tae-Hyun Oh</a>.
             Currently, I am also a visiting researcher at <a href="https://virtualhumans.mpi-inf.mpg.de/">Real Virtual Humans Group</a> at the <a href="https://uni-tuebingen.de/">Univ. of Tübingen</a>, under supervision of <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html">Prof. Dr. Gerard Pons-Moll</a>.
             I received my bachelor's degree in Electrical Engineering from POSTECH. During my bachelor, I spent a semester at <a href="https://www.ntu.edu.sg/">Nanyang Technological University (NTU)</a> as an exchange student.
         </p>
@@ -213,23 +213,21 @@
         <td>
           <heading>News</heading>
             <ul>
-<!--                A paper on 3D face mesh recon. on videos has been accepted to 3DMV (CVPRW2023)-->
+                <li><strong>12/2023 <span style="color:#ff0000;">(New!)</span> </strong> Our paper on efficient 3D scene stylization is accepted to AAAI 2024. </li>
                 <li><strong>11/2023 <span style="color:#ff0000;">(New!)</span> </strong> I won the Grand Prize (1st place, Minister's award, $12,000) at ICT paper awards. </li>
                 <li><strong>10/2023 <span style="color:#ff0000;">(New!)</span> </strong> I am selected as an <a href="https://ami.postech.ac.kr/57da3912-6dc3-41a1-b355-f010231a1756">outstanding reviewer</a> for ICCV 2023. </li>
-                <li><strong>10/2023 <span style="color:#ff0000;">(New!)</span> </strong> I am joining <a href="https://virtualhumans.mpi-inf.mpg.de/">Real Virtual Humans Group</a> as a visiting Ph.D. student. </li>
+                <li><strong>10/2023 <span style="color:#ff0000;"></span> </strong> I am joining <a href="https://virtualhumans.mpi-inf.mpg.de/">Real Virtual Humans Group</a> as a visiting Ph.D. student. </li>
                 <li><strong>08/2023</strong> Our paper on text-driven human avatar generation is accepted to ICCVW-AI3DCC 2023. </li>
                 <li><strong>04/2023</strong> Our paper on 3D face mesh recon. on videos is accepted to CVPRW-3DMV 2023. </li>
+<!--                TODO: show more toggle button-->
+              <a href="javascript:toggleblock(&#39;old_news&#39;)">---- show more ----</a>
+              <div id="old_news" style="display: none;">
                 <li><strong>02/2023</strong> Invited to give a talk on text-driven 4D human avatars at <a href="http://innerverz.io/">INNERVERZ</a>. </li>
                 <li><strong>01/2023</strong> Our <a href="https://link.springer.com/article/10.1007/s00371-023-02798-x">paper</a> on lightweight body mesh recon. is accepted to TVCJ 2023. </li>
-                <li><strong>11/2022</strong> Our paper <a href="https://clip-actor.github.io"><strong>CLIP-Actor</strong></a> is selected as the winner of <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-south-korea">Qualcomm Innovation Fellowship Korea</a>!</li>
-                <li><strong>07/2022</strong> Our two papers, <a href="https://clip-actor.github.io"><strong>CLIP-Actor</strong></a> and <a href="https://fastmetro.github.io"><strong>FastMETRO</strong></a>, are accepted to ECCV 2022.</li>
+                <li><strong>11/2022</strong> Our paper <a href="https://clip-actor.github.io">CLIP-Actor</a> is selected as the winner of <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-south-korea">Qualcomm Innovation Fellowship Korea</a>!</li>
+                <li><strong>07/2022</strong> Our two papers, <a href="https://clip-actor.github.io">CLIP-Actor</a> and <a href="https://fastmetro.github.io">FastMETRO</a>, are accepted to ECCV 2022.</li>
                 <li><strong>04/2022</strong> I got accepted to <a href="https://iplab.dmi.unict.it/icvss2022/">ICVSS 2022</a>, and I will visit Sicily, Italy this summer. </li>
-                <li><strong>10/2021</strong> Our paper <a href="https://demr.github.io"><strong>DeMR</strong></a> is accepted to BMVC 2021.</li>
-<!--                TODO: show more toggle button-->
-<!--              <a href="javascript:toggleblock(&#39;old_news&#39;)">&#45;&#45;&#45;&#45; show more &#45;&#45;&#45;&#45;</a>-->
-<!--              <div id="old_news" style="display: none;">-->
-              
-<!--              <li><strong>08/2021</strong> Join <a href="https://research.fb.com/category/augmented-reality-virtual-reality/">Facebook Reality Labs (FRL)</a> as a research intern this fall.</li>-->
+                <li><strong>10/2021</strong> Our paper <a href="https://demr.github.io">DeMR</a> is accepted to BMVC 2021.</li>
             </div></div>
             </ul>
         </td>
@@ -241,9 +239,8 @@
                 Currently, I'm focusing on below topics, but not limited to.
             </p>
             <ul>
-            <li>Accurate 3D pose and shape reconstruction of humans and animals.</li>
             <li>Realistic 3D/4D human and animal generation for virtual world.</li>
-<!--            <li>Human body texture reconstruction from limited visual cues.</li>-->
+            <li>Accurate 3D pose and shape reconstruction of humans and animals.</li>
             </ul>
         </td>
       </tr>
@@ -262,11 +259,11 @@
           <td width="30%">
             <div class="one">
             <div class="two" id = 'gentex_shape'>
-            <video  width="192" height="96" muted autoplay loop>
+            <video  width="192" height="104" muted autoplay loop>
                 <source src="media/gen_tex.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video></div>
-            <img src='media/gen_tex.jpg' width="192" height="96"></div>
+            <img src='media/gen_tex.jpg' width="192" height="104"></div>
             <script type="text/javascript">
             function gentex_start() {
             document.getElementById('gentex_shape').style.opacity = "1";
@@ -288,6 +285,37 @@
           </p>
           </td>
         </tr>
+
+
+       <tr onmouseout="syn3d_stop()" onmouseover="syn3d_start()">
+          <td width="30%">
+            <div class="one">
+            <div class="two" id = 'syn3d_shape'>
+            <img src='media/syn3d.png' width="192" height="128"></div>
+            <img src='media/syn3d.png' width="192" height="128"></div>
+            <script type="text/javascript">
+            function syn3d_start() {
+            document.getElementById('syn3d_shape').style.opacity = "1";
+            }
+            function gentex_stop() {
+            document.getElementById('syn3d_shape').style.opacity = "0";
+            }
+            gentex_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+<!--              <a href="">-->
+                <papertitle>
+                  (Ongoing) Synthetic 3D dataset
+                </papertitle>
+<!--              </a>-->
+          <p>
+            &nbsp • Synthetic dataset of 3D objects.
+          </p>
+          </td>
+        </tr>
+
+
         <tr onmouseout="objmesh_stop()" onmouseover="objmesh_start()">
           <td width="30%">
             <div class="one">
