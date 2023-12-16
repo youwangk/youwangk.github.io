@@ -1,3 +1,4 @@
-.DS_Store
+.DS_Store/
 *.pptx
-/deprecated_media/
+deprecated_media/
+.idea/
