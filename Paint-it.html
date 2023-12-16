@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization.">
+  <meta name="keywords" content="3D face mesh annotation, Video, Neural Re-parameterized Optimization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>&#127912 Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
+<!--  <div class="navbar-brand">-->
+<!--    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--    </a>-->
+<!--  </div>-->
+<!--  <div class="navbar-menu">-->
+<!--    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
+<!--      <a class="navbar-item" href="https://neuface-dataset.github.io/">-->
+<!--      <span class="icon">-->
+<!--          <i class="fas fa-home"></i>-->
+<!--      </span>-->
+<!--      </a>-->
+
+<!--&lt;!&ndash;      <div class="navbar-item has-dropdown is-hoverable">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="navbar-link">&ndash;&gt;-->
+<!--&lt;!&ndash;          More Research&ndash;&gt;-->
+<!--&lt;!&ndash;        </a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="navbar-dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://hypernerf.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            HyperNeRF&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://nerfies.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            Nerfies&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://latentfusion.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            LatentFusion&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://photoshape.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            PhotoShape&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</nav>-->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">&#127912 Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>1,2,4</sup>,</span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html">Gerard Pons-Moll</a><sup>1,2,3</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Tübingen,</span>
+            <span class="author-block"><sup>2</sup>Tübingen AI Center, Germany,</span>
+            <br>
+            <span class="author-block"><sup>3</sup>Max Planck Institute for Informatics, Germany,</span>
+            <span class="author-block"><sup>4</sup>POSTECH, Korea</span>
+          </div>
+<!--          <div class="column has-text-centered">-->
+<!--            <span class="author-block"><i>arXiv preprint</i></span>-->
+<!--          </div>-->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./media/paint-it/paint_it.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!--TODO: Change to arxiv link later-->
+                <a href="https://kim-youwang.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://kim-youwang.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+<!--              &lt;!&ndash; Code Link. &ndash;&gt;-->
+              <span class="link-block">
+                <a href="https://kim-youwang.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+<!--              &lt;!&ndash; Dataset Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./media/paint-it/paint-it_teaser.png">
+      <p>
+        <strong>Paint-it</strong>: Given an untextured 3D mesh and the text prompt describing the desired appearance of the mesh, Paint-it synthesizes high-fidelity physically-based rendering (PBR) texture maps by neural re-parameterized texture map optimization.
+      </p>
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        With our novel neural re-parameterized optimization of 3D face meshes, we present accurate and spatio-temporally consistent 3D face mesh pseudo-labels for large-scale 2D face video datasets.-->
+<!--      </h2>-->
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          We present <strong>Paint-it</strong>, a text-driven high-fidelity texture map synthesis method for 3D meshes via neural re-parameterized texture optimization.
+          Paint-it synthesizes texture maps from a text description by synthesis-through-optimization, exploiting the Score-Distillation Sampling (SDS).
+          We observe that directly applying SDS yields undesirable texture quality due to its noisy gradients.
+          We reveal the importance of texture parameterization when using SDS.
+          Specifically, we propose Deep Convolutional Physically-Based Rendering (DC-PBR) parameterization,
+          which re-parameterizes the physically-based rendering (PBR) texture maps with randomly initialized convolution-based neural kernels,
+          instead of a standard pixel-based parameterization.
+          We show that DC-PBR inherently schedules the optimization curriculum according to texture frequency and naturally filters out the noisy signals from SDS.
+          In experiments, Paint-it obtains remarkable quality PBR texture maps within 15 min., given only a text description.
+          We demonstrate the generalizability and practicality of Paint-it by synthesizing high-quality texture maps for large-scale mesh datasets
+          and showing test-time applications such as relighting and material control using a popular graphics engine.
+        </div>
+        <br><br>
+
+        <h2 class="title is-3"> Paint-it: Text-driven PBR texture map synthesis</h2>
+        <img src="media/paint-it/system.png" width="1920" height="736">
+        <div class="content has-text-justified">
+          Given a 3D object mesh without a texture and a text describing the desired appearance of the mesh,
+          <strong>Paint-it</strong> synthesizes realistic PBR texture maps via synthesis-through-optimization.
+        </div>
+        <br><br>
+
+        <h2 class="title is-3"> High-fidelity PBR texture synthesis on 3D meshes </h2>
+        <video id="qualitative" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/paint-it/qual.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          The synthesized PBR texture maps are realistic and diverse. Therefore, <strong>Paint-it</strong> can reduce the burden of repetitive and exhaustive
+          manual 3D texture map design pipeline.
+        </div>
+        <br><br>
+
+        <h2 class="title is-3"> Comparison with competing methods</h2>
+        <video id="comparison" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/paint-it/comparison.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          We compare the rendered quality of the textured meshes of <strong>Paint-it</strong> with recent competing methods for the subset of Objaverse and RenderPeople dataset.
+          <strong>Paint-it</strong> synthesize much realistic and vivid appearance compared to other methods.
+        </div>
+        <br><br>
+
+        <h2 class="title is-3"> Application 1: Test-time texture control</h2>
+        <video id="test_time" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/paint-it/test_time.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          Using the synthesized PBR texture maps of <strong>Paint-it</strong> and popular graphics engines, e.g., Blender,
+          we can (1) relight the mesh by changing High-Dynamic Range (HDR) environmental lighting and (2) control the material properties at test-time.
+        </div>
+        <br><br>
+
+
+        <h2 class="title is-3"> Application 2: Dynamic virtual humans</h2>
+        <video id="animate" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/paint-it/animate.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          <strong>Paint-it</strong> does not perform a re-meshing process and preserves the original UV texture coordinates. Thus, we can synthesize maps for any rigged meshes, e.g., T-posed human mesh, and create dynamic virtual humans from only a text input.
+        </div>
+
+      </div>
+    </div>
+    <!--/ Abstract. -->
+<!--<iframe src="https://www.youtube.com/embed/EbJYOJ-O10Y?rel=0&amp;showinfo=0&autoplay=1&mute=1&amp;loop=1" width="912" height="320" frameborder="0"></iframe>-->
+    <!-- Paper video. -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@article{youwang2023paint_it,
+  author    = {Youwang, Kim and Oh, Tae-Hyun and Pons-Moll, Gerard},
+  title     = {Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering},
+  journal   = {arXiv preprint, arXiv:????},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+<!--      <a class="icon-link"-->
+<!--         href="https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+<!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+<!--        <i class="fab fa-github"></i>-->
+<!--      </a>-->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgment</h2>
+          <br>
+          <center>
+          <div class="imagesrow">
+            <img class="row_img" src="./media/paint-it/Carl-Zeiss-Stiftung_Logo.png" alt="Carl-Zeiss-Stiftung" ,="" style="max-width:15%;margin-right: 30px;">
+            <img class="row_img" src="./media/paint-it/ai_center_3.png" alt="Tübingen AI Center" ,="" style="max-width:15%;margin-right: 30px;">
+            <img class="row_img" src="./media/paint-it/University_Tuebingen.png" alt="University of Tübingen" ,="" style="max-width:15%;margin-right: 30px;">
+            <img class="row_img" src="./media/paint-it/mpi-logo-new.svg" alt="MPII Saarbrücken" ,="" style="max-width:15%;margin-right: 30px;">
+          </div>
+          </center>
+          <br>
+          <p>
+            We thank the members of AMILab and RVH group for their helpful discussions and proofreading.
+            The project was made possible by funding from the Carl Zeiss Foundation. This work is funded by the Deutsche Forschungsgemeinschaft
+            (DFG, German Research Foundation) - 409792180 (Emmy Noether Programme, project: Real Virtual Humans), and the German Federal Ministry
+            of Education and Research (BMBF): Tübingen AI Center, FKZ: 01IS18039A. This work was also supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2023-00225630, Development of Artificial Intelligence for Text-based 3D Movie Generation; No.RS-2022-00164860, Development of human digital twin technology based on dynamic behavior modeling and human-object-space interaction; No.2021-0-02068, Artificial Intelligence Innovation Hub).
+            Gerard Pons-Moll is a Professor at the University of Tübingen endowed by the Carl Zeiss Foundation, at the Department of Computer Science and a member of the Machine Learning Cluster of Excellence, EXC number 2064/1 – Project number 390727645.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+<!--            Please remember to remove the analytics code included in the header of the website which-->
+<!--            you do not want on your website.-->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
