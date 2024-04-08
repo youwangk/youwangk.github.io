@@ -1,0 +1,91 @@
+/* CSS stylesheet for personal webpage */
+
+/* Fonts */
+body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 14px; line-height: 18px; }
+b, h1, h2    { font-weight: 700; }
+.outro       { font-style: italic; }
+
+/* Colors */
+body         { color: black; }
+h2           { border-bottom-color: black; }
+a            { text-decoration: underline; color: black; }
+a:hover      { text-decoration: underline; color: gray; }
+.a_more      {text-decoration: none; color: gray; }
+
+/* Layout */
+body         { background-color: white; }
+h1           { font-size: 1.5em; margin-top: 0em;    margin-bottom: 1em; }
+/*h2           { font-size: 1.25em; margin-top: 3.33em; margin-bottom: 0; border-bottom: 1px solid; }*/
+h2           { font-size: 1.25em; margin-top: 2.5em; margin-bottom: 0.5em; }
+h2           { display: block; width: 100%; float: left; }
+ul 			 { padding-left: 20px; }
+
+.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 680px; }
+.item,
+.intro,
+.outro       { display: block; width: 100%; float: left; margin-top: 1.5em; margin-bottom: 0; }
+.intro       { margin-top: 3.33em; }
+.outro       { margin-bottom: 3.33em; text-align: right; }
+.item  img   { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }
+.item  video { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }
+.intro img   { float: right; width: 12.5em; margin-left: 1.25em; border: 0; }
+.flcontainer { /* position: absolute; */ position: fixed; left: 0; top: 0; width: 100%; height: 100%; /* z-index: 1; */ z-index: -1; }
+
+.item p      { margin-top: 0; float: right; width: 485px; }
+.item p:last-child,
+.intro p:last-child,
+.outro p:last-child
+             { margin-bottom: 0; }
+
+.item p i    { font-weight: 400; }
+
+
+@media only screen and (max-device-width: 480px) {
+	body {
+		-webkit-text-size-adjust: 100%;
+		-moz-text-size-adjust:    100%;
+		-ms-text-size-adjust:     100%;
+	}
+	body       { font-size: 1.25em; font-size: 2.1vw; line-height: 1.6em; line-height: 2.7vw; }
+	.container { width: 98%; }
+	.intro     { margin-top: 1.5em; margin-top: 3.15vw; }
+	.outro     { margin-bottom: 1.5em; margin-bottom: 3.15vw; }
+	.item img  { width: 27%; margin-right: 2.7%; }
+	.intro img { width: 27%; margin-left: 2.7%; }
+	.item p    { width: 70%; }
+}
+
+.list-item {
+	margin-bottom: 10px;
+}
+
+/* Preload images */
+#preload_images { width: 0; height: 0; display: inline; background-image: url(../images/Paper_texture_v5_by_bashcorpo.jpg); }
+
+
+
+/* Other font selections */
+
+/*
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+body { font-family: 'PT Sans', sans-serif; font-weight: 400; font-size: 12pt; }
+b, h1, h2 { font-weight: 700; }
+*/
+
+/*
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400);
+body { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; }
+b, h1, h2 { font-weight: 700; }
+*/
+
+/*
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700);
+body { font-family: Merriweather, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.5em; }
+b, h1, h2 { font-weight: 700; }
+*/
+
+/*
+body { color: rgb(60, 60, 60); }
+h2 { border-bottom-color: rgb(60, 60, 60); }
+a { text-decoration: underline; color: inherit; }
+*/
