@@ -59,12 +59,11 @@ h2           { display: block; width: 100%; float: left; }
 	margin-bottom: 10px;
 }
 
-ul {
-    list-style-position: outside;
-    padding-left: 20px;
-}
-ul li {
-    list-style-type: disc; /* 또는 'circle', 'square' 등을 사용 */
+.custom-bullet::before {
+    content: "\00a0•\00a0"; /* bullet point와 두 개의 공백(&nbsp;) */
+    font-size: 20px; /* Bullet point의 크기를 조정하고 싶은 경우 */
+    line-height: 20px; /* Bullet point의 라인 높이 조정 (필요에 따라) */
+    vertical-align: middle; /* Bullet point의 수직 정렬 조정 (필요에 따라) */
 }
 
 
