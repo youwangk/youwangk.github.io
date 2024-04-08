@@ -3,7 +3,7 @@
 /* Fonts */
 body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 14px; line-height: 18px; }
 b, h1, h2    { font-weight: 700; }
-.outro       { font-style: italic; }
+.outro       { font-style: italic; font-size: 10px }
 
 /* Colors */
 body         { color: black; }
