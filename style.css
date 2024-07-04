@@ -1,8 +1,10 @@
 /* CSS stylesheet for personal webpage */
 
 /* Fonts */
-body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 14px; line-height: 18px; }
+body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }
 b, h1, h2    { font-weight: 700; }
+/*note        { text-decoration: none; color: #BB2222; font-size: 11px;}*/
+note        { text-decoration: none; color: #595959; font-size: 11px;}
 .outro       { font-style: italic; font-size: 10px }
 
 /* Colors */
@@ -16,7 +18,7 @@ a:hover      { text-decoration: underline; color: #0051c9; }
 
 /* Layout */
 body         { background-color: white; }
-h1           { font-size: 1.5em; margin-top: 0em;    margin-bottom: 1em; }
+h1           { font-size: 1.75em; margin-top: 0em;    margin-bottom: 1em; }
 /*h2           { font-size: 1.25em; margin-top: 3.33em; margin-bottom: 0; border-bottom: 1px solid; }*/
 h2           { font-size: 1.25em; margin-top: 2.5em; margin-bottom: 0.5em; }
 h2           { display: block; width: 100%; float: left; }
