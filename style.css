@@ -1,7 +1,8 @@
 /* CSS stylesheet for personal webpage */
 
 /* Fonts */
-body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }
+/*body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }*/
+body         { font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }
 b, h1, h2    { font-weight: 700; }
 /*note        { text-decoration: none; color: #BB2222; font-size: 11px;}*/
 note        { text-decoration: none; color: #595959; font-size: 11px;}
@@ -18,24 +19,29 @@ a:hover      { text-decoration: underline; color: #0051c9; }
 
 /* Layout */
 body         { background-color: white; }
-h1           { font-size: 1.75em; margin-top: 0em;    margin-bottom: 1em; }
+h1           { font-size: 1.85em; margin-top: 0em;  margin-bottom: 1em; }
 /*h2           { font-size: 1.25em; margin-top: 3.33em; margin-bottom: 0; border-bottom: 1px solid; }*/
-h2           { font-size: 1.25em; margin-top: 2.5em; margin-bottom: 0.5em; }
+h2           { font-size: 1.5em; margin-top: 2.5em; margin-bottom: 0.5em; }
 h2           { display: block; width: 100%; float: left; }
 /*ul 			 { padding-left: 10px; list-style-position: inside;}*/
 
-.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 680px; }
+/*.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 680px; }*/
+.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 750px; }
 .item,
 .intro,
 .outro       { display: block; width: 100%; float: left; margin-top: 1.5em; margin-bottom: 0; }
 .intro       { margin-top: 3.33em; }
 .outro       { margin-bottom: 3.33em; text-align: right; }
-.item  img   { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }
+/*.item  img   { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }*/
+.item  img   { float:  left; width: 18.0em; margin-right: 1.25em; margin-bottom: 0.8em; border: 0; }
 .item  video { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }
-.intro img   { float: right; width: 12.5em; margin-left: 1.25em; border: 0; }
+/*.intro img   { float: right; width: 12.5em; margin-left: 1.25em; border: 0; }*/
+.intro img   { float: right; width: 14.0em; margin-left: 1.75em; border: 0; }
+/*.intro img   { float: left; width: 16.0em; margin-right: 2.0em; margin-bottom: 2.0em; border: 0; }*/
 .flcontainer { /* position: absolute; */ position: fixed; left: 0; top: 0; width: 100%; height: 100%; /* z-index: 1; */ z-index: -1; }
 
 .item p      { margin-top: 0; float: right; width: 485px; }
+.item .title  { font-size: 1.05em; }
 .item p:last-child,
 .intro p:last-child,
 .outro p:last-child
