@@ -48,8 +48,9 @@ h2           { display: block; width: 100%; float: left; }
              { margin-bottom: 0; }
 
 .item p i    { font-weight: 400; }
-.yw_list { margin-left: -1.0em}
-.exp_list { margin-left: -1.0em; margin-bottom: 0.5em}
+/*.yw_list { margin-left: -1.5em}*/
+.yw_list { margin-left: -2%}
+.exp_list { margin-left: -2%; margin-bottom: 1.5%}
 
 
 @media only screen and (max-device-width: 480px) {
