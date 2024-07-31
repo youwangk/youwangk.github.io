@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization.">
+  <meta name="keywords" content="3D face mesh annotation, Video, Neural Re-parameterized Optimization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuFace: A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization</title>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RW688RKHW');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
+<!--  <div class="navbar-brand">-->
+<!--    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--    </a>-->
+<!--  </div>-->
+<!--  <div class="navbar-menu">-->
+<!--    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
+<!--      <a class="navbar-item" href="https://neuface-dataset.github.io/">-->
+<!--      <span class="icon">-->
+<!--          <i class="fas fa-home"></i>-->
+<!--      </span>-->
+<!--      </a>-->
+
+<!--&lt;!&ndash;      <div class="navbar-item has-dropdown is-hoverable">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class="navbar-link">&ndash;&gt;-->
+<!--&lt;!&ndash;          More Research&ndash;&gt;-->
+<!--&lt;!&ndash;        </a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="navbar-dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://hypernerf.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            HyperNeRF&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://nerfies.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            Nerfies&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://latentfusion.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            LatentFusion&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navbar-item" href="https://photoshape.github.io">&ndash;&gt;-->
+<!--&lt;!&ndash;            PhotoShape&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</nav>-->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization</h2>
+          <h5 class="title is-5"><span style="color:#C00000;">TMLR 2024</span></h5>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://hyunlee103.github.io/">Lee Hyun*</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/kimsungbin">Kim Sung-Bin*</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Suekyeong Nam</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Janghoon Ju</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>POSTECH,</span>
+            <span class="author-block"><sup>2</sup>KRAFTON Inc.</span>
+          </div>
+<!--          <div class="column has-text-centered">-->
+<!--            <span class="author-block"><i>arXiv preprint</i></span>-->
+<!--          </div>-->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./media/paint-it/paint-it.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!--TODO: Change to arxiv link later-->
+                <a href="https://arxiv.org/abs/2310.03205"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+<!--               Video Link.-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://youtu.be/uSKK-ekVJLg"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/postech-ami/NeuFace"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(TBA)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/postech-ami/NeuFace"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data(TBA)</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+<!--      <video id="teaser" autoplay muted loop height="100%">-->
+<!--        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"-->
+<!--                type="video/mp4">-->
+<!--      </video>-->
+<!--      <img src="video/net_0829.png">-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        By capturing morphological similarity, DeMR reconstructs 3D meshes of humans and animals.-->
+<!--      </h2>-->
+<!--      <video src= "./video/DeMR_Demo.mov"></video>-->
+      <video id="sample" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/neuface/neuface_teaser.mp4" type="video/mp4" />
+      </video>
+      <h2 class="subtitle has-text-centered">
+        With our novel neural re-parameterized optimization of 3D face meshes, we present accurate and spatio-temporally consistent 3D face mesh pseudo-labels for large-scale 2D face video datasets.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          We propose NeuFace, a 3D face mesh pseudo annotation method on videos via neural re-parameterized optimization.
+          Despite the huge progress in 3D face reconstruction methods, generating reliable 3D face labels for in-the-wild dynamic videos remains challenging.
+          Using NeuFace optimization, we annotate the per-view/-frame accurate and consistent face meshes on large-scale face videos, called the NeuFace-dataset.
+          We investigate how neural re-parameterization helps to reconstruct image-aligned facial details on 3D meshes via gradient analysis.
+          By exploiting the naturalness and diversity of 3D faces in our dataset,
+          we demonstrate the usefulness of our dataset for 3D face-related tasks: improving the reconstruction accuracy of an existing 3D face reconstruction model and learning 3D facial motion prior.
+        </div>
+
+        <h2 class="title is-3"> NeuFace optimization</h2>
+        <img src="./media/neuface/system.jpg" width="1920" height="681">
+        <div class="content has-text-justified">
+          NeuFace optimization re-parameterizes 3D face meshes into over-parameterized neural parameters.
+          <a href="https://arxiv.org/abs/1811.03962">Allen-Zhu <i>et al</i>., (2019)</a> have shown that an optimization with neural over-parameterization may obtain a global optimal solution with a high probability.
+          NeuFace optimization is performed in an <i>Expectation-Maximization</i> fashion, supervised by 2D landmark loss, multi-view bootstrapping loss and temporal consistency loss.
+        </div>
+
+        <h2 class="title is-3"> 3DMM fitting vs. NeuFace optimization</h2>
+<!--        <video src="video/3dmm_vs_ours_.mp4" width="1920" height="1080"> </video>-->
+        <video id="baseline" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/neuface/3dmm_vs_ours_.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          Thanks to the neural re-parameterization of the 3D face meshes, NeuFace optimization obtains 3D faces with
+          more image-aligned facial details by avoiding mean shape bias (<a href="https://arxiv.org/abs/2004.03686">Joo <i>et al</i>., 2020</a>).
+        </div>
+
+        <h2 class="title is-3"> DECA vs. NeuFace optimization</h2>
+<!--        <video src="video/deca_vs_ours_.mp4" width="1920" height="1080"> </video>-->
+        <video id="deca" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/neuface/deca_vs_ours_.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          Compared to a conventional 3D face mesh reconstruction method, <a href="https://github.com/yfeng95/DECA">DECA (Feng <i>et al.</i>, 2021)</a>, NeuFace optimization obtains multi-view consistent and
+          more stabilized facial motion, which shows the reliable quality of NeuFace-dataset's 3DMM annotation for large-scale videos.
+        </div>
+
+        <h2 class="title is-3"> Application: Generative 3D facial motion prior</h2>
+<!--        <video src="video/deca_vs_ours_.mp4" width="1920" height="1080"> </video>-->
+        <video id="motion_prior" controls autoplay width="100%" height="100%" loop poster="" controlsList="nodownload">
+        <source src="./media/neuface/face_prior.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          As a practical and interesting application of NeuFace-dataset, we train a generative 3D facial motion prior.
+          (<a style="color: #ED7D31">Top row</a>) While the existing facial motion capture dataset <strong><a style="color: #ED7D31">VOCASET</a></strong> is limited in learning a complex dynamic manifold of human faces,
+          (<a style="color: #4472C4">Bottom row</a>) we show the large-scale, naturalness and diversity of <strong><a style="color: #4472C4">NeuFace-dataset</a></strong> is a key to learn such high-quality facial motion prior (bottom row).
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+<!--<iframe src="https://www.youtube.com/embed/EbJYOJ-O10Y?rel=0&amp;showinfo=0&autoplay=1&mute=1&amp;loop=1" width="912" height="320" frameborder="0"></iframe>-->
+    <!-- Paper video. -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@article{youwang2024neuface,
+  author    = {Kim Youwang and Lee Hyun and Kim Sung-Bin and Suekyeong Nam and Janghoon Ju and Tae-Hyun Oh},
+  title     = {A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization},
+  journal   = {Transactions on Machine Learning Research},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgment</h2>
+          <p>
+            This research was supported by a grant from KRAFTON AI, and also partially supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2023-00225630, Development of Artificial Intelligence for Text-based 3D Movie Generation; No.RS-2022-II220290, Visual Intelligence for Space-Time Understanding and Generation based on Multi-layered Visual Common Sense; and No.RS-2022-II220124, Development of Artificial Intelligence Technology for Self-Improving Competency-Aware Learning Capabilities).
+          </p>
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+<!--            Please remember to remove the analytics code included in the header of the website which-->
+<!--            you do not want on your website.-->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
