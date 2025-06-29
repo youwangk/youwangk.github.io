@@ -2,7 +2,12 @@
 
 /* Fonts */
 /*body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }*/
-body         { font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-weight: 300; font-size: 15px; line-height: 21px; }
+body         {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 21px;
+}
 b, h1, h2    { font-weight: 700; }
 /*note        { text-decoration: none; color: #BB2222; font-size: 11px;}*/
 note        { text-decoration: none; color: #595959; font-size: 11px;}
@@ -125,6 +130,27 @@ li.exp_list { margin-left: -2%; margin-bottom: 1.5%}
     line-height: 20px; /* Bullet point의 라인 높이 조정 (필요에 따라) */
     vertical-align: top; /* Bullet point의 수직 정렬 조정 (필요에 따라) */
 }
+
+
+/* 다크 모드용 스타일 */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode .item {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode .top-links a {
+  color: #90caf9;
+}
+
 
 
 /* Preload images */
