@@ -3,7 +3,4 @@ media/.DS_Store
 *.pptx
 deprecated_media/
 .idea/
-conv_onet.html
-nice-slam.html
-openscene.html
-sap.html
+/FiCA.html
