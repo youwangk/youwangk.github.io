@@ -163,23 +163,23 @@ body.dark-mode .top-links a {
   position: absolute;
 
   /* 배경 레이어의 크기와 위치 설정 */
-  top: -12px;
-  bottom: -5px;
+  top: -15px;
+  bottom: -8px;
   left: -10px;
   right: -5px;
 
   /* 배경 스타일 */
-  /*background-color: #FFFFD4;*/
+  background-color: #FFFFD4;
   /*background-color: #EFF6FF;*/
   /*background-color: #F5F8F5;*/
-  background-color: #FEFFCC;
+  /*background-color: #FEFFCC;*/
   /*background-color: #FFF5E8;*/
   border-radius: 0px;
   z-index: -1; /* 콘텐츠(이미지, 텍스트)보다 뒤로 보내기 */
 }
 
 span.highlight {
-  background-color: #FEFFCC;
+  background-color: #FFFFD4;
 }
 
 /* Preload images */
