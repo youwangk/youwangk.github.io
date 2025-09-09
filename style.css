@@ -151,7 +151,36 @@ body.dark-mode .top-links a {
   color: #90caf9;
 }
 
+/* 1. 하이라이트 블록 자체는 투명한 기준점으로 만듭니다. */
+.highlight-bg {
+  position: relative; /* 가상 요소의 기준점 역할을 위해 추가 */
+  z-index: 1; /* 콘텐츠가 배경보다 위에 있도록 설정 */
+}
 
+/* 2. 가상 요소를 사용해 콘텐츠 '뒤에' 배경 레이어를 만듭니다. */
+.highlight-bg::before {
+  content: ''; /* 필수 속성 */
+  position: absolute;
+
+  /* 배경 레이어의 크기와 위치 설정 */
+  top: -12px;
+  bottom: -5px;
+  left: -10px;
+  right: -5px;
+
+  /* 배경 스타일 */
+  /*background-color: #FFFFD4;*/
+  /*background-color: #EFF6FF;*/
+  /*background-color: #F5F8F5;*/
+  background-color: #FEFFCC;
+  /*background-color: #FFF5E8;*/
+  border-radius: 0px;
+  z-index: -1; /* 콘텐츠(이미지, 텍스트)보다 뒤로 보내기 */
+}
+
+span.highlight {
+  background-color: #FEFFCC;
+}
 
 /* Preload images */
 /*#preload_images { width: 0; height: 0; display: inline; background-image: url(../images/Paper_texture_v5_by_bashcorpo.jpg); }*/
