@@ -163,8 +163,8 @@ body.dark-mode .top-links a {
   position: absolute;
 
   /* 배경 레이어의 크기와 위치 설정 */
-  top: -15px;
-  bottom: -8px;
+  top: -10px;
+  bottom: -2px;
   left: -10px;
   right: -5px;
 
