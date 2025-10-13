@@ -182,6 +182,47 @@ span.highlight {
   background-color: #FFFFD4;
 }
 
+/* Publication filter buttons styles */
+.publications-header {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.publications-header h2 {
+    float: none;
+    width: auto;
+    margin: 0 20px 0 0;
+}
+
+.pub-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.pub-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pub-button:hover {
+    background-color: #e0e0e0;
+}
+
+.pub-button.active-button {
+    background-color: #0051c9;
+    color: white;
+    border-color: #0051c9;
+}
+
 /* Preload images */
 /*#preload_images { width: 0; height: 0; display: inline; background-image: url(../images/Paper_texture_v5_by_bashcorpo.jpg); }*/
 
