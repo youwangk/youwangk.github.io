@@ -1,188 +1,219 @@
-/* CSS stylesheet for personal webpage */
-
-/* Fonts */
-/*body         { font-family: Helvetica, Arial, sans-serif; font-weight: 300; font-size: 13px; line-height: 18px; }*/
-body         {
+/* =========================================
+   1. Global Styles & Typography
+   ========================================= */
+body {
     font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 15px;
     line-height: 21px;
+    color: black;
+    background-color: white;
 }
-b, h1, h2    { font-weight: 700; }
-/*note        { text-decoration: none; color: #BB2222; font-size: 11px;}*/
-note        { text-decoration: none; color: #595959; font-size: 11px;}
-.outro       { font-style: italic; font-size: 10px }
 
-/* Colors */
-body         { color: black; }
-h2           { border-bottom-color: black; }
-/*a            { text-decoration: underline; color: black; }*/
-a            { text-decoration: none; color: #0051c9; }
-/*a:hover      { text-decoration: underline; color: gray; }*/
-a:hover      { text-decoration: underline; color: #0051c9; }
-/*.a_more      { text-decoration: none; color: gray; }*/
-.a_more      { text-decoration: none; color: #0051c9; font-weight: 300 }
+b, h1, h2 {
+    font-weight: 700;
+}
 
-/* Layout */
-body         { background-color: white; }
-h1           { font-size: 1.85em; margin-top: 0em;  margin-bottom: 1em; }
-/*h2           { font-size: 1.25em; margin-top: 3.33em; margin-bottom: 0; border-bottom: 1px solid; }*/
-h2           { font-size: 1.75em; margin-top: 2.5em; margin-bottom: 0.5em; }
-h2           { display: block; width: 100%; float: left; }
-/*ul 			 { padding-left: 10px; list-style-position: inside;}*/
+h1 {
+    font-size: 1.85em;
+    margin: 0 0 1em 0;
+}
 
-/*.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 680px; }*/
-/*.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 750px; }*/
-.container   { margin: 0 auto 0 auto; font-size: 1em; text-align: left; width: 900px; }
-.item,
-.intro,
-.outro       { display: block; width: 100%; float: left; margin-top: 1.5em; margin-bottom: 0; }
-/*.intro       { margin-top: 3.33em; }*/
-.outro       { margin-bottom: 3.33em; text-align: right; }
-.item  img   {
-    float:  left;
+h2 {
+    font-size: 1.75em;
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+    border-bottom-color: black;
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+/* Specific spacing for h2 following intro */
+.intro + h2 {
+    margin-bottom: 1.0em;
+}
+
+a {
+    text-decoration: none;
+    color: #0051c9;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* color: #0051c9; (Inherits form 'a', explicitly keeping if needed) */
+}
+
+.a_more {
+    text-decoration: none;
+    color: #0051c9;
+    font-weight: 300;
+}
+
+note {
+    text-decoration: none;
+    color: #595959;
+    font-size: 11px;
+}
+
+/* =========================================
+   2. Layout & Containers
+   ========================================= */
+.container {
+    margin: 0 auto;
+    font-size: 1em;
+    text-align: left;
+    width: 900px;
+}
+
+.flcontainer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Sections */
+.item, .intro, .outro {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.outro {
+    margin-bottom: 3.33em;
+    text-align: right;
+    font-style: italic;
+    font-size: 10px;
+}
+
+/* Top Section (Profile Area) */
+.intro {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.top-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+}
+
+.top-section img {
+    width: 14em;
+    margin-top: 2em;
+    margin-right: 3em;
+    border: 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-info {
+    flex: 1;
+}
+
+.text-info h1 {
+    margin: 3.0em 0 0.4em 0;
+    font-size: 2.5em;
+}
+
+.text-info small {
+    display: block;
+    margin-bottom: 0.4em;
+    font-size: 1em;
+}
+
+.top-links a {
+    font-size: 0.95em;
+}
+
+.bio-text {
+    line-height: 1.6;
+}
+
+/* =========================================
+   3. Content Items (Projects, Papers)
+   ========================================= */
+.item img {
+    float: left;
     width: 25.0em;
     margin-right: 1.25em;
     margin-bottom: 0.8em;
     border: 0;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
-.item  video { float:  left; width: 12.5em; margin-right: 1.25em; border: 0; }
 
-.intro {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.top-section {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.5em;
+.item video {
+    float: left;
+    width: 12.5em;
+    margin-right: 1.25em;
+    border: 0;
 }
 
-.top-section img {
-  width: 14em;
-  margin-top: 2em;
-  margin-right: 3em;
-  border: 0;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+.item p {
+    margin-top: 0;
+    float: right;
+    width: 480px;
 }
 
-.text-info {
-  flex: 1;
+.item .title {
+    font-size: 1.1em;
 }
 
-.text-info h1 {
-  margin: 3.0em 0 0.4em 0;
-  font-size:2.5em;
+.item p i {
+    font-weight: 400;
 }
 
-.text-info small {
-  display: block;
-  /*margin-top: 0.25em;*/
-  margin-bottom: 0.4em;
-  font-size: 1em
-}
-
-.top-links a {
-  font-size: 0.95em;
-}
-
-.bio-text {
-  line-height: 1.6;
-}
-.flcontainer { /* position: absolute; */ position: fixed; left: 0; top: 0; width: 100%; height: 100%; /* z-index: 1; */ z-index: -1; }
-
-.item p      { margin-top: 0; float: right; width: 480px; }
-.item .title  { font-size: 1.1em;}
+/* Remove bottom margin for last paragraphs */
 .item p:last-child,
 .intro p:last-child,
-.outro p:last-child
-             { margin-bottom: 0; }
-
-.item p i    { font-weight: 400; }
-li.yw_list { margin-left: -2%}
-li.exp_list { margin-left: -2%; margin-bottom: 1.5%}
-
-
-@media only screen and (max-device-width: 480px) {
-	body {
-		-webkit-text-size-adjust: 100%;
-		-moz-text-size-adjust:    100%;
-		-ms-text-size-adjust:     100%;
-	}
-	body       { font-size: 1.25em; font-size: 2.1vw; line-height: 1.6em; line-height: 2.7vw; }
-	.container { width: 98%; }
-	.intro     { margin-top: 1.5em; margin-top: 3.15vw; }
-	.outro     { margin-bottom: 1.5em; margin-bottom: 3.15vw; }
-	.item img  { width: 35%; margin-right: 2.5%; }
-	.intro img { width: 27%; margin-left: 2.7%; }
-	.item p    { width: 60%; }
+.outro p:last-child {
+    margin-bottom: 0;
 }
 
-.list-item {
-	margin-bottom: 10px;
-}
+/* Lists */
+li.yw_list { margin-left: -2%; }
+li.exp_list { margin-left: -2%; margin-bottom: 1.5%; }
+
+.list-item { margin-bottom: 10px; }
 
 .custom-bullet::before {
-    content: "\00a0·\00a0"; /* bullet point와 두 개의 공백(&nbsp;) */
-    font-size: 1.5em; /* Bullet point의 크기를 조정하고 싶은 경우 */
-    line-height: 20px; /* Bullet point의 라인 높이 조정 (필요에 따라) */
-    vertical-align: top; /* Bullet point의 수직 정렬 조정 (필요에 따라) */
+    content: "\00a0·\00a0";
+    font-size: 1.5em;
+    line-height: 20px;
+    vertical-align: top;
 }
 
-
-/* 다크 모드용 스타일 */
-body.dark-mode {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark-mode a {
-  color: #90caf9;
-}
-
-body.dark-mode .item {
-  background-color: #1e1e1e;
-  border-color: #333;
-}
-
-body.dark-mode .top-links a {
-  color: #90caf9;
-}
-
-/* 1. 하이라이트 블록 자체는 투명한 기준점으로 만듭니다. */
+/* =========================================
+   4. Highlights & Effects
+   ========================================= */
 .highlight-bg {
-  position: relative; /* 가상 요소의 기준점 역할을 위해 추가 */
-  z-index: 1; /* 콘텐츠가 배경보다 위에 있도록 설정 */
+    position: relative;
+    z-index: 1;
 }
 
-/* 2. 가상 요소를 사용해 콘텐츠 '뒤에' 배경 레이어를 만듭니다. */
 .highlight-bg::before {
-  content: ''; /* 필수 속성 */
-  position: absolute;
-
-  /* 배경 레이어의 크기와 위치 설정 */
-  top: -10px;
-  bottom: -2px;
-  left: -10px;
-  right: -5px;
-
-  /* 배경 스타일 */
-  background-color: #FFFFD4;
-  /*background-color: #EFF6FF;*/
-  /*background-color: #F5F8F5;*/
-  /*background-color: #FEFFCC;*/
-  /*background-color: #FFF5E8;*/
-  border-radius: 0px;
-  z-index: -1; /* 콘텐츠(이미지, 텍스트)보다 뒤로 보내기 */
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -2px;
+    left: -10px;
+    right: -5px;
+    background-color: #FFFFD4;
+    border-radius: 0px;
+    z-index: -1;
 }
 
 span.highlight {
-  background-color: #FFFFD4;
+    background-color: #FFFFD4;
 }
 
-/* Publication filter buttons styles */
+/* =========================================
+   5. Publication Filter Buttons
+   ========================================= */
 .publications-header {
     display: flex;
     align-items: center;
@@ -223,66 +254,102 @@ span.highlight {
     border-color: #0051c9;
 }
 
-
-/* * NEW STYLES FOR EXPERIENCES SECTION
-    */
-
-.intro + h2 {
-    margin-bottom: 1.0em; /* 기존 0.5em보다 3배 넓게 설정 (원하는 만큼 조절) */
-}
-
-
+/* =========================================
+   6. Experience Section
+   ========================================= */
 .experience-item {
     display: flex;
-    margin-bottom: 20px; /* Spacing between experience items */
+    margin-bottom: 20px;
     align-items: flex-start;
     width: 100%;
 }
 
 .exp-logo {
-    flex: 0 0 150px; /* Fixed width for logo container */
+    flex: 0 0 150px;
     margin-left: 0px;
     margin-right: 30px;
     display: flex;
-    flex-direction: column; /* [변경됨] 수직 정렬로 변경하여 날짜가 아래로 오게 함 */
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 5px;
 }
 
-/* [추가됨] 로고 아래 날짜 스타일 */
 .exp-date {
-    margin-top: 10px; /* 로고와 날짜 사이 간격 */
-    font-size: 0.8em; /* 본문보다 약간 작게 */
-    color: #666; /* 짙은 회색 */
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #666;
     text-align: center;
     line-height: 1.2;
-    white-space: nowrap; /* 날짜가 줄바꿈되지 않게 한 줄로 표시 */
+    white-space: nowrap;
 }
 
 .exp-logo img {
     max-width: 100%;
     height: auto;
-    max-height: 100px; /* Prevent logos from getting too tall */
+    max-height: 100px;
     object-fit: contain;
 }
 
 .exp-content {
-    flex: 1; /* Takes the rest of the space */
+    flex: 1;
 }
 
-/* Mobile responsiveness for Experience section */
+/* =========================================
+   7. Dark Mode
+   ========================================= */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode a,
+body.dark-mode .top-links a {
+    color: #90caf9;
+}
+
+body.dark-mode .item {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+/* =========================================
+   8. Mobile / Responsive
+   ========================================= */
 @media only screen and (max-device-width: 480px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        font-size: 2.1vw;
+        line-height: 2.7vw;
+    }
+
+    .container { width: 98%; }
+    .intro { margin-top: 3.15vw; }
+    .outro { margin-bottom: 3.15vw; }
+
+    .item img {
+        width: 35%;
+        margin-right: 2.5%;
+    }
+    .intro img {
+        width: 27%;
+        margin-left: 2.7%;
+    }
+    .item p { width: 60%; }
+
+    /* Experience Section Mobile */
     .experience-item {
         margin-bottom: 30px;
     }
     .exp-logo {
-        flex: 0 0 150px; /* Smaller logo container on mobile */
+        flex: 0 0 150px;
         margin-left: 10px;
         margin-right: 30px;
     }
     .exp-date {
-        font-size: 0.7em; /* 모바일에서는 폰트 더 작게 */
-        white-space: nowrap; /* 모바일에서는 줄바꿈 허용 */
+        font-size: 0.7em;
+        white-space: nowrap;
     }
 }
