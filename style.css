@@ -118,13 +118,6 @@ li.exp_list { margin-left: -2%; margin-bottom: 1.5%}
 	.item img  { width: 35%; margin-right: 2.5%; }
 	.intro img { width: 27%; margin-left: 2.7%; }
 	.item p    { width: 60%; }
-    .experience-item {
-        margin-bottom: 30px;
-    }
-    .exp-logo {
-        flex: 0 0 70px; /* Smaller logo container on mobile */
-        margin-right: 15px;
-    }
 }
 
 .list-item {
@@ -238,22 +231,33 @@ span.highlight {
     margin-bottom: 1.0em; /* 기존 0.5em보다 3배 넓게 설정 (원하는 만큼 조절) */
 }
 
+
 .experience-item {
     display: flex;
-    /*margin-top: 30px; !* Spacing between experience items *!*/
-    margin-bottom: 25px; /* Spacing between experience items */
+    margin-bottom: 20px; /* Spacing between experience items */
     align-items: flex-start;
     width: 100%;
 }
 
 .exp-logo {
     flex: 0 0 150px; /* Fixed width for logo container */
-    margin-left: 10px;
+    margin-left: 0px;
     margin-right: 30px;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* [변경됨] 수직 정렬로 변경하여 날짜가 아래로 오게 함 */
+    justify-content: flex-start;
     align-items: center;
-    padding-top: 5px; /* Fine-tune vertical alignment if needed */
+    padding-top: 5px;
+}
+
+/* [추가됨] 로고 아래 날짜 스타일 */
+.exp-date {
+    margin-top: 10px; /* 로고와 날짜 사이 간격 */
+    font-size: 0.8em; /* 본문보다 약간 작게 */
+    color: #666; /* 짙은 회색 */
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap; /* 날짜가 줄바꿈되지 않게 한 줄로 표시 */
 }
 
 .exp-logo img {
@@ -267,13 +271,18 @@ span.highlight {
     flex: 1; /* Takes the rest of the space */
 }
 
-/*!* Mobile responsiveness for Experience section *!*/
-/*@media only screen and (max-device-width: 480px) {*/
-/*    .experience-item {*/
-/*        margin-bottom: 30px;*/
-/*    }*/
-/*    .exp-logo {*/
-/*        flex: 0 0 70px; !* Smaller logo container on mobile *!*/
-/*        margin-right: 15px;*/
-/*    }*/
-/*}*/
+/* Mobile responsiveness for Experience section */
+@media only screen and (max-device-width: 480px) {
+    .experience-item {
+        margin-bottom: 30px;
+    }
+    .exp-logo {
+        flex: 0 0 150px; /* Smaller logo container on mobile */
+        margin-left: 10px;
+        margin-right: 30px;
+    }
+    .exp-date {
+        font-size: 0.7em; /* 모바일에서는 폰트 더 작게 */
+        white-space: nowrap; /* 모바일에서는 줄바꿈 허용 */
+    }
+}
