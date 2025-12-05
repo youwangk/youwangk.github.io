@@ -73,8 +73,8 @@ h2           { display: block; width: 100%; float: left; }
 }
 
 .text-info h1 {
-  margin: 3.75em 0 0.25em 0;
-  font-size:2.0em;
+  margin: 3.0em 0 0.4em 0;
+  font-size:2.5em;
 }
 
 .text-info small {
@@ -118,6 +118,13 @@ li.exp_list { margin-left: -2%; margin-bottom: 1.5%}
 	.item img  { width: 35%; margin-right: 2.5%; }
 	.intro img { width: 27%; margin-left: 2.7%; }
 	.item p    { width: 60%; }
+    .experience-item {
+        margin-bottom: 30px;
+    }
+    .exp-logo {
+        flex: 0 0 70px; /* Smaller logo container on mobile */
+        margin-right: 15px;
+    }
 }
 
 .list-item {
@@ -223,33 +230,50 @@ span.highlight {
     border-color: #0051c9;
 }
 
-/* Preload images */
-/*#preload_images { width: 0; height: 0; display: inline; background-image: url(../images/Paper_texture_v5_by_bashcorpo.jpg); }*/
 
+/* * NEW STYLES FOR EXPERIENCES SECTION
+    */
 
+.intro + h2 {
+    margin-bottom: 1.0em; /* 기존 0.5em보다 3배 넓게 설정 (원하는 만큼 조절) */
+}
 
-/* Other font selections */
+.experience-item {
+    display: flex;
+    /*margin-top: 30px; !* Spacing between experience items *!*/
+    margin-bottom: 25px; /* Spacing between experience items */
+    align-items: flex-start;
+    width: 100%;
+}
 
-/*
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
-body { font-family: 'PT Sans', sans-serif; font-weight: 400; font-size: 12pt; }
-b, h1, h2 { font-weight: 700; }
-*/
+.exp-logo {
+    flex: 0 0 150px; /* Fixed width for logo container */
+    margin-left: 10px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px; /* Fine-tune vertical alignment if needed */
+}
 
-/*
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400);
-body { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; }
-b, h1, h2 { font-weight: 700; }
-*/
+.exp-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px; /* Prevent logos from getting too tall */
+    object-fit: contain;
+}
 
-/*
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700);
-body { font-family: Merriweather, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.5em; }
-b, h1, h2 { font-weight: 700; }
-*/
+.exp-content {
+    flex: 1; /* Takes the rest of the space */
+}
 
-/*
-body { color: rgb(60, 60, 60); }
-h2 { border-bottom-color: rgb(60, 60, 60); }
-a { text-decoration: underline; color: inherit; }
-*/
+/*!* Mobile responsiveness for Experience section *!*/
+/*@media only screen and (max-device-width: 480px) {*/
+/*    .experience-item {*/
+/*        margin-bottom: 30px;*/
+/*    }*/
+/*    .exp-logo {*/
+/*        flex: 0 0 70px; !* Smaller logo container on mobile *!*/
+/*        margin-right: 15px;*/
+/*    }*/
+/*}*/
