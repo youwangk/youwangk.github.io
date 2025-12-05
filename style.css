@@ -27,7 +27,7 @@ a:hover      { text-decoration: underline; color: #0051c9; }
 body         { background-color: white; }
 h1           { font-size: 1.85em; margin-top: 0em;  margin-bottom: 1em; }
 /*h2           { font-size: 1.25em; margin-top: 3.33em; margin-bottom: 0; border-bottom: 1px solid; }*/
-h2           { font-size: 1.5em; margin-top: 2.5em; margin-bottom: 0.5em; }
+h2           { font-size: 1.75em; margin-top: 2.5em; margin-bottom: 0.5em; }
 h2           { display: block; width: 100%; float: left; }
 /*ul 			 { padding-left: 10px; list-style-position: inside;}*/
 
@@ -200,7 +200,7 @@ span.highlight {
 .publications-header h2 {
     float: none;
     width: auto;
-    margin: 0 20px 0 0;
+    margin: 30px 20px 10px 0;
 }
 
 .pub-buttons {
