@@ -1,9 +1,371 @@
+/*!* =========================================*/
+/*   1. Global Styles & Typography*/
+/*   ========================================= *!*/
+/*body {*/
+/*    !*font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;*!*/
+/*    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*/
+/*    font-weight: 300;*/
+/*    font-size: 15px;*/
+/*    line-height: 21px;*/
+/*    color: black;*/
+/*    background-color: white;*/
+/*}*/
+
+/*b, h1, h2 {*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*h1 {*/
+/*    font-size: 1.85em;*/
+/*    margin: 0 0 1em 0;*/
+/*}*/
+
+/*h2 {*/
+/*    font-size: 1.75em;*/
+/*    margin-top: 2.5em;*/
+/*    margin-bottom: 0.5em;*/
+/*    border-bottom-color: black;*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    float: left;*/
+/*}*/
+
+/*!* Specific spacing for h2 following intro *!*/
+/*.intro + h2 {*/
+/*    margin-bottom: 1.0em;*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*    color: #0051c9;*/
+/*}*/
+
+/*a:hover {*/
+/*    text-decoration: underline;*/
+/*    !* color: #0051c9; (Inherits form 'a', explicitly keeping if needed) *!*/
+/*}*/
+
+/*.a_more {*/
+/*    text-decoration: none;*/
+/*    color: #0051c9;*/
+/*    font-weight: 300;*/
+/*}*/
+
+/*note {*/
+/*    text-decoration: none;*/
+/*    color: #595959;*/
+/*    font-size: 11px;*/
+/*}*/
+
+/*!* =========================================*/
+/*   2. Layout & Containers*/
+/*   ========================================= *!*/
+/*.container {*/
+/*    margin: 0 auto;*/
+/*    font-size: 1em;*/
+/*    text-align: left;*/
+/*    width: 900px;*/
+/*}*/
+
+/*.flcontainer {*/
+/*    position: fixed;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*!* Sections *!*/
+/*.item, .intro, .outro {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    float: left;*/
+/*    margin-top: 1.5em;*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+/*.outro {*/
+/*    margin-bottom: 3.33em;*/
+/*    text-align: right;*/
+/*    font-style: italic;*/
+/*    font-size: 10px;*/
+/*}*/
+
+/*!* Top Section (Profile Area) *!*/
+/*.intro {*/
+/*    max-width: 900px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.top-section {*/
+/*    display: flex;*/
+/*    align-items: flex-start;*/
+/*    margin-bottom: 1.5em;*/
+/*}*/
+
+/*.top-section img {*/
+/*    width: 14em;*/
+/*    margin-top: 2em;*/
+/*    margin-right: 3em;*/
+/*    border: 0;*/
+/*    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.text-info {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.text-info h1 {*/
+/*    margin: 3.0em 0 0.4em 0;*/
+/*    font-size: 2.5em;*/
+/*}*/
+
+/*.text-info small {*/
+/*    display: block;*/
+/*    margin-bottom: 0.4em;*/
+/*    font-size: 1em;*/
+/*}*/
+
+/*.top-links a {*/
+/*    font-size: 0.95em;*/
+/*}*/
+
+/*.bio-text {*/
+/*    line-height: 1.6;*/
+/*}*/
+
+/*!* =========================================*/
+/*   3. Content Items (Projects, Papers)*/
+/*   ========================================= *!*/
+/*.item img {*/
+/*    float: left;*/
+/*    width: 25.0em;*/
+/*    margin-right: 1.25em;*/
+/*    margin-bottom: 0.8em;*/
+/*    border: 0;*/
+/*    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.item video {*/
+/*    float: left;*/
+/*    width: 12.5em;*/
+/*    margin-right: 1.25em;*/
+/*    border: 0;*/
+/*}*/
+
+/*.item p {*/
+/*    margin-top: 0;*/
+/*    float: right;*/
+/*    width: 480px;*/
+/*}*/
+
+/*.item .title {*/
+/*    font-size: 1.1em;*/
+/*}*/
+
+/*.item p i {*/
+/*    font-weight: 400;*/
+/*}*/
+
+/*!* Remove bottom margin for last paragraphs *!*/
+/*.item p:last-child,*/
+/*.intro p:last-child,*/
+/*.outro p:last-child {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+/*!* Lists *!*/
+/*li.yw_list { margin-left: -2%; }*/
+/*li.exp_list { margin-left: -2%; margin-bottom: 1.5%; }*/
+
+/*.list-item { margin-bottom: 10px; }*/
+
+/*.custom-bullet::before {*/
+/*    content: "\00a0·\00a0";*/
+/*    font-size: 1.5em;*/
+/*    line-height: 20px;*/
+/*    vertical-align: top;*/
+/*}*/
+
+/*!* =========================================*/
+/*   4. Highlights & Effects*/
+/*   ========================================= *!*/
+/*.highlight-bg {*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*.highlight-bg::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: -10px;*/
+/*    bottom: -2px;*/
+/*    left: -10px;*/
+/*    right: -5px;*/
+/*    background-color: #FFFFD4;*/
+/*    border-radius: 0px;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*span.highlight {*/
+/*    background-color: #FFFFD4;*/
+/*}*/
+
+/*!* =========================================*/
+/*   5. Publication Filter Buttons*/
+/*   ========================================= *!*/
+/*.publications-header {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    margin-top: 2.5em;*/
+/*    margin-bottom: 0.5em;*/
+/*}*/
+
+/*.publications-header h2 {*/
+/*    float: none;*/
+/*    width: auto;*/
+/*    margin: 30px 20px 10px 0;*/
+/*}*/
+
+/*.pub-buttons {*/
+/*    display: flex;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.pub-button {*/
+/*    background-color: #f0f0f0;*/
+/*    border: 1px solid #ccc;*/
+/*    padding: 5px 15px;*/
+/*    border-radius: 6px;*/
+/*    cursor: pointer;*/
+/*    font-size: 14px;*/
+/*    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;*/
+/*    font-weight: 400;*/
+/*    transition: background-color 0.3s, color 0.3s;*/
+/*}*/
+
+/*.pub-button:hover {*/
+/*    background-color: #e0e0e0;*/
+/*}*/
+
+/*.pub-button.active-button {*/
+/*    background-color: #0051c9;*/
+/*    color: white;*/
+/*    border-color: #0051c9;*/
+/*}*/
+
+/*!* =========================================*/
+/*   6. Experience Section*/
+/*   ========================================= *!*/
+/*.experience-item {*/
+/*    display: flex;*/
+/*    margin-bottom: 20px;*/
+/*    align-items: flex-start;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.exp-logo {*/
+/*    flex: 0 0 150px;*/
+/*    margin-left: 0px;*/
+/*    margin-right: 30px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: flex-start;*/
+/*    align-items: center;*/
+/*    padding-top: 5px;*/
+/*}*/
+
+/*.exp-date {*/
+/*    margin-top: 10px;*/
+/*    font-size: 0.8em;*/
+/*    color: #666;*/
+/*    text-align: center;*/
+/*    line-height: 1.2;*/
+/*    white-space: nowrap;*/
+/*}*/
+
+/*.exp-logo img {*/
+/*    max-width: 100%;*/
+/*    height: auto;*/
+/*    max-height: 100px;*/
+/*    object-fit: contain;*/
+/*}*/
+
+/*.exp-content {*/
+/*    flex: 1;*/
+/*}*/
+
+/*!* =========================================*/
+/*   7. Dark Mode*/
+/*   ========================================= *!*/
+/*body.dark-mode {*/
+/*    background-color: #1e1e1e;*/
+/*    color: #e0e0e0;*/
+/*}*/
+
+/*body.dark-mode a,*/
+/*body.dark-mode .top-links a {*/
+/*    color: #90caf9;*/
+/*}*/
+
+/*body.dark-mode .item {*/
+/*    background-color: #1e1e1e;*/
+/*    border-color: #333;*/
+/*}*/
+
+/*!* =========================================*/
+/*   8. Mobile / Responsive*/
+/*   ========================================= *!*/
+/*@media only screen and (max-device-width: 480px) {*/
+/*    body {*/
+/*        -webkit-text-size-adjust: 100%;*/
+/*        -moz-text-size-adjust: 100%;*/
+/*        -ms-text-size-adjust: 100%;*/
+/*        font-size: 2.1vw;*/
+/*        line-height: 2.7vw;*/
+/*    }*/
+
+/*    .container { width: 98%; }*/
+/*    .intro { margin-top: 3.15vw; }*/
+/*    .outro { margin-bottom: 3.15vw; }*/
+
+/*    .item img {*/
+/*        width: 35%;*/
+/*        margin-right: 2.5%;*/
+/*    }*/
+/*    .intro img {*/
+/*        width: 27%;*/
+/*        margin-left: 2.7%;*/
+/*    }*/
+/*    .item p { width: 60%; }*/
+
+/*    !* Experience Section Mobile *!*/
+/*    .experience-item {*/
+/*        margin-bottom: 30px;*/
+/*    }*/
+/*    .exp-logo {*/
+/*        flex: 0 0 150px;*/
+/*        margin-left: 10px;*/
+/*        margin-right: 30px;*/
+/*    }*/
+/*    .exp-date {*/
+/*        font-size: 0.7em;*/
+/*        white-space: nowrap;*/
+/*    }*/
+/*}*/
+
+/* =========================================
+   0. Font Import
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap');
+
 /* =========================================
    1. Global Styles & Typography
    ========================================= */
 body {
     font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
     line-height: 21px;
     color: black;
@@ -36,17 +398,18 @@ h2 {
 
 a {
     text-decoration: none;
-    color: #0051c9;
+    /*color: #0051c9;*/
+    color: #0077b5;
 }
 
 a:hover {
     text-decoration: underline;
-    /* color: #0051c9; (Inherits form 'a', explicitly keeping if needed) */
 }
 
 .a_more {
     text-decoration: none;
-    color: #0051c9;
+    color: #0077b5;
+    /*color: #0051c9;*/
     font-weight: 300;
 }
 
@@ -63,7 +426,7 @@ note {
     margin: 0 auto;
     font-size: 1em;
     text-align: left;
-    width: 900px;
+    width: 900px; /* 원래 너비 유지 */
 }
 
 .flcontainer {
@@ -75,8 +438,8 @@ note {
     z-index: -1;
 }
 
-/* Sections */
-.item, .intro, .outro {
+/* Sections - (.intro 제거됨, 별도 정의) */
+.item, .outro {
     display: block;
     width: 100%;
     float: left;
@@ -91,47 +454,64 @@ note {
     font-size: 10px;
 }
 
-/* Top Section (Profile Area) */
+/* =========================================
+   [NEW] Top Section
+   ========================================= */
+
 .intro {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.top-section {
-    display: flex;
+    display: flex;       /* Flexbox 사용 (Yaser 스타일) */
+    gap: 40px;           /* 사진과 텍스트 사이 간격 */
     align-items: flex-start;
-    margin-bottom: 1.5em;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    width: 100%;
 }
 
-.top-section img {
-    width: 14em;
-    margin-top: 2em;
-    margin-right: 3em;
-    border: 0;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+.profile-photo {
+    flex: 0 0 280px;     /* 사진 영역 너비 고정 */
 }
 
-.text-info {
-    flex: 1;
-}
-
-.text-info h1 {
-    margin: 3.0em 0 0.4em 0;
-    font-size: 2.5em;
-}
-
-.text-info small {
+.profile-photo img {
+    width: 100%;
+    height: auto;
     display: block;
-    margin-bottom: 0.4em;
+    border-radius: 4px;
+    box-shadow: none;    /* Yaser 스타일은 그림자 없음 */
+}
+
+.intro-content {
+    flex: 1;             /* 남은 공간 모두 차지 */
+}
+
+.intro-content h1 {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 3.5em;
+    margin: 0 0 0 0;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.intro-content p {
+    font-size: 1.0em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+    width: 100%;
+    float: none;
+}
+
+.intro-content .links {
+    margin-top: 1.5em;
     font-size: 1em;
 }
 
-.top-links a {
-    font-size: 0.95em;
+.intro-content .links a + span {
+    margin: 0 8px;
+    color: #ccc;
 }
 
-.bio-text {
-    line-height: 1.6;
+.intro-content small{
+    display: block;
+    font-size: 1em;
 }
 
 /* =========================================
@@ -259,15 +639,17 @@ span.highlight {
    ========================================= */
 .experience-item {
     display: flex;
-    margin-bottom: 20px;
+    flex-direction: row;
+    margin-bottom: 2em;
     align-items: flex-start;
     width: 100%;
+    gap: 20px;
 }
 
 .exp-logo {
-    flex: 0 0 150px;
+    flex: 0 0 150px; /* 원래 크기 유지 */
     margin-left: 0px;
-    margin-right: 30px;
+    margin-right: 0px; /* gap으로 처리 */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -294,6 +676,22 @@ span.highlight {
 .exp-content {
     flex: 1;
 }
+
+/* Job Header (Optional: for alignment of date/title) */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    width: 100%;
+}
+.job-date {
+    white-space: nowrap;
+    margin-left: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
 
 /* =========================================
    7. Dark Mode
@@ -323,33 +721,370 @@ body.dark-mode .item {
         -ms-text-size-adjust: 100%;
         font-size: 2.1vw;
         line-height: 2.7vw;
+        padding: 20px;
     }
 
     .container { width: 98%; }
-    .intro { margin-top: 3.15vw; }
+
+    /* Intro Mobile Adjustment (Stacking) */
+    .intro {
+        flex-direction: column; /* 세로로 쌓임 */
+        align-items: center;    /* 가운데 정렬 */
+        text-align: center;     /* 텍스트 가운데 정렬 */
+        margin-top: 3.15vw;
+        gap: 20px;
+    }
+
+    .profile-photo {
+        width: 75%;      /* 모바일에서 사진 크기 */
+        flex: none;      /* 고정 너비 해제 */
+    }
+
+    .intro-content {
+        text-align: left; /* 본문 텍스트는 좌측 정렬 (취향에 따라 center 변경 가능) */
+        width: 100%;
+    }
+
+    .intro-content h1 {
+        text-align: center; /* 이름은 가운데 */
+        font-size: 4em;
+    }
+
+    .intro-content small {
+        text-align: center; /* 이름은 가운데 */
+        font-size: 1.2em;
+    }
+
+    .intro-content p {
+        font-size: 1.5em; /* 기준 크기 */
+    }
+
+    /* [수정됨] Links 스타일: 크기 키우고 중앙 정렬 */
+    .intro-content .links {
+        font-size: 1.5em;   /* p 태그와 동일한 크기로 설정 */
+        text-align: left; /* 중앙 정렬 */
+        margin-top: 15px;   /* 상단 여백 */
+        line-height: 1.6;   /* 줄간격 확보 */
+        display: block;     /* 블록 요소로 만들어 정렬 적용 */
+    }
+
     .outro { margin-bottom: 3.15vw; }
 
+    /* Items */
     .item img {
         width: 35%;
         margin-right: 2.5%;
-    }
-    .intro img {
-        width: 27%;
-        margin-left: 2.7%;
     }
     .item p { width: 60%; }
 
     /* Experience Section Mobile */
     .experience-item {
+        gap: 15px;
         margin-bottom: 30px;
     }
     .exp-logo {
-        flex: 0 0 150px;
-        margin-left: 10px;
-        margin-right: 30px;
+        flex: 0 0 20vw; /* 로고 작게 */
+        margin-right: 0.5em
     }
     .exp-date {
         font-size: 0.7em;
-        white-space: nowrap;
+    }
+
+    /* Job header mobile stack */
+    .job-header {
+        flex-direction: column;
+    }
+    .job-date {
+        margin-left: 0;
+        margin-top: 2px;
     }
 }
+
+/*!* =========================================*/
+/*   1. Global Styles & Typography*/
+/*   ========================================= *!*/
+/*body {*/
+/*    !*font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*!*/
+/*    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;*/
+/*    font-weight: 300;*/
+/*    font-size: 16px; !* Increased slightly for better readability like Yaser's *!*/
+/*    line-height: 1.6;*/
+/*    color: #111111;*/
+/*    background-color: #ffffff;*/
+/*    margin: 0;*/
+/*    padding: 40px 20px; !* Added body padding like Yaser's site *!*/
+/*}*/
+
+/*b, strong {*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*h1 {*/
+/*    font-family: "Yanone Kaffeesatz", sans-serif;*/
+/*    font-size: 64px;*/
+/*    margin: 0 0 24px 0;*/
+/*    font-weight: 600;*/
+/*    letter-spacing: 0.5px;*/
+/*    line-height: 1.1;*/
+/*}*/
+
+/*h2 {*/
+/*    !*font-family: "Lato", sans-serif;*!*/
+/*    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;*/
+/*    font-size: 32px;*/
+/*    margin-top: 2.0em;*/
+/*    margin-bottom: 0.8em;*/
+/*    border-bottom: 1px solid #eee; !* Lighter separator *!*/
+/*    padding-bottom: 5px;*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    font-weight: 600;*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*     !*color: #0077b5;*!*/
+/*    color: #0051c9;*/
+/*}*/
+
+/*a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*!* =========================================*/
+/*   2. Layout & Containers*/
+/*   ========================================= *!*/
+/*.container {*/
+/*    max-width: 1100px; !* Wider container *!*/
+/*    margin: 0 auto;*/
+/*    text-align: left;*/
+/*}*/
+
+/*!* =========================================*/
+/*   3. Bio / Intro Section (Refactored)*/
+/*   ========================================= *!*/
+/*.intro {*/
+/*    display: flex;*/
+/*    gap: 40px;*/
+/*    align-items: flex-start;*/
+/*    margin-bottom: 3em;*/
+/*}*/
+
+/*.profile-photo img {*/
+/*    max-width: 300px; !* Adjustable size *!*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    display: block;*/
+/*    box-shadow: none; !* Removed shadow for cleaner look, add back if desired *!*/
+/*    border-radius: 4px; !* Slight rounded corner *!*/
+/*}*/
+
+/*.intro-content {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.intro-content p {*/
+/*    font-size: 17px;*/
+/*    margin-bottom: 16px;*/
+/*}*/
+
+/*.links {*/
+/*    margin-top: 24px;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/*.links a + span {*/
+/*    margin: 0 8px;*/
+/*    color: #ccc;*/
+/*}*/
+
+/*!* =========================================*/
+/*   4. Research / Publications Items (Flexbox)*/
+/*   ========================================= *!*/
+/*.publications-section .item {*/
+/*    display: flex; !* Changed from float to flex *!*/
+/*    margin-bottom: 2.0em;*/
+/*    width: 100%;*/
+/*    align-items: flex-start;*/
+/*}*/
+
+/*.item-media {*/
+/*    !* 기존: flex: 0 0 320px; *!*/
+/*    flex: 0 0 450px;   !* 여기를 450px 또는 원하시는 만큼 늘려주세요 *!*/
+/*    margin-right: 30px; !* 이미지와 텍스트 사이 간격도 살짝 늘리면 좋습니다 *!*/
+/*}*/
+
+/*.item-media img {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    border: 0;*/
+/*    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);*/
+/*    display: block;*/
+/*}*/
+
+/*.item-text {*/
+/*    flex: 1; !* Takes remaining space *!*/
+/*}*/
+
+/*.item .title {*/
+/*    font-size: 1.15em;*/
+/*    color: #000;*/
+/*}*/
+
+/*.item p {*/
+/*    margin: 0;*/
+/*}*/
+
+/*!* =========================================*/
+/*   6. Experience Section (Responsive Fix)*/
+/*   ========================================= *!*/
+/*.experience-item {*/
+/*    display: flex;*/
+/*    flex-direction: row; !* 모바일에서도 가로 배치 유지 *!*/
+/*    margin-bottom: 30px;*/
+/*    align-items: flex-start;*/
+/*    width: 100%;*/
+/*    gap: 20px; !* 간격은 gap으로 자동 처리 *!*/
+/*}*/
+
+/*.exp-logo {*/
+/*    !* 고정 px 대신 비율 사용 *!*/
+/*    flex: 0 0 15%;       !* PC에서는 약 15% 너비 차지 *!*/
+/*    min-width: 120px;    !* 너무 작아지지 않도록 최소 폭 설정 *!*/
+/*    max-width: 150px;    !* 너무 커지지 않도록 최대 폭 설정 *!*/
+
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    padding-top: 5px;*/
+/*}*/
+
+/*.exp-logo img {*/
+/*    width: 100%;         !* 부모 컨테이너 너비에 맞춤 *!*/
+/*    height: auto;        !* 비율 유지 *!*/
+/*    max-height: 80px;    !* 로고 높이 제한 *!*/
+/*    object-fit: contain;*/
+/*}*/
+
+/*.exp-date {*/
+/*    margin-top: 8px;*/
+/*    font-size: 0.85em;*/
+/*    color: #666;*/
+/*    text-align: center;*/
+/*    line-height: 1.2;*/
+/*    width: 100%;*/
+/*    word-break: keep-all; !* 날짜 줄바꿈 방지 *!*/
+/*}*/
+
+/*.exp-content {*/
+/*    flex: 1; !* 남은 공간 모두 차지 *!*/
+/*    font-size: 1em;*/
+/*}*/
+
+/*!* 제목과 날짜를 양쪽 끝으로 배분 *!*/
+/*.job-header {*/
+/*    display: flex;*/
+/*    justify-content: space-between; !* 왼쪽 끝과 오른쪽 끝으로 밀어내기 *!*/
+/*    align-items: baseline;          !* 텍스트 높이 정렬 *!*/
+/*    margin-bottom: 4px;             !* 설명글과의 간격 *!*/
+/*    width: 100%;*/
+/*}*/
+
+/*.job-date {*/
+/*    white-space: nowrap; !* 날짜가 줄바꿈되지 않도록 고정 *!*/
+/*    margin-left: 15px;   !* 제목과 최소 간격 확보 *!*/
+/*    color: #666;         !* 회색 처리 (선택사항) *!*/
+/*    font-size: 1.1em;    !* 살짝 작게 (선택사항) *!*/
+/*}*/
+
+/*!* 모바일 화면 대응 (선택사항: 화면이 좁을 때 날짜 줄바꿈 처리) *!*/
+/*@media (max-width: 768px) {*/
+/*    .job-header {*/
+/*        flex-direction: column; !* 좁은 화면에선 위아래로 쌓기 *!*/
+/*    }*/
+/*    .job-date {*/
+/*        margin-left: 0;*/
+/*        margin-top: 2px;*/
+/*        font-size: 0.85em;*/
+/*    }*/
+/*}*/
+
+/*!* =========================================*/
+/*   6. Lists & Misc*/
+/*   ========================================= *!*/
+/*ul {*/
+/*    padding-left: 20px;*/
+/*}*/
+
+/*li.yw_list {*/
+/*    margin-bottom: 8px;*/
+/*}*/
+
+/*!* =========================================*/
+/*   7. Mobile / Responsive*/
+/*   ========================================= *!*/
+/*@media (max-width: 768px) {*/
+/*    body {*/
+/*        padding: 20px;*/
+/*    }*/
+
+/*    .container {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    !* Intro breakdown *!*/
+/*    .intro {*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .profile-photo img {*/
+/*        max-width: 250px;*/
+/*        margin-bottom: 20px;*/
+/*    }*/
+
+/*    .intro-content {*/
+/*        text-align: left;*/
+/*    }*/
+
+/*    .intro-content h1 {*/
+/*        text-align: center;*/
+/*        font-size: 42px;*/
+/*    }*/
+
+/*    !* Research Items Stack *!*/
+/*    .publications-section .item {*/
+/*        flex-direction: column;*/
+/*    }*/
+
+/*    .item-media {*/
+/*        flex: none;*/
+/*        width: 100%;*/
+/*        margin-right: 0;*/
+/*        margin-bottom: 15px;*/
+/*    }*/
+
+/*    .item-media img {*/
+/*        width: 100%;*/
+/*        max-width: 400px; !* Don't get too huge on mobile *!*/
+/*    }*/
+
+/*    !* Experience Stack *!*/
+/*    .experience-item {*/
+/*        flex-direction: column;*/
+/*        align-items: flex-start;*/
+/*    }*/
+
+/*    .exp-logo {*/
+/*        flex-direction: row;*/
+/*        align-items: center;*/
+/*        margin-bottom: 10px;*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    .exp-date {*/
+/*        margin-top: 0;*/
+/*        margin-left: 15px;*/
+/*    }*/
+/*}*/
