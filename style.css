@@ -361,8 +361,9 @@ span.highlight {
     }
 
     .profile-photo {
-        width: 75%;      /* 모바일에서 사진 크기 */
+        width: 80%;      /* 모바일에서 사진 크기 */
         flex: none;      /* 고정 너비 해제 */
+        margin-bottom: 20px
     }
 
     .intro-content {
@@ -372,12 +373,12 @@ span.highlight {
 
     .intro-content h1 {
         text-align: center; /* 이름은 가운데 */
-        font-size: 4em;
+        font-size: 4.5em;
     }
 
     .intro-content small {
         text-align: center; /* 이름은 가운데 */
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     .intro-content p {
