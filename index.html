@@ -1,290 +1,545 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <meta name="google-site-verification" content="xDNWUvx6Q5EWK5YYSyKvK8DZTmvXhKsGX203Ll-BFFE" >
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Kim Youwang</title>
-    <link rel="stylesheet" type="text/css" id="defaultstyle" href="./style.css"/>
+
+    <!-- 기존 JS 파일 연결 유지 -->
     <script type="text/javascript" src="js/tracker.js"></script>
     <script type="text/javascript" src="js/pageturner.js"></script>
-  </head>
-  <script src="script/functions.js"></script>
-  <body>
+    <script src="script/functions.js"></script>
+
+    <!-- 스타일시트 (원본 style.css 내용 정리) -->
+    <style>
+        /* =========================================
+           0. Font Import
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap');
+
+        /* =========================================
+           1. Global Styles & Typography
+           ========================================= */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 21px;
+            color: black;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        b, h1, h2 {
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 1.85em;
+            margin: 0 0 1em 0;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            border-bottom-color: black;
+            display: block;
+            width: 100%;
+            float: left;
+        }
+
+        /* Specific spacing for h2 following intro */
+        .intro + h2 {
+            margin-bottom: 1.0em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077b5;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .a_more {
+            text-decoration: none;
+            color: #0077b5;
+            font-weight: 300;
+        }
+
+        note {
+            text-decoration: none;
+            color: #595959;
+            font-size: 11px;
+        }
+
+        /* =========================================
+           2. Layout & Containers
+           ========================================= */
+        .container {
+            margin: 0 auto;
+            font-size: 1em;
+            text-align: left;
+            width: 900px; /* 원래 너비 유지 */
+        }
+
+        .flcontainer {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Sections */
+        .item, .outro {
+            display: block;
+            width: 100%;
+            float: left;
+            margin-top: 1.5em;
+            margin-bottom: 0;
+        }
+
+        .outro {
+            margin-bottom: 3.33em;
+            text-align: right;
+            font-style: italic;
+            font-size: 10px;
+        }
+
+        /* =========================================
+           [NEW] Top Section
+           ========================================= */
+        .intro {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 3em;
+            margin-bottom: 1em;
+            width: 100%;
+        }
+
+        .profile-photo {
+            flex: 0 0 280px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            box-shadow: none;
+        }
+
+        .intro-content {
+            flex: 1;
+        }
+
+        .intro-content h1 {
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            font-size: 3.5em;
+            margin: 0 0 0 0;
+            line-height: 1.1;
+            font-weight: 600;
+        }
+
+        .intro-content p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            margin-bottom: 1em;
+            width: 100%;
+            float: none;
+        }
+
+        .intro-content .links {
+            margin-top: 1.5em;
+            font-size: 1em;
+        }
+
+        .intro-content .links a + span {
+            margin: 0 8px;
+            color: #ccc;
+        }
+
+        .intro-content small{
+            display: block;
+            font-size: 1em;
+        }
+
+        /* =========================================
+           3. Content Items (Projects, Papers)
+           ========================================= */
+        .item img {
+            float: left;
+            width: 25.0em;
+            margin-right: 1.25em;
+            margin-bottom: 0.8em;
+            border: 0;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .item video {
+            float: left;
+            width: 12.5em;
+            margin-right: 1.25em;
+            border: 0;
+        }
+
+        .item p {
+            margin-top: 0;
+            float: right;
+            width: 480px;
+        }
+
+        .item .title {
+            font-size: 1.1em;
+        }
+
+        .item p i {
+            font-weight: 400;
+        }
+
+        /* Remove bottom margin for last paragraphs */
+        .item p:last-child,
+        .intro p:last-child,
+        .outro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Lists */
+        li.yw_list { margin-left: -2%; }
+        li.exp_list { margin-left: -2%; margin-bottom: 1.5%; }
+
+        .list-item { margin-bottom: 10px; }
+
+        .custom-bullet::before {
+            content: "\00a0·\00a0";
+            font-size: 1.5em;
+            line-height: 20px;
+            vertical-align: top;
+        }
+
+        /* =========================================
+           4. Highlights & Effects
+           ========================================= */
+        .highlight-bg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-bg::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            bottom: -2px;
+            left: -10px;
+            right: -5px;
+            background-color: #FFFFD4;
+            border-radius: 0px;
+            z-index: -1;
+        }
+
+        span.highlight {
+            background-color: #FFFFD4;
+        }
+
+        /* =========================================
+           5. Publication Filter Buttons
+           ========================================= */
+        .publications-header {
+            display: flex;
+            align-items: center;
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .publications-header h2 {
+            float: none;
+            width: auto;
+            margin: 30px 20px 10px 0;
+        }
+
+        .pub-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .pub-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .pub-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .pub-button.active-button {
+            background-color: #0051c9;
+            color: white;
+            border-color: #0051c9;
+        }
+
+        /* =========================================
+           6. Experience Section
+           ========================================= */
+        .experience-item {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 2em;
+            align-items: flex-start;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .exp-logo {
+            flex: 0 0 150px;
+            margin-left: 0px;
+            margin-right: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 5px;
+        }
+
+        .exp-date {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #666;
+            text-align: center;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .exp-logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        .exp-content {
+            flex: 1;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            width: 100%;
+        }
+        .job-date {
+            white-space: nowrap;
+            margin-left: 15px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+
+        /* =========================================
+           8. Mobile / Responsive
+           ========================================= */
+        @media only screen and (max-device-width: 480px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                -moz-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                font-size: 2.1vw;
+                line-height: 2.7vw;
+                padding: 20px;
+            }
+
+            .container { width: 98%; }
+
+            /* Intro Mobile Adjustment */
+            .intro {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 3.15vw;
+                gap: 20px;
+            }
+
+            .profile-photo {
+                width: 80%;
+                flex: none;
+                margin-bottom: 20px
+            }
+
+            .intro-content {
+                text-align: left;
+                width: 100%;
+            }
+
+            .intro-content h1 {
+                text-align: center;
+                font-size: 4.5em;
+            }
+
+            .intro-content small {
+                text-align: center;
+                font-size: 1.5em;
+            }
+
+            .intro-content p {
+                font-size: 1.5em;
+            }
+
+            .intro-content .links {
+                font-size: 1.5em;
+                text-align: left;
+                margin-top: 15px;
+                line-height: 1.6;
+                display: block;
+            }
+
+            .outro { margin-bottom: 3.15vw; }
+
+            /* Items */
+            .item img {
+                width: 35%;
+                margin-right: 2.5%;
+            }
+            .item p { width: 60%; }
+
+            /* Experience Section Mobile */
+            .experience-item {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+            .exp-logo {
+                flex: 0 0 20vw;
+                margin-right: 0.5em
+            }
+            .exp-date {
+                font-size: 0.7em;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+            .job-date {
+                margin-left: 0;
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-      <div class="intro">
-        <div class="profile-photo">
-          <img src="media/profile_251211.jpg" alt="Kim Youwang">
-<!--          <img src="media/profile_250910.jpg" alt="Kim Youwang">-->
-        </div>
 
-        <div class="intro-content">
-          <h1>Kim Youwang</h1>
-          <small style="color:gray">youwang.kim@postech.ac.kr</small>
-          <p>
-            I am a Ph.D. student at <a href="https://www.postech.ac.kr/eng/index.do#;" target="_blank">POSTECH</a>, advised by <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>.
-            My research aims to advance photorealistic virtual experiences and simulation by synthesizing realistic 3D/4D digital twins from limited data and observations.
-          </p>
-
-          <p>
-            During my PhD period, I was fortunate to work as a research scientist intern at the <a href="https://about.meta.com/realitylabs/codecavatars/?utm_source=about.facebook.com&utm_medium=redirect" target="_blank">Meta Codec Avatars Lab</a>,
-            working with <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>, and <a href="https://www.linkedin.com/in/jovan-cmu/" target="_blank">Jovan Popović</a>.
-            I also work closely with <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a> and was a visiting Ph.D. researcher at the <a href="https://virtualhumans.mpi-inf.mpg.de/" target="_blank">Real Virtual Humans Group</a> at the <a href="https://uni-tuebingen.de/" target="_blank">Univ. of Tübingen</a>.
-            I received my bachelor's degree in Electrical Engineering from POSTECH.
-          </p>
-
-          <p class="links">
-            <a href="media/cv/CV_YouwangKim_251204.pdf" target="_blank">CV</a>
-            <span>|</span>
-            <a href="media/youwang_goal.mp4" target="_blank">Research Summary</a>
-            <span>|</span>
-            <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <span>|</span>
-            <a href="https://www.linkedin.com/in/kim-youwang/" target="_blank">LinkedIn</a>
-            <span>|</span>
-            <a href="https://github.com/Youwang-Kim" target="_blank">GitHub</a>
-          </p>
-        </div>
-      </div>
-
-
-      <h2>Experience</h2>
-      <!-- Meta -->
-      <div class="experience-item">
-        <div class="exp-logo">
-            <img src="./media/Meta.png" alt="Meta Logo">
-        </div>
-        <div class="exp-content">
-            <div class="job-header">
-                <span class="job-title">
-                    <b>Meta Codec Avatars Lab - Research Scientist Intern</b>, Pittsburgh, PA, USA
-                </span>
-                <span class="job-date">Oct '24 - Mar '25</span>
+        <!-- ================= INTRO ================= -->
+        <div class="intro">
+            <div class="profile-photo">
+                <img src="media/profile_251211.jpg" alt="Kim Youwang">
+                <!-- <img src="media/profile_250910.jpg" alt="Kim Youwang"> -->
             </div>
-            Working on feed-forward Codec Avatar (Managers: <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>)
-        </div>
-      </div>
 
-      <!-- University of Tübingen -->
-      <div class="experience-item">
-        <div class="exp-logo">
-            <img src="./media/University_Tuebingen.png" alt="University of Tübingen Logo">
-        </div>
-        <div class="exp-content">
-            <div class="job-header">
-                <span class="job-title">
-                    <b>University of Tübingen - Visiting Ph.D. Student</b>, Tübingen, Germany
-                </span>
-                <span class="job-date">Oct '23 - Mar '24</span>
-            </div>
-            Working with the Real Virtual Humans group (Advisor: <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a>)
-        </div>
-      </div>
+            <div class="intro-content">
+                <h1>Kim Youwang</h1>
+                <small style="color:gray">youwang.kim@postech.ac.kr</small>
+                <p>
+                    I am a Ph.D. student at <a href="https://www.postech.ac.kr/eng/index.do#;" target="_blank">POSTECH</a>, advised by <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>.
+                    My research aims to advance photorealistic virtual experiences and simulation by synthesizing realistic 3D/4D digital twins from limited data and observations.
+                </p>
 
-      <!-- POSTECH -->
-      <div class="experience-item">
-        <div class="exp-logo">
-            <img src="./media/postech_logo.png" alt="POSTECH Logo">
-        </div>
-        <div class="exp-content">
-            <div class="job-header">
-                <span class="job-title">
-                    <b>POSTECH - Ph.D. Candidate</b>, Pohang, Korea (Advisor: <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>)
-                </span>
-                <span class="job-date">Sep '20 - Present</span>
+                <p>
+                    During my PhD period, I was fortunate to work as a research scientist intern at the <a href="https://about.meta.com/realitylabs/codecavatars/?utm_source=about.facebook.com&utm_medium=redirect" target="_blank">Meta Codec Avatars Lab</a>,
+                    working with <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>, and <a href="https://www.linkedin.com/in/jovan-cmu/" target="_blank">Jovan Popović</a>.
+                    I also work closely with <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a> and was a visiting Ph.D. researcher at the <a href="https://virtualhumans.mpi-inf.mpg.de/" target="_blank">Real Virtual Humans Group</a> at the <a href="https://uni-tuebingen.de/" target="_blank">Univ. of Tübingen</a>.
+                    I received my bachelor's degree in Electrical Engineering from POSTECH.
+                </p>
+
+                <p class="links">
+                    <a href="media/cv/CV_YouwangKim_251204.pdf" target="_blank">CV</a>
+                    <span>|</span>
+                    <a href="media/youwang_goal.mp4" target="_blank">Research Summary</a>
+                    <span>|</span>
+                    <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <span>|</span>
+                    <a href="https://www.linkedin.com/in/kim-youwang/" target="_blank">LinkedIn</a>
+                    <span>|</span>
+                    <a href="https://github.com/Youwang-Kim" target="_blank">GitHub</a>
+                </p>
             </div>
         </div>
-      </div>
 
-      <div class="publications-header">
-        <h2>Research</h2>
-<!--        <div class="pub-buttons">-->
-<!--          <button id="selected-btn" class="pub-button active-button">Selected</button>-->
-<!--          <button id="all-btn" class="pub-button">All</button>-->
-<!--        </div>-->
-      </div>
-      I'm interested in computer vision, graphics and generative modeling. My research is mainly about synthesizing realistic 3D/4D digital twins for humans, animals, objects, robots and scenes, from limited data and observations.
+        <!-- ================= EXPERIENCE ================= -->
+        <h2>Experience</h2>
 
-      <div class="publications-section">
-        <div class="item">
-<!--          <img src='./media/youwang_avatar.gif'/>-->
-          <img src='./media/eff_face_avatar.gif'/>
-          <p>
-            <b class="title">A Paper on Monocular High-Fidelity 3D Face Avatar Synthesis</b><br/>
-            <br>
-            <i>To be updated</i>
-          </p>
+        <!-- Meta -->
+        <div class="experience-item">
+            <div class="exp-logo">
+                <img src="./media/Meta.png" alt="Meta Logo">
+            </div>
+            <div class="exp-content">
+                <div class="job-header">
+                    <span class="job-title">
+                        <b>Meta Codec Avatars Lab - Research Scientist Intern</b>, Pittsburgh, PA, USA
+                    </span>
+                    <span class="job-date">Oct '24 - Mar '25</span>
+                </div>
+                Working on feed-forward Codec Avatar (Managers: <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>)
+            </div>
         </div>
 
-        <div class="item">
-          <img src='./media/face_avatar.gif'/>
-          <p>
-            <b class="title">A Paper on Monocular Feed-forward 3D Face Avatar Synthesis</b><br/>
-            <br>
-            <i>To be updated</i>
-          </p>
+        <!-- University of Tübingen -->
+        <div class="experience-item">
+            <div class="exp-logo">
+                <img src="./media/University_Tuebingen.png" alt="University of Tübingen Logo">
+            </div>
+            <div class="exp-content">
+                <div class="job-header">
+                    <span class="job-title">
+                        <b>University of Tübingen - Visiting Ph.D. Student</b>, Tübingen, Germany
+                    </span>
+                    <span class="job-date">Oct '23 - Mar '24</span>
+                </div>
+                Working with the Real Virtual Humans group (Advisor: <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a>)
+            </div>
         </div>
 
-        <div class="item">
-          <img src='./media/robot.png'/>
-          <p>
-            <b class="title">A Paper on Vision-based Robot State Estimation</b><br/>
-            <br>
-            <i>To be updated</i>
-          </p>
+        <!-- POSTECH -->
+        <div class="experience-item">
+            <div class="exp-logo">
+                <img src="./media/postech_logo.png" alt="POSTECH Logo">
+            </div>
+            <div class="exp-content">
+                <div class="job-header">
+                    <span class="job-title">
+                        <b>POSTECH - Ph.D. Candidate</b>, Pohang, Korea (Advisor: <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>)
+                    </span>
+                    <span class="job-date">Sep '20 - Present</span>
+                </div>
+            </div>
         </div>
 
+        <!-- ================= RESEARCH (JS Generated) ================= -->
+        <div class="publications-header">
+            <h2>Research</h2>
+            <!-- <div class="pub-buttons">...</div> -->
+        </div>
+        I'm interested in computer vision, graphics and generative modeling. My research is mainly about synthesizing realistic 3D/4D digital twins for humans, animals, objects, robots and scenes, from limited data and observations.
 
-        <div class="item">
-          <img src='./media/gen_human.png'/>
-          <p>
-            <b class="title">Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps</b><br/>
-            <u>Kim Youwang</u>, Lee Hyoseok, Gerard Pons-Moll, Tae-Hyun Oh<br/>
-            <i>ICCVw 2025 (<span style="color:#c00000;">Oral presentation</span>)</i><br/>
-              <a href="./media/pdfs/dress_up_camready.pdf" target="_blank">Paper</a> |
-              <a href="./media/pdfs/dress_up_iccvw_oral.pdf" target="_blank">Slide</a><br>
-<!--            <small style="color:gray;margin-bottom:0.0em">- Workshop on Computer Vision for Fashion, Art, and Design</small><br/>-->
-          </p>
+        <div class="publications-section">
+            <!-- 논문 리스트가 자바스크립트에 의해 여기에 자동으로 생성됩니다. -->
+            <div id="publication-list"></div>
         </div>
 
-        <div class="item">
-          <img src='./media/clip-actor-x_crop.jpg'/>
-          <p>
-            <b class="title">CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization</b><br/>
-            <u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh<br/>
-            <i>TPAMI - under major revision</i><br/>
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/fpgs.gif'/>
-          <p>
-            <b class="title">FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting</b><br/>
-            GeonU Kim, <u>Kim Youwang</u>, Lee Hyoseok, Tae-Hyun Oh<br/>
-            <i>IJCV - under major revision</i><br/>
-              <a href="https://kim-geonu.github.io/FPGS/" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2503.09635" target="_blank">Paper</a> |
-              <a href="https://github.com/kaist-ami/" target="_blank">Code(TBA)</a><br>
-<!--            <small style="color:gray;margin-bottom:0.0em">- Excellence Prize ($2K) at ICT paper awards 2024 </small><br/>-->
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/robust3drecon.png'/>
-          <p>
-            <b class="title">Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild</b><br/>
-            Junhyeong Cho, <u>Kim Youwang</u>, Hunmin Yang, Tae-Hyun Oh<br/>
-            <i>CVPR 2025</i><br/>
-              <a href="https://zeroshape-w.github.io/" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2403.14539v2" target="_blank">Paper</a><br>
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/4d_face.gif'/>
-          <p>
-            <b class="title">A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization</b><br/>
-            <u>Kim Youwang</u>, Lee Hyun*, Kim Sung-Bin*, Suekyeong Nam, Janghoon Ju, Tae-Hyun Oh<br/>
-            <i>ICLR 2025 / TMLR 2024</i><br/>
-              <a href="https://kim-youwang.github.io/neuface" target="_blank">Project page</a> |
-              <a href="https://openreview.net/forum?id=zVDMh6JvWc" target="_blank">Paper</a> |
-              <a href="https://github.com/kaist-ami/NeuFace" target="_blank">Code</a><br>
-<!--            <small style="color:gray;margin-bottom: 0.0em">- Invited to ICLR 2025 for poster presentation (Top 5% TMLR papers invited)</small><br>-->
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/paint_it.jpg'/>
-          <p>
-            <b class="title">Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering</b><br/>
-            <u>Kim Youwang</u>, Tae-Hyun Oh, Gerard Pons-Moll<br/>
-            <i>CVPR 2024</i><br/>
-              <a href="https://kim-youwang.github.io/paint-it" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2312.11360" target="_blank">Paper</a> |
-              <a href="https://youtu.be/uSKK-ekVJLg" target="_blank">Video</a> |
-              <a href="https://github.com/kaist-ami/paint-it" target="_blank">Code</a> |
-              <a href="https://www.dropbox.com/scl/fi/4plpanxqy0lo16d3d8t8p/cvpr24_poster_youwang_final.pdf?rlkey=gah19krwju0clqdsep6g3qd4w&st=x831q8a5&dl=0" target="_blank">Poster</a><br/>
-<!--            <small style="color:gray;margin-bottom: 0.0em">- Best Poster Award at POSTECH-KAIST joint ML workshop 2024</small><br>-->
-<!--            <small style="color:gray;margin-bottom: 0.0em">- Presented in AI for Content Creation Workshop (AI4CC) at CVPR 2024</small><br>-->
-<!--            <small style="color:gray;margin-bottom: 0.0em">- Presented in AI for 3D Generation Workshop (AI3DG) at CVPR 2024</small>-->
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/metta.gif'/>
-          <p>
-            <b class="title">MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation</b><br/>
-            Kim Yu-Ji, Hyunwoo Ha, <u>Kim Youwang</u>, Jaeheung Surh, Hyowon Ha, Tae-Hyun Oh<br>
-            <i>BMVC 2024 (<span style="color:#c00000;">Best Poster Award</span>)</i><br/>
-              <a href="https://metta3d.github.io/" target="_blank">Project page</a><br>
-<!--            <small style="color:gray;margin-bottom: 0.0em">- Best Poster Award at BMVC 2024</small><br>-->
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/fprf_v2.gif'/>
-          <p>
-            <b class="title">Feed-Forward Photorealistic Style Transfer for Large-Scale 3D Neural Radiance Fields</b><br/>
-            GeonU Kim, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>
-            <i>AAAI 2024</i><br/>
-              <a href="https://kim-geonu.github.io/FPRF/" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2401.05516" target="_blank">Paper</a> |
-              <a href="https://github.com/kaist-ami/FPRF" target="_blank">Code</a><br>
-          </p>
-        </div>
-
-
-        <div class="item">
-          <img src='./media/rank_pruning.jpg'/>
-          <p>
-            <b class="title">Multi-stage Adaptive Rank Statistic Pruning for Lightweight Human 3D Mesh Recovery Model</b><br/>
-            Dong Hun Ryou, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>
-            <i>The Visual Computer Journal (TVCJ) 2023</i><br/>
-              <a href="https://link.springer.com/article/10.1007/s00371-023-02798-x" target="_blank">Paper</a>
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/clip_actor.gif'/>
-          <p>
-            <b class="title">CLIP-Actor: Text-Driven Recommendation and Stylization for Animating Human Meshes</b><br/>
-            <u>Kim Youwang</u>*, Kim Ji-Yeon*, Tae-Hyun Oh<br/>
-            <i>ECCV 2022</i><br/>
-              <a href="https://clip-actor.github.io" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2206.04382" target="_blank">Paper</a> |
-              <a href="https://youtu.be/oWr4NP-eVLY" target="_blank">Video</a> |
-              <a href="https://github.com/kaist-ami/CLIP-Actor" target="_blank">Code</a> |
-              <a href="https://www.dropbox.com/s/8l2jvvc0po6szn7/3229-poster.pdf?dl=0" target="_blank">Poster</a><br/>
-<!--              <small style="color:gray;margin-bottom:0.0em">- Grand Prize (1st place, Minister's award, $12K) at ICT paper awards 2023 </small><br/>-->
-<!--              <small style="color:gray;margin-bottom:0.0em">- Qualcomm Innovation Award Winner 2022</small><br/>-->
-<!--              <small style="color:gray;margin-bottom:0.0em">- Presented in AI for Content Creation Workshop (AI4CC) at CVPR 2023</small>-->
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/fastmetro_teaser.jpg'/>
-          <p>
-            <b class="title">FastMETRO: Cross-Attention of Disentangled Modalities for 3D Human Mesh Recovery with Transformers</b><br/>
-            Junhyeong Cho, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>
-            <i>ECCV 2022</i><br/>
-              <a href="https://fastmetro.github.io/" target="_blank">Project page</a> |
-              <a href="https://arxiv.org/abs/2207.13820" target="_blank">Paper</a> |
-              <a href="https://github.com/kaist-ami/FastMETRO" target="_blank">Code</a> |
-              <a href="https://www.dropbox.com/s/kzmihz488qcelxi/2116-poster.pdf?dl=0" target="_blank">Poster</a><br/>
-          </p>
-        </div>
-
-        <div class="item">
-          <img src='./media/demr.jpg'/>
-          <p>
-            <b class="title">Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise</b><br/>
-            <u>Kim Youwang</u>, Kim Ji-Yeon, Kyungdon Joo, Tae-Hyun Oh<br/>
-                <i>BMVC 2021</i><br/>
-                <a href="https://demr-bmvc21.github.io" target="_blank">Project page</a> |
-                <a href="https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf" target="_blank">Paper</a>
-          </p>
-        </div>
-      </div>
-      <h2>Awards & Honors</h2>
+        <!-- ================= AWARDS ================= -->
+        <h2>Awards & Honors</h2>
         <ul>
             <li class="yw_list">Best Poster Award, BMVC, 2024</li>
             <li class="yw_list">Excellence Prize, Electronics Times ICT Paper Awards, 2024</li>
@@ -295,45 +550,591 @@
             <li class="yw_list">International Computer Vision Summer School (ICVSS), 2022</li>
         </ul>
 
-<!--      <h2>Talks</h2>-->
-<!--        <ul>-->
-<!--            <li class="yw_list">Towards Efficient & Realistic Virtual World Communication, INNERVERZ, Korea, 2023</li>-->
-<!--        </ul>-->
-
-      <h2>Academic Services</h2>
+        <!-- ================= SERVICES ================= -->
+        <h2>Academic Services</h2>
         <ul>
             <li class="yw_list">
-              <b>Conference Reviewer</b>
-              <ul>
-                <li class="yw_list">CVPR: 2024, 2025, 2026</li>
-                <li class="yw_list">ICCV: 2023 (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php">Outstanding reviewer</a>), 2025 </li>
-                <li class="yw_list">ECCV: 2024</li>
-                <li class="yw_list">NeurIPS: 2024, 2025</li>
-                <li class="yw_list">WACV: 2026</li>
-                <li class="yw_list">BMVC: 2024</li>
-                <br>
-              </ul>
+                <b>Conference Reviewer</b>
+                <ul>
+                    <li class="yw_list">CVPR: 2024, 2025, 2026</li>
+                    <li class="yw_list">ICCV: 2023 (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php">Outstanding reviewer</a>), 2025 </li>
+                    <li class="yw_list">ECCV: 2024</li>
+                    <li class="yw_list">NeurIPS: 2024, 2025</li>
+                    <li class="yw_list">WACV: 2026</li>
+                    <li class="yw_list">BMVC: 2024</li>
+                    <br>
+                </ul>
             </li>
             <li class="yw_list">
-              <b>Journal Reviewer</b>
-              <ul>
-                <li class="yw_list">IEEE Trans. on Pattern Analysis and Machine Learning (TPAMI): 2024, 2025</li>
-                <li class="yw_list">ACM Trans. on Graphics / SIGGRAPH Asia: 2024</li>
-                <li class="yw_list">International Journal of Computer Vision (IJCV): 2024, 2025</li>
-                <li class="yw_list">Transactions on Machine Learning Research (TMLR): 2025</li>
-                <li class="yw_list">IEEE Transactions on Multimedia (TMM): 2023</li>
-              </ul>
+                <b>Journal Reviewer</b>
+                <ul>
+                    <li class="yw_list">IEEE Trans. on Pattern Analysis and Machine Learning (TPAMI): 2024, 2025</li>
+                    <li class="yw_list">ACM Trans. on Graphics / SIGGRAPH Asia: 2024</li>
+                    <li class="yw_list">International Journal of Computer Vision (IJCV): 2024, 2025</li>
+                    <li class="yw_list">Transactions on Machine Learning Research (TMLR): 2025</li>
+                    <li class="yw_list">IEEE Transactions on Multimedia (TMM): 2023</li>
+                </ul>
             </li>
         </ul>
 
     </div> <!-- container -->
+
+    <!-- Google Analytics (Original) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-5RW688RKHW');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5RW688RKHW');
     </script>
-  </body>
+
+    <!-- =========================================
+         [논문 관리 스크립트]
+         - 여기에 새로운 논문을 추가하면 자동으로 화면에 업데이트 됩니다.
+         ========================================= -->
+    <script>
+        const publicationsData = [
+            {
+                image: "./media/eff_face_avatar.gif",
+                title: "A Paper on Monocular High-Fidelity 3D Face Avatar Synthesis",
+                authors: "",
+                venue: "To be updated",
+                links: []
+            },
+            {
+                image: "./media/face_avatar.gif",
+                title: "A Paper on Monocular Feed-forward 3D Face Avatar Synthesis",
+                authors: "",
+                venue: "To be updated",
+                links: []
+            },
+            {
+                image: "./media/robot.png",
+                title: "A Paper on Vision-based Robot State Estimation",
+                authors: "",
+                venue: "To be updated",
+                links: []
+            },
+            {
+                image: "./media/gen_human.png",
+                title: "Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps",
+                authors: "<u>Kim Youwang</u>, Lee Hyoseok, Gerard Pons-Moll, Tae-Hyun Oh",
+                venue: "ICCVw 2025 (<span style=\"color:#c00000;\">Oral presentation</span>)",
+                links: [
+                    { name: "Paper", url: "./media/pdfs/dress_up_camready.pdf" },
+                    { name: "Slide", url: "./media/pdfs/dress_up_iccvw_oral.pdf" }
+                ],
+                // note: "- Workshop on Computer Vision for Fashion, Art, and Design" // 필요한 경우 주석 해제하여 사용
+            },
+            {
+                image: "./media/clip-actor-x_crop.jpg",
+                title: "CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization",
+                authors: "<u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh",
+                venue: "TPAMI - under major revision",
+                links: []
+            },
+            {
+                image: "./media/fpgs.gif",
+                title: "FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting",
+                authors: "GeonU Kim, <u>Kim Youwang</u>, Lee Hyoseok, Tae-Hyun Oh",
+                venue: "IJCV - under major revision",
+                links: [
+                    { name: "Project page", url: "https://kim-geonu.github.io/FPGS/" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2503.09635" },
+                    { name: "Code(TBA)", url: "https://github.com/kaist-ami/" }
+                ]
+            },
+            {
+                image: "./media/robust3drecon.png",
+                title: "Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild",
+                authors: "Junhyeong Cho, <u>Kim Youwang</u>, Hunmin Yang, Tae-Hyun Oh",
+                venue: "CVPR 2025",
+                links: [
+                    { name: "Project page", url: "https://zeroshape-w.github.io/" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2403.14539v2" }
+                ]
+            },
+            {
+                image: "./media/4d_face.gif",
+                title: "A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization",
+                authors: "<u>Kim Youwang</u>, Lee Hyun*, Kim Sung-Bin*, Suekyeong Nam, Janghoon Ju, Tae-Hyun Oh",
+                venue: "ICLR 2025 / TMLR 2024",
+                links: [
+                    { name: "Project page", url: "https://kim-youwang.github.io/neuface" },
+                    { name: "Paper", url: "https://openreview.net/forum?id=zVDMh6JvWc" },
+                    { name: "Code", url: "https://github.com/kaist-ami/NeuFace" }
+                ]
+            },
+            {
+                image: "./media/paint_it.jpg",
+                title: "Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering",
+                authors: "<u>Kim Youwang</u>, Tae-Hyun Oh, Gerard Pons-Moll",
+                venue: "CVPR 2024",
+                links: [
+                    { name: "Project page", url: "https://kim-youwang.github.io/paint-it" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2312.11360" },
+                    { name: "Video", url: "https://youtu.be/uSKK-ekVJLg" },
+                    { name: "Code", url: "https://github.com/kaist-ami/paint-it" },
+                    { name: "Poster", url: "https://www.dropbox.com/scl/fi/4plpanxqy0lo16d3d8t8p/cvpr24_poster_youwang_final.pdf?rlkey=gah19krwju0clqdsep6g3qd4w&st=x831q8a5&dl=0" }
+                ]
+            },
+            {
+                image: "./media/metta.gif",
+                title: "MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation",
+                authors: "Kim Yu-Ji, Hyunwoo Ha, <u>Kim Youwang</u>, Jaeheung Surh, Hyowon Ha, Tae-Hyun Oh",
+                venue: "BMVC 2024 (<span style=\"color:#c00000;\">Best Poster Award</span>)",
+                links: [
+                    { name: "Project page", url: "https://metta3d.github.io/" }
+                ]
+            },
+            {
+                image: "./media/fprf_v2.gif",
+                title: "Feed-Forward Photorealistic Style Transfer for Large-Scale 3D Neural Radiance Fields",
+                authors: "GeonU Kim, <u>Kim Youwang</u>, Tae-Hyun Oh",
+                venue: "AAAI 2024",
+                links: [
+                    { name: "Project page", url: "https://kim-geonu.github.io/FPRF/" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2401.05516" },
+                    { name: "Code", url: "https://github.com/kaist-ami/FPRF" }
+                ]
+            },
+            {
+                image: "./media/rank_pruning.jpg",
+                title: "Multi-stage Adaptive Rank Statistic Pruning for Lightweight Human 3D Mesh Recovery Model",
+                authors: "Dong Hun Ryou, <u>Kim Youwang</u>, Tae-Hyun Oh",
+                venue: "The Visual Computer Journal (TVCJ) 2023",
+                links: [
+                    { name: "Paper", url: "https://link.springer.com/article/10.1007/s00371-023-02798-x" }
+                ]
+            },
+            {
+                image: "./media/clip_actor.gif",
+                title: "CLIP-Actor: Text-Driven Recommendation and Stylization for Animating Human Meshes",
+                authors: "<u>Kim Youwang</u>*, Kim Ji-Yeon*, Tae-Hyun Oh",
+                venue: "ECCV 2022",
+                links: [
+                    { name: "Project page", url: "https://clip-actor.github.io" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2206.04382" },
+                    { name: "Video", url: "https://youtu.be/oWr4NP-eVLY" },
+                    { name: "Code", url: "https://github.com/kaist-ami/CLIP-Actor" },
+                    { name: "Poster", url: "https://www.dropbox.com/s/8l2jvvc0po6szn7/3229-poster.pdf?dl=0" }
+                ]
+            },
+            {
+                image: "./media/fastmetro_teaser.jpg",
+                title: "FastMETRO: Cross-Attention of Disentangled Modalities for 3D Human Mesh Recovery with Transformers",
+                authors: "Junhyeong Cho, <u>Kim Youwang</u>, Tae-Hyun Oh",
+                venue: "ECCV 2022",
+                links: [
+                    { name: "Project page", url: "https://fastmetro.github.io/" },
+                    { name: "Paper", url: "https://arxiv.org/abs/2207.13820" },
+                    { name: "Code", url: "https://github.com/kaist-ami/FastMETRO" },
+                    { name: "Poster", url: "https://www.dropbox.com/s/kzmihz488qcelxi/2116-poster.pdf?dl=0" }
+                ]
+            },
+            {
+                image: "./media/demr.jpg",
+                title: "Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise",
+                authors: "<u>Kim Youwang</u>, Kim Ji-Yeon, Kyungdon Joo, Tae-Hyun Oh",
+                venue: "BMVC 2021",
+                links: [
+                    { name: "Project page", url: "https://demr-bmvc21.github.io" },
+                    { name: "Paper", url: "https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf" }
+                ]
+            }
+        ];
+
+        // ============================================
+        // 렌더링 로직 (원본 HTML 구조 유지)
+        // ============================================
+        function renderPublications() {
+            const container = document.getElementById('publication-list');
+            let html = '';
+
+            publicationsData.forEach(item => {
+                // 링크 생성 로직
+                let linksHtml = '';
+                if (item.links && item.links.length > 0) {
+                    const linkItems = item.links.map(link =>
+                        `<a href="${link.url}" target="_blank">${link.name}</a>`
+                    );
+                    linksHtml = linkItems.join(' | ') + '<br/>';
+                }
+
+                // Note (small tag) 생성 로직
+                let noteHtml = '';
+                if (item.note) {
+                    noteHtml = `<small style="color:gray;margin-bottom:0.0em">${item.note}</small><br/>`;
+                }
+
+                // Authors 처리 (없으면 공백만 둠)
+                let authorsHtml = item.authors ? `${item.authors}<br/>` : `<br>`;
+
+                // Venue 처리
+                let venueHtml = item.venue ? `<i>${item.venue}</i><br/>` : ``;
+
+                // HTML 조립 (원본의 .item 구조와 동일하게 생성)
+                html += `
+                <div class="item">
+                  <img src='${item.image}' alt="teaser"/>
+                  <p>
+                    <b class="title">${item.title}</b><br/>
+                    ${authorsHtml}
+                    ${venueHtml}
+                    ${linksHtml}
+                    ${noteHtml}
+                  </p>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 페이지 로드 완료 시 실행
+        window.onload = function() {
+            renderPublications();
+        };
+    </script>
+</body>
 </html>
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--  <head>-->
+<!--    <meta name="google-site-verification" content="xDNWUvx6Q5EWK5YYSyKvK8DZTmvXhKsGX203Ll-BFFE" >-->
+<!--    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>-->
+<!--    <title>Kim Youwang</title>-->
+<!--    <link rel="stylesheet" type="text/css" id="defaultstyle" href="./style.css"/>-->
+<!--    <script type="text/javascript" src="js/tracker.js"></script>-->
+<!--    <script type="text/javascript" src="js/pageturner.js"></script>-->
+<!--  </head>-->
+<!--  <script src="script/functions.js"></script>-->
+<!--  <body>-->
+<!--    <div class="container">-->
+<!--      <div class="intro">-->
+<!--        <div class="profile-photo">-->
+<!--          <img src="media/profile_251211.jpg" alt="Kim Youwang">-->
+<!--&lt;!&ndash;          <img src="media/profile_250910.jpg" alt="Kim Youwang">&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <div class="intro-content">-->
+<!--          <h1>Kim Youwang</h1>-->
+<!--          <small style="color:gray">youwang.kim@postech.ac.kr</small>-->
+<!--          <p>-->
+<!--            I am a Ph.D. student at <a href="https://www.postech.ac.kr/eng/index.do#;" target="_blank">POSTECH</a>, advised by <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>.-->
+<!--            My research aims to advance photorealistic virtual experiences and simulation by synthesizing realistic 3D/4D digital twins from limited data and observations.-->
+<!--          </p>-->
+
+<!--          <p>-->
+<!--            During my PhD period, I was fortunate to work as a research scientist intern at the <a href="https://about.meta.com/realitylabs/codecavatars/?utm_source=about.facebook.com&utm_medium=redirect" target="_blank">Meta Codec Avatars Lab</a>,-->
+<!--            working with <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>, and <a href="https://www.linkedin.com/in/jovan-cmu/" target="_blank">Jovan Popović</a>.-->
+<!--            I also work closely with <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a> and was a visiting Ph.D. researcher at the <a href="https://virtualhumans.mpi-inf.mpg.de/" target="_blank">Real Virtual Humans Group</a> at the <a href="https://uni-tuebingen.de/" target="_blank">Univ. of Tübingen</a>.-->
+<!--            I received my bachelor's degree in Electrical Engineering from POSTECH.-->
+<!--          </p>-->
+
+<!--          <p class="links">-->
+<!--            <a href="media/cv/CV_YouwangKim_251204.pdf" target="_blank">CV</a>-->
+<!--            <span>|</span>-->
+<!--            <a href="media/youwang_goal.mp4" target="_blank">Research Summary</a>-->
+<!--            <span>|</span>-->
+<!--            <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" target="_blank">Google Scholar</a>-->
+<!--            <span>|</span>-->
+<!--            <a href="https://www.linkedin.com/in/kim-youwang/" target="_blank">LinkedIn</a>-->
+<!--            <span>|</span>-->
+<!--            <a href="https://github.com/Youwang-Kim" target="_blank">GitHub</a>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <h2>Experience</h2>-->
+<!--      &lt;!&ndash; Meta &ndash;&gt;-->
+<!--      <div class="experience-item">-->
+<!--        <div class="exp-logo">-->
+<!--            <img src="./media/Meta.png" alt="Meta Logo">-->
+<!--        </div>-->
+<!--        <div class="exp-content">-->
+<!--            <div class="job-header">-->
+<!--                <span class="job-title">-->
+<!--                    <b>Meta Codec Avatars Lab - Research Scientist Intern</b>, Pittsburgh, PA, USA-->
+<!--                </span>-->
+<!--                <span class="job-date">Oct '24 - Mar '25</span>-->
+<!--            </div>-->
+<!--            Working on feed-forward Codec Avatar (Managers: <a href="https://sites.google.com/site/zjucaochen/home" target="_blank">Chen Cao</a>, <a href="https://www.cs.cmu.edu/~yaser/" target="_blank">Yaser Sheikh</a>)-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; University of Tübingen &ndash;&gt;-->
+<!--      <div class="experience-item">-->
+<!--        <div class="exp-logo">-->
+<!--            <img src="./media/University_Tuebingen.png" alt="University of Tübingen Logo">-->
+<!--        </div>-->
+<!--        <div class="exp-content">-->
+<!--            <div class="job-header">-->
+<!--                <span class="job-title">-->
+<!--                    <b>University of Tübingen - Visiting Ph.D. Student</b>, Tübingen, Germany-->
+<!--                </span>-->
+<!--                <span class="job-date">Oct '23 - Mar '24</span>-->
+<!--            </div>-->
+<!--            Working with the Real Virtual Humans group (Advisor: <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank">Gerard Pons-Moll</a>)-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; POSTECH &ndash;&gt;-->
+<!--      <div class="experience-item">-->
+<!--        <div class="exp-logo">-->
+<!--            <img src="./media/postech_logo.png" alt="POSTECH Logo">-->
+<!--        </div>-->
+<!--        <div class="exp-content">-->
+<!--            <div class="job-header">-->
+<!--                <span class="job-title">-->
+<!--                    <b>POSTECH - Ph.D. Candidate</b>, Pohang, Korea (Advisor: <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank">Tae-Hyun Oh</a>)-->
+<!--                </span>-->
+<!--                <span class="job-date">Sep '20 - Present</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="publications-header">-->
+<!--        <h2>Research</h2>-->
+<!--&lt;!&ndash;        <div class="pub-buttons">&ndash;&gt;-->
+<!--&lt;!&ndash;          <button id="selected-btn" class="pub-button active-button">Selected</button>&ndash;&gt;-->
+<!--&lt;!&ndash;          <button id="all-btn" class="pub-button">All</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      I'm interested in computer vision, graphics and generative modeling. My research is mainly about synthesizing realistic 3D/4D digital twins for humans, animals, objects, robots and scenes, from limited data and observations.-->
+
+<!--      <div class="publications-section">-->
+<!--        <div class="item">-->
+<!--&lt;!&ndash;          <img src='./media/youwang_avatar.gif'/>&ndash;&gt;-->
+<!--          <img src='./media/eff_face_avatar.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">A Paper on Monocular High-Fidelity 3D Face Avatar Synthesis</b><br/>-->
+<!--            <br>-->
+<!--            <i>To be updated</i>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/face_avatar.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">A Paper on Monocular Feed-forward 3D Face Avatar Synthesis</b><br/>-->
+<!--            <br>-->
+<!--            <i>To be updated</i>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/robot.png'/>-->
+<!--          <p>-->
+<!--            <b class="title">A Paper on Vision-based Robot State Estimation</b><br/>-->
+<!--            <br>-->
+<!--            <i>To be updated</i>-->
+<!--          </p>-->
+<!--        </div>-->
+
+
+<!--        <div class="item">-->
+<!--          <img src='./media/gen_human.png'/>-->
+<!--          <p>-->
+<!--            <b class="title">Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps</b><br/>-->
+<!--            <u>Kim Youwang</u>, Lee Hyoseok, Gerard Pons-Moll, Tae-Hyun Oh<br/>-->
+<!--            <i>ICCVw 2025 (<span style="color:#c00000;">Oral presentation</span>)</i><br/>-->
+<!--              <a href="./media/pdfs/dress_up_camready.pdf" target="_blank">Paper</a> |-->
+<!--              <a href="./media/pdfs/dress_up_iccvw_oral.pdf" target="_blank">Slide</a><br>-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom:0.0em">- Workshop on Computer Vision for Fashion, Art, and Design</small><br/>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/clip-actor-x_crop.jpg'/>-->
+<!--          <p>-->
+<!--            <b class="title">CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization</b><br/>-->
+<!--            <u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh<br/>-->
+<!--            <i>TPAMI - under major revision</i><br/>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/fpgs.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting</b><br/>-->
+<!--            GeonU Kim, <u>Kim Youwang</u>, Lee Hyoseok, Tae-Hyun Oh<br/>-->
+<!--            <i>IJCV - under major revision</i><br/>-->
+<!--              <a href="https://kim-geonu.github.io/FPGS/" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2503.09635" target="_blank">Paper</a> |-->
+<!--              <a href="https://github.com/kaist-ami/" target="_blank">Code(TBA)</a><br>-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom:0.0em">- Excellence Prize ($2K) at ICT paper awards 2024 </small><br/>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/robust3drecon.png'/>-->
+<!--          <p>-->
+<!--            <b class="title">Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild</b><br/>-->
+<!--            Junhyeong Cho, <u>Kim Youwang</u>, Hunmin Yang, Tae-Hyun Oh<br/>-->
+<!--            <i>CVPR 2025</i><br/>-->
+<!--              <a href="https://zeroshape-w.github.io/" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2403.14539v2" target="_blank">Paper</a><br>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/4d_face.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization</b><br/>-->
+<!--            <u>Kim Youwang</u>, Lee Hyun*, Kim Sung-Bin*, Suekyeong Nam, Janghoon Ju, Tae-Hyun Oh<br/>-->
+<!--            <i>ICLR 2025 / TMLR 2024</i><br/>-->
+<!--              <a href="https://kim-youwang.github.io/neuface" target="_blank">Project page</a> |-->
+<!--              <a href="https://openreview.net/forum?id=zVDMh6JvWc" target="_blank">Paper</a> |-->
+<!--              <a href="https://github.com/kaist-ami/NeuFace" target="_blank">Code</a><br>-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom: 0.0em">- Invited to ICLR 2025 for poster presentation (Top 5% TMLR papers invited)</small><br>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/paint_it.jpg'/>-->
+<!--          <p>-->
+<!--            <b class="title">Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering</b><br/>-->
+<!--            <u>Kim Youwang</u>, Tae-Hyun Oh, Gerard Pons-Moll<br/>-->
+<!--            <i>CVPR 2024</i><br/>-->
+<!--              <a href="https://kim-youwang.github.io/paint-it" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2312.11360" target="_blank">Paper</a> |-->
+<!--              <a href="https://youtu.be/uSKK-ekVJLg" target="_blank">Video</a> |-->
+<!--              <a href="https://github.com/kaist-ami/paint-it" target="_blank">Code</a> |-->
+<!--              <a href="https://www.dropbox.com/scl/fi/4plpanxqy0lo16d3d8t8p/cvpr24_poster_youwang_final.pdf?rlkey=gah19krwju0clqdsep6g3qd4w&st=x831q8a5&dl=0" target="_blank">Poster</a><br/>-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom: 0.0em">- Best Poster Award at POSTECH-KAIST joint ML workshop 2024</small><br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom: 0.0em">- Presented in AI for Content Creation Workshop (AI4CC) at CVPR 2024</small><br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom: 0.0em">- Presented in AI for 3D Generation Workshop (AI3DG) at CVPR 2024</small>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/metta.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation</b><br/>-->
+<!--            Kim Yu-Ji, Hyunwoo Ha, <u>Kim Youwang</u>, Jaeheung Surh, Hyowon Ha, Tae-Hyun Oh<br>-->
+<!--            <i>BMVC 2024 (<span style="color:#c00000;">Best Poster Award</span>)</i><br/>-->
+<!--              <a href="https://metta3d.github.io/" target="_blank">Project page</a><br>-->
+<!--&lt;!&ndash;            <small style="color:gray;margin-bottom: 0.0em">- Best Poster Award at BMVC 2024</small><br>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/fprf_v2.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">Feed-Forward Photorealistic Style Transfer for Large-Scale 3D Neural Radiance Fields</b><br/>-->
+<!--            GeonU Kim, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>-->
+<!--            <i>AAAI 2024</i><br/>-->
+<!--              <a href="https://kim-geonu.github.io/FPRF/" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2401.05516" target="_blank">Paper</a> |-->
+<!--              <a href="https://github.com/kaist-ami/FPRF" target="_blank">Code</a><br>-->
+<!--          </p>-->
+<!--        </div>-->
+
+
+<!--        <div class="item">-->
+<!--          <img src='./media/rank_pruning.jpg'/>-->
+<!--          <p>-->
+<!--            <b class="title">Multi-stage Adaptive Rank Statistic Pruning for Lightweight Human 3D Mesh Recovery Model</b><br/>-->
+<!--            Dong Hun Ryou, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>-->
+<!--            <i>The Visual Computer Journal (TVCJ) 2023</i><br/>-->
+<!--              <a href="https://link.springer.com/article/10.1007/s00371-023-02798-x" target="_blank">Paper</a>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/clip_actor.gif'/>-->
+<!--          <p>-->
+<!--            <b class="title">CLIP-Actor: Text-Driven Recommendation and Stylization for Animating Human Meshes</b><br/>-->
+<!--            <u>Kim Youwang</u>*, Kim Ji-Yeon*, Tae-Hyun Oh<br/>-->
+<!--            <i>ECCV 2022</i><br/>-->
+<!--              <a href="https://clip-actor.github.io" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2206.04382" target="_blank">Paper</a> |-->
+<!--              <a href="https://youtu.be/oWr4NP-eVLY" target="_blank">Video</a> |-->
+<!--              <a href="https://github.com/kaist-ami/CLIP-Actor" target="_blank">Code</a> |-->
+<!--              <a href="https://www.dropbox.com/s/8l2jvvc0po6szn7/3229-poster.pdf?dl=0" target="_blank">Poster</a><br/>-->
+<!--&lt;!&ndash;              <small style="color:gray;margin-bottom:0.0em">- Grand Prize (1st place, Minister's award, $12K) at ICT paper awards 2023 </small><br/>&ndash;&gt;-->
+<!--&lt;!&ndash;              <small style="color:gray;margin-bottom:0.0em">- Qualcomm Innovation Award Winner 2022</small><br/>&ndash;&gt;-->
+<!--&lt;!&ndash;              <small style="color:gray;margin-bottom:0.0em">- Presented in AI for Content Creation Workshop (AI4CC) at CVPR 2023</small>&ndash;&gt;-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/fastmetro_teaser.jpg'/>-->
+<!--          <p>-->
+<!--            <b class="title">FastMETRO: Cross-Attention of Disentangled Modalities for 3D Human Mesh Recovery with Transformers</b><br/>-->
+<!--            Junhyeong Cho, <u>Kim Youwang</u>, Tae-Hyun Oh<br/>-->
+<!--            <i>ECCV 2022</i><br/>-->
+<!--              <a href="https://fastmetro.github.io/" target="_blank">Project page</a> |-->
+<!--              <a href="https://arxiv.org/abs/2207.13820" target="_blank">Paper</a> |-->
+<!--              <a href="https://github.com/kaist-ami/FastMETRO" target="_blank">Code</a> |-->
+<!--              <a href="https://www.dropbox.com/s/kzmihz488qcelxi/2116-poster.pdf?dl=0" target="_blank">Poster</a><br/>-->
+<!--          </p>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--          <img src='./media/demr.jpg'/>-->
+<!--          <p>-->
+<!--            <b class="title">Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise</b><br/>-->
+<!--            <u>Kim Youwang</u>, Kim Ji-Yeon, Kyungdon Joo, Tae-Hyun Oh<br/>-->
+<!--                <i>BMVC 2021</i><br/>-->
+<!--                <a href="https://demr-bmvc21.github.io" target="_blank">Project page</a> |-->
+<!--                <a href="https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf" target="_blank">Paper</a>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <h2>Awards & Honors</h2>-->
+<!--        <ul>-->
+<!--            <li class="yw_list">Best Poster Award, BMVC, 2024</li>-->
+<!--            <li class="yw_list">Excellence Prize, Electronics Times ICT Paper Awards, 2024</li>-->
+<!--            <li class="yw_list">Best Poster Award, POSTECH-KAIST joint ML workshop, 2024</li>-->
+<!--            <li class="yw_list">Grand Prize (Minister's award, $12,000 prize), Electronics Times ICT Paper Awards, 2023</li>-->
+<!--            <li class="yw_list">Outstanding Reviewer Award, ICCV, 2023</li>-->
+<!--            <li class="yw_list">Winner ($4,000 prize), Qualcomm Innovation Fellowship Korea (QIFK), 2022</li>-->
+<!--            <li class="yw_list">International Computer Vision Summer School (ICVSS), 2022</li>-->
+<!--        </ul>-->
+
+<!--&lt;!&ndash;      <h2>Talks</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="yw_list">Towards Efficient & Realistic Virtual World Communication, INNERVERZ, Korea, 2023</li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+
+<!--      <h2>Academic Services</h2>-->
+<!--        <ul>-->
+<!--            <li class="yw_list">-->
+<!--              <b>Conference Reviewer</b>-->
+<!--              <ul>-->
+<!--                <li class="yw_list">CVPR: 2024, 2025, 2026</li>-->
+<!--                <li class="yw_list">ICCV: 2023 (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php">Outstanding reviewer</a>), 2025 </li>-->
+<!--                <li class="yw_list">ECCV: 2024</li>-->
+<!--                <li class="yw_list">NeurIPS: 2024, 2025</li>-->
+<!--                <li class="yw_list">WACV: 2026</li>-->
+<!--                <li class="yw_list">BMVC: 2024</li>-->
+<!--                <br>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li class="yw_list">-->
+<!--              <b>Journal Reviewer</b>-->
+<!--              <ul>-->
+<!--                <li class="yw_list">IEEE Trans. on Pattern Analysis and Machine Learning (TPAMI): 2024, 2025</li>-->
+<!--                <li class="yw_list">ACM Trans. on Graphics / SIGGRAPH Asia: 2024</li>-->
+<!--                <li class="yw_list">International Journal of Computer Vision (IJCV): 2024, 2025</li>-->
+<!--                <li class="yw_list">Transactions on Machine Learning Research (TMLR): 2025</li>-->
+<!--                <li class="yw_list">IEEE Transactions on Multimedia (TMM): 2023</li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+
+<!--    </div> &lt;!&ndash; container &ndash;&gt;-->
+<!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>-->
+<!--    <script>-->
+<!--      window.dataLayer = window.dataLayer || [];-->
+<!--      function gtag(){dataLayer.push(arguments);}-->
+<!--      gtag('js', new Date());-->
+
+<!--      gtag('config', 'G-5RW688RKHW');-->
+<!--    </script>-->
+<!--  </body>-->
+<!--</html>-->
