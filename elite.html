@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation">
+<!--  <meta name="keywords" content="Texture map, Text-driven synthesis, 3D mesh, Physically-based rendering, Optimization">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RW688RKHW');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">
+            <span style="color: #3c9bd4;">ELITE</span>: <span style="color: #3c9bd4;">E</span>fficient Gaussian Head Avatar from a Monocular Video
+            via <span style="color: #3c9bd4;">L</span>earned <span style="color: #3c9bd4;">I</span>nitialization and<br><span style="color: #3c9bd4;">TE</span>st-time Generative Adaptation
+          </h2>
+          <h5 class="title is-5"><span style="color:#C00000;">arXiv 2026</span></h5>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://hyoseok1223.github.io/">Lee Hyoseok</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io/ELITE">Subin Park</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html">Gerard Pons-Moll</a><sup>4,5,6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>2</sup>
+            </span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1 </sup>POSTECH,</span>
+            <span class="author-block"><sup>2 </sup>KAIST,</span>
+            <span class="author-block"><sup>3 </sup>UNIST,</span>
+            <span class="author-block"><sup>4 </sup>University of Tübingen,</span>
+            <br>
+            <span class="author-block"><sup>5 </sup>Tübingen AI Center,</span>
+            <span class="author-block"><sup>6 </sup>Max Planck Institute for Informatics</span>
+          </div>
+<!--          -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./media/elite/elite.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!--TODO: Change to arxiv link later-->
+<!--                <a href="https://arxiv.org/abs/"-->
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (TBU)</span>
+                </a>
+              </span>
+<!--               Video Link.-->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=ySBbw85SLqA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/kaist-ami"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (TBU)</span>
+                  </a>
+              </span>
+<!--              <span class="link-block">-->
+<!--                <a href="./media/paint-it/cvpr24_poster_youwang_final.pdf"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Poster</span>-->
+<!--                </a>-->
+<!--              </span>-->
+<!--              &lt;!&ndash; Dataset Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" muted controls autoplay width="100%" height="100%" loop>
+      <source src="./media/elite/elite_teaser.mp4" type="video/mp4" />
+      </video>
+      <p>
+        <strong>ELITE</strong> synthesizes an animatable photorealistic Gaussian head avatar from a casual monocular video. ELITE leverages the benefits of both 3D data prior and 2D generative prior to compensate for the missing visual cues from the input video.
+      </p>
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        With our novel neural re-parameterized optimization of 3D face meshes, we present accurate and spatio-temporally consistent 3D face mesh pseudo-labels for large-scale 2D face video datasets.-->
+<!--      </h2>-->
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            We introduce <strong><span style="color: #3c9bd4;">ELITE</span></strong>, an <strong><span style="color: #3c9bd4;">E</span></strong>fficient Gaussian head avatar synthesis from a monocular video via <strong><span style="color: #3c9bd4;">L</span></strong>earned <strong><span style="color: #3c9bd4;">I</span></strong>nitialization and <strong><span style="color: #3c9bd4;">TE</span></strong>st-time generative adaptation.
+            Prior works rely either on a 3D data prior or a 2D generative prior to compensate for missing visual cues in monocular videos.
+            However, 3D data prior methods often struggle to generalize in-the-wild, while 2D generative prior methods are computationally heavy and prone to identity hallucination.
+            We identify a complementary synergy between these two priors and design an efficient system that achieves high-fidelity animatable avatar synthesis with strong in-the-wild generalization.
+            Specifically, we introduce a feed-forward Mesh2Gaussian Prior Model (MGPM) that enables fast initialization of a Gaussian avatar.
+            To further bridge the domain gap at test time, we design a test-time generative adaptation stage, leveraging both real and synthetic images as supervision.
+            Unlike previous full diffusion denoising strategies that are slow and hallucination-prone, we propose a rendering-guided single-step diffusion enhancer that restores missing visual details, grounded on Gaussian avatar renderings.
+            Our experiments demonstrate that ELITE produces visually superior avatars to prior works, even for challenging expressions, while achieving 60x faster synthesis than the 2D generative prior method.
+        </div>
+        <br>
+
+
+
+        <h2 class="title is-3">Explainer Video (Contains Narration)</h2>
+        <div class="content has-text-centered">
+          <figure class="image is-16by9">
+            <iframe class="has-ratio" width="560" height="315" src="https://www.youtube.com/embed/ySBbw85SLqA?si=ASjFeAk08E5fHS89" frameborder="0" allowfullscreen></iframe>
+          </figure>
+        </div>
+        <br><br>
+
+        <style>
+          /* 1. 캐러셀 컨테이너 여백 */
+          #results-carousel {
+            padding-bottom: 0px;
+            overflow: hidden;
+          }
+
+          /* 2. 비디오 스타일 */
+          #results-carousel .item video {
+            width: 100%;
+            height: auto;
+            /*border-radius: px;*/
+            max-height: 600px;
+            object-fit: contain;
+          }
+
+          /* --------------------------------------------------------- */
+          /* [핵심] 페이지네이션(점) 강제 스타일 적용 */
+          /* --------------------------------------------------------- */
+
+          /* 점을 감싸는 컨테이너 (라이브러리 버전에 따라 클래스명이 다를 수 있어 둘 다 지정) */
+          .bulma-carousel-pagination,
+          .slider-pagination {
+            bottom: 5px !important;
+            width: 100% !important;
+            z-index: 100 !important; /* 비디오 뒤로 숨지 않게 앞으로 꺼냄 */
+          }
+
+          /* 비활성 점 (회색) - 가능한 모든 선택자 조합 */
+          .bulma-carousel-pagination .bullet-item,
+          .slider-pagination .slider-page {
+            background: #dbdbdb !important;
+            background-color: #dbdbdb !important;
+            border: 0px solid transparent !important;
+            box-shadow: none !important;
+            width: 12px !important;
+            height: 12px !important;
+            margin: 0 5px !important;
+            opacity: 1 !important;
+            border-radius: 50% !important; /* 네모로 나오는 경우 방지 */
+          }
+
+          /* 활성 점 (파란색) - 가능한 모든 선택자 조합 */
+          .bulma-carousel-pagination .bullet-item.is-active,
+          .slider-pagination .slider-page.is-active {
+            background: #3c9bd4 !important;
+            background-color: #3c9bd4 !important; /* 프로젝트 테마색 */
+            transform: scale(1.2) !important;
+            border: none !important;
+          }
+
+          /* 버튼 태그가 브라우저 기본 스타일을 갖는 경우 초기화 */
+          button.bullet-item, button.slider-page {
+            -webkit-appearance: none !important;
+            cursor: pointer !important;
+          }
+
+          /* 좌우 화살표 위치 */
+          .slider-navigation-previous, .slider-navigation-next {
+            top: 50% !important;
+            /*transform: translateY(-50%);*/
+            z-index: 101 !important;
+          }
+        </style>
+
+        <h2 class="title is-3"> Results: Gaussian avatar cross re-enactment</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="ours_mv_render_malte_210" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_malte_210.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video2">
+            <video poster="" id="ours_mv_render_bala_460" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_bala_460.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video3">
+            <video poster="" id="ours_mv_render_448_521" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_448_521.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video4">
+            <video poster="" id="ours_mv_render_038_416" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_038_416.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video5">
+            <video poster="" id="ours_mv_render_biden_210" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_biden_210.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video6">
+            <video poster="" id="ours_mv_render_wojtek_460" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_wojtek_460.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video7">
+            <video poster="" id="ours_mv_render_224_521" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_224_521.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-video8">
+            <video poster="" id="ours_mv_render_429_416" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/elite/ours_mv_render_429_416.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+        <div class="content has-text-justified">
+          ELITE synthesizes authentic, ID-preserving avatars for diverse attributes, e.g., races, genders, ages, and hairstyles, even when adapted using only 3 frames from an input monocular video.
+        </div>
+        <br><br>
+
+
+        <h2 class="title is-3"> Key idea: Synergistic collaboration of<br>3D data prior & 2D generative prior </h2>
+        <video id="loop" muted controls autoplay width="100%" height="100%" loop controlsList="nodownload">
+        <source src="./media/elite/loop.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          We identify a <strong>mutually reinforcing synergy between a 3D data prior and a 2D generative prior</strong>.
+          Our key idea is that (1) the limitations of 3D data prior methods, i.e., hard to generalize in-the-wild, can be alleviated if supervised by synthetic images from a generative model, and (2) slow sampling and hallucinations of 2D generative prior methods can be mitigated if grounded on 3D avatar renderings.
+        </div>
+        <br><br>
+
+
+        <h2 class="title is-3"> Avatar re-enactment comparison<br>(Unseen ID & expressions)</h2>
+        <video id="comparison" muted controls autoplay width="100%" height="100%" loop controlsList="nodownload">
+        <source src="./media/elite/comparison.mp4" type="video/mp4" />
+        </video>
+        <div class="content has-text-justified">
+          We compare the quality of the <strong>ELITE</strong>-synthesized avatars with recent competing methods.
+          <strong>ELITE</strong> produces Gaussian avatars with better identity preservation (iris color, hair style), as well as stronger generalization to novel head poses and fine-grained expressions, including gaze changes and one-eye winking.
+          Please find more results in the paper and the explainer video.
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@inproceedings{youwang2026elite,
+    title = {ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation},
+    author = {Youwang, Kim Hyoseok, Lee and Park, Subin and Pons-Moll, Gerard and Oh, Tae-Hyun},
+    booktitle = {arXiv preprint:},
+    year = {2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgment</h2>
+          <br>
+<!--          <center>-->
+<!--          <div class="imagesrow">-->
+<!--            <img class="row_img" src="./media/paint-it/Carl-Zeiss-Stiftung_Logo.png" alt="Carl-Zeiss-Stiftung" ,="" style="max-width:7.5%;margin-right: 30px;">-->
+<!--            <img class="row_img" src="./media/paint-it/ai_center_3.png" alt="Tübingen AI Center" ,="" style="max-width:15%;margin-right: 30px;">-->
+<!--            <img class="row_img" src="./media/paint-it/University_Tuebingen.png" alt="University of Tübingen" ,="" style="max-width:15%;margin-right: 30px;">-->
+<!--            <img class="row_img" src="./media/paint-it/mpi-logo-new.svg" alt="MPII Saarbrücken" ,="" style="max-width:15%;margin-right: 30px;">-->
+<!--          </div>-->
+<!--          </center>-->
+<!--          <br>-->
+<!--          <p>-->
+
+<!--            We thank the members of AMILab and RVH group for their helpful discussions and proofreading.-->
+<!--            The project was made possible by funding from the Carl Zeiss Foundation.-->
+<!--            This work is funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - 409792180 (Emmy Noether Programme, project: Real Virtual Humans), and the German Federal Ministry of Education and Research (BMBF): Tübingen AI Center, FKZ: 01IS18039A.-->
+<!--            Gerard Pons-Moll is a Professor at the University of Tübingen endowed by the Carl Zeiss Foundation, at the Department of Computer Science and a member of the Machine Learning Cluster of Excellence, EXC number 2064/1 – Project number 390727645.-->
+<!--            Kim Youwang and Tae-Hyun Oh were supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2023-00225630, Development of Artificial Intelligence for Text-based 3D Movie Generation;-->
+<!--            No.2022-0-00290, Visual Intelligence for SpaceTime Understanding and Generation based on Multi-layered Visual Common Sense; No.2021-0-02068, Artificial Intelligence Innovation Hub).-->
+<!--          </p>-->
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    pagination: true, // 점 표시 켜기
+    navigation: true, // 좌우 화살표 켜기
+    loop: true,
+    infinite: true,
+    autoplay: false,
+  });
+});
+</script>
+</body>
+</html>
