@@ -181,29 +181,65 @@
         <br>
 
 
+        <style>
+          /* 비디오 비율을 16:9로 고정하면서 반응형으로 만드는 클래스 */
+          .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 (9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+          }
 
+          .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
+        </style>
         <h2 class="title is-3">Explainer Video (Contains Narration)</h2>
         <div class="content has-text-centered">
-          <figure class="image is-16by9">
-            <iframe class="has-ratio" width="560" height="315" src="https://www.youtube.com/embed/ySBbw85SLqA?si=ASjFeAk08E5fHS89" frameborder="0" allowfullscreen></iframe>
-          </figure>
-        </div>
+
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/ySBbw85SLqA?si=ASjFeAk08E5fHS89"
+              allowfullscreen>
+            </iframe>
+          </div>
+          </div>
         <br><br>
 
         <style>
           /* 1. 캐러셀 컨테이너 여백 */
+          /* 캐러셀 컨테이너 */
           #results-carousel {
-            padding-bottom: 0px;
             overflow: hidden;
           }
 
-          /* 2. 비디오 스타일 */
+          /* 각 슬라이드 아이템 */
+          #results-carousel .item {
+            display: flex;
+            justify-content: center; /* 비디오 가운데 정렬 */
+            align-items: center;
+            padding: 0; /* 패딩 제거 (꽉 차게 보이기 위함) */
+          }
+
+          /* 비디오 스타일 */
           #results-carousel .item video {
-            width: 100%;
-            height: auto;
-            /*border-radius: px;*/
-            max-height: 600px;
-            object-fit: contain;
+            width: 100%;          /* 너비를 컨테이너에 맞춤 */
+            height: auto;         /* 비율에 맞춰 높이 자동 조절 (찌그러짐 방지 핵심) */
+            max-width: 800px;     /* (선택사항) PC에서 너무 거대해지는 것 방지 */
+            margin: 0 auto;       /* 가운데 정렬 */
+            object-fit: contain;  /* 비디오가 잘리지 않고 다 보이게 함 */
+          }
+
+          /* 페이지네이션(점) 위치 조정 */
+          .bulma-carousel-pagination {
+            bottom: 10px !important; /* 비디오 하단 여백 확보 */
           }
 
           /* --------------------------------------------------------- */
@@ -393,12 +429,12 @@
   </div>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   bulmaCarousel.attach('#results-carousel', {
     slidesToScroll: 1,
-    slidesToShow: 1,
-    pagination: true, // 점 표시 켜기
-    navigation: true, // 좌우 화살표 켜기
+    slidesToShow: 1, // 화면 크기에 상관없이 항상 1개만 표시
+    pagination: true,
+    navigation: true,
     loop: true,
     infinite: true,
     autoplay: false,
