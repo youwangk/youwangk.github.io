@@ -295,49 +295,49 @@
         <h2 class="title is-3"> Results: Gaussian avatar cross re-enactment</h2>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item item-video1">
-            <video poster="" id="ours_mv_render_malte_210" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_malte_210" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_malte_210.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video2">
-            <video poster="" id="ours_mv_render_bala_460" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_bala_460" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_bala_460.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video3">
-            <video poster="" id="ours_mv_render_448_521" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_448_521" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_448_521.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video4">
-            <video poster="" id="ours_mv_render_038_416" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_038_416" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_038_416.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video5">
-            <video poster="" id="ours_mv_render_biden_210" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_biden_210" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_biden_210.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video6">
-            <video poster="" id="ours_mv_render_wojtek_460" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_wojtek_460" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_wojtek_460.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video7">
-            <video poster="" id="ours_mv_render_224_521" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_224_521" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_224_521.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="item item-video8">
-            <video poster="" id="ours_mv_render_429_416" autoplay controls muted loop playsinline height="100%">
+            <video poster="" id="ours_mv_render_429_416" controls muted loop playsinline height="100%">
               <source src="./media/elite/ours_mv_render_429_416.mp4" type="video/mp4">
             </video>
           </div>
@@ -350,7 +350,7 @@
 
 
         <h2 class="title is-3"> Key idea: Synergistic collaboration of<br>3D data prior & 2D generative prior </h2>
-        <video id="loop" muted controls autoplay width="100%" height="100%" loop playsinline controlsList="nodownload">
+        <video id="loop" muted controls width="100%" height="100%" loop playsinline>
         <source src="./media/elite/loop.mp4" type="video/mp4" />
         </video>
         <div class="content has-text-justified">
@@ -361,7 +361,7 @@
 
 
         <h2 class="title is-3"> Avatar re-enactment comparison<br>(Unseen ID & expressions)</h2>
-        <video id="comparison" muted controls autoplay width="100%" height="100%" loop playsinline controlsList="nodownload">
+        <video id="comparison" muted controls width="100%" height="100%" loop playsinline>
         <source src="./media/elite/comparison.mp4" type="video/mp4" />
         </video>
         <div class="content has-text-justified">
@@ -431,16 +431,41 @@
 </footer>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  bulmaCarousel.attach('#results-carousel', {
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    pagination: true,
-    navigation: true,
-    loop: true,
-    infinite: true,
-    autoplay: false,
+    // 1. 캐러셀 초기화
+    var carousels = bulmaCarousel.attach('#results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      pagination: true,
+      navigation: true,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+    });
+
+    // 2. 비디오 제어 로직 추가
+    // bulmaCarousel.attach는 배열을 반환하므로 첫 번째 요소를 가져옵니다.
+    var carousel = carousels[0];
+
+    if (carousel) {
+      carousel.on('slideChanged', function(data) {
+        // 모든 비디오 멈춤
+        document.querySelectorAll('#results-carousel video').forEach(vid => {
+          vid.pause();
+        });
+
+        // 현재 활성화된 슬라이드의 비디오 찾아서 재생
+        // (bulma-carousel 구조상 active 클래스가 붙은 아이템을 찾아야 함)
+        var activeItem = data.node.querySelector('.item.is-active');
+        if(activeItem) {
+            var video = activeItem.querySelector('video');
+            if(video) {
+                video.currentTime = 0;
+                video.play();
+            }
+        }
+      });
+    }
   });
-});
 </script>
 </body>
 </html>
