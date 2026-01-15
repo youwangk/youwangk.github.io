@@ -1,78 +1,40 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "https://homes.cs.washington.edu/~kpar/nerfies/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
-
-var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
-  }
-}
-
-function setInterpolationImage(i) {
-  var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
-  $('#interpolation-image-wrapper').empty().append(image);
-}
-
-
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    // 1. 내비게이션 바 (모바일 햄버거 메뉴) 처리
     $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
-
     });
 
+    // 2. 캐러셀 옵션 설정
     var options = {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 3000,
+          slidesToScroll: 1,
+          slidesToShow: 1, // HTML 구조에 맞게 1로 수정하는 것이 좋습니다 (기존 3)
+          loop: true,
+          infinite: true,
+          autoplay: false, // 자동 재생 끄기
+          autoplaySpeed: 3000,
     }
 
-		// Initialize all div with carousel class
+    // 3. 캐러셀 초기화 (bulmaCarousel)
     var carousels = bulmaCarousel.attach('.carousel', options);
 
-    // Loop on each carousel initialized
+    // 캐러셀 이벤트 리스너 (필요 없으면 지워도 되지만, 에러 방지용으로 유지)
     for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
+        carousels[i].on('before:show', state => {
+           console.log(state);
+        });
     }
 
-    // Access to bulmaCarousel instance of an element
+    // 특정 요소에 대한 리스너 (템플릿 기본 코드, 유지해도 무관)
     var element = document.querySelector('#my-element');
     if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
+        element.bulmaCarousel.on('before-show', function(state) {
+           console.log(state);
+        });
     }
 
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
-
+    // 4. 슬라이더 초기화 (bulmaSlider) - 필요 없다면 지워도 됨
     bulmaSlider.attach();
-
-})
+});
