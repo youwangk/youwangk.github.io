@@ -16,6 +16,12 @@
         /* =========================================
            0. Font Import
            ========================================= */
+        @font-face {
+            font-family: 'FiraSans-ExtraCondensed';
+            src: url('./fonts/FiraSansExtraCondensed-Bold.ttf') format('truetype');
+            font-weight: 700; /* Bold 파일이므로 700으로 지정 */
+            font-style: normal;
+        }
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap');
 
         /* =========================================
@@ -42,7 +48,8 @@
         }
 
         h2 {
-            font-size: 1.75em;
+            font-family: 'FiraSans-ExtraCondensed', sans-serif;
+            font-size: 2em;
             margin-top: 2.5em;
             margin-bottom: 0.5em;
             border-bottom-color: black;
@@ -141,12 +148,21 @@
         }
 
         .intro-content h1 {
-            font-family: "Yanone Kaffeesatz", sans-serif;
+            font-family: 'FiraSans-ExtraCondensed', sans-serif;
             font-size: 3.5em;
+            font-weight: 600;
             margin: 0 0 0 0;
             line-height: 1.1;
-            font-weight: 600;
+            color: #000000;
         }
+
+        /*.intro-content h1 {*/
+        /*    font-family: "Yanone Kaffeesatz", sans-serif;*/
+        /*    font-size: 3.5em;*/
+        /*    margin: 0 0 0 0;*/
+        /*    line-height: 1.1;*/
+        /*    font-weight: 600;*/
+        /*}*/
 
         .intro-content p {
             font-size: 1.0em;
@@ -613,7 +629,7 @@
                 </ul>
             </li>
         </ul>
-
+        <div style="margin-bottom: 100px;"></div>
     </div> <!-- container -->
 
     <!-- Google Analytics (Original) -->
