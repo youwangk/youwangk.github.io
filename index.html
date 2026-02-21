@@ -157,14 +157,6 @@
             color: #000000;
         }
 
-        /*.intro-content h1 {*/
-        /*    font-family: "Yanone Kaffeesatz", sans-serif;*/
-        /*    font-size: 3.5em;*/
-        /*    margin: 0 0 0 0;*/
-        /*    line-height: 1.1;*/
-        /*    font-weight: 600;*/
-        /*}*/
-
         .intro-content p {
             font-size: 1.0em;
             line-height: 1.8;
@@ -651,7 +643,7 @@
                 image: "./media/eff_face_avatar.gif",
                 title: "<span style=\"color: #3c9bd4;\">ELITE</span>: <span style=\"color: #3c9bd4;\">E</span>fficient Gaussian Head Avatar from a Monocular Video via <span style=\"color: #3c9bd4;\">L</span>earned <span style=\"color: #3c9bd4;\">I</span>nitialization and <span style=\"color: #3c9bd4;\">TE</span>st-time Generative Adaptation",
                 authors: "<u>Kim Youwang</u>, Lee Hyoseok, Park Subin, Gerard Pons-Moll, Tae-Hyun Oh",
-                venue: "arXiv 2026",
+                venue: "CVPR 2026",
                 links: [
                     { name: "Project page", url: "https://kim-youwang.github.io/elite" },
                     { name: "Paper", url: "https://arxiv.org/abs/2601.10200" },
@@ -677,7 +669,7 @@
                 image: "./media/clip-actor-x_crop.jpg",
                 title: "CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization",
                 authors: "<u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh",
-                venue: "TPAMI 2026 (Accepted)",
+                venue: "TPAMI 2026",
                 links: []
             },
             {
@@ -803,42 +795,42 @@
         ];
 
         // ============================================
-        // 렌더링 로직 (원본 HTML 구조 유지)
+        // 렌더링 로직 (간격 조정 적용)
         // ============================================
         function renderPublications() {
             const container = document.getElementById('publication-list');
             let html = '';
 
             publicationsData.forEach(item => {
-                // 링크 생성 로직
+                // Title
+                let titleHtml = `<span class="title" style="display: block; margin-bottom: 5px;"><b>${item.title}</b></span>`;
+
+                // Venue
+                let venueHtml = item.venue ? `<span style="display: block; margin-bottom: 5px;"><i>${item.venue}</i></span>` : ``;
+
+                // Authors (폰트 사이즈 조절 클래스 적용)
+                let authorsHtml = item.authors ? `<span class="pub-authors">${item.authors}</span><br/>` : `<br>`;
+
+                // Links
                 let linksHtml = '';
                 if (item.links && item.links.length > 0) {
                     const linkItems = item.links.map(link =>
                         `<a href="${link.url}" target="_blank">${link.name}</a>`
                     );
-                    linksHtml = linkItems.join(' | ') + '<br/>';
+                    linksHtml = `<span style="display: block; margin-bottom: 8px;">${linkItems.join(' | ')}</span>`;
                 }
 
-                // Note (small tag) 생성 로직
-                let noteHtml = '';
-                if (item.note) {
-                    noteHtml = `<small style="color:gray;margin-bottom:0.0em">${item.note}</small><br/>`;
-                }
+                // Note (small tag)
+                let noteHtml = item.note ? `<small style="color:gray; display: block; margin-bottom: 0;">${item.note}</small>` : '';
 
-                // Authors 처리 (폰트 사이즈 조절 클래스 적용)
-                let authorsHtml = item.authors ? `<span class="pub-authors">${item.authors}</span><br/>` : `<br>`;
-
-                // Venue 처리
-                let venueHtml = item.venue ? `<i>${item.venue}</i><br/>` : ``;
-
-                // HTML 조립 (원본의 .item 구조와 동일하게 생성)
+                // HTML 조립
                 html += `
                 <div class="item">
                   <img src='${item.image}' alt="teaser"/>
                   <p>
-                    <b class="title">${item.title}</b><br/>
-                    ${authorsHtml}
+                    ${titleHtml}
                     ${venueHtml}
+                    ${authorsHtml}
                     ${linksHtml}
                     ${noteHtml}
                   </p>
