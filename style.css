@@ -1,7 +1,13 @@
 /* =========================================
    0. Font Import
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family: 'FiraSans-ExtraCondensed';
+    src: url('./fonts/FiraSansExtraCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 /* =========================================
    1. Global Styles & Typography
@@ -13,6 +19,8 @@ body {
     line-height: 21px;
     color: black;
     background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
 b, h1, h2 {
@@ -25,7 +33,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1.75em;
+    font-family: 'FiraSans-ExtraCondensed', sans-serif;
+    font-size: 2em;
     margin-top: 2.5em;
     margin-bottom: 0.5em;
     border-bottom-color: black;
@@ -34,14 +43,12 @@ h2 {
     float: left;
 }
 
-/* Specific spacing for h2 following intro */
 .intro + h2 {
     margin-bottom: 1.0em;
 }
 
 a {
     text-decoration: none;
-    /*color: #0051c9;*/
     color: #0077b5;
 }
 
@@ -52,7 +59,6 @@ a:hover {
 .a_more {
     text-decoration: none;
     color: #0077b5;
-    /*color: #0051c9;*/
     font-weight: 300;
 }
 
@@ -69,7 +75,7 @@ note {
     margin: 0 auto;
     font-size: 1em;
     text-align: left;
-    width: 900px; /* 원래 너비 유지 */
+    width: 900px;
 }
 
 .flcontainer {
@@ -81,7 +87,6 @@ note {
     z-index: -1;
 }
 
-/* Sections - (.intro 제거됨, 별도 정의) */
 .item, .outro {
     display: block;
     width: 100%;
@@ -98,12 +103,11 @@ note {
 }
 
 /* =========================================
-   [NEW] Top Section
+   3. Intro / Profile Section
    ========================================= */
-
 .intro {
-    display: flex;       /* Flexbox 사용 (Yaser 스타일) */
-    gap: 40px;           /* 사진과 텍스트 사이 간격 */
+    display: flex;
+    gap: 40px;
     align-items: flex-start;
     margin-top: 3em;
     margin-bottom: 1em;
@@ -111,7 +115,7 @@ note {
 }
 
 .profile-photo {
-    flex: 0 0 280px;     /* 사진 영역 너비 고정 */
+    flex: 0 0 280px;
 }
 
 .profile-photo img {
@@ -123,20 +127,21 @@ note {
 }
 
 .intro-content {
-    flex: 1;             /* 남은 공간 모두 차지 */
+    flex: 1;
 }
 
 .intro-content h1 {
-    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-family: 'FiraSans-ExtraCondensed', sans-serif;
     font-size: 3.5em;
+    font-weight: 600;
     margin: 0 0 0 0;
     line-height: 1.1;
-    font-weight: 600;
+    color: #000000;
 }
 
 .intro-content p {
     font-size: 1.0em;
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 1em;
     width: 100%;
     float: none;
@@ -147,22 +152,26 @@ note {
     font-size: 1em;
 }
 
+.intro-content .links a {
+    color: #0077b5;
+}
+
 .intro-content .links a + span {
     margin: 0 8px;
     color: #ccc;
 }
 
-.intro-content small{
+.intro-content small {
     display: block;
     font-size: 1em;
 }
 
 /* =========================================
-   3. Content Items (Projects, Papers)
+   4. Content Items (Publications)
    ========================================= */
 .item img {
     float: left;
-    width: 25.0em;
+    width: 21em;
     margin-right: 1.25em;
     margin-bottom: 0.8em;
     border: 0;
@@ -179,7 +188,7 @@ note {
 .item p {
     margin-top: 0;
     float: right;
-    width: 480px;
+    width: 550px;
 }
 
 .item .title {
@@ -190,7 +199,10 @@ note {
     font-weight: 400;
 }
 
-/* Remove bottom margin for last paragraphs */
+.pub-authors {
+    font-size: 0.9em;
+}
+
 .item p:last-child,
 .intro p:last-child,
 .outro p:last-child {
@@ -211,7 +223,7 @@ li.exp_list { margin-left: -2%; margin-bottom: 1.5%; }
 }
 
 /* =========================================
-   4. Highlights & Effects
+   5. Highlights & Effects
    ========================================= */
 .highlight-bg {
     position: relative;
@@ -235,7 +247,7 @@ span.highlight {
 }
 
 /* =========================================
-   5. Publication Filter Buttons
+   6. Publication Filter Buttons
    ========================================= */
 .publications-header {
     display: flex;
@@ -278,7 +290,7 @@ span.highlight {
 }
 
 /* =========================================
-   6. Experience Section
+   7. Experience Section
    ========================================= */
 .experience-item {
     display: flex;
@@ -290,9 +302,7 @@ span.highlight {
 }
 
 .exp-logo {
-    flex: 0 0 150px; /* 원래 크기 유지 */
-    margin-left: 0px;
-    margin-right: 0px; /* gap으로 처리 */
+    flex: 0 0 150px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -320,7 +330,6 @@ span.highlight {
     flex: 1;
 }
 
-/* Job Header (Optional: for alignment of date/title) */
 .job-header {
     display: flex;
     justify-content: space-between;
@@ -328,13 +337,13 @@ span.highlight {
     margin-bottom: 4px;
     width: 100%;
 }
+
 .job-date {
     white-space: nowrap;
     margin-left: 15px;
     color: #666;
     font-size: 0.9em;
 }
-
 
 /* =========================================
    8. Mobile / Responsive
@@ -351,75 +360,74 @@ span.highlight {
 
     .container { width: 98%; }
 
-    /* Intro Mobile Adjustment (Stacking) */
     .intro {
-        flex-direction: column; /* 세로로 쌓임 */
-        align-items: center;    /* 가운데 정렬 */
-        text-align: center;     /* 텍스트 가운데 정렬 */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         margin-top: 3.15vw;
         gap: 20px;
     }
 
     .profile-photo {
-        width: 80%;      /* 모바일에서 사진 크기 */
-        flex: none;      /* 고정 너비 해제 */
-        margin-bottom: 20px
+        width: 80%;
+        flex: none;
+        margin-bottom: 20px;
     }
 
     .intro-content {
-        text-align: left; /* 본문 텍스트는 좌측 정렬 (취향에 따라 center 변경 가능) */
+        text-align: left;
         width: 100%;
     }
 
     .intro-content h1 {
-        text-align: center; /* 이름은 가운데 */
+        text-align: center;
         font-size: 4.5em;
     }
 
     .intro-content small {
-        text-align: center; /* 이름은 가운데 */
+        text-align: center;
         font-size: 1.5em;
     }
 
     .intro-content p {
-        font-size: 1.5em; /* 기준 크기 */
+        font-size: 1.5em;
     }
 
-    /* [수정됨] Links 스타일: 크기 키우고 중앙 정렬 */
     .intro-content .links {
-        font-size: 1.5em;   /* p 태그와 동일한 크기로 설정 */
-        text-align: left; /* 중앙 정렬 */
-        margin-top: 15px;   /* 상단 여백 */
-        line-height: 1.6;   /* 줄간격 확보 */
-        display: block;     /* 블록 요소로 만들어 정렬 적용 */
+        font-size: 1.5em;
+        text-align: left;
+        margin-top: 15px;
+        line-height: 1.6;
+        display: block;
     }
 
     .outro { margin-bottom: 3.15vw; }
 
-    /* Items */
     .item img {
         width: 35%;
         margin-right: 2.5%;
     }
+
     .item p { width: 60%; }
 
-    /* Experience Section Mobile */
     .experience-item {
         gap: 15px;
         margin-bottom: 30px;
     }
+
     .exp-logo {
-        flex: 0 0 20vw; /* 로고 작게 */
-        margin-right: 0.5em
+        flex: 0 0 20vw;
+        margin-right: 0.5em;
     }
+
     .exp-date {
         font-size: 0.7em;
     }
 
-    /* Job header mobile stack */
     .job-header {
         flex-direction: column;
     }
+
     .job-date {
         margin-left: 0;
         margin-top: 2px;
