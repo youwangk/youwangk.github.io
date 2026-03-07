@@ -5,7 +5,7 @@
 const publicationsData = [
     {
         image: "./media/eff_face_avatar.gif",
-        title: "<span style=\"color: #3c9bd4;\">ELITE</span>: <span style=\"color: #3c9bd4;\">E</span>fficient Gaussian Head Avatar from a Monocular Video via <span style=\"color: #3c9bd4;\">L</span>earned <span style=\"color: #3c9bd4;\">I</span>nitialization and <span style=\"color: #3c9bd4;\">TE</span>st-time Generative Adaptation",
+        title: "ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation",
         authors: "<u>Kim Youwang</u>, Lee Hyoseok, Park Subin, Gerard Pons-Moll, Tae-Hyun Oh",
         venue: "CVPR 2026",
         links: [

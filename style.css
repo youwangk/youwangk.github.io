@@ -1,14 +1,7 @@
 /* =========================================
    0. Font Import
    ========================================= */
-/* @font-face {
-    font-family: 'FiraSans-ExtraCondensed';
-    src: url('./fonts/FiraSansExtraCondensed-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-} */
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
 
 /* =========================================
    1. Global Styles & Typography
@@ -34,7 +27,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 2em;
     margin-top: 2.5em;
     margin-bottom: 0.5em;
@@ -42,7 +35,7 @@ h2 {
     display: block;
     width: 100%;
     float: left;
-    letter-spacing: -0.03em; /* 자간 축소 추가 */
+    letter-spacing: -0.02em; /* 자간 축소 추가 */
 }
 
 .intro + h2 {
@@ -133,13 +126,13 @@ note {
 }
 
 .intro-content h1 {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3.5em;
     font-weight: 600;
     margin: 0 0 0 0;
     line-height: 1.1;
     color: #000000;
-    letter-spacing: -0.03em; /* 자간 축소 추가 */
+    letter-spacing: -0.035em; /* 자간 축소 추가 */
     margin-left: -0.075em;
 }
 
@@ -166,7 +159,7 @@ note {
 }
 
 .intro-content small {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     display: block;
     font-size: 1em;
 }
