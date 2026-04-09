@@ -102,15 +102,16 @@ note {
    ========================================= */
 .intro {
     display: flex;
-    gap: 40px;
-    align-items: flex-start;
+    gap: 32px;
+    align-items: center;
     margin-top: 3em;
     margin-bottom: 1em;
     width: 100%;
 }
 
 .profile-photo {
-    flex: 0 0 280px;
+    flex: 0 0 200px;
+    margin-right: 5px;
 }
 
 .profile-photo img {
@@ -127,7 +128,7 @@ note {
 
 .intro-content h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 3.5em;
+    font-size: 3.0em;
     font-weight: 600;
     margin: 0 0 0 0;
     line-height: 1.1;
@@ -367,7 +368,7 @@ span.highlight {
     }
 
     .profile-photo {
-        width: 80%;
+        width: 55%;
         flex: none;
         margin-bottom: 20px;
     }
