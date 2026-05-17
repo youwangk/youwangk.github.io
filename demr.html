@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DeMR: Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise.">
+  <meta name="keywords" content="Mesh reconstruction of Humans and Animals">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeMR: Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RW688RKHW');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+<!--  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./media/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">
+            <span style="color: #3c9bd4;">DeMR</span>: Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise
+          </h2>
+          <h5 class="title is-5"><span style="color:#C00000;">BMVC 2021</span></h5>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://jiyeonk1m.github.io/">Kim Ji-Yeon</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://unist.info/?page_id=194">Kyungdon Joo</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1 </sup>POSTECH,</span>
+            <span class="author-block"><sup>2 </sup>UNIST</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2111.02450"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="media/demr/net_0829.png">
+      <h2 class="subtitle has-text-centered">
+        By capturing morphological similarity, DeMR reconstructs 3D meshes of humans and animals.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose an end-to-end unified 3D mesh recovery of humans and quadruped animals
+            trained in a weakly-supervised way.
+          </p>
+          <p>
+            Unlike recent work focusing on a single target class only,
+            we aim to recover 3D mesh of broader classes with a single multi-task model.
+            However, there exists no dataset that can directly enable multi-task learning due to the absence of both human and animal annotations for a single object,
+            e.g., a human image does not have animal pose annotations; thus, we have to devise a new way to exploit heterogeneous datasets.
+            To make the unstable disjoint multi-task learning jointly trainable,
+            we propose to exploit the morphological similarity between humans and animals,
+            motivated by animal exercise where humans imitate animal poses.
+          </p>
+          <p>
+            We realize the morphological similarity by semantic correspondences, called sub-keypoint,
+            which enables joint training of human and animal mesh regression branches.
+            Besides, we propose class-sensitive regularization methods to avoid a mean-shape bias and to improve the distinctiveness across multi-classes.
+            Our method performs favorably against recent uni-modal models on various human and animal datasets while being far more compact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@inproceedings{youwang2021demr,
+  author    = {Youwang, Kim and Ji-Yeon, Kim and Joo, Kyungdon and Oh, Tae-Hyun},
+  title     = {Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise},
+  booktitle = {BMVC},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <h2 class="title is-3">Acknowledgment</h2>
+          <p>
+            This work was carried out as a part of the deformable object recognition technology research project
+            supported by the Agency for Defense Development, Korea,
+            and by the Defense Acquisition Program Administration, Korea (UD200025ID).
+            This work was partially supported by the NIA grant and the IITP grant funded by the Korea government (MSIT)
+            (Artificial Intelligence Graduate School Program; [No. 2019-0-01906, POSTECH], [No. 2020-0-01336, UNIST]).
+            The GPU resource is supported by a study on the "HPC Support" project, supported by the MSIT and NIPA.
+          </p>
+
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

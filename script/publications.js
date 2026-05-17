@@ -10,9 +10,9 @@ const publicationsData = [
         venue: "CVPR 2026",
         links: [
             { name: "Project page", url: "https://kim-youwang.github.io/elite" },
-            { name: "Paper", url: "https://arxiv.org/abs/2601.10200" },
+            { name: "Paper", url: "https://drive.google.com/file/d/183UFp5t1LIQZQWx6p_XLwWmD7c5R82ww/view?usp=sharing" },
             { name: "Video", url: "https://www.youtube.com/watch?v=ySBbw85SLqA" },
-            { name: "Code(TBU)", url: "https://github.com/kaist-ami/elite" }
+            { name: "Code", url: "https://github.com/kaist-ami/elite" }
         ]
     },
     {
@@ -151,8 +151,8 @@ const publicationsData = [
         authors: "<u>Kim Youwang</u>, Kim Ji-Yeon, Kyungdon Joo, Tae-Hyun Oh",
         venue: "BMVC 2021",
         links: [
-            { name: "Project page", url: "https://demr-bmvc21.github.io" },
-            { name: "Paper", url: "https://www.bmvc2021-virtualconference.com/assets/papers/0926.pdf" }
+            { name: "Project page", url: "https://kim-youwang.github.io/demr" },
+            { name: "Paper", url: "https://arxiv.org/abs/2111.02450" }
         ]
     }
 ];
