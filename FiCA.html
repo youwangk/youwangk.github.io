@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image</title>
+  <link rel="icon" type="image/png" href="./media/favicon.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5RW688RKHW');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./static/css/fica.css">
+</head>
+<body>
+
+<!-- ==================== Hero ==================== -->
+<section class="hero">
+  <div class="container">
+    <h1>FiCA</h1>
+    <p style="font-size:1.5em; color:#595959; margin-top:0; margin-bottom:8px;">Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image</p>
+    <p class="venue">arXiv 2026</p>
+
+    <p class="author-list">
+      <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>1,2*</sup>,
+      <a href="https://www.linkedin.com/in/zhengyu-yang/">Zhengyu Yang</a><sup>1</sup>,
+      <a href="https://www.linkedin.com/in/liuhao-ge/">Liuhao Ge</a><sup>1</sup>,
+      <a href="https://www.linkedin.com/in/rongyumeta/">Yu Rong</a><sup>1</sup>,
+      <a href="https://scholar.google.com/citations?user=oLi7xJ0AAAAJ&hl=en">Timur Bagautdinov</a><sup>1</sup>,
+      <a href="">Su Zhaoen</a><sup>1</sup>,
+      <br>
+      <a href="">Nir Sopher</a><sup>1</sup>,
+      <a href="https://scholar.google.com/citations?user=a3K-f2YAAAAJ&hl=en">Jovan Popović</a><sup>1</sup>,
+      <a href="https://www.linkedin.com/in/deng-teng-864a8a88/">Teng Deng</a><sup>1</sup>,
+      <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>3</sup>,
+      <a href="https://sites.google.com/site/zjucaochen/home">Chen Cao</a><sup>1</sup>
+    </p>
+    <p class="affiliation"><sup>1</sup>Codec Avatars Lab, Meta &nbsp;&nbsp; <sup>2</sup>Dept. of Electrical Engineering, POSTECH &nbsp;&nbsp; <sup>3</sup>School of Computing, KAIST</p>
+    <p class="author-note"><sup>*</sup>Work done while interning at Meta.</p>
+
+    <div class="btn-row">
+      <a class="btn" href="#" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"></path></svg>
+        arXiv
+      </a>
+      <a class="btn" href="https://youtu.be/oIW3ZooWaQw" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+        Video
+      </a>
+      <a class="btn" href="#bibtex">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>
+        BibTeX
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Teaser Video ==================== -->
+<section class="teaser">
+  <div class="container">
+    <video autoplay loop muted playsinline preload="metadata" controls style="width:100%; border-radius:8px;">
+      <source src="media/fica/teaser.mp4" type="video/mp4">
+    </video>
+    <p class="caption">FiCA creates drivable, photorealistic 3D Gaussian head avatars from a casually captured, single portrait image, within 5 seconds. The generated head avatars can be animated consistently across different identities in real-time, given target expressions.</p>
+  </div>
+</section>
+
+<!-- ==================== Abstract ==================== -->
+<section class="section abstract">
+  <div class="section-body">
+    <h2 class="section-title">Abstract</h2>
+    <p class="abstract-text">
+      We introduce <b>FiCA</b>, a <b>F</b>eed-forward, <b>i</b>nstant Gaussian <b>C</b>odec <b>A</b>vatar generation pipeline that creates lifelike avatars from a single portrait image.
+      Generating a photorealistic and drivable avatar from just a single image is significantly challenging due to the limited visual information available to accurately infer the 3D appearance and geometry of human heads.
+      To address this, we develop a novel system that combines human-centric vision foundation models with a diffusion model. This system is designed to fully exploit partial visual observations to generate lifelike human avatars.
+      Our proposed diffusion model learns a generative mapping from these partial observations to complete and authentic 3D mesh reconstruction.
+      Additionally, we introduce a feed-forward mesh refinement network that enhances the fidelity and identity preservation of the generated avatars, eliminating the need for person-specific test-time optimization.
+      By leveraging a universal prior model that decodes a generated mesh into a set of 3D Gaussians, we generate a photorealistic 3D Gaussian avatar, capable of being driven with novel expressions in real-time.
+      Our experiments demonstrate that the avatars generated by our feed-forward approach faithfully represent diverse identities and surpass the visual quality of avatars produced by recent competing methods.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== Video ==================== -->
+<section class="section video-section" id="video">
+  <div class="section-body">
+    <h2 class="section-title">Paper Overview (Contains Narration)</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/oIW3ZooWaQw"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Method ==================== -->
+<section class="section">
+  <div class="section-body">
+    <h2 class="section-title">FiCA Overview </h2>
+    <div class="result-figure">
+      <h3 style="text-align:center; margin-bottom:15px;">UV space diffusion + Human-centric vision foundation model + Feed-forward UV refinement network</h3>
+      <video class="lazy-video" loop muted playsinline preload="none" controls style="width:100%;">
+        <source src="media/fica/system.mp4" type="video/mp4">
+      </video>
+      <p class="caption">FiCA first uses fine-tuned Sapiens models to obtain per-pixel UV and vertex coordinates and normal estimation, and unwraps to partial RGB, visibility mask, normal and vertex coordinates in UV space. Then, our UV space diffusion model takes these partial UV maps, input image's CLIP embedding, and random noise to generate complete textures and geometry UV maps. The learned UV refinement network takes the generated texture and geometry as input, rich visual features of the rendered mesh image and the input image as conditions, and performs feed-forward texture and geometry refinement. Finally, the universal prior model gets expression codes, mesh texture, and geometry as inputs to generate Gaussian Codec Avatars and drive in real-time.
+    </p>
+    </div>
+</section>
+
+<!-- ==================== Results ==================== -->
+<section class="section">
+  <div class="section-body">
+    <h2 class="section-title">Codec Avatar Generation from Selfie Images</h2>
+
+    <!-- Lightweight carousel (test data: ITW_1.mp4 / ITW_2.mp4) -->
+    <div class="custom-carousel" id="results-carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <div class="item">
+            <video loop muted autoplay playsinline preload="metadata" controls style="width:100%; border-radius:8px;">
+              <source src="media/fica/ITW_2.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item">
+            <video loop muted autoplay playsinline preload="metadata" controls style="width:100%; border-radius:8px;">
+              <source src="media/fica/ITW_1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-nav prev" aria-label="Previous result">&#8249;</button>
+      <button class="carousel-nav next" aria-label="Next result">&#8250;</button>
+      <div class="carousel-pagination"></div>
+    </div>
+    <p class="caption">FiCA can generate high-quality Gaussian avatars from images casually captured on mobile phones. Avatars generated by FiCA can plausibly represent the subject, capturing details such as hairstyle and skin tones. Additionally, the generated avatars can be animated consistently across different identities while preserving user-specific facial details.
+</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-body">
+    <h2 class="section-title">Comparison with Competing Methods</h2>
+
+    <!-- Lightweight carousel -->
+    <div class="custom-carousel" id="results-carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <div class="item">
+            <video loop muted autoplay playsinline preload="metadata" controls style="width:100%; border-radius:8px;">
+              <source src="media/fica/comparison1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item">
+            <video loop muted autoplay playsinline preload="metadata" controls style="width:100%; border-radius:8px;">
+              <source src="media/fica/comparison2.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-nav prev" aria-label="Previous result">&#8249;</button>
+      <button class="carousel-nav next" aria-label="Next result">&#8250;</button>
+      <div class="carousel-pagination"></div>
+    </div>
+    <p class="caption">Given an input portrait image and a driving expression from the same person, we visualize the animation results of the generated avatars from all the methods. While the competing methods struggle with expressing detailed or extreme facial movements, FiCA shows superior avatar reconstruction quality.
+</p>
+  </div>
+</section>
+
+<!-- ==================== Method ==================== -->
+<section class="section">
+  <div class="section-body">
+    <h2 class="section-title">Application: Feed-forward Editing for Gaussian Head Avatars</h2>
+    <div class="result-figure">
+      <video class="lazy-video" loop muted playsinline preload="none" controls style="width:100%;">
+        <source src="media/fica/application.mp4" type="video/mp4">
+      </video>
+      <p class="caption">As an exciting future application of FiCA, we can use FiCA to lift the stylized portrait image to 3D space within a few seconds. Still, FiCA has never been trained with such stylized or synthetic images. Therefore, future research on domain generalization would be an interesting direction.
+    </p>
+    </div>
+</section>
+
+<!-- ==================== BibTeX ==================== -->
+<section class="section bibtex-section" id="bibtex">
+  <div class="section-body">
+    <h2 class="section-title">BibTeX</h2>
+    <div class="bibtex-box">
+      <pre><code>@article{youwang2026fica,
+  title     = {FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image},
+  author    = {Youwang, Kim and Yang, Zhengyu and Ge, Liuhao and Rong, Yu and Bagautdinov, Timur and Zhaoen, Su and Sopher, Nir and Popovi\'c, Jovan and Deng, Teng and Oh, Tae-Hyun and Cao, Chen},
+  journal   = {arXiv preprint, xxxx.xxxxx},
+  year      = {2026},
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Footer ==================== -->
+<footer class="footer">
+  <div class="container">
+    <!-- <p>[Acknowledgment placeholder.]</p> -->
+    <p>
+      This website template is inspired by <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.play();
+    } else {
+      entry.target.pause();
+    }
+  });
+}, { threshold: 0.25 });
+document.querySelectorAll('.lazy-video').forEach(v => observer.observe(v));
+
+function initCarousel(root) {
+  const track = root.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const pagination = root.querySelector('.carousel-pagination');
+  const prevBtn = root.querySelector('.carousel-nav.prev');
+  const nextBtn = root.querySelector('.carousel-nav.next');
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    pagination.appendChild(dot);
+  });
+  const dots = Array.from(pagination.children);
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, di) => d.classList.toggle('is-active', di === index));
+    slides.forEach((slide, si) => {
+      slide.querySelectorAll('video').forEach(v => {
+        if (si === index) {
+          v.currentTime = 0;
+          v.play();
+        } else {
+          v.pause();
+        }
+      });
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  goTo(0);
+}
+
+document.querySelectorAll('.custom-carousel').forEach(initCarousel);
+</script>
+
+</body>
+</html>
