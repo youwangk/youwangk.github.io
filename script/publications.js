@@ -17,10 +17,14 @@ const publicationsData = [
     },
     {
         image: "./media/face_avatar.gif",
-        title: "A Paper on Monocular Feed-forward 3D Face Avatar Synthesis",
-        authors: "",
-        venue: "To be updated",
-        links: []
+        title: "FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image",
+        authors: "<u>Kim Youwang</u>, Zhengyu Yang, Liuhao Ge, Yu Rong, Timur Bagautdinov, Su Zhaoen, Nir Sopher, Jovan Popović, Teng Deng, Tae-Hyun Oh, Chen Cao",
+        venue: "arXiv 2026",
+        links: [
+            { name: "Project page", url: "https://kim-youwang.github.io/FiCA" },
+            { name: "Paper", url: "https://drive.google.com/file/d/1-32s4z0cVP-rMXyQZqPyKVH4Gor4fby_/view" },
+            { name: "Video", url: "https://youtu.be/oIW3ZooWaQw" }
+        ]
     },
     {
         image: "./media/robot.png",
