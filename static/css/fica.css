@@ -1,0 +1,369 @@
+/* FICA project page — adapted from the Nerfies-style template */
+
+:root {
+  --primary-color: #1a73e8;
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+  --max-width: 980px;
+  --font-family: 'Noto Sans', 'Google Sans', Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #fff;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero / Title Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background: #fff;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  color: #363636;
+}
+
+.hero .venue {
+  font-size: 1.3em;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.author-list {
+  font-size: 1.05em;
+  margin-bottom: 8px;
+  line-height: 1.8;
+  color: #5a9cf8;
+}
+
+.author-list a {
+  color: #5a9cf8;
+  text-decoration: none;
+}
+
+.author-list a:hover {
+  text-decoration: underline;
+}
+
+.author-note {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.affiliation {
+  font-size: 1.1em;
+  color: #363636;
+  margin-bottom: 20px;
+}
+
+/* Buttons row */
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  background: #363636;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #555;
+  color: #fff;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Sections */
+.section {
+  padding: 30px 0;
+}
+
+.section-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-body {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Teaser */
+.teaser {
+  text-align: center;
+  padding: 10px 0 30px;
+}
+
+.teaser .caption {
+  font-size: 0.92em;
+  color: #555;
+  max-width: 900px;
+  margin: 12px auto 0;
+  text-align: left;
+}
+
+/* Abstract */
+.abstract {
+  background: var(--light-bg);
+}
+
+.abstract-text {
+  font-size: 1.05em;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Video */
+.video-section {
+  text-align: center;
+}
+
+.video-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.video-container video,
+.video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Results figures */
+.result-figure {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.result-figure img,
+.result-figure video {
+  width: 100%;
+  max-width: 900px;
+}
+
+.result-figure .caption {
+  font-size: 0.92em;
+  color: #555;
+  max-width: 850px;
+  margin: 10px auto 0;
+  text-align: justify;
+}
+
+/* BibTeX */
+.bibtex-section {
+  background: var(--light-bg);
+}
+
+.bibtex-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.bibtex-box pre {
+  margin: 0;
+  font-size: 0.85em;
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.85em;
+  color: #999;
+  border-top: 1px solid #eee;
+}
+
+.footer a {
+  color: #999;
+}
+
+/* =========================================
+   Media placeholders
+   (swap each one out for a real <video>/<img> later)
+   ========================================= */
+.media-placeholder {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 10px, #e8e8e8 10px, #e8e8e8 20px);
+  border: 1px dashed #bbb;
+  border-radius: 8px;
+  color: #888;
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
+}
+
+.media-placeholder svg {
+  width: 38px;
+  height: 38px;
+  opacity: 0.45;
+}
+
+.media-placeholder.is-small {
+  max-width: 420px;
+}
+
+/* =========================================
+   Lightweight carousel (no external library)
+   ========================================= */
+.custom-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.custom-carousel .item {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 1;
+  color: #363636;
+  z-index: 10;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.carousel-nav:hover {
+  background: #fff;
+}
+
+.carousel-nav.prev {
+  left: -18px;
+}
+
+.carousel-nav.next {
+  right: -18px;
+}
+
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #dbdbdb;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.custom-carousel + .caption {
+  font-size: 0.92em;
+  color: #555;
+  max-width: 850px;
+  margin: 16px auto 0;
+  text-align: justify;
+}
+
+.carousel-dot.is-active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.6em;
+  }
+
+  .carousel-nav.prev {
+    left: 4px;
+  }
+
+  .carousel-nav.next {
+    right: 4px;
+  }
+}
