@@ -22,7 +22,7 @@ const publicationsData = [
         venue: "arXiv 2026",
         links: [
             { name: "Project page", url: "https://kim-youwang.github.io/FiCA" },
-            { name: "Paper", url: "https://drive.google.com/file/d/1-32s4z0cVP-rMXyQZqPyKVH4Gor4fby_/view" },
+            { name: "Paper", url: "https://arxiv.org/abs/2606.24232" },
             { name: "Video", url: "https://youtu.be/oIW3ZooWaQw" }
         ]
     },
