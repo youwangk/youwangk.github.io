@@ -4,6 +4,18 @@
 // ============================================
 const publicationsData = [
     {
+        image: "./media/neumatex_teaser.gif",
+        title: "NeuMatEx: Extracting Neural Materials from Multi-view Images",
+        authors: "<u>Kim Youwang</u>, Jon Hasselgren, Peter Kocsis, Andrea Weidlich, Tae-Hyun Oh, Jacob Munkberg",
+        venue: "arXiv 2026",
+        links: [
+            { name: "Project page", url: "https://nvlabs.github.io/neumatex/" },
+            { name: "Paper", url: "https://arxiv.org/abs/2606.26715" },
+            { name: "Supp", url: "https://nvlabs.github.io/neumatex/assets/supp.pdf" },
+            { name: "Video", url: "https://nvlabs.github.io/neumatex/assets/video.mp4" },
+        ]
+    },
+    {
         image: "./media/eff_face_avatar.gif",
         title: "ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation",
         authors: "<u>Kim Youwang</u>, Lee Hyoseok, Park Subin, Gerard Pons-Moll, Tae-Hyun Oh",

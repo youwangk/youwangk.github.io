@@ -438,10 +438,10 @@ span.highlight {
     ========================================= */
 .highlighted-research-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     width: 100%;
-    clear: both; 
+    clear: both;
 }
 
 .highlighted-item {
