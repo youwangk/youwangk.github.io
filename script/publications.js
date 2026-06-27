@@ -5,7 +5,7 @@
 const publicationsData = [
     {
         image: "./media/neumatex_teaser.gif",
-        title: "NeuMatEx: Extracting Neural Materials from Multi-view Images",
+        title: "Extracting Neural Materials from Multi-view Images",
         authors: "<u>Kim Youwang</u>, Jon Hasselgren, Peter Kocsis, Andrea Weidlich, Tae-Hyun Oh, Jacob Munkberg",
         venue: "arXiv 2026",
         links: [
