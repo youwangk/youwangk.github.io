@@ -535,6 +535,30 @@
     );
   }
 
+  /* Position the abbreviations table's `|` rule (see .cv-abbrev-rule) as one
+   * element spanning the key column's full height, instead of a border or
+   * box-shadow repeated on every <td> — see the CSS comment for why a
+   * per-row copy is the thing that was producing the dashed appearance.
+   * Must run at 1:1 scale (same as paginate()), since it reads layout rects. */
+  function drawAbbrevDividers(root) {
+    Array.prototype.slice.call(root.querySelectorAll(".cv-abbrev-wrap")).forEach(
+      function (wrap) {
+        var keyCells = wrap.querySelectorAll(".cv-abbrev-key");
+        if (!keyCells.length) return;
+
+        var wrapRect = wrap.getBoundingClientRect();
+        var firstRect = keyCells[0].getBoundingClientRect();
+        var lastRect = keyCells[keyCells.length - 1].getBoundingClientRect();
+
+        var rule = el("div", "cv-abbrev-rule");
+        rule.style.left = (firstRect.right - wrapRect.left) + "px";
+        rule.style.top = (firstRect.top - wrapRect.top) + "px";
+        rule.style.height = (lastRect.bottom - firstRect.top) + "px";
+        wrap.appendChild(rule);
+      }
+    );
+  }
+
   /* Run `done` once the page measures the same as it will once it is fully
    * loaded — i.e. after the fonts have resolved and every logo has decoded.
    *
@@ -651,6 +675,7 @@
 
     whenMetricsSettled(flow, function () {
       paginate(pagesEl, flow);
+      drawAbbrevDividers(pagesEl);
       fit();
     });
   }

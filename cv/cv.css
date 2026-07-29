@@ -335,6 +335,7 @@ a.cv-underline { text-decoration: underline; }
  * \begin{tabular}{c|p{10.5cm}} inside a centered, \small table
  * ------------------------------------------------------------------------ */
 .cv-abbrev-wrap {
+  position: relative;         /* containing block for .cv-abbrev-rule */
   overflow-x: auto;
   margin: 10pt 0 12pt 0;
 }
@@ -349,15 +350,24 @@ a.cv-underline { text-decoration: underline; }
   caption-side: top;
 }
 .cv-abbrev td { padding: 0.5pt 0; vertical-align: top; }
-/* The `|` of the tabular. Drawn as an inset shadow rather than a border (see
- * --cv-hairline) — a border here would also be one more thing the engines
- * disagree about, since WebKit rounds 0.4pt up to a whole pixel and Blink
- * keeps it at 0.53. */
 .cv-abbrev .cv-abbrev-key {
   text-align: center;
   padding-right: 0.5em;
-  box-shadow: inset calc(-1 * var(--cv-hairline)) 0 0 0 var(--cv-fg);
   white-space: nowrap;
+}
+
+/* The `|` of the tabular. One element spanning the full column height, sized
+ * and positioned by cv-render.js after layout settles, rather than a border
+ * or box-shadow repeated per <td>: a border this thin can round to nothing
+ * on a phone (WebKit quantizes it onto the device pixel grid before the
+ * fit-to-width transform shrinks it further), and drawing it per-row instead
+ * of once means each row's copy can round independently — at some widths
+ * that leaves alternating rows lit and unlit, reading as a dashed line
+ * instead of a solid one. A single element has exactly one edge to round. */
+.cv-abbrev-rule {
+  position: absolute;
+  width: var(--cv-hairline);
+  background: var(--cv-fg);
 }
 .cv-abbrev .cv-abbrev-val {
   font-style: italic;
