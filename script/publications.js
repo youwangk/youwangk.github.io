@@ -50,7 +50,9 @@ const publicationsData = [
         title: "CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization",
         authors: "<u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh",
         venue: "TPAMI 2026",
-        links: []
+        links: [
+            { name: "Paper", url: "https://ieeexplore.ieee.org/document/11408037" },
+        ]
     },
     {
         image: "./media/fpgs.gif",

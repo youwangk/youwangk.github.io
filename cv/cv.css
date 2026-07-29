@@ -1,0 +1,459 @@
+/* =============================================================================
+ * cv.css — design tokens + layout, ported 1:1 from the LaTeX preamble.
+ *
+ * Metric note: main.tex asks for 10.5pt on letterpaper with 1in margins, but
+ * `article` only knows 10/11/12pt and falls back to 10pt — measured on the
+ * compiled PDF, \cvindent (1.5em) is exactly 15pt and \baselineskip is 12pt.
+ * So the base font-size is 10pt == 13.333px at 96dpi, and every spacing value
+ * below is written in `pt`, which then maps 1:1 onto the LaTeX/PDF points
+ * (7pt entry spacing, 3pt itemsep, 20pt/10pt section spacing, 1.5pt rule, ...).
+ *
+ * You should rarely need to touch this file; content lives in cv-data.js.
+ * ========================================================================== */
+
+:root {
+  --cv-base: 13.3333px;         /* article falls back to 10pt: 15pt \cvindent == 1.5em */
+  --cv-indent: 1.5em;           /* \cvindent */
+  --cv-fg: #000000;
+  --cv-gray: #808080;           /* xcolor `gray`  = 50% black */
+  --cv-blue: #0000ff;           /* xcolor `blue` */
+  --cv-link: #0077b5;           /* homepage link color (style.css) */
+  --cv-cornellred: #b31c1c;     /* defined in main.tex but unused — kept for parity */
+  /* Bio block — a muted, translucent take on NVIDIA green (#76b900). The
+   * wash and the accent rule are alpha-composited onto the white sheet, so
+   * they stay soft instead of reading as a saturated block of color. */
+  --cv-nvidia: 118, 185, 0;
+  --cv-tint: rgba(var(--cv-nvidia), 0.07);   /* bio block background   */
+  --cv-accent: rgba(var(--cv-nvidia), 0.7);  /* bio left accent rule   */
+  --cv-slate: #35402f;                       /* bio body text, warm dark gray */
+  --cv-rule: 1.5pt;             /* \hrule height 1.5pt */
+
+  /* Paper: the LaTeX source is letterpaper, but this page paginates on A4.
+   * The side margin is chosen so the text measure stays at the original
+   * 6.5in: (210mm - 165.1mm) / 2 == 22.45mm. */
+  --cv-page-w: 210mm;
+  --cv-page-h: 297mm;
+  --cv-margin-x: 22.45mm;
+  --cv-margin-y: 25.4mm;        /* 1in, as in geometry{top,bottom} */
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+  color: var(--cv-fg);
+  /* \usepackage{helvet} == Nimbus Sans, which is metrically identical to
+   * Helvetica (and to Arial, the Windows fallback). Helvetica is listed
+   * before Helvetica Neue because Neue is slightly wider and pushes a few
+   * lines of the original one word past the margin. */
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--cv-base);
+  line-height: 1.2;             /* \baselineskip 12pt / 10pt */
+}
+
+/* LaTeX sets body copy justified with hyphenation. */
+.cv-justify {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* --- Paper sheets ---------------------------------------------------------
+ * cv-render.js flows the content into as many A4 sheets as it takes, so what
+ * you see on screen is exactly what "Download PDF" (window.print()) produces.
+ * ------------------------------------------------------------------------ */
+.cv-doc { padding: 24px 0; }
+
+.cv-sheet {
+  position: relative;
+  width: var(--cv-page-w);
+  min-height: var(--cv-page-h);
+  margin: 0 auto 24px;
+  padding: var(--cv-margin-y) var(--cv-margin-x);
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+}
+.cv-sheet:last-child { margin-bottom: 0; }
+
+/* flow-root so the children's margins stay measurable inside the sheet */
+.cv-sheet-body { display: flow-root; }
+.cv-sheet-body > :first-child { margin-top: 0; }
+.cv-sheet-body > .cv-section:first-child > .cv-section-title { margin-top: 0; }
+
+/* \pagestyle{plain} — page number centered in the bottom margin */
+.cv-pagenum {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14mm;
+  text-align: center;
+}
+
+/* Continuous single-sheet fallback (narrow screens) */
+.cv-sheet--fluid {
+  width: auto;
+  max-width: var(--cv-page-w);
+  min-height: 0;
+}
+
+a { color: inherit; }                       /* hyperref is loaded with [hidelinks] */
+a.cv-underline { text-decoration: underline; }
+
+/* --- Header ---------------------------------------------------------------
+ * {\Huge\bfseries Name}
+ * positions, then the contact line
+ * \hrule height 1.5pt
+ * ------------------------------------------------------------------------ */
+.cv-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.cv-header-row + .cv-header-row { margin-top: 5pt; }
+
+.cv-name {
+  font-size: 2.488em;           /* \Huge == 24.88pt */
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+.cv-contact { margin-top: 3pt; }
+.cv-contact .cv-sep { margin: 0 0.4em; color: var(--cv-gray); }
+
+/* Web-only affordance. It lives outside the sheets, so it takes no space in
+ * the paginated document and never shows up in the printed PDF.
+ *
+ * Pinned to the top-right corner *of the sheet* at any viewport size: the
+ * sheet is centered, so its right edge sits at 50% + page-width/2, and the
+ * min() clamps the button back inside the viewport once the window is
+ * narrower than a sheet. translateX(-100%) anchors the button's right edge. */
+.cv-toolbar {
+  position: fixed;
+  top: 16px;
+  left: min(calc(50% + var(--cv-page-w) / 2 - 12px), calc(100% - 12px));
+  transform: translateX(-100%);
+  width: max-content;          /* the shrink-to-fit box would wrap the label */
+  z-index: 20;
+}
+.cv-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 9px 13px;
+  border: 1px solid var(--cv-accent);
+  border-radius: 999px;
+  /* Same tint as the bio block. That tint is translucent and designed to sit
+   * on white, so it is layered over an opaque white base here — the button
+   * floats over the gray page background, not over a sheet. */
+  background: linear-gradient(var(--cv-tint), var(--cv-tint)), #ffffff;
+  color: var(--cv-slate);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+.cv-pdf-link:hover {
+  background:
+    linear-gradient(rgba(var(--cv-nvidia), 0.16), rgba(var(--cv-nvidia), 0.16)),
+    #ffffff;
+  color: #1f2a1c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.cv-pdf-link:active {
+  background:
+    linear-gradient(rgba(var(--cv-nvidia), 0.24), rgba(var(--cv-nvidia), 0.24)),
+    #ffffff;
+}
+.cv-pdf-link:focus-visible { outline: 2px solid var(--cv-blue); outline-offset: 2px; }
+.cv-pdf-link svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+/* Current positions, directly under the name. */
+.cv-position {
+  margin-top: 4pt;
+  font-size: 1.05em;
+  color: #333333;
+}
+.cv-position + .cv-header-row { margin-top: 5pt; }
+
+.cv-rule {
+  margin-top: 5pt;
+  border: 0;
+  border-top: var(--cv-rule) solid var(--cv-fg);
+}
+
+/* --- Bio ------------------------------------------------------------------
+ * Research-statement block: slate tint, rounded, with a left accent rule.
+ * The accent is a border rather than a background, so the block still reads
+ * as a callout when a printer drops background graphics.
+ * ------------------------------------------------------------------------ */
+.cv-bio {
+  margin-top: 12pt;
+  padding: 12pt 16pt;
+  background: var(--cv-tint);
+  border-left: 2.25pt solid var(--cv-accent);
+  border-radius: 6px;
+  color: var(--cv-slate);
+  line-height: 1.6;
+}
+
+/* Keywords marked with **…** in cv-data.js */
+.cv-bio-key {
+  font-weight: 700;
+  color: #1f2a1c;
+}
+
+/* --- Sections -------------------------------------------------------------
+ * \titleformat{\section}{\large\bfseries\uppercase}
+ * \titlespacing*{\section}{0pt}{20pt}{10pt}
+ * ------------------------------------------------------------------------ */
+.cv-section-title {
+  font-size: 1.2em;             /* \large == 12pt */
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 20pt 0 10pt 0;
+}
+
+/* Own block formatting context: LaTeX *adds* the 7pt after a \cventry to the
+ * 20pt before the next section title, so those margins must not collapse. */
+.cv-section { display: flow-root; }
+
+/* main.tex applies \vspace{-3mm} after Education */
+.cv-section--tight-top > .cv-section-title { margin-top: calc(20pt - 3mm); }
+
+/* main.tex sets the section bottom spacing to 0pt for Publications only */
+.cv-section--pub > .cv-section-title { margin-bottom: 0; }
+
+/* \titleformat{\subsection}{\bfseries}, \titlespacing{0.8em}{10pt}{7.5pt} */
+.cv-subsection-title {
+  font-weight: 700;
+  margin: 10pt 0 7.5pt 0.8em;
+}
+
+/* --- \cventry{title}{location}{detail}{date} ------------------------------
+ * line 1: \textbf{title} \hfill location
+ * line 2: detail          \hfill date
+ * indented by \cvindent, followed by \vspace{7pt}
+ * ------------------------------------------------------------------------ */
+.cv-entry {
+  padding-left: var(--cv-indent);
+  margin-bottom: 7pt;
+}
+.cv-entry-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6em;                  /* \hfill leaves no minimum gap; keep it small */
+}
+.cv-entry-left { flex: 1 1 auto; }
+.cv-entry-right { flex: 0 0 auto; white-space: nowrap; }
+.cv-entry-title { font-weight: 700; }
+
+.cv-nowrap { white-space: nowrap; }
+
+/* Drawn immediately before the organization name in Experience entries. */
+.cv-logo {
+  height: 1em;
+  width: auto;
+  vertical-align: -0.1em;
+  margin-right: 0.4em;
+}
+
+/* --- Research interests --------------------------------------------------- */
+.cv-freeform { padding-left: var(--cv-indent); }
+.cv-freeform b { font-weight: 700; }
+
+/* --- Generic itemize with `label={}` and `leftmargin=\cvindent` ----------- */
+.cv-list {
+  list-style: none;
+  margin: 0;
+  padding-left: var(--cv-indent);
+}
+.cv-list > li { margin-bottom: 7pt; }        /* itemsep 3pt + \parsep 4pt */
+.cv-list > li:last-child { margin-bottom: 0; }
+
+/* mentoring.tex / professional_activities.tex use itemsep=0pt */
+.cv-list--tight > li { margin-bottom: 4pt; } /* itemsep 0pt + \parsep 4pt */
+
+/* --- Awards --------------------------------------------------------------- */
+.cv-award-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6em;
+}
+.cv-award-title { font-weight: 700; }
+.cv-award-year { flex: 0 0 auto; white-space: nowrap; }
+.cv-award-note { font-size: 0.9em; }         /* {\small ...} */
+
+/* --- Publications: abbreviations table ------------------------------------
+ * \begin{tabular}{c|p{10.5cm}} inside a centered, \small table
+ * ------------------------------------------------------------------------ */
+.cv-abbrev-wrap {
+  overflow-x: auto;
+  margin: 10pt 0 12pt 0;
+}
+.cv-abbrev {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.cv-abbrev caption {
+  font-weight: 700;
+  padding-bottom: 1mm;
+  caption-side: top;
+}
+.cv-abbrev td { padding: 0.5pt 0; vertical-align: top; }
+.cv-abbrev .cv-abbrev-key {
+  text-align: center;
+  padding-right: 0.5em;
+  border-right: 0.4pt solid var(--cv-fg);
+  white-space: nowrap;
+}
+.cv-abbrev .cv-abbrev-val {
+  font-style: italic;
+  padding-left: 0.9em;
+}
+
+/* --- Publications: reverse-numbered lists (etaremune) ---------------------- */
+.cv-publist {
+  list-style: none;
+  margin: 0;
+  padding-left: var(--cv-indent);
+}
+.cv-publist > li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;                  /* \labelsep */
+  margin-bottom: 7pt;
+}
+.cv-publist > li:last-child { margin-bottom: 0; }
+.cv-pub-label {
+  flex: 0 0 auto;
+  width: 2.6em;                /* \settowidth{\widestlabel}{C99.} */
+}
+.cv-pub-body { flex: 1 1 auto; }
+
+/* \emph{\textbf{\textcolor{gray}{VENUE}}} */
+.cv-venue {
+  color: var(--cv-gray);
+  font-weight: 700;
+  font-style: italic;
+}
+.cv-note { color: var(--cv-blue); }   /* \textcolor{blue} highlights */
+
+/* Publication notes, parentheses included, share the venue's gray — but stay
+ * upright and regular weight. */
+.cv-pub-note { color: var(--cv-gray); }
+
+/* A hair of space so the curly quotes don't touch the title. */
+.cv-pub-title { margin: 0 0.09em; }
+
+/* Outbound links (paper titles, people) use the homepage's link color from
+ * style.css, with the same no-underline / underline-on-hover behavior. */
+.cv-link {
+  color: var(--cv-link);
+  text-decoration: none;
+}
+.cv-link:hover { text-decoration: underline; }
+
+/* --- References ----------------------------------------------------------- */
+.cv-ref { margin-bottom: 3pt; }
+.cv-ref-name { font-weight: 700; }
+.cv-ref a { text-decoration: none; }        /* plain text in references.tex */
+
+/* --- Print ----------------------------------------------------------------
+ * The sheets are already A4 with the margins baked in, so the printed page
+ * gets no margin of its own and each sheet is forced onto its own page.
+ * ------------------------------------------------------------------------ */
+@page { size: A4; margin: 0; }
+
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cv-doc { padding: 0; }
+  .cv-toolbar { display: none; }
+
+  /* A fixed height (not min-height) keeps a rounding overshoot from pushing a
+   * blank page after every sheet; the paginator already guarantees the content
+   * fits inside the content box. */
+  .cv-sheet {
+    width: var(--cv-page-w);
+    height: var(--cv-page-h);
+    min-height: 0;
+    max-width: none;
+    margin: 0;
+    padding: var(--cv-margin-y) var(--cv-margin-x);
+    overflow: hidden;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  .cv-sheet:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .cv-pagenum { display: block; }
+}
+
+/* --- Small screens --------------------------------------------------------
+ * The LaTeX source is print-only; on viewports narrower than a sheet the page
+ * renders as one continuous column (cv-render.js skips pagination) and the
+ * \hfill two-column rows collapse so nothing scrolls sideways.
+ *
+ * Every rule here is scoped to `:not(.cv-doc--paged)`: when the document *is*
+ * paginated — including a print triggered from a narrow window — the sheets
+ * must keep their full A4 geometry, or the paginator would measure against the
+ * wrong box and break pages in the wrong places.
+ * ------------------------------------------------------------------------ */
+@media screen and (max-width: 840px) {
+  .cv-doc:not(.cv-doc--paged) { padding: 0; }
+  .cv-doc:not(.cv-doc--paged) .cv-sheet {
+    width: auto;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 24px 20px;
+    box-shadow: none;
+  }
+  .cv-doc:not(.cv-doc--paged) .cv-pagenum { display: none; }
+
+  /* Icon-only floating button — the label would crowd a phone screen. */
+  .cv-pdf-link { padding: 10px; }
+  .cv-pdf-label { display: none; }
+}
+
+@media screen and (max-width: 700px) {
+  .cv-doc:not(.cv-doc--paged) { --cv-indent: 1em; }
+
+  .cv-doc:not(.cv-doc--paged) .cv-header-row,
+  .cv-doc:not(.cv-doc--paged) .cv-entry-row,
+  .cv-doc:not(.cv-doc--paged) .cv-award-head {
+    display: block;
+  }
+  .cv-doc:not(.cv-doc--paged) .cv-header-row + .cv-header-row { margin-top: 8pt; }
+  .cv-doc:not(.cv-doc--paged) .cv-entry-right,
+  .cv-doc:not(.cv-doc--paged) .cv-award-year {
+    display: block;
+    color: var(--cv-gray);
+    white-space: normal;
+  }
+  .cv-doc:not(.cv-doc--paged) .cv-name { font-size: 2em; }
+  .cv-doc:not(.cv-doc--paged) .cv-publist > li { flex-wrap: wrap; }
+
+  /* Justification needs long measures; ragged-right reads better here. */
+  .cv-doc:not(.cv-doc--paged) .cv-justify { text-align: left; }
+}
