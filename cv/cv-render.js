@@ -497,11 +497,40 @@
     );
   }
 
-  /* --- Entry point --------------------------------------------------------- */
-  var PAGED_MIN_WIDTH = 841;   /* keep in sync with the cv.css breakpoint */
-  var paged = null;
+  /* --- Fit-to-width --------------------------------------------------------
+   * The document is always paginated into real A4 sheets, at every viewport
+   * size. When the window is narrower than a sheet, the whole stack is scaled
+   * down as one block, so a phone gets the printed page in miniature rather
+   * than a reflowed approximation of it.
+   *
+   * A transform does not affect layout, so .cv-fit (which clips the un-scaled
+   * 210mm box) is given the scaled height explicitly; without it the document
+   * would keep the full-size height and trail a long empty gap.
+   * --------------------------------------------------------------------- */
+  var fitEl = null;
+  var pagesEl = null;
 
-  function render(forcePaged) {
+  function fit() {
+    if (!fitEl || !pagesEl) return;
+
+    /* Measure unscaled: .cv-fit's clientWidth is its padding box, unaffected
+     * by the overflowing child, and offsetHeight ignores the transform. */
+    pagesEl.style.transform = "";
+    fitEl.style.height = "";
+
+    var avail = fitEl.clientWidth;
+    var pageWidth = pagesEl.offsetWidth;
+    if (!avail || !pageWidth) return;
+
+    var scale = avail / pageWidth;
+    if (scale >= 1) return;                    /* room to spare: leave it at 1:1 */
+
+    pagesEl.style.transform = "scale(" + scale + ")";
+    fitEl.style.height = Math.ceil(pagesEl.offsetHeight * scale) + "px";
+  }
+
+  /* --- Entry point --------------------------------------------------------- */
+  function render() {
     var data = window.CV_DATA;
     var root = document.getElementById("cv-root");
     if (!data || !root) return;
@@ -533,41 +562,32 @@
     var flow = el("div");
     flow.appendChild(buildContent(data));
 
-    paged = !!forcePaged || window.innerWidth >= PAGED_MIN_WIDTH;
+    /* The toolbar stays outside .cv-pages: a transformed ancestor becomes the
+     * containing block for `position: fixed`, which would strand the button. */
+    fitEl = el("div", "cv-fit");
+    pagesEl = el("div", "cv-pages");
+    fitEl.appendChild(pagesEl);
+    root.appendChild(fitEl);
 
-    /* Set before measuring: it switches off the narrow-screen fallbacks so the
-     * paginator always measures against a real A4 sheet. */
-    root.className = paged ? "cv-doc cv-doc--paged" : "cv-doc";
-
-    if (paged) {
-      paginate(root, flow);
-    } else {
-      /* Narrow viewport: one continuous sheet, no page breaks. */
-      var sheet = el("div", "cv-sheet cv-sheet--fluid");
-      var inner = el("div", "cv-sheet-body");
-      while (flow.firstChild) inner.appendChild(flow.firstChild);
-      sheet.appendChild(inner);
-      root.appendChild(sheet);
-    }
+    paginate(pagesEl, flow);
+    fit();
   }
 
-  /* Re-paginate when the viewport crosses the sheet-width breakpoint. */
+  /* Page breaks are viewport-independent now, so a resize only needs a new
+   * scale factor — never a re-render. */
   var resizeTimer = null;
   window.addEventListener("resize", function () {
-    if (paged === window.innerWidth >= PAGED_MIN_WIDTH) return;
     window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(render, 200);
+    resizeTimer = window.setTimeout(fit, 150);
   });
 
-  /* Printing from a narrow window must still produce paged A4 output. */
-  window.addEventListener("beforeprint", function () {
-    if (!paged) render(true);
-  });
-  window.addEventListener("afterprint", function () {
-    if (paged && window.innerWidth < PAGED_MIN_WIDTH) render();
-  });
+  /* The print stylesheet drops the transform; restore it afterwards. */
+  window.addEventListener("afterprint", fit);
 
   document.addEventListener("DOMContentLoaded", function () {
     render();
   });
+
+  /* Logos and any late-arriving metrics can change the scaled height. */
+  window.addEventListener("load", fit);
 })();

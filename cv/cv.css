@@ -64,8 +64,26 @@ body {
 /* --- Paper sheets ---------------------------------------------------------
  * cv-render.js flows the content into as many A4 sheets as it takes, so what
  * you see on screen is exactly what "Download PDF" (window.print()) produces.
+ *
+ * The sheets keep their full A4 geometry at *every* viewport size — the layout
+ * never reflows. On screens narrower than a sheet, cv-render.js scales the
+ * whole stack down to the available width instead (see .cv-fit / .cv-pages),
+ * so a phone shows the same page the printer would, only smaller.
  * ------------------------------------------------------------------------ */
 .cv-doc { padding: 24px 0; }
+
+/* Fit-to-width viewport. `overflow: hidden` keeps the un-scaled (210mm) layout
+ * box of .cv-pages from pushing the document sideways; the element's height is
+ * set from JS to the *scaled* height, since a transform leaves layout alone. */
+.cv-fit { overflow: hidden; }
+
+/* transform-origin at the left edge so the scaled stack starts flush with the
+ * left gutter and ends exactly at the right one — no manual centering math. */
+.cv-pages {
+  width: var(--cv-page-w);
+  margin: 0 auto;
+  transform-origin: top left;
+}
 
 .cv-sheet {
   position: relative;
@@ -92,7 +110,7 @@ body {
   text-align: center;
 }
 
-/* Continuous single-sheet fallback (narrow screens) */
+/* Single fluid sheet — only used by the <noscript> block in cv.html */
 .cv-sheet--fluid {
   width: auto;
   max-width: var(--cv-page-w);
@@ -387,6 +405,15 @@ a.cv-underline { text-decoration: underline; }
   .cv-doc { padding: 0; }
   .cv-toolbar { display: none; }
 
+  /* Undo the on-screen fit-to-width scaling: the printer gets real A4 sheets
+   * at 100%, whatever the window width was when print was triggered. The
+   * !important beats the inline styles cv-render.js writes. */
+  .cv-fit {
+    height: auto !important;
+    overflow: visible;
+  }
+  .cv-pages { transform: none !important; }
+
   /* A fixed height (not min-height) keeps a rounding overshoot from pushing a
    * blank page after every sheet; the paginator already guarantees the content
    * fits inside the content box. */
@@ -410,50 +437,18 @@ a.cv-underline { text-decoration: underline; }
 }
 
 /* --- Small screens --------------------------------------------------------
- * The LaTeX source is print-only; on viewports narrower than a sheet the page
- * renders as one continuous column (cv-render.js skips pagination) and the
- * \hfill two-column rows collapse so nothing scrolls sideways.
+ * Nothing about the *document* changes here: the sheets stay A4 and the layout
+ * stays identical to the PDF at every viewport size, because cv-render.js
+ * scales the whole stack instead of reflowing it. The page is left pinch-
+ * zoomable so the shrunken type can still be read.
  *
- * Every rule here is scoped to `:not(.cv-doc--paged)`: when the document *is*
- * paginated — including a print triggered from a narrow window — the sheets
- * must keep their full A4 geometry, or the paginator would measure against the
- * wrong box and break pages in the wrong places.
+ * All that is left to adjust is the chrome around the sheets.
  * ------------------------------------------------------------------------ */
 @media screen and (max-width: 840px) {
-  .cv-doc:not(.cv-doc--paged) { padding: 0; }
-  .cv-doc:not(.cv-doc--paged) .cv-sheet {
-    width: auto;
-    max-width: none;
-    min-height: 0;
-    margin: 0;
-    padding: 24px 20px;
-    box-shadow: none;
-  }
-  .cv-doc:not(.cv-doc--paged) .cv-pagenum { display: none; }
+  /* Tighter gutters — every pixel given back here is a slightly larger sheet. */
+  .cv-doc { padding: 12px 8px; }
 
   /* Icon-only floating button — the label would crowd a phone screen. */
   .cv-pdf-link { padding: 10px; }
   .cv-pdf-label { display: none; }
-}
-
-@media screen and (max-width: 700px) {
-  .cv-doc:not(.cv-doc--paged) { --cv-indent: 1em; }
-
-  .cv-doc:not(.cv-doc--paged) .cv-header-row,
-  .cv-doc:not(.cv-doc--paged) .cv-entry-row,
-  .cv-doc:not(.cv-doc--paged) .cv-award-head {
-    display: block;
-  }
-  .cv-doc:not(.cv-doc--paged) .cv-header-row + .cv-header-row { margin-top: 8pt; }
-  .cv-doc:not(.cv-doc--paged) .cv-entry-right,
-  .cv-doc:not(.cv-doc--paged) .cv-award-year {
-    display: block;
-    color: var(--cv-gray);
-    white-space: normal;
-  }
-  .cv-doc:not(.cv-doc--paged) .cv-name { font-size: 2em; }
-  .cv-doc:not(.cv-doc--paged) .cv-publist > li { flex-wrap: wrap; }
-
-  /* Justification needs long measures; ragged-right reads better here. */
-  .cv-doc:not(.cv-doc--paged) .cv-justify { text-align: left; }
 }
