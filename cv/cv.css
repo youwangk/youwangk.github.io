@@ -54,11 +54,19 @@ body {
   line-height: 1.2;             /* \baselineskip 12pt / 10pt */
 }
 
-/* LaTeX sets body copy justified with hyphenation. */
+/* LaTeX sets body copy justified with hyphenation, but auto-hyphenation is
+ * deliberately left off here. Hyphenation dictionaries ship per engine, so it
+ * is a way for the same paragraph to take a different number of lines in
+ * WebKit than in Blink — and the page breaks are measured from those lines.
+ *
+ * It buys nothing on this document anyway: at the 6.5in measure Chrome
+ * hyphenates exactly zero words, and switching auto → manual leaves all 82
+ * justified lines, the inter-word gaps, and all four page breaks identical.
+ * Real hyphens and &shy; still break, exactly as they do in the PDF. */
 .cv-justify {
   text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: manual;
+  -webkit-hyphens: manual;
 }
 
 /* --- Paper sheets ---------------------------------------------------------

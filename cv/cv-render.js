@@ -381,6 +381,18 @@
    * screen is split exactly where the printed PDF will break. Splitting goes
    * section → section children → list items, and a heading is never left
    * stranded at the bottom of a sheet.
+   *
+   * Where the breaks land must not depend on the viewport, so every number the
+   * paginator looks at is taken from the *specified* A4 geometry rather than
+   * from something the browser rounds:
+   *
+   *   - the limit comes from the computed min-height/padding (fractional px),
+   *     not clientHeight — 297mm is 1122.52px, and a whole-pixel rounding
+   *     difference is enough to flip an item onto the next sheet;
+   *   - the fill height comes from getBoundingClientRect(), not scrollHeight,
+   *     for the same reason;
+   *   - and the whole pass is deferred until the fonts and logos have settled
+   *     (see whenMetricsSettled), so nothing is measured mid-load.
    * --------------------------------------------------------------------- */
   function isHeading(node) {
     return node && /^H[1-6]$/.test(node.tagName);
@@ -391,11 +403,22 @@
   }
 
   function paginate(root, flow) {
+    /* Measure at 1:1. fit() may already have scaled the stack down (it is also
+     * wired to window `load`, which can beat the pagination pass), and a
+     * transform is baked into getBoundingClientRect() — measuring through a
+     * 0.4x scale would fit ~2.5 pages of content onto every sheet. The whole
+     * pass below is synchronous, so nothing can re-apply it mid-flow; fit()
+     * runs again right after. */
+    root.style.transform = "";
+
     var body = newSheet(root);
     var limit = sheetLimit(body);
 
     function overflows() {
-      return body.scrollHeight > limit + 0.5;
+      /* .cv-sheet-body is a flow-root of auto height, so its border box is the
+       * content height — fractional, unlike scrollHeight. The epsilon only
+       * absorbs float noise; the operands themselves are now deterministic. */
+      return body.getBoundingClientRect().height > limit + 0.05;
     }
 
     function newSheet(host) {
@@ -406,11 +429,14 @@
       return inner;
     }
 
+    /* The printable box of an A4 sheet, straight from the CSS: min-height is
+     * the full page and the paddings are the margins, all resolved to
+     * fractional px. Reading clientHeight instead would hand back a rounded
+     * page height *and* grow with the content once a sheet overflows. */
     function sheetLimit(inner) {
-      var sheet = inner.parentNode;
-      var cs = window.getComputedStyle(sheet);
+      var cs = window.getComputedStyle(inner.parentNode);
       return (
-        sheet.clientHeight -
+        parseFloat(cs.minHeight) -
         parseFloat(cs.paddingTop) -
         parseFloat(cs.paddingBottom)
       );
@@ -497,6 +523,48 @@
     );
   }
 
+  /* Run `done` once the page measures the same as it will once it is fully
+   * loaded — i.e. after the fonts have resolved and every logo has decoded.
+   *
+   * This is what keeps the breaks identical on a phone and on a desktop. The
+   * logos are `height: 1em; width: auto`, so an image that has not arrived yet
+   * measures zero wide; paginating at that moment lays the Experience titles
+   * out narrower than they end up, and every later break inherits the error.
+   * A warm cache hides it — which is exactly why the two devices disagreed. */
+  function whenMetricsSettled(node, done) {
+    var pending = 1;                    /* the scan itself */
+    var fired = false;
+    var guard = null;
+
+    function finish() {
+      if (fired) return;
+      fired = true;
+      window.clearTimeout(guard);
+      done();
+    }
+
+    function settle() {
+      if (--pending === 0) finish();
+    }
+
+    /* A logo that never answers must not keep the CV off the screen. */
+    guard = window.setTimeout(finish, 3000);
+
+    Array.prototype.slice.call(node.querySelectorAll("img")).forEach(function (img) {
+      if (img.complete) return;
+      pending++;
+      img.addEventListener("load", settle, { once: true });
+      img.addEventListener("error", settle, { once: true });
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      pending++;
+      document.fonts.ready.then(settle, settle);
+    }
+
+    settle();
+  }
+
   /* --- Fit-to-width --------------------------------------------------------
    * The document is always paginated into real A4 sheets, at every viewport
    * size. When the window is narrower than a sheet, the whole stack is scaled
@@ -569,8 +637,10 @@
     fitEl.appendChild(pagesEl);
     root.appendChild(fitEl);
 
-    paginate(pagesEl, flow);
-    fit();
+    whenMetricsSettled(flow, function () {
+      paginate(pagesEl, flow);
+      fit();
+    });
   }
 
   /* Page breaks are viewport-independent now, so a resize only needs a new
