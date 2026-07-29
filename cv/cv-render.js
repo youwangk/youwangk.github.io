@@ -578,6 +578,13 @@
   var fitEl = null;
   var pagesEl = null;
 
+  /* Hand the scale to CSS (see --cv-hairline). Strictly for things that paint
+   * without taking up space — feeding it into layout would make the geometry
+   * viewport-dependent again and move the page breaks. */
+  function publishScale(scale) {
+    document.documentElement.style.setProperty("--cv-scale", String(scale));
+  }
+
   function fit() {
     if (!fitEl || !pagesEl) return;
 
@@ -591,8 +598,12 @@
     if (!avail || !pageWidth) return;
 
     var scale = avail / pageWidth;
-    if (scale >= 1) return;                    /* room to spare: leave it at 1:1 */
+    if (scale >= 1) {                          /* room to spare: leave it at 1:1 */
+      publishScale(1);
+      return;
+    }
 
+    publishScale(scale);
     pagesEl.style.transform = "scale(" + scale + ")";
     fitEl.style.height = Math.ceil(pagesEl.offsetHeight * scale) + "px";
   }

@@ -28,6 +28,21 @@
   --cv-slate: #35402f;                       /* bio body text, warm dark gray */
   --cv-rule: 1.5pt;             /* \hrule height 1.5pt */
 
+  /* Fit-to-width scale, published by cv-render.js (1 when unscaled).
+   *
+   * --cv-hairline is a rule thin enough to read as LaTeX's 0.4pt
+   * \arrayrulewidth, but never so thin that it disappears: on a phone the
+   * sheets are drawn at ~0.47x, and WebKit first quantizes a sub-pixel border
+   * onto the device grid (1/3px at DPR 3) and then shrinks it, leaving well
+   * under half a physical pixel — which simply is not painted. Dividing by the
+   * scale cancels that out.
+   *
+   * Only properties that take no space may use it. Anything that feeds layout
+   * would put the page geometry back under the viewport's control, which is
+   * the whole thing the pagination fixes were about. */
+  --cv-scale: 1;
+  --cv-hairline: max(0.4pt, calc(0.75px / var(--cv-scale, 1)));
+
   /* Paper: the LaTeX source is letterpaper, but this page paginates on A4.
    * The side margin is chosen so the text measure stays at the original
    * 6.5in: (210mm - 165.1mm) / 2 == 22.45mm. */
@@ -340,10 +355,14 @@ a.cv-underline { text-decoration: underline; }
   caption-side: top;
 }
 .cv-abbrev td { padding: 0.5pt 0; vertical-align: top; }
+/* The `|` of the tabular. Drawn as an inset shadow rather than a border so it
+ * can be scale-compensated (see --cv-hairline) without occupying width: a
+ * border here would also be one more thing the engines disagree about, since
+ * WebKit rounds 0.4pt up to a whole pixel and Blink keeps it at 0.53. */
 .cv-abbrev .cv-abbrev-key {
   text-align: center;
   padding-right: 0.5em;
-  border-right: 0.4pt solid var(--cv-fg);
+  box-shadow: inset calc(-1 * var(--cv-hairline)) 0 0 0 var(--cv-fg);
   white-space: nowrap;
 }
 .cv-abbrev .cv-abbrev-val {
@@ -405,6 +424,11 @@ a.cv-underline { text-decoration: underline; }
 @page { size: A4; margin: 0; }
 
 @media print {
+  /* The printer gets unscaled sheets, so the hairline must not stay
+   * compensated for whatever the window happened to be. !important beats the
+   * inline custom property cv-render.js writes on <html>. */
+  :root { --cv-scale: 1 !important; }
+
   body {
     background: #ffffff;
     -webkit-print-color-adjust: exact;
