@@ -411,6 +411,17 @@
      * runs again right after. */
     root.style.transform = "";
 
+    /* Justified body text (.cv-justify) picks its line breaks from glyph
+     * advances, and those are hinted per font rasterizer — Mobile Safari
+     * doesn't measure pixel-identical to a desktop engine even at the same
+     * unscaled 210mm width. Over enough dense text that drift can add up to a
+     * line, which is enough to tip a borderline entry onto a different sheet
+     * than on desktop. CROSS_ENGINE_SLACK trims the usable height so an entry
+     * needs more than the expected engine-to-engine drift to flip pages. It
+     * doesn't make the boundary immovable, just less likely to fall exactly
+     * where two engines disagree. */
+    var CROSS_ENGINE_SLACK = 32;
+
     var body = newSheet(root);
     var limit = sheetLimit(body);
 
@@ -438,7 +449,8 @@
       return (
         parseFloat(cs.minHeight) -
         parseFloat(cs.paddingTop) -
-        parseFloat(cs.paddingBottom)
+        parseFloat(cs.paddingBottom) -
+        CROSS_ENGINE_SLACK
       );
     }
 
@@ -578,13 +590,6 @@
   var fitEl = null;
   var pagesEl = null;
 
-  /* Hand the scale to CSS (see --cv-hairline). Strictly for things that paint
-   * without taking up space — feeding it into layout would make the geometry
-   * viewport-dependent again and move the page breaks. */
-  function publishScale(scale) {
-    document.documentElement.style.setProperty("--cv-scale", String(scale));
-  }
-
   function fit() {
     if (!fitEl || !pagesEl) return;
 
@@ -598,12 +603,8 @@
     if (!avail || !pageWidth) return;
 
     var scale = avail / pageWidth;
-    if (scale >= 1) {                          /* room to spare: leave it at 1:1 */
-      publishScale(1);
-      return;
-    }
+    if (scale >= 1) return;                    /* room to spare: leave it at 1:1 */
 
-    publishScale(scale);
     pagesEl.style.transform = "scale(" + scale + ")";
     fitEl.style.height = Math.ceil(pagesEl.offsetHeight * scale) + "px";
   }
