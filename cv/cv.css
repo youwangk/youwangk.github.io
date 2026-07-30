@@ -479,7 +479,7 @@ a.cv-underline { text-decoration: underline; }
   /* Tighter gutters — every pixel given back here is a slightly larger sheet. */
   .cv-doc { padding: 12px 8px; }
 
-  /* Icon-only floating button — the label would crowd a phone screen. */
-  .cv-pdf-link { padding: 10px; }
-  .cv-pdf-label { display: none; }
+  /* window.print() doesn't produce a usable "save as PDF" flow on most
+   * mobile browsers, so the button is just dead weight there — hide it. */
+  .cv-toolbar { display: none; }
 }
