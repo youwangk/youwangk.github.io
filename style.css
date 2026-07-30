@@ -47,7 +47,7 @@ h2 {
 
 a {
     text-decoration: none;
-    color: #0077b5;
+    color: #3c67c2;
 }
 
 a:hover {
@@ -56,7 +56,7 @@ a:hover {
 
 .a_more {
     text-decoration: none;
-    color: #0077b5;
+    color: #3c67c2;
     font-weight: 300;
 }
 
@@ -107,7 +107,7 @@ note {
     display: flex;
     gap: 32px;
     align-items: center;
-    margin-top: 3em;
+    margin-top: 5em;
     margin-bottom: 1em;
     width: 100%;
 }
@@ -154,7 +154,7 @@ note {
 }
 
 .intro-content .links a {
-    color: #0077b5;
+    color: #3c67c2;
 }
 
 .intro-content .links a + span {
@@ -286,9 +286,9 @@ span.highlight {
 }
 
 .pub-button.active-button {
-    background-color: #0051c9;
+    background-color: #3c67c2;
     color: white;
-    border-color: #0051c9;
+    border-color: #3c67c2;
 }
 
 /* =========================================
@@ -481,9 +481,9 @@ span.highlight {
     transition: color 0.2s ease-in-out; /* 부드러운 색상 전환 효과 추가 */
 }
 
-/* 2. 아이템에 마우스를 올렸을 때 제목 색상을 기존 링크 색상(#0077b5)으로 변경하는 코드를 추가합니다 */
+/* 2. 아이템에 마우스를 올렸을 때 제목 색상을 기존 링크 색상(#3c67c2)으로 변경하는 코드를 추가합니다 */
 .highlighted-item:hover .highlighted-title {
-    color: #0077b5;
+    color: #3c67c2;
 }
 
 /* Mobile Responsive for Highlighted Research */

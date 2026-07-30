@@ -17,7 +17,7 @@
   --cv-fg: #000000;
   --cv-gray: #808080;           /* xcolor `gray`  = 50% black */
   --cv-blue: #0000ff;           /* xcolor `blue` */
-  --cv-link: #0077b5;           /* homepage link color (style.css) */
+  --cv-link: #3c67c2;           /* homepage link color (style.css) */
   --cv-cornellred: #b31c1c;     /* defined in main.tex but unused — kept for parity */
   /* Bio block — a muted, translucent take on NVIDIA green (#76b900). The
    * wash and the accent rule are alpha-composited onto the white sheet, so
@@ -399,7 +399,7 @@ a.cv-underline { text-decoration: underline; }
   font-weight: 700;
   font-style: italic;
 }
-.cv-note { color: var(--cv-blue); }   /* \textcolor{blue} highlights */
+.cv-note { color: var(--cv-link); }   /* \textcolor{blue} highlights */
 
 /* Publication notes, parentheses included, share the venue's gray — but stay
  * upright and regular weight. */

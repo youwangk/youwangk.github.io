@@ -62,7 +62,7 @@ const publicationsData = [
         links: [
             { name: "Project page", url: "https://kim-geonu.github.io/FPGS/" },
             { name: "Paper", url: "https://arxiv.org/abs/2503.09635" },
-            { name: "Code(TBA)", url: "https://github.com/kaist-ami/" }
+            { name: "Code", url: "https://github.com/kaist-ami/FPGS" }
         ]
     },
     {
