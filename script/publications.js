@@ -110,7 +110,7 @@ const publicationsData = [
         image: "./media/metta.gif",
         title: "MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation",
         authors: "Kim Yu-Ji, Hyunwoo Ha, <u>Kim Youwang</u>, Jaeheung Surh, Hyowon Ha, Tae-Hyun Oh",
-        venue: "BMVC 2024 - <span style=\"color:#c00000;\">Best Poster Award</span>",
+        venue: "BMVC 2024 (<span style=\"color:#c00000;\">Best Poster Award</span>)",
         links: [
             { name: "Project page", url: "https://metta3d.github.io/" }
         ]
