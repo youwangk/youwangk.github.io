@@ -193,7 +193,7 @@ note {
 .pub-grid .item {
     display: flex;
     align-items: center;
-    gap: 2.5em;
+    gap: 2.75em;
 }
 
 .item img {
