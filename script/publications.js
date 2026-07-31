@@ -66,7 +66,7 @@ const publicationsData = [
         image: "./media/dress_up.png",
         title: "Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps",
         authors: "<u>Kim Youwang</u>, Lee Hyoseok, Gerard Pons-Moll, Tae-Hyun Oh",
-        venue: "ICCVw 2025 - <span style=\"color:#c00000;\">Oral presentation</span>",
+        venue: "ICCVw 2025 (<span style=\"color:#c00000;\">Oral presentation</span>)",
         links: [
             { name: "Paper", url: "./media/pdfs/dress_up_camready.pdf" },
             { name: "Slide", url: "./media/pdfs/dress_up_iccvw_oral.pdf" }
@@ -178,31 +178,30 @@ function renderPublications() {
     let html = '';
 
     publicationsData.forEach(item => {
-        const titleHtml = `<span class="title" style="display: block; margin-bottom: 5px;"><b>${item.title}</b></span>`;
         const venueHtml = item.venue
-            ? `<span style="display: block; margin-bottom: 5px;"><i>${item.venue}</i></span>`
+            ? `<span class="pub-venue">${item.venue}</span>`
             : '';
         const authorsHtml = item.authors
-            ? `<span class="pub-authors">${item.authors}</span><br/>`
-            : '<br>';
+            ? `<span class="pub-authors">${item.authors}</span>`
+            : '';
 
         let linksHtml = '';
         if (item.links && item.links.length > 0) {
             const linkItems = item.links.map(link =>
-                `<a href="${link.url}" target="_blank">${link.name}</a>`
+                `<a class="pub-link" href="${link.url}" target="_blank">${link.name}</a>`
             );
-            linksHtml = `<span style="display: block; margin-bottom: 8px;">${linkItems.join(' | ')}</span>`;
+            linksHtml = `<span class="pub-links">${linkItems.join('')}</span>`;
         }
 
         const noteHtml = item.note
-            ? `<small style="color:gray; display: block; margin-bottom: 0;">${item.note}</small>`
+            ? `<small class="pub-note">${item.note}</small>`
             : '';
 
         html += `
         <div class="item">
             <img src="${item.image}" alt="teaser"/>
             <p>
-                ${titleHtml}
+                <span class="pub-title">${item.title}</span>
                 ${venueHtml}
                 ${authorsHtml}
                 ${linksHtml}

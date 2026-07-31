@@ -27,7 +27,7 @@ h2 {
     font-size: 2em;
     margin-top: 2.5em;
     margin-bottom: 0.5em;
-    padding-bottom: 0.4em;
+    padding-bottom: 0.5em;
     /* Accent ported from cv/cv.css's bio block: muted, translucent NVIDIA green. */
     border-bottom: 2px solid rgba(118, 185, 0, 0.65);
     display: block;
@@ -37,7 +37,7 @@ h2 {
 }
 
 .intro + h2 {
-    margin-bottom: 1.0em;
+    margin-bottom: 0.75em;
 }
 
 a {
@@ -140,17 +140,31 @@ note {
 }
 
 .intro-content .links {
-    margin-top: 1.5em;
+    margin-top: 1.0em;
     font-size: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.intro-content .links a {
-    color: #3c67c2;
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 14px;
+    border-radius: 7px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-.intro-content .links a + span {
-    margin: 0 8px;
-    color: #ccc;
+.pill:hover {
+    text-decoration: none;
+    border-color: rgba(118, 185, 0, 0.65);
+    color: #5c8f00;
+    transform: translateY(-1px);
 }
 
 .intro-content small {
@@ -160,38 +174,101 @@ note {
 }
 
 /* 4. Content Items (Publications) */
+.pub-grid .item {
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background: #fff;
+    padding: 16px;
+    /* margin-bottom: 5px; */
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pub-grid .item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(118, 185, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.pub-grid .item {
+    display: flex;
+    align-items: center;
+    gap: 2.5em;
+}
+
 .item img {
-    float: left;
     width: 21em;
-    margin-right: 1.25em;
-    margin-bottom: 0.8em;
+    flex: 0 0 auto;
+    margin-left: 10px;
     border: 0;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
 }
 
 .item video {
-    float: left;
     width: 12.5em;
-    margin-right: 1.25em;
+    flex: 0 0 auto;
     border: 0;
 }
 
 .item p {
     margin-top: 0;
-    float: right;
-    width: 550px;
+    min-width: 0;
+    max-width: 520px;
+    flex: 1 1 auto;
 }
 
-.item .title {
-    font-size: 1.1em;
+.pub-title {
+    display: block;
+    font-size: 1.05em;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 6px;
 }
 
-.item p i {
-    font-weight: 400;
+.pub-venue {
+    display: inline-flex;
+    font-size: 0.78em;
+    font-weight: 600;
+    color: #5c8f00;
+    background: rgba(118, 185, 0, 0.12);
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
 }
 
 .pub-authors {
+    display: block;
     font-size: 0.9em;
+    color: #595959;
+    margin-bottom: 6px;
+}
+
+.pub-links {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.pub-link {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #595959;
+    background: #f0f0f0;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin: 0 6px 6px 0;
+}
+
+.pub-link:hover {
+    text-decoration: none;
+    color: #5c8f00;
+    border-color: rgba(118, 185, 0, 0.65);
+}
+
+.pub-note {
+    color: #8a8f98;
+    display: block;
 }
 
 .item p:last-child,
@@ -245,7 +322,7 @@ span.highlight {
 .publications-header h2 {
     float: none;
     width: 100%;
-    margin: 30px 10px 10px 0;
+    margin: 30px 0 0.15em 0;
 }
 
 .pub-buttons {
@@ -279,19 +356,31 @@ span.highlight {
 .experience-item {
     display: flex;
     flex-direction: row;
-    margin-bottom: 2em;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     gap: 20px;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.exp-detail {
+    color: #595959;
+    font-size: 0.9em;
 }
 
 .exp-logo {
     flex: 0 0 150px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding-top: 5px;
 }
 
 .exp-date {
@@ -351,7 +440,7 @@ span.highlight {
     }
 
     .profile-photo {
-        width: 55%;
+        width: 50%;
         flex: none;
         margin-bottom: 20px;
     }
@@ -377,24 +466,30 @@ span.highlight {
 
     .intro-content .links {
         font-size: 1.5em;
-        text-align: left;
         margin-top: 15px;
-        line-height: 1.6;
-        display: block;
+        justify-content: center;
+    }
+
+    .pill {
+        padding: 0.3em 0.7em;
+        border-radius: 0.7em;
     }
 
     .outro { margin-bottom: 3.15vw; }
+
+    .pub-grid .item { gap: 0; }
 
     .item img {
         width: 35%;
         margin-right: 2.5%;
     }
 
-    .item p { width: 60%; }
+    .item p { width: 60%; max-width: none; }
 
     .experience-item {
         gap: 15px;
-        margin-bottom: 30px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .exp-logo {
