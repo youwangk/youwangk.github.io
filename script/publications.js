@@ -1,7 +1,4 @@
-// ============================================
-// Publications Data
-// 새로운 논문을 추가하려면 이 배열에 항목을 추가하세요.
-// ============================================
+// Publications Data — add new papers as entries in this array.
 const publicationsData = [
     {
         image: "./media/neumatex_teaser.gif",
@@ -175,9 +172,7 @@ const publicationsData = [
     }
 ];
 
-// ============================================
 // Rendering
-// ============================================
 function renderPublications() {
     const container = document.getElementById('publication-list');
     let html = '';

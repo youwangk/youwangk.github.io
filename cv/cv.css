@@ -1,15 +1,11 @@
-/* =============================================================================
- * cv.css — design tokens + layout, ported 1:1 from the LaTeX preamble.
+/* cv.css — design tokens + layout, ported 1:1 from the LaTeX preamble.
  *
- * Metric note: main.tex asks for 10.5pt on letterpaper with 1in margins, but
- * `article` only knows 10/11/12pt and falls back to 10pt — measured on the
- * compiled PDF, \cvindent (1.5em) is exactly 15pt and \baselineskip is 12pt.
- * So the base font-size is 10pt == 13.333px at 96dpi, and every spacing value
- * below is written in `pt`, which then maps 1:1 onto the LaTeX/PDF points
- * (7pt entry spacing, 3pt itemsep, 20pt/10pt section spacing, 1.5pt rule, ...).
+ * Metric note: main.tex asks for 10.5pt on letterpaper, but `article` falls
+ * back to 10pt — measured on the compiled PDF, \cvindent (1.5em) is 15pt and
+ * \baselineskip is 12pt. So base font-size is 10pt == 13.333px at 96dpi, and
+ * every spacing value below is in `pt`, mapping 1:1 onto the LaTeX points.
  *
- * You should rarely need to touch this file; content lives in cv-data.js.
- * ========================================================================== */
+ * Content lives in cv-data.js; rarely touch this file. */
 
 :root {
   --cv-base: 13.3333px;         /* article falls back to 10pt: 15pt \cvindent == 1.5em */
@@ -19,27 +15,20 @@
   --cv-blue: #0000ff;           /* xcolor `blue` */
   --cv-link: #3c67c2;           /* homepage link color (style.css) */
   --cv-cornellred: #b31c1c;     /* defined in main.tex but unused — kept for parity */
-  /* Bio block — a muted, translucent take on NVIDIA green (#76b900). The
-   * wash and the accent rule are alpha-composited onto the white sheet, so
-   * they stay soft instead of reading as a saturated block of color. */
+  /* Bio block: muted translucent NVIDIA green, alpha-composited onto white so it stays soft. */
   --cv-nvidia: 118, 185, 0;
   --cv-tint: rgba(var(--cv-nvidia), 0.07);   /* bio block background   */
   --cv-accent: rgba(var(--cv-nvidia), 0.7);  /* bio left accent rule   */
   --cv-slate: #35402f;                       /* bio body text, warm dark gray */
   --cv-rule: 1.5pt;             /* \hrule height 1.5pt */
 
-  /* \arrayrulewidth. A `border` this thin vanishes on a phone: WebKit
-   * quantizes a sub-pixel border onto the device grid (1/3px at DPR 3) before
-   * the fit-to-width transform shrinks it further, and what's left is under
-   * half a physical pixel — never painted. box-shadow doesn't quantize that
-   * way (it antialiases), so it stays visible at every scale and can shrink
-   * proportionally along with the rest of the page, same as everything else
-   * fit-to-width scales — see .cv-abbrev-key. */
+  /* \arrayrulewidth. A border this thin vanishes on phones (WebKit quantizes
+   * sub-pixel borders before the fit-to-width transform shrinks further);
+   * box-shadow antialiases instead, so it stays visible at every scale. */
   --cv-hairline: 0.4pt;
 
-  /* Paper: the LaTeX source is letterpaper, but this page paginates on A4.
-   * The side margin is chosen so the text measure stays at the original
-   * 6.5in: (210mm - 165.1mm) / 2 == 22.45mm. */
+  /* Paper: LaTeX source is letterpaper, page paginates on A4. Side margin
+   * keeps the text measure at the original 6.5in: (210mm - 165.1mm) / 2. */
   --cv-page-w: 210mm;
   --cv-page-h: 297mm;
   --cv-margin-x: 22.45mm;
@@ -54,48 +43,35 @@ body {
   margin: 0;
   background: #f2f2f2;
   color: var(--cv-fg);
-  /* \usepackage{helvet} == Nimbus Sans, which is metrically identical to
-   * Helvetica (and to Arial, the Windows fallback). Helvetica is listed
-   * before Helvetica Neue because Neue is slightly wider and pushes a few
-   * lines of the original one word past the margin. */
+  /* \usepackage{helvet} == Nimbus Sans, metrically identical to Helvetica/Arial.
+   * Helvetica before Helvetica Neue: Neue is wider and pushes a word past the margin. */
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   font-size: var(--cv-base);
   line-height: 1.2;             /* \baselineskip 12pt / 10pt */
 }
 
-/* LaTeX sets body copy justified with hyphenation, but auto-hyphenation is
- * deliberately left off here. Hyphenation dictionaries ship per engine, so it
- * is a way for the same paragraph to take a different number of lines in
- * WebKit than in Blink — and the page breaks are measured from those lines.
- *
- * It buys nothing on this document anyway: at the 6.5in measure Chrome
- * hyphenates exactly zero words, and switching auto → manual leaves all 82
- * justified lines, the inter-word gaps, and all four page breaks identical.
- * Real hyphens and &shy; still break, exactly as they do in the PDF. */
+/* Auto-hyphenation stays off: dictionaries differ per engine, which could
+ * make WebKit break lines differently than Blink and shift page breaks.
+ * Costs nothing here — Chrome hyphenates zero words at this measure anyway.
+ * Real hyphens and &shy; still work. */
 .cv-justify {
   text-align: justify;
   hyphens: manual;
   -webkit-hyphens: manual;
 }
 
-/* --- Paper sheets ---------------------------------------------------------
- * cv-render.js flows the content into as many A4 sheets as it takes, so what
- * you see on screen is exactly what "Download PDF" (window.print()) produces.
- *
- * The sheets keep their full A4 geometry at *every* viewport size — the layout
- * never reflows. On screens narrower than a sheet, cv-render.js scales the
- * whole stack down to the available width instead (see .cv-fit / .cv-pages),
- * so a phone shows the same page the printer would, only smaller.
- * ------------------------------------------------------------------------ */
+/* Paper sheets: cv-render.js flows content into as many A4 sheets as needed,
+ * so the screen matches exactly what "Download PDF" (window.print()) produces.
+ * Sheets keep full A4 geometry at every viewport; narrower screens scale the
+ * whole stack down instead of reflowing (see .cv-fit / .cv-pages). */
 .cv-doc { padding: 24px 0; }
 
-/* Fit-to-width viewport. `overflow: hidden` keeps the un-scaled (210mm) layout
- * box of .cv-pages from pushing the document sideways; the element's height is
- * set from JS to the *scaled* height, since a transform leaves layout alone. */
+/* overflow: hidden keeps the un-scaled .cv-pages box from pushing sideways;
+ * height is set from JS to the scaled height since transform ignores layout. */
 .cv-fit { overflow: hidden; }
 
-/* transform-origin at the left edge so the scaled stack starts flush with the
- * left gutter and ends exactly at the right one — no manual centering math. */
+/* transform-origin at the left edge: scaled stack stays flush with the left
+ * gutter and ends at the right one with no manual centering math. */
 .cv-pages {
   width: var(--cv-page-w);
   margin: 0 auto;
@@ -137,11 +113,7 @@ body {
 a { color: inherit; }                       /* hyperref is loaded with [hidelinks] */
 a.cv-underline { text-decoration: underline; }
 
-/* --- Header ---------------------------------------------------------------
- * {\Huge\bfseries Name}
- * positions, then the contact line
- * \hrule height 1.5pt
- * ------------------------------------------------------------------------ */
+/* Header: {\Huge\bfseries Name}, positions, contact line, \hrule height 1.5pt */
 .cv-header-row {
   display: flex;
   align-items: baseline;
@@ -159,13 +131,9 @@ a.cv-underline { text-decoration: underline; }
 .cv-contact { margin-top: 3pt; }
 .cv-contact .cv-sep { margin: 0 0.4em; color: var(--cv-gray); }
 
-/* Web-only affordance. It lives outside the sheets, so it takes no space in
- * the paginated document and never shows up in the printed PDF.
- *
- * Pinned to the top-right corner *of the sheet* at any viewport size: the
- * sheet is centered, so its right edge sits at 50% + page-width/2, and the
- * min() clamps the button back inside the viewport once the window is
- * narrower than a sheet. translateX(-100%) anchors the button's right edge. */
+/* Web-only, lives outside the sheets so it takes no space in print. Pinned to
+ * the sheet's top-right corner at any viewport width; min() clamps it inside
+ * the viewport once narrower than a sheet; translateX anchors the right edge. */
 .cv-toolbar {
   position: fixed;
   top: 16px;
@@ -185,9 +153,7 @@ a.cv-underline { text-decoration: underline; }
   padding: 9px 13px;
   border: 1px solid var(--cv-accent);
   border-radius: 999px;
-  /* Same tint as the bio block. That tint is translucent and designed to sit
-   * on white, so it is layered over an opaque white base here — the button
-   * floats over the gray page background, not over a sheet. */
+  /* Same translucent tint as the bio block, layered over opaque white since the button floats over the gray page. */
   background: linear-gradient(var(--cv-tint), var(--cv-tint)), #ffffff;
   color: var(--cv-slate);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
@@ -227,11 +193,8 @@ a.cv-underline { text-decoration: underline; }
   border-top: var(--cv-rule) solid var(--cv-fg);
 }
 
-/* --- Bio ------------------------------------------------------------------
- * Research-statement block: slate tint, rounded, with a left accent rule.
- * The accent is a border rather than a background, so the block still reads
- * as a callout when a printer drops background graphics.
- * ------------------------------------------------------------------------ */
+/* Bio: slate tint block, rounded, left accent rule as a border (not
+ * background) so it still reads as a callout when a printer drops graphics. */
 .cv-bio {
   margin-top: 12pt;
   padding: 12pt 16pt;
@@ -248,10 +211,7 @@ a.cv-underline { text-decoration: underline; }
   color: #1f2a1c;
 }
 
-/* --- Sections -------------------------------------------------------------
- * \titleformat{\section}{\large\bfseries\uppercase}
- * \titlespacing*{\section}{0pt}{20pt}{10pt}
- * ------------------------------------------------------------------------ */
+/* Sections: \titleformat{\section}{\large\bfseries\uppercase}, \titlespacing*{\section}{0pt}{20pt}{10pt} */
 .cv-section-title {
   font-size: 1.2em;             /* \large == 12pt */
   font-weight: 700;
@@ -275,11 +235,9 @@ a.cv-underline { text-decoration: underline; }
   margin: 10pt 0 7.5pt 0.8em;
 }
 
-/* --- \cventry{title}{location}{detail}{date} ------------------------------
- * line 1: \textbf{title} \hfill location
- * line 2: detail          \hfill date
- * indented by \cvindent, followed by \vspace{7pt}
- * ------------------------------------------------------------------------ */
+/* \cventry{title}{location}{detail}{date}:
+ * line 1: \textbf{title} \hfill location; line 2: detail \hfill date;
+ * indented by \cvindent, followed by \vspace{7pt} */
 .cv-entry {
   padding-left: var(--cv-indent);
   margin-bottom: 7pt;
@@ -304,11 +262,11 @@ a.cv-underline { text-decoration: underline; }
   margin-right: 0.4em;
 }
 
-/* --- Research interests --------------------------------------------------- */
+/* Research interests */
 .cv-freeform { padding-left: var(--cv-indent); }
 .cv-freeform b { font-weight: 700; }
 
-/* --- Generic itemize with `label={}` and `leftmargin=\cvindent` ----------- */
+/* Generic itemize with label={} and leftmargin=\cvindent */
 .cv-list {
   list-style: none;
   margin: 0;
@@ -320,7 +278,7 @@ a.cv-underline { text-decoration: underline; }
 /* mentoring.tex / professional_activities.tex use itemsep=0pt */
 .cv-list--tight > li { margin-bottom: 4pt; } /* itemsep 0pt + \parsep 4pt */
 
-/* --- Awards --------------------------------------------------------------- */
+/* Awards */
 .cv-award-head {
   display: flex;
   align-items: baseline;
@@ -331,9 +289,7 @@ a.cv-underline { text-decoration: underline; }
 .cv-award-year { flex: 0 0 auto; white-space: nowrap; }
 .cv-award-note { font-size: 0.9em; }         /* {\small ...} */
 
-/* --- Publications: abbreviations table ------------------------------------
- * \begin{tabular}{c|p{10.5cm}} inside a centered, \small table
- * ------------------------------------------------------------------------ */
+/* Publications abbreviations table: \begin{tabular}{c|p{10.5cm}}, centered, \small */
 .cv-abbrev-wrap {
   position: relative;         /* containing block for .cv-abbrev-rule */
   overflow-x: auto;
@@ -356,14 +312,9 @@ a.cv-underline { text-decoration: underline; }
   white-space: nowrap;
 }
 
-/* The `|` of the tabular. One element spanning the full column height, sized
- * and positioned by cv-render.js after layout settles, rather than a border
- * or box-shadow repeated per <td>: a border this thin can round to nothing
- * on a phone (WebKit quantizes it onto the device pixel grid before the
- * fit-to-width transform shrinks it further), and drawing it per-row instead
- * of once means each row's copy can round independently — at some widths
- * that leaves alternating rows lit and unlit, reading as a dashed line
- * instead of a solid one. A single element has exactly one edge to round. */
+/* The tabular's `|`: one element spanning the full column height, sized by
+ * cv-render.js after layout settles. A per-row border/box-shadow would round
+ * independently on a phone and read as a dashed line instead of solid. */
 .cv-abbrev-rule {
   position: absolute;
   width: var(--cv-hairline);
@@ -374,7 +325,7 @@ a.cv-underline { text-decoration: underline; }
   padding-left: 0.9em;
 }
 
-/* --- Publications: reverse-numbered lists (etaremune) ---------------------- */
+/* Publications: reverse-numbered lists (etaremune) */
 .cv-publist {
   list-style: none;
   margin: 0;
@@ -401,30 +352,26 @@ a.cv-underline { text-decoration: underline; }
 }
 .cv-note { color: var(--cv-link); }   /* \textcolor{blue} highlights */
 
-/* Publication notes, parentheses included, share the venue's gray — but stay
- * upright and regular weight. */
+/* Notes share the venue's gray, but upright and regular weight. */
 .cv-pub-note { color: var(--cv-gray); }
 
 /* A hair of space so the curly quotes don't touch the title. */
 .cv-pub-title { margin: 0 0.09em; }
 
-/* Outbound links (paper titles, people) use the homepage's link color from
- * style.css, with the same no-underline / underline-on-hover behavior. */
+/* Outbound links use the homepage's link color (style.css), underline on hover. */
 .cv-link {
   color: var(--cv-link);
   text-decoration: none;
 }
 .cv-link:hover { text-decoration: underline; }
 
-/* --- References ----------------------------------------------------------- */
+/* References */
 .cv-ref { margin-bottom: 3pt; }
 .cv-ref-name { font-weight: 700; }
 .cv-ref a { text-decoration: none; }        /* plain text in references.tex */
 
-/* --- Print ----------------------------------------------------------------
- * The sheets are already A4 with the margins baked in, so the printed page
- * gets no margin of its own and each sheet is forced onto its own page.
- * ------------------------------------------------------------------------ */
+/* Print: sheets are already A4 with margins baked in, so the printed page
+ * gets no margin of its own and each sheet is forced onto its own page. */
 @page { size: A4; margin: 0; }
 
 @media print {
@@ -436,18 +383,15 @@ a.cv-underline { text-decoration: underline; }
   .cv-doc { padding: 0; }
   .cv-toolbar { display: none; }
 
-  /* Undo the on-screen fit-to-width scaling: the printer gets real A4 sheets
-   * at 100%, whatever the window width was when print was triggered. The
-   * !important beats the inline styles cv-render.js writes. */
+  /* Undo on-screen fit-to-width scaling: print real A4 at 100%. !important beats the inline styles cv-render.js writes. */
   .cv-fit {
     height: auto !important;
     overflow: visible;
   }
   .cv-pages { transform: none !important; }
 
-  /* A fixed height (not min-height) keeps a rounding overshoot from pushing a
-   * blank page after every sheet; the paginator already guarantees the content
-   * fits inside the content box. */
+  /* Fixed height (not min-height): a rounding overshoot can't push a blank
+   * page after every sheet — the paginator already guarantees the content fits. */
   .cv-sheet {
     width: var(--cv-page-w);
     height: var(--cv-page-h);
@@ -467,19 +411,13 @@ a.cv-underline { text-decoration: underline; }
   .cv-pagenum { display: block; }
 }
 
-/* --- Small screens --------------------------------------------------------
- * Nothing about the *document* changes here: the sheets stay A4 and the layout
- * stays identical to the PDF at every viewport size, because cv-render.js
- * scales the whole stack instead of reflowing it. The page is left pinch-
- * zoomable so the shrunken type can still be read.
- *
- * All that is left to adjust is the chrome around the sheets.
- * ------------------------------------------------------------------------ */
+/* Small screens: the document itself doesn't change — sheets stay A4, layout
+ * stays identical to the PDF, cv-render.js scales the whole stack instead of
+ * reflowing. Only the chrome around the sheets is adjusted here. */
 @media screen and (max-width: 840px) {
   /* Tighter gutters — every pixel given back here is a slightly larger sheet. */
   .cv-doc { padding: 12px 8px; }
 
-  /* window.print() doesn't produce a usable "save as PDF" flow on most
-   * mobile browsers, so the button is just dead weight there — hide it. */
+  /* window.print() has no usable "save as PDF" flow on most mobile browsers. */
   .cv-toolbar { display: none; }
 }

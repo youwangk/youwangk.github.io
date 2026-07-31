@@ -1,15 +1,7 @@
-/* =============================================================================
- * cv-render.js — one render function per section *type*.
- *
- * These functions consume window.CV_DATA (cv-data.js) and build the DOM.
- * They are generic over their data, so adding entries never requires touching
- * this file; only adding a brand-new *kind* of section would.
- * ========================================================================== */
+/* cv-render.js — one render function per section type, driven by window.CV_DATA. */
 
 (function () {
   "use strict";
-
-  /* --- small helpers ----------------------------------------------------- */
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -25,8 +17,7 @@
     return node;
   }
 
-  /* The author's own name is bold everywhere it appears in an author list
-   * (\textbf{Kim Youwang} in the LaTeX source). */
+  /* Bold the author's own name everywhere it appears (\textbf{Kim Youwang} in LaTeX). */
   function boldSelf(escapedHtml) {
     return escapedHtml.replace(/Kim Youwang/g, "<b>Kim Youwang</b>");
   }
@@ -52,9 +43,7 @@
     parent.appendChild(el("h3", "cv-subsection-title", esc(title)));
   }
 
-  /* --- Header ------------------------------------------------------------
-   * Renders the flushleft header block of main.tex + the 1.5pt rule.
-   * --------------------------------------------------------------------- */
+  // Header: flushleft block of main.tex + the 1.5pt rule.
   function renderHeader(data) {
     var frag = document.createDocumentFragment();
 
@@ -81,9 +70,7 @@
     return frag;
   }
 
-  /* --- Bio (short summary, tinted block) ---------------------------------
-   * **double asterisks** in the data mark the phrases to emphasize.
-   * --------------------------------------------------------------------- */
+  // Bio: **double asterisks** in the data mark phrases to emphasize.
   function renderBio(sentences) {
     var text = (Array.isArray(sentences) ? sentences : [sentences])
       .map(esc)
@@ -104,11 +91,9 @@
     );
   }
 
-  /* First line of an entry.
-   *   { org, team, role }  →  [logo] Org (Team) – Role   (Experience)
-   *   { title }            →  Title                      (Education)
-   * The logo is glued to the first word of whatever follows it so it can never
-   * end up alone on a line of its own. */
+  /* Entry title: { org, team, role } -> [logo] Org (Team) – Role (Experience);
+   * { title } -> Title (Education). The logo is glued to the first word after
+   * it so it can't end up alone on its own line. */
   function entryTitle(e) {
     if (!e.org) return esc(e.title);
 
@@ -127,7 +112,7 @@
   }
 
   /* Link every known person named in a detail line (Managers: …, Advisor: …).
-   * Longest names first, so one name can never eat a prefix of another. */
+   * Longest names first, so one name can't eat a prefix of another. */
   function linkPeople(escapedHtml) {
     var people = (window.CV_DATA && window.CV_DATA.peopleLinks) || {};
     Object.keys(people)
@@ -143,7 +128,7 @@
     return escapedHtml;
   }
 
-  /* --- \cventry blocks (Education, Experience) ---------------------------- */
+  // \cventry blocks (Education, Experience)
   function renderCventrySection(title, entries, modifier) {
     var sec = section(title, modifier);
 
@@ -166,7 +151,7 @@
     return sec;
   }
 
-  /* --- Research Interests (free-form two-line block) ---------------------- */
+  // Research Interests (free-form two-line block)
   function renderResearchInterests(title, data, modifier) {
     var sec = section(title, modifier);
     sec.appendChild(
@@ -180,7 +165,7 @@
     return sec;
   }
 
-  /* --- Awards and Honors -------------------------------------------------- */
+  // Awards and Honors
   function renderAwardList(title, entries) {
     var sec = section(title);
     var ul = el("ul", "cv-list");
@@ -199,11 +184,9 @@
     return sec;
   }
 
-  /* --- Publications -------------------------------------------------------
-   * Replicates `etaremune`: items stay in the given (most-recent-first) order
-   * but are labelled in reverse, so the *last* item is 01 and the first is N,
-   * zero-padded to two digits and prefixed J (journal) / C (conference).
-   * --------------------------------------------------------------------- */
+  /* Publications: replicates `etaremune` — items stay in most-recent-first
+   * order but are labelled in reverse, so the last item is 01. Zero-padded
+   * to two digits and prefixed J (journal) / C (conference). */
   function renderPubList(items, prefix) {
     var n = items.length;
     return items.map(function (item, i) {
@@ -237,8 +220,7 @@
       var li = el("li");
       li.appendChild(el("span", "cv-pub-label", esc(p.label)));
 
-      /* The quoted paper title gets a little breathing room inside its quotes,
-       * and becomes a link when the entry has a `url`. */
+      // Quoted title becomes a link when the entry has a `url`.
       var authors = boldSelf(esc(p.authors)).replace(/“([^”]+)”/, function (_, t) {
         var inner = p.url
           ? '<a class="cv-link" href="' + esc(p.url) +
@@ -274,7 +256,7 @@
     return sec;
   }
 
-  /* --- Technology Transfer, Patent ---------------------------------------- */
+  // Technology Transfer, Patent
   function renderBulletList(title, entries) {
     var sec = section(title);
     var ul = el("ul", "cv-list cv-justify");
@@ -287,7 +269,7 @@
     return sec;
   }
 
-  /* --- Mentoring Experience ----------------------------------------------- */
+  // Mentoring Experience
   function renderMentoring(title, entries) {
     var sec = section(title);
     var ul = el("ul", "cv-list cv-list--tight cv-justify");
@@ -303,7 +285,7 @@
     return sec;
   }
 
-  /* --- Professional Activities (one subsection per reviewer list) --------- */
+  // Professional Activities: one subsection per reviewer list
   function renderReviewerList(parent, group) {
     subsection(parent, group.title);
     var ul = el("ul", "cv-list cv-list--tight cv-justify");
@@ -316,7 +298,7 @@
     parent.appendChild(ul);
   }
 
-  /* --- Reference ----------------------------------------------------------- */
+  // Reference
   function renderReferenceList(title, entries) {
     var sec = section(title);
     var ul = el("ul", "cv-list");
@@ -337,10 +319,7 @@
     return sec;
   }
 
-  /* --- Document content ---------------------------------------------------
-   * This is the section order of the page; rearranging it is just a matter of
-   * moving these lines around.
-   * --------------------------------------------------------------------- */
+  // Document content — the page's section order; rearrange by moving these lines.
   function buildContent(data) {
     var root = document.createDocumentFragment();
 
@@ -350,8 +329,7 @@
     root.appendChild(renderCventrySection("Education", data.education));
     root.appendChild(renderAwardList("Awards and Honors", data.awards));
 
-    /* Currently disabled — the bio block above covers the same ground.
-     * `researchInterests` is still in cv-data.js; uncomment to bring it back. */
+    // Disabled — bio block above covers the same ground. Data stays in cv-data.js.
     // root.appendChild(
     //   renderResearchInterests("Research Interests", data.researchInterests)
     // );
@@ -368,32 +346,19 @@
 
     // root.appendChild(renderReferenceList("Reference", data.references));
 
-    /* Not part of the compiled PDF (talk.tex / media.tex are never \input'd).
-     * Uncomment together with the matching data in cv-data.js to enable. */
+    // Not part of the compiled PDF (talk.tex / media.tex never \input'd).
     // root.appendChild(renderCventrySection("Talks", data.talks));
     // root.appendChild(renderBulletList("Media Coverage", data.media));
 
     return root;
   }
 
-  /* --- A4 pagination ------------------------------------------------------
-   * The content is flowed into as many A4 sheets as it needs, so the page on
-   * screen is split exactly where the printed PDF will break. Splitting goes
-   * section → section children → list items, and a heading is never left
-   * stranded at the bottom of a sheet.
-   *
-   * Where the breaks land must not depend on the viewport, so every number the
-   * paginator looks at is taken from the *specified* A4 geometry rather than
-   * from something the browser rounds:
-   *
-   *   - the limit comes from the computed min-height/padding (fractional px),
-   *     not clientHeight — 297mm is 1122.52px, and a whole-pixel rounding
-   *     difference is enough to flip an item onto the next sheet;
-   *   - the fill height comes from getBoundingClientRect(), not scrollHeight,
-   *     for the same reason;
-   *   - and the whole pass is deferred until the fonts and logos have settled
-   *     (see whenMetricsSettled), so nothing is measured mid-load.
-   * --------------------------------------------------------------------- */
+  /* A4 pagination: content flows into as many A4 sheets as needed, splitting
+   * section -> children -> list items so a heading never strands at a page
+   * bottom. Breaks must not depend on viewport, so every measurement uses the
+   * specified A4 geometry (fractional px from computed style / getBoundingClientRect)
+   * instead of rounded values like clientHeight/scrollHeight, and the pass is
+   * deferred until fonts and logos have settled (whenMetricsSettled). */
   function isHeading(node) {
     return node && /^H[1-6]$/.test(node.tagName);
   }
@@ -403,32 +368,21 @@
   }
 
   function paginate(root, flow) {
-    /* Measure at 1:1. fit() may already have scaled the stack down (it is also
-     * wired to window `load`, which can beat the pagination pass), and a
-     * transform is baked into getBoundingClientRect() — measuring through a
-     * 0.4x scale would fit ~2.5 pages of content onto every sheet. The whole
-     * pass below is synchronous, so nothing can re-apply it mid-flow; fit()
-     * runs again right after. */
+    /* Measure at 1:1 — fit() may have already scaled the stack down, and a
+     * transform is baked into getBoundingClientRect(). fit() reruns after. */
     root.style.transform = "";
 
-    /* Justified body text (.cv-justify) picks its line breaks from glyph
-     * advances, and those are hinted per font rasterizer — Mobile Safari
-     * doesn't measure pixel-identical to a desktop engine even at the same
-     * unscaled 210mm width. Over enough dense text that drift can add up to a
-     * line, which is enough to tip a borderline entry onto a different sheet
-     * than on desktop. CROSS_ENGINE_SLACK trims the usable height so an entry
-     * needs more than the expected engine-to-engine drift to flip pages. It
-     * doesn't make the boundary immovable, just less likely to fall exactly
-     * where two engines disagree. */
+    /* .cv-justify line breaks depend on glyph advances, which differ slightly
+     * per rasterizer (e.g. Mobile Safari vs desktop) even at the same width.
+     * This slack absorbs that drift so a borderline entry doesn't flip pages
+     * between devices. */
     var CROSS_ENGINE_SLACK = 32;
 
     var body = newSheet(root);
     var limit = sheetLimit(body);
 
     function overflows() {
-      /* .cv-sheet-body is a flow-root of auto height, so its border box is the
-       * content height — fractional, unlike scrollHeight. The epsilon only
-       * absorbs float noise; the operands themselves are now deterministic. */
+      // .cv-sheet-body is a flow-root, so its border-box height is exact (fractional).
       return body.getBoundingClientRect().height > limit + 0.05;
     }
 
@@ -440,10 +394,7 @@
       return inner;
     }
 
-    /* The printable box of an A4 sheet, straight from the CSS: min-height is
-     * the full page and the paddings are the margins, all resolved to
-     * fractional px. Reading clientHeight instead would hand back a rounded
-     * page height *and* grow with the content once a sheet overflows. */
+    // Printable box of an A4 sheet, from CSS min-height/padding (fractional, unlike clientHeight).
     function sheetLimit(inner) {
       var cs = window.getComputedStyle(inner.parentNode);
       return (
@@ -454,7 +405,7 @@
       );
     }
 
-    /* Start a fresh sheet, carrying any trailing headings over with it. */
+    // Start a fresh sheet, carrying any trailing headings over with it.
     function breakSection(section, shell) {
       var carry = [];
       while (isHeading(shell.lastElementChild)) {
@@ -527,7 +478,7 @@
       }
     });
 
-    /* \pagestyle{plain} */
+    // \pagestyle{plain}
     Array.prototype.slice.call(root.querySelectorAll(".cv-sheet")).forEach(
       function (sheet, i) {
         sheet.appendChild(el("div", "cv-pagenum", String(i + 1)));
@@ -535,11 +486,9 @@
     );
   }
 
-  /* Position the abbreviations table's `|` rule (see .cv-abbrev-rule) as one
-   * element spanning the key column's full height, instead of a border or
-   * box-shadow repeated on every <td> — see the CSS comment for why a
-   * per-row copy is the thing that was producing the dashed appearance.
-   * Must run at 1:1 scale (same as paginate()), since it reads layout rects. */
+  /* Draw the abbreviations table's `|` rule as one element spanning the key
+   * column's full height (a per-row border/box-shadow renders dashed instead
+   * of solid). Must run at 1:1 scale, same as paginate(). */
   function drawAbbrevDividers(root) {
     Array.prototype.slice.call(root.querySelectorAll(".cv-abbrev-wrap")).forEach(
       function (wrap) {
@@ -559,16 +508,12 @@
     );
   }
 
-  /* Run `done` once the page measures the same as it will once it is fully
-   * loaded — i.e. after the fonts have resolved and every logo has decoded.
-   *
-   * This is what keeps the breaks identical on a phone and on a desktop. The
-   * logos are `height: 1em; width: auto`, so an image that has not arrived yet
-   * measures zero wide; paginating at that moment lays the Experience titles
-   * out narrower than they end up, and every later break inherits the error.
-   * A warm cache hides it — which is exactly why the two devices disagreed. */
+  /* Run `done` once the page measures the same as after full load (fonts
+   * resolved, logos decoded) — keeps pagination identical across devices.
+   * Logos are `height: 1em; width: auto`, so an undecoded image measures
+   * zero-wide and would throw off every later page break. */
   function whenMetricsSettled(node, done) {
-    var pending = 1;                    /* the scan itself */
+    var pending = 1; // the scan itself
     var fired = false;
     var guard = null;
 
@@ -583,7 +528,7 @@
       if (--pending === 0) finish();
     }
 
-    /* A logo that never answers must not keep the CV off the screen. */
+    // A logo that never answers must not keep the CV off the screen.
     guard = window.setTimeout(finish, 3000);
 
     Array.prototype.slice.call(node.querySelectorAll("img")).forEach(function (img) {
@@ -601,24 +546,17 @@
     settle();
   }
 
-  /* --- Fit-to-width --------------------------------------------------------
-   * The document is always paginated into real A4 sheets, at every viewport
-   * size. When the window is narrower than a sheet, the whole stack is scaled
-   * down as one block, so a phone gets the printed page in miniature rather
-   * than a reflowed approximation of it.
-   *
-   * A transform does not affect layout, so .cv-fit (which clips the un-scaled
-   * 210mm box) is given the scaled height explicitly; without it the document
-   * would keep the full-size height and trail a long empty gap.
-   * --------------------------------------------------------------------- */
+  /* Fit-to-width: the document is always paginated into real A4 sheets; when
+   * the viewport is narrower than a sheet, the whole stack is scaled down as
+   * one block. .cv-fit gets the scaled height explicitly since a transform
+   * doesn't affect layout. */
   var fitEl = null;
   var pagesEl = null;
 
   function fit() {
     if (!fitEl || !pagesEl) return;
 
-    /* Measure unscaled: .cv-fit's clientWidth is its padding box, unaffected
-     * by the overflowing child, and offsetHeight ignores the transform. */
+    // Measure unscaled: clientWidth ignores overflow, offsetHeight ignores the transform.
     pagesEl.style.transform = "";
     fitEl.style.height = "";
 
@@ -627,13 +565,13 @@
     if (!avail || !pageWidth) return;
 
     var scale = avail / pageWidth;
-    if (scale >= 1) return;                    /* room to spare: leave it at 1:1 */
+    if (scale >= 1) return; // room to spare: leave it at 1:1
 
     pagesEl.style.transform = "scale(" + scale + ")";
     fitEl.style.height = Math.ceil(pagesEl.offsetHeight * scale) + "px";
   }
 
-  /* --- Entry point --------------------------------------------------------- */
+  // Entry point
   function render() {
     var data = window.CV_DATA;
     var root = document.getElementById("cv-root");
@@ -642,7 +580,7 @@
     document.title = "CV - " + data.header.name;
     root.innerHTML = "";
 
-    /* Floating print / save-as-PDF control, kept outside the sheets. */
+    // Floating print / save-as-PDF control, kept outside the sheets.
     var toolbar = el("div", "cv-toolbar");
     var button = el(
       "button",
@@ -666,8 +604,7 @@
     var flow = el("div");
     flow.appendChild(buildContent(data));
 
-    /* The toolbar stays outside .cv-pages: a transformed ancestor becomes the
-     * containing block for `position: fixed`, which would strand the button. */
+    // Toolbar stays outside .cv-pages: a transformed ancestor would strand a `position: fixed` button.
     fitEl = el("div", "cv-fit");
     pagesEl = el("div", "cv-pages");
     fitEl.appendChild(pagesEl);
@@ -680,21 +617,20 @@
     });
   }
 
-  /* Page breaks are viewport-independent now, so a resize only needs a new
-   * scale factor — never a re-render. */
+  // Page breaks are viewport-independent; a resize only needs a new scale factor.
   var resizeTimer = null;
   window.addEventListener("resize", function () {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(fit, 150);
   });
 
-  /* The print stylesheet drops the transform; restore it afterwards. */
+  // Print stylesheet drops the transform; restore it afterwards.
   window.addEventListener("afterprint", fit);
 
   document.addEventListener("DOMContentLoaded", function () {
     render();
   });
 
-  /* Logos and any late-arriving metrics can change the scaled height. */
+  // Logos and late-arriving metrics can change the scaled height.
   window.addEventListener("load", fit);
 })();

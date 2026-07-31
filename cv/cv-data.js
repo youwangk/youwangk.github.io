@@ -1,20 +1,11 @@
-/* =============================================================================
- * cv-data.js — ALL editable CV content lives here.
+/* cv-data.js — all editable CV content. Mirrors LaTeX `sections/*.tex` 1:1;
+ * add a job/paper/award/patent by pushing an object into the array, no other
+ * file needs to change.
  *
- * This file mirrors the original LaTeX `sections/*.tex` split 1:1.
- * To update the CV, edit ONLY this file: adding a new job / paper / award /
- * patent = pushing one more object into the relevant array. No changes to
- * cv.html, cv.css or cv-render.js should ever be needed for routine updates.
- *
- * Conventions used below:
- *   - "Kim Youwang" is auto-bolded wherever it appears in an author string.
- *   - A trailing "*" after a name means equal contribution; keep it as-is.
- *   - Publications are listed most-recent-first; the J01.. / C01.. labels are
- *     generated automatically in reverse order (see cv-render.js), exactly
- *     like the LaTeX `etaremune` package did.
- *   - A publication's optional `url` (project page, or the paper when there is
- *     no project page) is attached to the quoted title in the author string.
- * ========================================================================== */
+ * Conventions: "Kim Youwang" auto-bolds in author strings; a trailing "*"
+ * means equal contribution; publications are most-recent-first and labelled
+ * J01../C01.. in reverse (see cv-render.js), like LaTeX `etaremune` did; a
+ * publication's `url` attaches to the quoted title. */
 
 window.CV_DATA = {
 
@@ -32,19 +23,13 @@ window.CV_DATA = {
     ],
   },
 
-  /* --- Bio ---------------------------------------------------------------
-   * Short summary condensed from the homepage bio, rendered as a tinted block
-   * right under the header. Wrap any phrase in **double asterisks** to bold it.
-   * Set to null to remove the block entirely.
-   * ---------------------------------------------------------------------- */
+  // Bio: tinted block under the header. **double asterisks** bold a phrase; null removes the block.
   bio: [
     "Youwang's research aims to build **photorealistic and interactive world simulations** for **content creation** and **physical AI**.",
     "Recently, his focus is on **generative materials** and **neural rendering**.",
   ],
 
-  /* Where the inline Experience logos live, relative to the *page* that loads
-   * this file (currently /cv.html at the site root, hence the "cv/" prefix).
-   * Change this if cv.html ever moves. */
+  // Path to the inline Experience logos, relative to the page loading this file.
   mediaBase: "cv/media/",
 
   /* --- sections/education.tex ------------------------------------------- */
@@ -63,18 +48,13 @@ window.CV_DATA = {
     },
   ],
 
-  /* --- sections/research_interests.tex ----------------------------------
-   * Not rendered at the moment (the render call in cv-render.js is commented
-   * out); kept here so the section can be switched back on at any time.
-   * ---------------------------------------------------------------------- */
+  // sections/research_interests.tex — not rendered (call is commented out in cv-render.js).
   researchInterests: {
     goal: "Build photorealistic & interactive world simulations for next-gen. physical AI & content creation",
     keywords: "Generative Models, Real-time Graphics, Neural Rendering, Neural Materials",
   },
 
-  /* Whenever one of these names appears in an entry's `detail` line (Work
-   * Experience managers, Education advisors, …) it is rendered as a link.
-   * Add a name here and every mention links itself. */
+  // Any name appearing in an entry's `detail` line (managers, advisors, …) auto-links.
   peopleLinks: {
     "Jacob Munkberg": "https://research.nvidia.com/labs/rtr/author/jacob-munkberg/",
     "Jon Hasselgren": "https://research.nvidia.com/labs/rtr/author/jon-hasselgren/",
@@ -85,12 +65,8 @@ window.CV_DATA = {
     "Tae-Hyun Oh": "https://ami.kaist.ac.kr/members/tae-hyun-oh",
   },
 
-  /* --- sections/experience.tex ------------------------------------------
-   * Each entry's first line renders as:  [logo] Org (Team) – Role
-   * `team` and `role` are optional; drop either and the separators around it
-   * disappear. logo: "nvidia" | "meta" | null → file in `mediaBase`, drawn
-   * right before the organization name.
-   * ---------------------------------------------------------------------- */
+  /* sections/experience.tex — first line renders [logo] Org (Team) – Role;
+   * team/role optional. logo: "nvidia" | "meta" | null -> file in `mediaBase`. */
   experience: [
     {
       org: "NVIDIA",
@@ -313,8 +289,7 @@ window.CV_DATA = {
     },
   ],
 
-  /* --- sections/mentoring.tex ------------------------------------------- */
-  /* bold: true → whole line bold. boldSpan → bold just that substring.      */
+  // sections/mentoring.tex — bold: true bolds the whole line; boldSpan bolds just that substring.
   mentoring: [
     { bold: true, text: "Mentored 2 Graduate Juniors & 7 Undergraduate Interns" },
     {
@@ -325,8 +300,7 @@ window.CV_DATA = {
     { bold: false, text: "Mentored on problem formulation, method design, implementation, and paper writing" },
   ],
 
-  /* --- sections/professional_activities.tex ------------------------------ */
-  /* highlight: substring of `years` to render in blue.                      */
+  // sections/professional_activities.tex — highlight: substring of `years` rendered in blue.
   professionalActivities: {
     journalReviewer: {
       title: "Reviewer for Journals",
@@ -357,7 +331,7 @@ window.CV_DATA = {
     },
   },
 
-  // /* --- sections/references.tex ------------------------------------------ */
+  // sections/references.tex
   // references: [
   //   {
   //     name: "Tae-Hyun Oh",
@@ -373,12 +347,8 @@ window.CV_DATA = {
   //   },
   // ],
 
-  /* --- Unused sections --------------------------------------------------
-   * sections/talk.tex and sections/media.tex exist in the LaTeX project but
-   * are NOT \input'd by main.tex, so they are not part of the compiled PDF
-   * and are not rendered here. Uncomment the data below AND the matching
-   * render calls in cv-render.js (renderCV) to enable them.
-   * ---------------------------------------------------------------------- */
+  /* Unused: talk.tex / media.tex aren't \input'd by main.tex, not part of the
+   * compiled PDF. Uncomment here + the matching calls in cv-render.js to enable. */
   // talks: [
   //   { title: "Towards Efficient & Realistic Virtual World Communication",
   //     venue: "INNERVERZ, Korea", date: "Feb. 2023" },

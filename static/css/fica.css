@@ -234,41 +234,7 @@ body {
   color: #999;
 }
 
-/* =========================================
-   Media placeholders
-   (swap each one out for a real <video>/<img> later)
-   ========================================= */
-.media-placeholder {
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16 / 9;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 10px, #e8e8e8 10px, #e8e8e8 20px);
-  border: 1px dashed #bbb;
-  border-radius: 8px;
-  color: #888;
-  font-size: 0.95em;
-  letter-spacing: 0.02em;
-}
-
-.media-placeholder svg {
-  width: 38px;
-  height: 38px;
-  opacity: 0.45;
-}
-
-.media-placeholder.is-small {
-  max-width: 420px;
-}
-
-/* =========================================
-   Lightweight carousel (no external library)
-   ========================================= */
+/* Lightweight carousel (no external library) */
 .custom-carousel {
   position: relative;
   max-width: 900px;
