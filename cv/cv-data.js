@@ -306,6 +306,7 @@ window.CV_DATA = {
       title: "Reviewer for Journals",
       items: [
         { name: "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)", years: "2024, 2025" },
+        { name: "ACM Transactions on Graphics (ACM TOG)", years: "2026" },
         { name: "International Journal of Computer Vision (IJCV)", years: "2024, 2025" },
         { name: "IEEE Transactions on Visualization and Computer Graphics (TVCG)", years: "2026" },
         { name: "IEEE Transactions on Multimedia (TMM)", years: "2023" },
