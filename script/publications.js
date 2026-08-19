@@ -39,7 +39,7 @@ const publicationsData = [
         image: "./media/robot.png",
         title: "A Paper on Vision-based Robot State Estimation",
         authors: "",
-        venue: "To be updated",
+        venue: "Under Revision",
         links: []
     },
     {

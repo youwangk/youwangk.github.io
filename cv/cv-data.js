@@ -164,7 +164,7 @@ window.CV_DATA = {
     journal: [
       {
         authors: "A paper on “Vision-based robot state estimation.”",
-        venue: "Under Review",
+        venue: "Under Revision",
       },
       {
         authors: "Kim Youwang*, T. Byun*, K. Ji-Yeon, S. Choi, T.-H. Oh, “CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization.”",
