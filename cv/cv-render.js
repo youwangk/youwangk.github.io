@@ -79,6 +79,43 @@
     return el("div", "cv-bio", text);
   }
 
+  // Front-page bullet summary: bold label, en-dash, free-form text with **bold** spans.
+  function renderSummaryList(title, items, modifier) {
+    var sec = section(title, modifier);
+    var ul = el("ul", "cv-list cv-summary-list cv-justify");
+
+    items.forEach(function (it) {
+      var text = esc(it.text).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+      ul.appendChild(el("li", null, "<b>" + esc(it.label) + "</b> &ndash; " + text));
+    });
+
+    sec.appendChild(ul);
+    return sec;
+  }
+
+  // Highlighted Research: short "Youwang et al." form, optional collab tag, linked title.
+  function renderSelectedPublications(title, items) {
+    var sec = section(title);
+    var ul = el("ul", "cv-selectedpub");
+
+    items.forEach(function (p) {
+      var li = el("li");
+
+      var titleHtml = p.url
+        ? '<a class="cv-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.title) + "</a>"
+        : esc(p.title);
+
+      var html = "Youwang et al., " + '“<span class="cv-pub-title">' + titleHtml + "</span>”";
+      if (p.collab) html += " " + esc(p.collab);
+
+      li.appendChild(el("div", "cv-pub-body cv-justify", html));
+      ul.appendChild(li);
+    });
+
+    sec.appendChild(ul);
+    return sec;
+  }
+
   function mediaBase() {
     var data = window.CV_DATA;
     return (data && data.mediaBase) || "cv/media/";
@@ -325,8 +362,12 @@
 
     root.appendChild(renderHeader(data.header));
     if (data.bio) root.appendChild(renderBio(data.bio));
+    if (data.summary) root.appendChild(renderSummaryList("Summary", data.summary, "cv-section--tight-top"));
+    if (data.selectedPublications) {
+      root.appendChild(renderSelectedPublications("Highlighted Research", data.selectedPublications));
+    }
     root.appendChild(renderCventrySection("Work Experience", data.experience));
-    root.appendChild(renderCventrySection("Education", data.education));
+    root.appendChild(renderCventrySection("Education", data.education, "cv-section--tight-top"));
     root.appendChild(renderAwardList("Awards and Honors", data.awards));
 
     // Disabled — bio block above covers the same ground. Data stays in cv-data.js.

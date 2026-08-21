@@ -11,7 +11,7 @@ window.CV_DATA = {
 
   /* --- Header (main.tex) ------------------------------------------------ */
   header: {
-    name: "Kim Youwang",
+    name: "Youwang Kim",
     /* Current positions, shown right under the name. */
     position: "Research Intern at NVIDIA  ·  Ph.D. Student at POSTECH",
     /* Contact line; rendered in order, separated by "|". */
@@ -25,8 +25,63 @@ window.CV_DATA = {
 
   // Bio: tinted block under the header. **double asterisks** bold a phrase; null removes the block.
   bio: [
-    "Youwang's research aims to build **photorealistic and interactive world simulations** for **content creation** and **physical AI**.",
-    "Recently, his focus is on **generative materials** and **neural rendering**.",
+    "Youwang's research aims to build **photorealistic and interactive 3D/4D digital twins** for **content creation** and **physical AI**.",
+    "Recently, his focus is on **generative neural materials**.",
+  ],
+
+  /* Front-page bullet summary. `label` bolds as the lead-in; **double asterisks**
+   * inside `text` bold a phrase, same convention as `bio`. */
+  summary: [
+    {
+      label: "Expertise",
+      text: "Real-time graphics & 3D vision, Generative models, Neural rendering, Digital twins",
+    },
+    {
+      label: "Publication",
+      text: "**16 publications (9 as 1st author)** in top AI, CV, and CG conferences {CVPR, ECCV, ICLR, AAAI, etc} and journals {TPAMI, IJCV, TMLR, etc}",
+    },
+    {
+      label: "Industry / academia experience",
+      text: "Research internships at **NVIDIA** (Real-Time Graphics Research) and **Meta** (Codec Avatars Lab); Visiting Ph.D. at **Univ. of Tübingen**",
+    },
+    // {
+    //   label: "Patents & tech transfer",
+    //   text: "**4 granted patents**; 1 licensed technology",
+    // },
+    {
+      label: "Award",
+      text: "Grand Prize / Minister's Award ($12K), ICT Paper Awards; Best Poster Award, BMVC 2024; Qualcomm Innovation Fellowship ($4K); Outstanding Reviewer Award, ICCV 2023 (top 1.89%)",
+    },
+    {
+      label: "Academic activity",
+      text: "**Reviewed ~50 papers** as reviewer for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, NeurIPS, ACM SIGGRAPH & SIGGRAPH Asia, etc}",
+    },
+  ],
+
+  /* Front-page highlight reel — short "Youwang et al." form, not the full
+   * author list. Deliberately duplicates a subset of publications.conference
+   * below (title/url) so this list can carry its own `collab` tag. */
+  selectedPublications: [
+    {
+      title: "NeuMatEx: Extracting neural materials from images,",
+      url: "https://nvlabs.github.io/neumatex/",
+      collab: "with NVIDIA (Tech report)",
+    },
+    {
+      title: "FiCA: Feed-forward animatable avatar from a selfie,",
+      url: "https://kim-youwang.github.io/FiCA",
+      collab: "with Meta (Tech report)",
+    },
+    {
+      title: "ELITE: High-fidelity animatable avatar synthesis,",
+      url: "https://kim-youwang.github.io/elite",
+      collab: "with Univ. of Tübingen (CVPR'26)",
+    },
+    {
+      title: "Paint-it: Physics-based materials from text,",
+      url: "https://kim-youwang.github.io/paint-it",
+      collab: "with Univ. of Tübingen (CVPR'24)"
+    },
   ],
 
   // Path to the inline Experience logos, relative to the page loading this file.
