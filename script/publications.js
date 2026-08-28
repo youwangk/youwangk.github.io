@@ -4,7 +4,7 @@ const publicationsData = [
         image: "./media/neumatex_teaser.gif",
         title: "Extracting Neural Materials from Multi-view Images",
         authors: "<u>Kim Youwang</u>, Jon Hasselgren, Peter Kocsis, Andrea Weidlich, Tae-Hyun Oh, Jacob Munkberg",
-        venue: "arXiv 2026",
+        venue: "NVIDIA Tech Report 2026",
         links: [
             { name: "Project page", url: "https://nvlabs.github.io/neumatex/" },
             { name: "Paper", url: "https://arxiv.org/abs/2606.26715" },
@@ -28,7 +28,7 @@ const publicationsData = [
         image: "./media/face_avatar.gif",
         title: "FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image",
         authors: "<u>Kim Youwang</u>, Zhengyu Yang, Liuhao Ge, Yu Rong, Timur Bagautdinov, Su Zhaoen, Nir Sopher, Jovan Popović, Teng Deng, Tae-Hyun Oh, Chen Cao",
-        venue: "arXiv 2026",
+        venue: "Meta Tech Report 2026",
         links: [
             { name: "Project page", url: "https://kim-youwang.github.io/FiCA" },
             { name: "Paper", url: "https://arxiv.org/abs/2606.24232" },

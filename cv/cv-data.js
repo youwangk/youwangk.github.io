@@ -38,7 +38,7 @@ window.CV_DATA = {
     },
     {
       label: "Publication",
-      text: "**16 publications (9 as 1st author)** in top AI, CV, and CG conferences {CVPR, ECCV, ICLR, AAAI, etc} and journals {TPAMI, IJCV, TMLR, etc}",
+      text: "**16 publications (9 as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports",
     },
     {
       label: "Industry / academia experience",
@@ -249,12 +249,12 @@ window.CV_DATA = {
     conference: [
       {
         authors: "Kim Youwang, J. Hasselgren, P. Kocsis, A. Weidlich, T.-H. Oh, J. Munkberg, “Extracting Neural Materials from Multi-view Images.”",
-        venue: "arXiv 2026",
+        venue: "NVIDIA Tech Report 2026",
         url: "https://nvlabs.github.io/neumatex/",
       },
       {
         authors: "Kim Youwang, Z. Yang, L. Ge, Y. Rong, T. Bagautdinov, S. Zhaoen, N. Sopher, J. Popović, T. Deng, T.-H. Oh, C. Cao, “FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image.”",
-        venue: "arXiv 2026",
+        venue: "Meta Tech Report 2026",
         url: "https://kim-youwang.github.io/FiCA",
       },
       {
