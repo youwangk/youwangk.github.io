@@ -38,7 +38,7 @@ window.CV_DATA = {
     },
     {
       label: "Publication",
-      text: "**16 publications (9 as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports",
+      text: "**16 publications (9 as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports {NVIDIA, Meta}",
     },
     {
       label: "Industry / academia experience",
