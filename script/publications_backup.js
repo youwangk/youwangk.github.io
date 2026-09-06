@@ -39,7 +39,7 @@ const publicationsData = [
         image: "./media/robot.png",
         title: "A Paper on Vision-based Robot State Estimation",
         authors: "",
-        venue: "Under revision",
+        venue: "Under Revision",
         links: []
     },
     {
@@ -188,7 +188,7 @@ function renderPublications() {
         let linksHtml = '';
         if (item.links && item.links.length > 0) {
             const linkItems = item.links.map(link =>
-                `<a class="pub-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.name}</a>`
+                `<a class="pub-link" href="${link.url}" target="_blank">${link.name}</a>`
             );
             linksHtml = `<span class="pub-links">${linkItems.join('')}</span>`;
         }
@@ -198,8 +198,8 @@ function renderPublications() {
             : '';
 
         html += `
-        <article class="item">
-            <img src="${item.image}" alt="${item.title} teaser" loading="lazy" decoding="async"/>
+        <div class="item">
+            <img src="${item.image}" alt="teaser"/>
             <p>
                 <span class="pub-title">${item.title}</span>
                 ${venueHtml}
@@ -207,7 +207,7 @@ function renderPublications() {
                 ${linksHtml}
                 ${noteHtml}
             </p>
-        </article>`;
+        </div>`;
     });
 
     container.innerHTML = html;

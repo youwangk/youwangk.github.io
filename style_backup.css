@@ -1,0 +1,569 @@
+/* 0. Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
+/* 1. Global Styles & Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+b, h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.85em;
+    margin: 0 0 1em 0;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2em;
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    /* Accent ported from cv/cv.css's bio block: muted, translucent NVIDIA green. */
+    border-bottom: 2px solid rgba(118, 185, 0, 0.65);
+    display: block;
+    width: 100%;
+    float: left;
+    letter-spacing: -0.02em;
+}
+
+.intro + h2 {
+    margin-bottom: 0.75em;
+}
+
+a {
+    text-decoration: none;
+    color: #3c67c2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.a_more {
+    text-decoration: none;
+    color: #3c67c2;
+    font-weight: 300;
+}
+
+note {
+    text-decoration: none;
+    color: #595959;
+    font-size: 11px;
+}
+
+/* 2. Layout & Containers */
+.container {
+    margin: 0 auto;
+    font-size: 1em;
+    text-align: left;
+    width: 900px;
+}
+
+.flcontainer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.item, .outro {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.outro {
+    margin-bottom: 3.33em;
+    text-align: right;
+    font-style: italic;
+    font-size: 10px;
+}
+
+/* 3. Intro / Profile Section */
+.intro {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-top: 5em;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.profile-photo {
+    flex: 0 0 200px;
+    margin-right: 5px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.intro-content {
+    flex: 1;
+}
+
+.intro-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.0em;
+    font-weight: 600;
+    margin: 0 0 0 0;
+    line-height: 1.1;
+    color: #000000;
+    letter-spacing: -0.035em;
+    margin-left: -0.075em;
+}
+
+.intro-content p {
+    font-size: 1.0em;
+    line-height: 1.8;
+    margin-bottom: 1em;
+    width: 100%;
+    float: none;
+}
+
+.intro-content .links {
+    margin-top: 1.0em;
+    font-size: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 14px;
+    border-radius: 7px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.pill:hover {
+    text-decoration: none;
+    border-color: rgba(118, 185, 0, 0.65);
+    color: #5c8f00;
+    transform: translateY(-1px);
+}
+
+.intro-content small {
+    font-family: 'Inter', sans-serif;
+    display: block;
+    font-size: 1em;
+}
+
+/* 4. Content Items (Publications) */
+.pub-grid .item {
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background: #fff;
+    padding: 16px;
+    /* margin-bottom: 5px; */
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pub-grid .item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(118, 185, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.pub-grid .item {
+    display: flex;
+    align-items: center;
+    gap: 2.75em;
+}
+
+.item img {
+    width: 21em;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    border: 0;
+    border-radius: 6px;
+}
+
+.item video {
+    width: 12.5em;
+    flex: 0 0 auto;
+    border: 0;
+}
+
+.item p {
+    margin-top: 0;
+    min-width: 0;
+    max-width: 520px;
+    flex: 1 1 auto;
+}
+
+.pub-title {
+    display: block;
+    font-size: 1.05em;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.pub-venue {
+    display: inline-flex;
+    font-size: 0.78em;
+    font-weight: 600;
+    color: #5c8f00;
+    background: rgba(118, 185, 0, 0.12);
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.pub-authors {
+    display: block;
+    font-size: 0.9em;
+    color: #595959;
+    margin-bottom: 6px;
+}
+
+.pub-links {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.pub-link {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #595959;
+    background: #f0f0f0;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin: 0 6px 6px 0;
+}
+
+.pub-link:hover {
+    text-decoration: none;
+    color: #5c8f00;
+    border-color: rgba(118, 185, 0, 0.65);
+}
+
+.pub-note {
+    color: #8a8f98;
+    display: block;
+}
+
+.item p:last-child,
+.intro p:last-child,
+.outro p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lists */
+li.yw_list { margin-left: -2%; }
+li.exp_list { margin-left: -2%; margin-bottom: 1.5%; }
+
+.list-item { margin-bottom: 10px; }
+
+.custom-bullet::before {
+    content: "\00a0·\00a0";
+    font-size: 1.5em;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+/* 5. Highlights & Effects */
+.highlight-bg {
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-bg::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -2px;
+    left: -10px;
+    right: -5px;
+    background-color: #FFFFD4;
+    border-radius: 0px;
+    z-index: -1;
+}
+
+span.highlight {
+    background-color: #FFFFD4;
+}
+
+/* 6. Publication Filter Buttons */
+.publications-header {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5em;
+}
+
+.publications-header h2 {
+    float: none;
+    width: 100%;
+    margin: 30px 0 0.15em 0;
+}
+
+.pub-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.pub-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pub-button:hover {
+    background-color: #e0e0e0;
+}
+
+.pub-button.active-button {
+    background-color: #3c67c2;
+    color: white;
+    border-color: #3c67c2;
+}
+
+/* 7. Experience Section */
+.experience-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.exp-detail {
+    color: #595959;
+    font-size: 0.9em;
+}
+
+.exp-logo {
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exp-date {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #666;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.exp-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.exp-content {
+    flex: 1;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.job-date {
+    white-space: nowrap;
+    margin-left: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 8. Mobile / Responsive */
+@media only screen and (max-device-width: 480px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        font-size: 2.1vw;
+        line-height: 2.7vw;
+        padding: 20px;
+    }
+
+    .container { width: 98%; }
+
+    .intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 3.15vw;
+        gap: 20px;
+    }
+
+    .profile-photo {
+        width: 50%;
+        flex: none;
+        margin-bottom: 20px;
+    }
+
+    .intro-content {
+        text-align: left;
+        width: 100%;
+    }
+
+    .intro-content h1 {
+        text-align: center;
+        font-size: 4.5em;
+    }
+
+    .intro-content small {
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .intro-content p {
+        font-size: 1.5em;
+    }
+
+    .intro-content .links {
+        font-size: 1.5em;
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .pill {
+        padding: 0.3em 0.7em;
+        border-radius: 0.7em;
+    }
+
+    .outro { margin-bottom: 3.15vw; }
+
+    .pub-grid .item { gap: 0; }
+
+    .item img {
+        width: 35%;
+        margin-right: 2.5%;
+    }
+
+    .item p { width: 60%; max-width: none; }
+
+    .experience-item {
+        gap: 15px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .exp-logo {
+        flex: 0 0 15vw;
+        margin-right: 0.5em;
+    }
+
+    .exp-date {
+        font-size: 0.7em;
+    }
+
+    .job-header {
+        flex-direction: column;
+    }
+
+    .job-date {
+        margin-left: 0;
+        margin-top: 2px;
+    }
+}
+
+/* 9. Highlighted Research */
+.highlighted-research-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 100%;
+    clear: both;
+}
+
+.highlighted-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none !important;
+    color: #000;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.highlighted-item:hover {
+    transform: translateY(-5px);
+}
+
+.highlighted-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; 
+    object-fit: contain; 
+    object-position: center;
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+}
+
+.highlighted-title {
+    font-weight: 700;
+    font-size: 1.05em;
+    text-align: center;
+    transition: color 0.2s ease-in-out;
+}
+
+.highlighted-item:hover .highlighted-title {
+    color: #3c67c2;
+}
+
+/* Mobile Responsive for Highlighted Research */
+@media only screen and (max-device-width: 480px) {
+    .highlighted-research-container {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    .highlighted-item img {
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+}
