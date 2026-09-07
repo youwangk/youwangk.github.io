@@ -1,11 +1,6 @@
-/* cv-data.js — all editable CV content. Mirrors LaTeX `sections/*.tex` 1:1;
- * add a job/paper/award/patent by pushing an object into the array, no other
- * file needs to change.
- *
- * Conventions: "Kim Youwang" auto-bolds in author strings; a trailing "*"
- * means equal contribution; publications are most-recent-first and labelled
- * J01../C01.. in reverse (see cv-render.js), like LaTeX `etaremune` did; a
- * publication's `url` attaches to the quoted title. */
+/* cv-data.js — editable non-publication CV content.
+ * Publication records are shared with the homepage and live only in
+ * script/publications-data.js. */
 
 window.CV_DATA = {
 
@@ -38,7 +33,10 @@ window.CV_DATA = {
     },
     {
       label: "Publication",
-      text: "**16 publications (9 as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports {NVIDIA, Meta}",
+      text: "**" + window.PUBLICATIONS_DB.items.length + " publications (" +
+        window.PUBLICATIONS_DB.items.filter(function (publication) {
+          return /^Kim Youwang(?:\*|,)/.test(publication.authors);
+        }).length + " as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports {NVIDIA, Meta}",
     },
     {
       label: "Industry / academia experience",
@@ -58,31 +56,17 @@ window.CV_DATA = {
     },
   ],
 
-  /* Front-page highlight reel — short "Youwang et al." form, not the full
-   * author list. Deliberately duplicates a subset of publications.conference
-   * below (title/url) so this list can carry its own `collab` tag. */
-  selectedPublications: [
-    {
-      title: "NeuMatEx: Extracting neural materials from images,",
-      url: "https://nvlabs.github.io/neumatex/",
-      collab: "with NVIDIA (Tech report)",
-    },
-    {
-      title: "FiCA: Feed-forward animatable avatar from a selfie,",
-      url: "https://kim-youwang.github.io/FiCA",
-      collab: "with Meta (Tech report)",
-    },
-    {
-      title: "ELITE: High-fidelity animatable avatar synthesis,",
-      url: "https://kim-youwang.github.io/elite",
-      collab: "with Univ. of Tübingen (CVPR'26)",
-    },
-    {
-      title: "Paint-it: Physics-based materials from text,",
-      url: "https://kim-youwang.github.io/paint-it",
-      collab: "with Univ. of Tübingen (CVPR'24)"
-    },
-  ],
+  /* Curated highlight reel derived from the shared publication database. */
+  selectedPublications: window.PUBLICATIONS_DB.items
+    .filter(function (publication) { return publication.cvHighlight; })
+    .sort(function (a, b) { return a.cvHighlight.order - b.cvHighlight.order; })
+    .map(function (publication) {
+      return {
+        title: publication.cvHighlight.title,
+        url: publication.links[0] && publication.links[0].url,
+        collab: publication.cvHighlight.collab,
+      };
+    }),
 
   // Path to the inline Experience logos, relative to the page loading this file.
   mediaBase: "cv/media/",
@@ -200,121 +184,8 @@ window.CV_DATA = {
     },
   ],
 
-  /* --- sections/publications.tex + sections/paper_abbrev.tex ------------- */
-  publications: {
-    abbreviations: [
-      ["TPAMI", "IEEE Transactions on Pattern Analysis and Machine Intelligence"],
-      ["IJCV", "International Journal of Computer Vision"],
-      ["TMLR", "Transactions on Machine Learning Research"],
-      ["CVPR", "IEEE Conference on Computer Vision and Pattern Recognition"],
-      ["ECCV", "European Conference on Computer Vision"],
-      ["ICCV", "IEEE International Conference on Computer Vision"],
-      ["ICLR", "International Conference on Learning Representation"],
-      ["AAAI", "AAAI Conference on Artificial Intelligence"],
-      ["BMVC", "British Machine Vision Conference"],
-      ["TVCJ", "The Visual Computer Journal"],
-    ],
-
-    /* Most recent first. Labels J05 … J01 are generated automatically. */
-    journal: [
-      {
-        authors: "A paper on “Vision-based robot state estimation.”",
-        venue: "Under Revision",
-      },
-      {
-        authors: "Kim Youwang*, T. Byun*, K. Ji-Yeon, S. Choi, T.-H. Oh, “CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization.”",
-        venue: "TPAMI 2026",
-        url: "https://ieeexplore.ieee.org/document/11408037"
-      },
-      {
-        authors: "G. Kim, Kim Youwang, L. Hyoseok, T.-H. Oh, “FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting.”",
-        venue: "IJCV 2026",
-        url: "https://kim-geonu.github.io/FPGS/",
-        note: "Excellence Prize at the Electronics Times ICT Paper Awards 2024",
-      },
-      {
-        authors: "Kim Youwang, L. Hyun*, K. Sung-Bin*, S.-K. Nam, J.-H. Joo, T.-H. Oh, “A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization.”",
-        venue: "TMLR 2024",
-        url: "https://kim-youwang.github.io/neuface",
-        note: "Top 5.0% TMLR papers in 2 years – Transferred to ICLR 2025",
-      },
-      {
-        authors: "D. H. Ryou, Kim Youwang, T.-H. Oh, “Multi-stage Adaptive Rank Statistic Pruning for Lightweight Human 3D Mesh Recovery Model.”",
-        venue: "TVCJ 2023",
-        url: "https://link.springer.com/article/10.1007/s00371-023-02798-x",
-      },
-    ],
-
-    /* Most recent first. Labels C12 … C01 are generated automatically. */
-    conference: [
-      {
-        authors: "Kim Youwang, J. Hasselgren, P. Kocsis, A. Weidlich, T.-H. Oh, J. Munkberg, “Extracting Neural Materials from Multi-view Images.”",
-        venue: "NVIDIA Tech Report 2026",
-        url: "https://nvlabs.github.io/neumatex/",
-      },
-      {
-        authors: "Kim Youwang, Z. Yang, L. Ge, Y. Rong, T. Bagautdinov, S. Zhaoen, N. Sopher, J. Popović, T. Deng, T.-H. Oh, C. Cao, “FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image.”",
-        venue: "Meta Tech Report 2026",
-        url: "https://kim-youwang.github.io/FiCA",
-      },
-      {
-        authors: "Kim Youwang, L. Hyoseok, P. Subin, G. Pons-Moll, T.-H. Oh, “ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation.”",
-        venue: "CVPR 2026",
-        url: "https://kim-youwang.github.io/elite",
-      },
-      {
-        authors: "Kim Youwang, L. Hyoseok, G. Pons-Moll, T.-H. Oh, “Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps.”",
-        venue: "ICCVW 2025",
-        url: "./media/pdfs/dress_up_camready.pdf",
-        note: "Oral presentation",
-      },
-      {
-        authors: "J. Cho, Kim Youwang, H. M. Yang, T.-H. Oh, “Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild.”",
-        venue: "CVPR 2025",
-        url: "https://zeroshape-w.github.io/",
-      },
-      {
-        authors: "Kim Youwang, L. Hyun*, K. Sung-Bin*, S.-K. Nam, J.-H. Joo, T.-H. Oh, “A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization.”",
-        venue: "ICLR 2025",
-        url: "https://kim-youwang.github.io/neuface",
-        note: "Invited as a poster presentation – Top 5.0% TMLR papers in 2 years invited",
-      },
-      {
-        authors: "K. Yu-Ji, H. Ha, Kim Youwang, J. Surh, H. Ha, T.-H. Oh, “MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation.”",
-        venue: "BMVC 2024",
-        url: "https://metta3d.github.io/",
-        note: "Best Poster Award at BMVC 2024",
-      },
-      {
-        authors: "Kim Youwang, T.-H. Oh, G. Pons-Moll, “Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering.”",
-        venue: "CVPR 2024",
-        url: "https://kim-youwang.github.io/paint-it",
-        note: "Best Poster Award at POSTECH-KAIST joint ML workshop 2024",
-      },
-      {
-        authors: "G. Kim, Kim Youwang, T.-H. Oh, “Feed-Forward Photorealistic Style Transfer for Large-Scale 3D Neural Radiance Field.”",
-        venue: "AAAI 2024",
-        url: "https://kim-geonu.github.io/FPRF/",
-      },
-      {
-        authors: "Kim Youwang*, K. Ji-Yeon*, T.-H. Oh, “CLIP-Actor: Text-Driven Recommendation and Stylization for Animating Human Meshes.”",
-        venue: "ECCV 2022",
-        url: "https://clip-actor.github.io",
-        note: "Winner of the Electronics Times ICT Paper Awards 2023, Winner of the Qualcomm Innovation Fellowship Korea, 2022",
-      },
-      {
-        authors: "J. Cho, Kim Youwang, T.-H. Oh, “Cross-Attention of Disentangled Modalities for 3D Human Mesh Recovery with Transformers.”",
-        venue: "ECCV 2022",
-        url: "https://fastmetro.github.io/",
-      },
-      {
-        authors: "Kim Youwang, K. Ji-Yeon, K. Joo, T.-H. Oh, “Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise,”",
-        venue: "BMVC 2021",
-        url: "https://kim-youwang.github.io/demr",
-        note: "Invited to ICVSS 2022",
-      },
-    ],
-  },
+  /* Shared with index.html; edit script/publications-data.js only. */
+  publications: window.PUBLICATIONS_DB,
 
   /* --- sections/techtransfer.tex ---------------------------------------- */
   techtransfer: [

@@ -279,16 +279,44 @@
     return ul;
   }
 
+  /* Convert the shared rich homepage records into the CV citation shape. */
+  function cvPublicationEntries(data, category) {
+    var entries = [];
+
+    (data.items || []).forEach(function (publication) {
+      (publication.cv || []).forEach(function (cvEntry) {
+        if (cvEntry.category !== category) return;
+
+        var primaryLink = publication.links && publication.links[0];
+        var citation = cvEntry.citation;
+        if (!citation) {
+          citation = (cvEntry.authors || publication.cvAuthors || publication.authors) +
+            ", “" + (cvEntry.title || publication.title) + ".”";
+        }
+
+        entries.push({
+          authors: citation,
+          venue: cvEntry.venue || publication.venue,
+          url: cvEntry.url || (primaryLink && primaryLink.url),
+          note: cvEntry.note,
+          order: cvEntry.order || Number.MAX_SAFE_INTEGER,
+        });
+      });
+    });
+
+    return entries.sort(function (a, b) { return a.order - b.order; });
+  }
+
   function renderPublications(title, data) {
     var sec = section(title, "cv-section--pub");
 
     sec.appendChild(renderAbbrevTable(data.abbreviations));
 
     subsection(sec, "Journal Articles");
-    sec.appendChild(renderPubItems(data.journal, "J"));
+    sec.appendChild(renderPubItems(cvPublicationEntries(data, "journal"), "J"));
 
     subsection(sec, "Conference Papers");
-    sec.appendChild(renderPubItems(data.conference, "C"));
+    sec.appendChild(renderPubItems(cvPublicationEntries(data, "conference"), "C"));
 
     return sec;
   }

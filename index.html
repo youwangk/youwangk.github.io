@@ -8,22 +8,22 @@
     <meta name="description" content="Youwang Kim is a Ph.D. candidate and NVIDIA research intern working on real-time graphics, neural materials, 3D/4D avatars, and generative AI.">
     <link rel="canonical" href="https://kim-youwang.github.io/">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://kim-youwang.github.io/"/>
-    <meta property="og:title" content="Youwang Kim"/>
-    <meta property="og:description" content="Research on real-time graphics, neural materials, 3D/4D avatars, and generative AI."/>
-    <meta property="og:image" content="https://kim-youwang.github.io/media/favicon.png"/>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kim-youwang.github.io/">
+    <meta property="og:title" content="Youwang Kim">
+    <meta property="og:description" content="Research on real-time graphics, neural materials, 3D/4D avatars, and generative AI.">
+    <meta property="og:image" content="https://kim-youwang.github.io/media/favicon.png">
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:url" content="https://kim-youwang.github.io/"/>
-    <meta name="twitter:title" content="Youwang Kim"/>
-    <meta name="twitter:description" content="Research on real-time graphics, neural materials, 3D/4D avatars, and generative AI."/>
-    <meta name="twitter:image" content="https://kim-youwang.github.io/media/favicon.png"/>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://kim-youwang.github.io/">
+    <meta name="twitter:title" content="Youwang Kim">
+    <meta name="twitter:description" content="Research on real-time graphics, neural materials, 3D/4D avatars, and generative AI.">
+    <meta name="twitter:image" content="https://kim-youwang.github.io/media/favicon.png">
 
     <link rel="icon" type="image/png" href="./media/favicon.png">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <!-- Shared base styles followed by the homepage-specific layout. -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style_home.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,189 +40,201 @@
     }
     </script>
 </head>
-<body>
+<body class="home-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <main id="main-content" class="container">
 
-        <!-- ================= INTRO ================= -->
-        <div class="intro">
-            <div class="profile-photo">
-                <img src="media/profile_260317_optimized.jpg" alt="Portrait of Youwang Kim" width="480" height="640" decoding="async" fetchpriority="high">
-            </div>
-            <div class="intro-content">
-                <h1>Youwang Kim</h1>
-                <a class="email" href="mailto:youwang.kim@postech.ac.kr">youwang.kim@postech.ac.kr</a>
-                <p>
-                    I am a research intern at <a href="https://research.nvidia.com/labs/rtr/" target="_blank" rel="noopener noreferrer">NVIDIA Real-Time Graphics Research</a> and a final-year Ph.D. student at <a href="https://www.postech.ac.kr/eng/index.do#;" target="_blank" rel="noopener noreferrer">POSTECH</a>.
-                    <!--  -->
-                    I build photorealistic, interactive 3D/4D digital twins for next-generation content creation and physical AI.
-                    <!--  -->
-                    My current focus is neural material appearances and generative methods that combine large-scale generative models, reconstruction models, and neural representations.
-                </p>
-                <p class="links">
-                    <a class="pill" href="./cv.html">CV</a>
-                    <a class="pill" href="https://research.nvidia.com/labs/rtr/author/youwang-kim/" target="_blank" rel="noopener noreferrer">@NVIDIA</a>
-                    <a class="pill" href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                    <a class="pill" href="https://www.linkedin.com/in/kim-youwang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a class="pill" href="https://x.com/kim_youwang" target="_blank" rel="noopener noreferrer">Twitter</a>
-                    <a class="pill" href="https://github.com/Youwang-Kim" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
-            </div>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <div class="container nav-inner">
+            <a class="nav-name" href="#about">Youwang Kim</a>
+            <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/></svg>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#service">Service</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- ================= SELECTED RESEARCH ================= -->
-        <section aria-labelledby="selected-research-heading">
-            <h2 id="selected-research-heading">Selected Research</h2>
-            <div class="selected-research-grid">
-                <a href="https://nvlabs.github.io/neumatex/" target="_blank" rel="noopener noreferrer" class="selected-research-item">
-                    <span class="selected-research-media"><img src="./media/neumatex_teaser.gif" alt="NeuMatEx material reconstruction results" width="480" height="261" decoding="async"></span>
-                    <span><strong>NeuMatEx</strong><small class="selected-research-venue">NVIDIA Tech Report'26</small><small class="selected-research-description">Extracting neural materials from multi-view images</small></span>
-                </a>
-                <a href="https://kim-youwang.github.io/elite" target="_blank" rel="noopener noreferrer" class="selected-research-item">
-                    <span class="selected-research-media"><img src="./media/eff_face_avatar.gif" alt="ELITE Gaussian head avatar results" width="480" height="204" loading="lazy" decoding="async"></span>
-                    <span><strong>ELITE</strong><small class="selected-research-venue">CVPR'26</small><small class="selected-research-description">Lifelike animatable head avatars from selfie videos</small></span>
-                </a>
-                <a href="https://kim-youwang.github.io/FiCA" target="_blank" rel="noopener noreferrer" class="selected-research-item">
-                    <span class="selected-research-media"><img src="./media/face_avatar.gif" alt="FiCA single-image avatar results" width="480" height="220" loading="lazy" decoding="async"></span>
-                    <span><strong>FiCA</strong><small class="selected-research-venue">Meta Tech Report'26</small><small class="selected-research-description">Instant animatable head avatars from one selfie</small></span>
-                </a>
-                <a href="https://kim-youwang.github.io/paint-it" target="_blank" rel="noopener noreferrer" class="selected-research-item">
-                    <span class="selected-research-media"><img src="./media/paint_it.jpg" alt="Paint-it text-to-texture synthesis results" width="1920" height="1080" loading="lazy" decoding="async"></span>
-                    <span><strong>Paint-it</strong><small class="selected-research-venue">CVPR'24</small><small class="selected-research-description">PBR texture map synthesis from text prompt</small></span>
-                </a>
+    <main id="main-content">
+        <section class="hero" id="about" aria-labelledby="page-title">
+            <div class="container hero-grid">
+                <img class="hero-photo" src="./media/profile_260317_optimized.jpg" alt="Portrait of Youwang Kim" width="480" height="640" decoding="async" fetchpriority="high">
+                <div class="hero-content">
+                    <h1 class="hero-name" id="page-title">Youwang Kim</h1>
+                    <a class="hero-email" href="mailto:youwang.kim@postech.ac.kr">youwang.kim@postech.ac.kr</a>
+                    <div class="hero-bio">
+                        <p>I am a research intern at <a href="https://research.nvidia.com/labs/rtr/" target="_blank" rel="noopener noreferrer">NVIDIA Real-Time Graphics Research</a> and a final-year Ph.D. student at <a href="https://www.postech.ac.kr/eng/index.do#;" target="_blank" rel="noopener noreferrer">POSTECH</a>, advised by <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank" rel="noopener noreferrer">Tae-Hyun Oh</a>.
+                            I build photorealistic, interactive 3D/4D digital twins for next-generation content creation and physical AI. My recent focus is on creating objects and scenes with photorealistic material appearances by leveraging large-scale generative models, reconstruction models, and neural representations.</p>
+                    </div>
+                    <div class="hero-links" aria-label="Profile links">
+                        <a href="./cv.html">CV</a>
+                        <a href="https://research.nvidia.com/labs/rtr/author/youwang-kim/" target="_blank" rel="noopener noreferrer">@NVIDIA</a>
+                        <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a>
+                        <a href="https://github.com/Youwang-Kim" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/kim-youwang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://x.com/kim_youwang" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ================= EXPERIENCE ================= -->
-        <section class="experience-section" aria-labelledby="experience-heading">
-        <h2 id="experience-heading">Experience</h2>
-        <div class="experience-timeline">
-        <article class="experience-item">
-            <div class="exp-logo">
-                <img src="./media/nvidia_logo.png" alt="NVIDIA Logo">
-            </div>
-            <div class="exp-content">
-                <div class="job-header">
-                    <span class="job-title"><b>NVIDIA Real-Time Graphics Research</b><span class="job-role">Research Intern</span><span class="job-location">Santa Clara, CA, US</span></span>
-                    <span class="job-date">Aug '26 - Nov '26</span>
-                </div>
-                <span class="exp-detail">Managers: <a href="https://research.nvidia.com/labs/rtr/author/jon-hasselgren/" target="_blank" rel="noopener noreferrer">Jon Hasselgren</a>, <a href="https://research.nvidia.com/labs/rtr/author/jacob-munkberg/" target="_blank" rel="noopener noreferrer">Jacob Munkberg</a>, <a href="https://miloshasan.net/" target="_blank" rel="noopener noreferrer">Miloš Hašan</a></span>
-            </div>
-        </article>
+        <section id="experience" aria-labelledby="experience-heading">
+            <div class="container">
+                <h2 class="section-heading" id="experience-heading">Experience</h2>
+                <div class="affil-timeline">
+                    <article class="affil-item fade-in">
+                        <a class="affil-logo-link" href="https://research.nvidia.com/labs/rtr/" target="_blank" rel="noopener noreferrer">
+                            <img class="affil-logo" src="./media/nvidia_logo.png" alt="NVIDIA" loading="lazy" decoding="async">
+                        </a>
+                        <div class="affil-info">
+                            <h3 class="affil-role">Research Intern</h3>
+                            <p class="affil-org">NVIDIA Research</p>
+                            <!-- <p class="affil-location">Santa Clara, CA</p> -->
+                            <p class="affil-dates">Aug '26 - Nov '26</p>
+                            <!-- <p class="affil-detail">With <a href="https://research.nvidia.com/labs/rtr/author/jon-hasselgren/" target="_blank" rel="noopener noreferrer">Jon Hasselgren</a>, <a href="https://research.nvidia.com/labs/rtr/author/jacob-munkberg/" target="_blank" rel="noopener noreferrer">Jacob Munkberg</a>, and <a href="https://miloshasan.net/" target="_blank" rel="noopener noreferrer">Miloš Hašan</a></p> -->
+                        </div>
+                    </article>
 
-        <article class="experience-item">
-            <div class="exp-logo">
-                <img src="./media/nvidia_logo.png" alt="NVIDIA Logo">
-            </div>
-            <div class="exp-content">
-                <div class="job-header">
-                    <span class="job-title"><b>NVIDIA Real-Time Graphics Research</b><span class="job-role">Research Intern</span><span class="job-location">Remote, Korea</span></span>
-                    <span class="job-date">Mar '26 - Jun '26</span>
-                </div>
-                <span class="exp-detail">Managers: <a href="https://research.nvidia.com/labs/rtr/author/jon-hasselgren/" target="_blank" rel="noopener noreferrer">Jon Hasselgren</a>, <a href="https://research.nvidia.com/labs/rtr/author/jacob-munkberg/" target="_blank" rel="noopener noreferrer">Jacob Munkberg</a></span>
-            </div>
-        </article>
+                    <article class="affil-item fade-in">
+                        <a class="affil-logo-link" href="https://research.nvidia.com/labs/rtr/" target="_blank" rel="noopener noreferrer">
+                            <img class="affil-logo" src="./media/nvidia_logo.png" alt="NVIDIA" loading="lazy" decoding="async">
+                        </a>
+                        <div class="affil-info">
+                            <h3 class="affil-role">Research Intern</h3>
+                            <p class="affil-org">NVIDIA Research</p>
+                            <!-- <p class="affil-location">Remote, Korea</p> -->
+                            <p class="affil-dates">Mar '26 - Jun '26</p>
+                            <!-- <p class="affil-detail">With <a href="https://research.nvidia.com/labs/rtr/author/jon-hasselgren/" target="_blank" rel="noopener noreferrer">Jon Hasselgren</a> and <a href="https://research.nvidia.com/labs/rtr/author/jacob-munkberg/" target="_blank" rel="noopener noreferrer">Jacob Munkberg</a></p> -->
+                        </div>
+                    </article>
 
-        <article class="experience-item">
-            <div class="exp-logo">
-                <img src="./media/meta_logo.png" alt="Meta Logo">
-            </div>
-            <div class="exp-content">
-                <div class="job-header">
-                    <span class="job-title"><b>Meta Codec Avatars Lab</b><span class="job-role">Research Scientist Intern</span><span class="job-location">Pittsburgh, PA, US</span></span>
-                    <span class="job-date">Oct '24 - Mar '25</span>
-                </div>
-                <span class="exp-detail">Managers: <a href="https://www.cs.cmu.edu/~yaser/" target="_blank" rel="noopener noreferrer">Yaser Sheikh</a>, <a href="https://sites.google.com/site/zjucaochen/home" target="_blank" rel="noopener noreferrer">Chen Cao</a></span>
-            </div>
-        </article>
+                    <article class="affil-item fade-in">
+                        <a class="affil-logo-link" href="https://www.meta.com/emerging-tech/codec-avatars/" target="_blank" rel="noopener noreferrer">
+                            <img class="affil-logo" src="./media/meta_logo.png" alt="Meta" loading="lazy" decoding="async">
+                        </a>
+                        <div class="affil-info">
+                            <h3 class="affil-role">Research Scientist Intern</h3>
+                            <p class="affil-org">Meta Codec Avatars Lab</p>
+                            <!-- <p class="affil-location">Pittsburgh, PA</p> -->
+                            <p class="affil-dates">Oct '24 - Mar '25</p>
+                            <!-- <p class="affil-detail">With <a href="https://www.cs.cmu.edu/~yaser/" target="_blank" rel="noopener noreferrer">Yaser Sheikh</a> and <a href="https://sites.google.com/site/zjucaochen/home" target="_blank" rel="noopener noreferrer">Chen Cao</a></p> -->
+                        </div>
+                    </article>
 
-        <article class="experience-item">
-            <div class="exp-logo">
-                <img src="./media/University_Tuebingen.png" alt="University of Tübingen Logo">
-            </div>
-            <div class="exp-content">
-                <div class="job-header">
-                    <span class="job-title"><b>University of Tübingen</b><span class="job-role">Visiting Ph.D. Student</span><span class="job-location">Tübingen, Germany</span></span>
-                    <span class="job-date">Oct '23 - Mar '24</span>
-                </div>
-                <span class="exp-detail">Advisor: <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank" rel="noopener noreferrer">Gerard Pons-Moll</a></span>
-            </div>
-        </article>
+                    <article class="affil-item fade-in">
+                        <a class="affil-logo-link" href="https://uni-tuebingen.de/en/" target="_blank" rel="noopener noreferrer">
+                            <img class="affil-logo" src="./media/University_Tuebingen.png" alt="University of Tübingen" loading="lazy" decoding="async">
+                        </a>
+                        <div class="affil-info">
+                            <h3 class="affil-role">Visiting Ph.D. Student</h3>
+                            <p class="affil-org">University of Tübingen</p>
+                            <!-- <p class="affil-location">Tübingen, Germany</p> -->
+                            <p class="affil-dates">Oct '23 - Mar '24</p>
+                            <!-- <p class="affil-detail">Advised by <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" target="_blank" rel="noopener noreferrer">Gerard Pons-Moll</a></p> -->
+                        </div>
+                    </article>
 
-        <article class="experience-item">
-            <div class="exp-logo">
-                <img src="./media/postech_logo.png" alt="POSTECH Logo">
-            </div>
-            <div class="exp-content">
-                <div class="job-header">
-                    <span class="job-title"><b>POSTECH</b><span class="job-role">Ph.D. Candidate</span><span class="job-location">Pohang, Korea</span></span>
-                    <span class="job-date">Sep '20 - Feb '27 (Exp.)</span>
+                    <article class="affil-item fade-in">
+                        <a class="affil-logo-link" href="https://www.postech.ac.kr/eng/" target="_blank" rel="noopener noreferrer">
+                            <img class="affil-logo" src="./media/postech_logo.png" alt="POSTECH" loading="lazy" decoding="async">
+                        </a>
+                        <div class="affil-info">
+                            <h3 class="affil-role">Ph.D. Candidate</h3>
+                            <p class="affil-org">POSTECH</p>
+                            <!-- <p class="affil-location">Pohang, Korea</p> -->
+                            <p class="affil-dates">Sep '20 - Feb '27 (Exp.)</p>
+                            <!-- <p class="affil-detail">Advised by <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank" rel="noopener noreferrer">Tae-Hyun Oh</a></p> -->
+                        </div>
+                    </article>
                 </div>
-                <span class="exp-detail">Advisor: <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh" target="_blank" rel="noopener noreferrer">Tae-Hyun Oh</a></span>
             </div>
-        </article>
-        </div>
         </section>
 
-        <!-- ================= RESEARCH ================= -->
-        <div class="publications-header">
-            <h2>Publications</h2>
-        </div>
-        <div class="publications-section">
-            <div id="publication-list" class="pub-grid"></div>
-            <noscript><p class="noscript-message">JavaScript is required to display the publication list. Please visit <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&amp;hl=en">Google Scholar</a> instead.</p></noscript>
-        </div>
+        <section id="research" aria-labelledby="research-heading">
+            <div class="container">
+                <h2 class="section-heading" id="research-heading">Selected Research</h2>
+                <div class="research-grid">
+                    <article class="research-item fade-in">
+                        <a href="https://nvlabs.github.io/neumatex/" target="_blank" rel="noopener noreferrer">
+                            <span class="research-media"><img src="./media/neumatex_teaser.gif" alt="NeuMatEx material reconstruction results" width="480" height="261" loading="lazy" decoding="async"></span>
+                            <span class="research-copy"><strong>NeuMatEx</strong><small>NVIDIA Tech Report 2026</small><span>Neural materials from images</span></span>
+                        </a>
+                    </article>
+                    <article class="research-item fade-in">
+                        <a href="https://kim-youwang.github.io/elite" target="_blank" rel="noopener noreferrer">
+                            <span class="research-media"><img src="./media/eff_face_avatar.gif" alt="ELITE Gaussian head avatar results" width="480" height="204" loading="lazy" decoding="async"></span>
+                            <span class="research-copy"><strong>ELITE</strong><small>CVPR 2026</small><span>Head avatars from selfie video</span></span>
+                        </a>
+                    </article>
+                    <article class="research-item fade-in">
+                        <a href="https://kim-youwang.github.io/FiCA" target="_blank" rel="noopener noreferrer">
+                            <span class="research-media"><img src="./media/face_avatar.gif" alt="FiCA single-image avatar results" width="480" height="220" loading="lazy" decoding="async"></span>
+                            <span class="research-copy"><strong>FiCA</strong><small>Meta Tech Report 2026</small><span>Instant avatars from one portrait</span></span>
+                        </a>
+                    </article>
+                    <article class="research-item fade-in">
+                        <a href="https://kim-youwang.github.io/paint-it" target="_blank" rel="noopener noreferrer">
+                            <span class="research-media"><img src="./media/paint_it.jpg" alt="Paint-it text-to-texture synthesis results" width="1920" height="1080" loading="lazy" decoding="async"></span>
+                            <span class="research-copy"><strong>Paint-it</strong><small>CVPR 2024</small><span>PBR material maps from text</span></span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <!-- ================= AWARDS ================= -->
-        <h2>Awards &amp; Honors</h2>
-        <ul>
-            <li class="yw_list">Best Poster Award, BMVC, 2024</li>
-            <li class="yw_list">Excellence Prize, Electronics Times ICT Paper Awards, 2024</li>
-            <li class="yw_list">Best Poster Award, POSTECH-KAIST joint ML workshop, 2024</li>
-            <li class="yw_list">Grand Prize (Minister's award, $12,000 prize), Electronics Times ICT Paper Awards, 2023</li>
-            <li class="yw_list">Outstanding Reviewer Award, ICCV, 2023</li>
-            <li class="yw_list">Winner ($4,000 prize), Qualcomm Innovation Fellowship Korea (QIFK), 2022</li>
-            <li class="yw_list">International Computer Vision Summer School (ICVSS), 2022</li>
-        </ul>
+        <section id="publications" aria-labelledby="publications-heading">
+            <div class="container">
+                <h2 class="section-heading" id="publications-heading">Publications</h2>
+                <!-- Populated from the same shared data used by index.html. -->
+                <div id="publication-list" class="pub-grid"></div>
+                <noscript><p class="noscript-message">JavaScript is required to display the publication list. Please visit <a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&amp;hl=en">Google Scholar</a> instead.</p></noscript>
+            </div>
+        </section>
 
-        <!-- ================= SERVICES ================= -->
-        <h2>Academic Services</h2>
-        <ul>
-            <li class="yw_list">
-                <b>Conference Reviewer</b>
-                <ul>
-                    <li class="yw_list">CVPR: 2024, 2025</li>
-                    <li class="yw_list">ICCV: 2023 (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php">Outstanding reviewer</a>), 2025</li>
-                    <li class="yw_list">SIGGRAPH: 2026</li>
-                    <li class="yw_list">SIGGRAPH Asia: 2024, 2026</li>
-                    <li class="yw_list">ECCV: 2024</li>
-                    <li class="yw_list">NeurIPS: 2024, 2025</li>
-                    <li class="yw_list">WACV: 2026</li>
-                    <li class="yw_list">BMVC: 2024</li>
-                </ul>
-            </li>
-            <li class="yw_list">
-                <b>Journal Reviewer</b>
-                <ul>
-                    <li class="yw_list">IEEE Trans. on Pattern Analysis and Machine Learning (TPAMI): 2024, 2025</li>
-                    <li class="yw_list">ACM Transactions on Graphics (ACM TOG): 2026</li>
-                    <li class="yw_list">International Journal of Computer Vision (IJCV): 2024, 2025, 2026</li>
-                    <li class="yw_list">IEEE Transactions on Visualization and Computer Graphics (TVCG): 2026</li>
-                    <li class="yw_list">IEEE Transactions on Multimedia (TMM): 2023</li>
-                    <li class="yw_list">Transactions on Machine Learning Research (TMLR): 2025</li>
-                </ul>
-            </li>
-        </ul>
+        <section id="honors" aria-labelledby="honors-heading">
+            <div class="container">
+                <h2 class="section-heading" id="honors-heading">Awards &amp; Honors</h2>
+                <div class="honors-grid">
+                    <article class="honor-card fade-in"><span class="honor-year">2024</span><p><strong>Best Poster Award</strong><br>BMVC</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2024</span><p><strong>Excellence Prize</strong><br>Electronics Times ICT Paper Awards</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2024</span><p><strong>Best Poster Award</strong><br>POSTECH–KAIST Joint ML Workshop</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2023</span><p><strong>Grand Prize (Korea Minister's Award)</strong><br>$12,000 prize, Electronics Times ICT Paper Awards</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2023</span><p><strong>Outstanding Reviewer</strong><br>ICCV</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2022</span><p><strong>Winner</strong><br>$4,000 prize, Qualcomm Innovation Fellowship Korea</p></article>
+                    <article class="honor-card fade-in"><span class="honor-year">2022</span><p><strong>International Computer Vision Summer School</strong><br>ICVSS</p></article>
+                </div>
+            </div>
+        </section>
 
-        <footer>
-            <p>© 2026 Youwang Kim</p>
-        </footer>
+        <section id="service" aria-labelledby="service-heading">
+            <div class="container">
+                <h2 class="section-heading" id="service-heading">Academic Services</h2>
+                <div class="service-list">
+                    <div class="service-row fade-in">
+                        <h3 class="service-name">Conference Reviewer</h3>
+                        <p class="service-values">CVPR · ICCV (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php" target="_blank" rel="noopener noreferrer">Outstanding Reviewer at 2023</a>) · SIGGRAPH · SIGGRAPH Asia · ECCV · NeurIPS · WACV · BMVC</p>
+                    </div>
+                    <div class="service-row fade-in">
+                        <h3 class="service-name">Journal Reviewer</h3>
+                        <p class="service-values">IEEE TPAMI · ACM TOG · IJCV · IEEE TVCG · IEEE TMM · TMLR</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Scripts -->
-    <script src="script/publications.js"></script>
+    <footer>
+        <div class="container"><p>© 2026 Youwang Kim</p></div>
+    </footer>
 
-    <!-- Google Analytics -->
+    <script src="./script/publications-data.js"></script>
+    <script src="./script/publications.js"></script>
+    <script src="./script/home.js"></script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RW688RKHW"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

@@ -1,216 +1,57 @@
-// Publications Data — add new papers as entries in this array.
-const publicationsData = [
-    {
-        image: "./media/neumatex_teaser.gif",
-        title: "Extracting Neural Materials from Multi-view Images",
-        authors: "<u>Kim Youwang</u>, Jon Hasselgren, Peter Kocsis, Andrea Weidlich, Tae-Hyun Oh, Jacob Munkberg",
-        venue: "NVIDIA Tech Report 2026",
-        links: [
-            { name: "Project page", url: "https://nvlabs.github.io/neumatex/" },
-            { name: "Paper", url: "https://arxiv.org/abs/2606.26715" },
-            { name: "Supp", url: "https://nvlabs.github.io/neumatex/assets/supp.pdf" },
-            { name: "Video", url: "https://nvlabs.github.io/neumatex/assets/video.mp4" },
-        ]
-    },
-    {
-        image: "./media/eff_face_avatar.gif",
-        title: "ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation",
-        authors: "<u>Kim Youwang</u>, Lee Hyoseok, Park Subin, Gerard Pons-Moll, Tae-Hyun Oh",
-        venue: "CVPR 2026",
-        links: [
-            { name: "Project page", url: "https://kim-youwang.github.io/elite" },
-            { name: "Paper", url: "https://drive.google.com/file/d/183UFp5t1LIQZQWx6p_XLwWmD7c5R82ww/view?usp=sharing" },
-            { name: "Video", url: "https://www.youtube.com/watch?v=ySBbw85SLqA" },
-            { name: "Code", url: "https://github.com/kaist-ami/elite" }
-        ]
-    },
-    {
-        image: "./media/face_avatar.gif",
-        title: "FiCA: Feed-forward instant Gaussian Codec Avatars from a Single Portrait Image",
-        authors: "<u>Kim Youwang</u>, Zhengyu Yang, Liuhao Ge, Yu Rong, Timur Bagautdinov, Su Zhaoen, Nir Sopher, Jovan Popović, Teng Deng, Tae-Hyun Oh, Chen Cao",
-        venue: "Meta Tech Report 2026",
-        links: [
-            { name: "Project page", url: "https://kim-youwang.github.io/FiCA" },
-            { name: "Paper", url: "https://arxiv.org/abs/2606.24232" },
-            { name: "Video", url: "https://youtu.be/oIW3ZooWaQw" }
-        ]
-    },
-    {
-        image: "./media/robot.png",
-        title: "A Paper on Vision-based Robot State Estimation",
-        authors: "",
-        venue: "Under revision",
-        links: []
-    },
-    {
-        image: "./media/clip-actor-x_crop.jpg",
-        title: "CLIP-Actor-X: Text-driven 4D Human Avatar Generation via Cross-modal Synthesis-through-Optimization",
-        authors: "<u>Kim Youwang</u>*, Taehyun Byun*, Kim Ji-Yeon, Sungjoon Choi, Tae-Hyun Oh",
-        venue: "TPAMI 2026",
-        links: [
-            { name: "Paper", url: "https://ieeexplore.ieee.org/document/11408037" },
-        ]
-    },
-    {
-        image: "./media/fpgs.gif",
-        title: "FPGS: Feed-Forward Semantic-aware Photorealistic Style Transfer of Large-Scale Gaussian Splatting",
-        authors: "GeonU Kim, <u>Kim Youwang</u>, Lee Hyoseok, Tae-Hyun Oh",
-        venue: "IJCV 2026",
-        links: [
-            { name: "Project page", url: "https://kim-geonu.github.io/FPGS/" },
-            { name: "Paper", url: "https://arxiv.org/abs/2503.09635" },
-            { name: "Code", url: "https://github.com/kaist-ami/FPGS" }
-        ]
-    },
-    {
-        image: "./media/dress_up.png",
-        title: "Dress-up: Generating Animatable Clothed 3D Humans via Latent Modeling of 3D Gaussian Texture Maps",
-        authors: "<u>Kim Youwang</u>, Lee Hyoseok, Gerard Pons-Moll, Tae-Hyun Oh",
-        venue: "ICCVw 2025 (<span style=\"color:#c00000;\">Oral presentation</span>)",
-        links: [
-            { name: "Paper", url: "./media/pdfs/dress_up_camready.pdf" },
-            { name: "Slide", url: "./media/pdfs/dress_up_iccvw_oral.pdf" }
-        ]
-    },
-    {
-        image: "./media/zeroshape-w_cvpr25.png",
-        title: "Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild",
-        authors: "Junhyeong Cho, <u>Kim Youwang</u>, Hunmin Yang, Tae-Hyun Oh",
-        venue: "CVPR 2025",
-        links: [
-            { name: "Project page", url: "https://zeroshape-w.github.io/" },
-            { name: "Paper", url: "https://arxiv.org/abs/2403.14539v2" }
-        ]
-    },
-    {
-        image: "./media/4d_face.gif",
-        title: "A Large-Scale 3D Face Mesh Video Dataset via Neural Re-parameterized Optimization",
-        authors: "<u>Kim Youwang</u>, Lee Hyun*, Kim Sung-Bin*, Suekyeong Nam, Janghoon Ju, Tae-Hyun Oh",
-        venue: "ICLR 2025 / TMLR 2024",
-        links: [
-            { name: "Project page", url: "https://kim-youwang.github.io/neuface" },
-            { name: "Paper", url: "https://openreview.net/forum?id=zVDMh6JvWc" },
-            { name: "Code", url: "https://github.com/kaist-ami/NeuFace" }
-        ]
-    },
-    {
-        image: "./media/paint_it.jpg",
-        title: "Paint-it: Text-to-Texture Synthesis via Deep Convolutional Texture Map Optimization and Physically-Based Rendering",
-        authors: "<u>Kim Youwang</u>, Tae-Hyun Oh, Gerard Pons-Moll",
-        venue: "CVPR 2024",
-        links: [
-            { name: "Project page", url: "https://kim-youwang.github.io/paint-it" },
-            { name: "Paper", url: "https://arxiv.org/abs/2312.11360" },
-            { name: "Video", url: "https://youtu.be/uSKK-ekVJLg" },
-            { name: "Code", url: "https://github.com/kaist-ami/paint-it" },
-            { name: "Poster", url: "https://www.dropbox.com/scl/fi/4plpanxqy0lo16d3d8t8p/cvpr24_poster_youwang_final.pdf?rlkey=gah19krwju0clqdsep6g3qd4w&st=x831q8a5&dl=0" }
-        ]
-    },
-    {
-        image: "./media/metta.gif",
-        title: "MeTTA: Single-View to 3D Textured Mesh Reconstruction with Test-Time Adaptation",
-        authors: "Kim Yu-Ji, Hyunwoo Ha, <u>Kim Youwang</u>, Jaeheung Surh, Hyowon Ha, Tae-Hyun Oh",
-        venue: "BMVC 2024 (<span style=\"color:#c00000;\">Best Poster Award</span>)",
-        links: [
-            { name: "Project page", url: "https://metta3d.github.io/" }
-        ]
-    },
-    {
-        image: "./media/fprf_v2.gif",
-        title: "Feed-Forward Photorealistic Style Transfer for Large-Scale 3D Neural Radiance Fields",
-        authors: "GeonU Kim, <u>Kim Youwang</u>, Tae-Hyun Oh",
-        venue: "AAAI 2024",
-        links: [
-            { name: "Project page", url: "https://kim-geonu.github.io/FPRF/" },
-            { name: "Paper", url: "https://arxiv.org/abs/2401.05516" },
-            { name: "Code", url: "https://github.com/kaist-ami/FPRF" }
-        ]
-    },
-    {
-        image: "./media/rank_pruning.jpg",
-        title: "Multi-stage Adaptive Rank Statistic Pruning for Lightweight Human 3D Mesh Recovery Model",
-        authors: "Dong Hun Ryou, <u>Kim Youwang</u>, Tae-Hyun Oh",
-        venue: "The Visual Computer Journal (TVCJ) 2023",
-        links: [
-            { name: "Paper", url: "https://link.springer.com/article/10.1007/s00371-023-02798-x" }
-        ]
-    },
-    {
-        image: "./media/clip_actor.gif",
-        title: "CLIP-Actor: Text-Driven Recommendation and Stylization for Animating Human Meshes",
-        authors: "<u>Kim Youwang</u>*, Kim Ji-Yeon*, Tae-Hyun Oh",
-        venue: "ECCV 2022",
-        links: [
-            { name: "Project page", url: "https://clip-actor.github.io" },
-            { name: "Paper", url: "https://arxiv.org/abs/2206.04382" },
-            { name: "Video", url: "https://youtu.be/oWr4NP-eVLY" },
-            { name: "Code", url: "https://github.com/kaist-ami/CLIP-Actor" },
-            { name: "Poster", url: "https://www.dropbox.com/s/8l2jvvc0po6szn7/3229-poster.pdf?dl=0" }
-        ]
-    },
-    {
-        image: "./media/fastmetro_teaser.jpg",
-        title: "FastMETRO: Cross-Attention of Disentangled Modalities for 3D Human Mesh Recovery with Transformers",
-        authors: "Junhyeong Cho, <u>Kim Youwang</u>, Tae-Hyun Oh",
-        venue: "ECCV 2022",
-        links: [
-            { name: "Project page", url: "https://fastmetro.github.io/" },
-            { name: "Paper", url: "https://arxiv.org/abs/2207.13820" },
-            { name: "Code", url: "https://github.com/kaist-ami/FastMETRO" },
-            { name: "Poster", url: "https://www.dropbox.com/s/kzmihz488qcelxi/2116-poster.pdf?dl=0" }
-        ]
-    },
-    {
-        image: "./media/demr.jpg",
-        title: "Unified 3D Mesh Recovery of Humans and Animals by Learning Animal Exercise",
-        authors: "<u>Kim Youwang</u>, Kim Ji-Yeon, Kyungdon Joo, Tae-Hyun Oh",
-        venue: "BMVC 2021",
-        links: [
-            { name: "Project page", url: "https://kim-youwang.github.io/demr" },
-            { name: "Paper", url: "https://arxiv.org/abs/2111.02450" }
-        ]
+/* Homepage publication renderer. Data lives in publications-data.js. */
+(function () {
+    "use strict";
+
+    function escapeHtml(value) {
+        return String(value == null ? "" : value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
-];
 
-// Rendering
-function renderPublications() {
-    const container = document.getElementById('publication-list');
-    let html = '';
+    function formatAuthors(authors) {
+        return escapeHtml(authors).replace(/Kim Youwang/g, "<u>Kim Youwang</u>");
+    }
 
-    publicationsData.forEach(item => {
-        const venueHtml = item.venue
-            ? `<span class="pub-venue">${item.venue}</span>`
-            : '';
-        const authorsHtml = item.authors
-            ? `<span class="pub-authors">${item.authors}</span>`
-            : '';
+    function renderPublications() {
+        var container = document.getElementById("publication-list");
+        var database = window.PUBLICATIONS_DB;
 
-        let linksHtml = '';
-        if (item.links && item.links.length > 0) {
-            const linkItems = item.links.map(link =>
-                `<a class="pub-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.name}</a>`
-            );
-            linksHtml = `<span class="pub-links">${linkItems.join('')}</span>`;
+        if (!container) return;
+        if (!database || !Array.isArray(database.items)) {
+            container.innerHTML = '<p class="noscript-message">Publication data could not be loaded.</p>';
+            return;
         }
 
-        const noteHtml = item.note
-            ? `<small class="pub-note">${item.note}</small>`
-            : '';
+        container.innerHTML = database.items.map(function (item) {
+            var venue = escapeHtml(item.venue);
+            if (item.websiteNote) {
+                venue += ' (<span style="color:#c00000;">' +
+                    escapeHtml(item.websiteNote) + "</span>)";
+            }
 
-        html += `
-        <article class="item">
-            <img src="${item.image}" alt="${item.title} teaser" loading="lazy" decoding="async"/>
-            <p>
-                <span class="pub-title">${item.title}</span>
-                ${venueHtml}
-                ${authorsHtml}
-                ${linksHtml}
-                ${noteHtml}
-            </p>
-        </article>`;
-    });
+            var links = (item.links || []).map(function (link) {
+                return '<a class="pub-link" href="' + escapeHtml(link.url) +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    escapeHtml(link.name) + "</a>";
+            }).join("");
 
-    container.innerHTML = html;
-}
+            return [
+                '<article class="item">',
+                '<img src="' + escapeHtml(item.image) + '" alt="' +
+                    escapeHtml(item.title) + ' teaser" loading="lazy" decoding="async">',
+                "<p>",
+                '<span class="pub-title">' + escapeHtml(item.title) + "</span>",
+                venue ? '<span class="pub-venue">' + venue + "</span>" : "",
+                item.authors ? '<span class="pub-authors">' + formatAuthors(item.authors) + "</span>" : "",
+                links ? '<span class="pub-links">' + links + "</span>" : "",
+                "</p>",
+                "</article>"
+            ].join("");
+        }).join("");
+    }
 
-document.addEventListener('DOMContentLoaded', renderPublications);
+    document.addEventListener("DOMContentLoaded", renderPublications);
+})();
