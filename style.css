@@ -612,6 +612,7 @@ span.highlight {
 
     .profile-photo { flex-basis: 160px; }
     .intro-content h1 { font-size: 2.45em; }
+    .intro-content > p:not(.links) { font-size: calc(1em - 2pt); }
 
     .intro-content .links {
         display: grid;
