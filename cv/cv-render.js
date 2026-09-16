@@ -409,6 +409,7 @@
     root.appendChild(renderMentoring("Mentoring Experience", data.mentoring));
 
     var pa = section("Professional Activities");
+    renderReviewerList(pa, data.professionalActivities.areaChair);
     renderReviewerList(pa, data.professionalActivities.journalReviewer);
     renderReviewerList(pa, data.professionalActivities.conferenceReviewer);
     root.appendChild(pa);

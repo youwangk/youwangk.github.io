@@ -52,7 +52,7 @@ window.CV_DATA = {
     },
     {
       label: "Academic activity",
-      text: "**Reviewed ~50 papers** as reviewer for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, NeurIPS, ACM SIGGRAPH & SIGGRAPH Asia, etc}",
+      text: "**Area Chair for CVPR 2027**; reviewed ~50 papers for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, NeurIPS, ACM SIGGRAPH & SIGGRAPH Asia, etc}",
     },
   ],
 
@@ -228,6 +228,12 @@ window.CV_DATA = {
 
   // sections/professional_activities.tex — highlight: substring of `years` rendered in blue.
   professionalActivities: {
+    areaChair: {
+      title: "Area Chair",
+      items: [
+        { name: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)", years: "2027" },
+      ],
+    },
     journalReviewer: {
       title: "Reviewer for Journals",
       items: [

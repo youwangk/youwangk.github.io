@@ -51,6 +51,7 @@
             </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
@@ -79,6 +80,14 @@
                         <a href="https://x.com/kim_youwang" target="_blank" rel="noopener noreferrer">Twitter</a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="news" aria-labelledby="news-heading">
+            <div class="container">
+                <h2 class="section-heading" id="news-heading">News</h2>
+                <div id="news-list" class="news-list" aria-live="polite"></div>
+                <noscript><p class="noscript-message">JavaScript is required to display the news list.</p></noscript>
             </div>
         </section>
 
@@ -215,6 +224,10 @@
                 <h2 class="section-heading" id="service-heading">Academic Services</h2>
                 <div class="service-list">
                     <div class="service-row fade-in">
+                        <h3 class="service-name">Area Chair</h3>
+                        <p class="service-values">CVPR (2027)</p>
+                    </div>
+                    <div class="service-row fade-in">
                         <h3 class="service-name">Conference Reviewer</h3>
                         <p class="service-values">CVPR · ICCV (<a href="https://iccv2023.thecvf.com/outstanding.reviewers-118.php" target="_blank" rel="noopener noreferrer">Outstanding Reviewer at 2023</a>) · SIGGRAPH · SIGGRAPH Asia · ECCV · NeurIPS · WACV · BMVC</p>
                     </div>
@@ -231,6 +244,8 @@
         <div class="container"><p>© 2026 Youwang Kim</p></div>
     </footer>
 
+    <script src="./script/news-data.js"></script>
+    <script src="./script/news.js"></script>
     <script src="./script/publications-data.js"></script>
     <script src="./script/publications.js"></script>
     <script src="./script/home.js"></script>
