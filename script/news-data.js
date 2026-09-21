@@ -33,7 +33,7 @@
             {
                 date: "2026-06",
                 title: "FiCA released as a Meta Technical Report",
-                url: "https://kim-youwang.github.io/FiCA",
+                url: "https://youwangk.github.io/FiCA",
                 isNew: true
             },
             {
@@ -44,7 +44,7 @@
             {
                 date: "2026-02",
                 title: "ELITE accepted to CVPR 2026",
-                url: "https://kim-youwang.github.io/elite"
+                url: "https://youwangk.github.io/elite"
             },
             {
                 date: "2026-02",
@@ -69,7 +69,7 @@
             {
                 date: "2024-12",
                 title: "NeuFace accepted to ICLR 2025",
-                url: "https://kim-youwang.github.io/neuface"
+                url: "https://youwangk.github.io/neuface"
             },
             {
                 date: "2024-11",
@@ -84,7 +84,7 @@
             {
                 date: "2024-07",
                 title: "NeuFace accepted to TMLR 2024",
-                url: "https://kim-youwang.github.io/neuface"
+                url: "https://youwangk.github.io/neuface"
             },
             {
                 date: "2024-07",
@@ -94,7 +94,7 @@
             {
                 date: "2024-02",
                 title: "Paint-it accepted to CVPR 2024",
-                url: "https://kim-youwang.github.io/paint-it"
+                url: "https://youwangk.github.io/paint-it"
             },
             {
                 date: "2023-12",
@@ -124,7 +124,7 @@
             {
                 date: "2021-10",
                 title: "DEMR accepted to BMVC 2021",
-                url: "https://kim-youwang.github.io/demr"
+                url: "https://youwangk.github.io/demr"
             }
         ]
     };

@@ -51,7 +51,7 @@
                 cvAuthors: "Kim Youwang, L. Hyoseok, P. Subin, G. Pons-Moll, T.-H. Oh",
                 venue: "CVPR 2026",
                 links: [
-                    { name: "Project page", url: "https://kim-youwang.github.io/elite" },
+                    { name: "Project page", url: "https://youwangk.github.io/elite" },
                     { name: "Paper", url: "https://drive.google.com/file/d/183UFp5t1LIQZQWx6p_XLwWmD7c5R82ww/view?usp=sharing" },
                     { name: "Video", url: "https://www.youtube.com/watch?v=ySBbw85SLqA" },
                     { name: "Code", url: "https://github.com/kaist-ami/elite" }
@@ -71,7 +71,7 @@
                 cvAuthors: "Kim Youwang, Z. Yang, L. Ge, Y. Rong, T. Bagautdinov, S. Zhaoen, N. Sopher, J. Popović, T. Deng, T.-H. Oh, C. Cao",
                 venue: "Meta Tech Report 2026",
                 links: [
-                    { name: "Project page", url: "https://kim-youwang.github.io/FiCA" },
+                    { name: "Project page", url: "https://youwangk.github.io/FiCA" },
                     { name: "Paper", url: "https://arxiv.org/abs/2606.24232" },
                     { name: "Video", url: "https://youtu.be/oIW3ZooWaQw" }
                 ],
@@ -167,7 +167,7 @@
                 cvAuthors: "Kim Youwang, L. Hyun*, K. Sung-Bin*, S.-K. Nam, J.-H. Joo, T.-H. Oh",
                 venue: "ICLR 2025 / TMLR 2024",
                 links: [
-                    { name: "Project page", url: "https://kim-youwang.github.io/neuface" },
+                    { name: "Project page", url: "https://youwangk.github.io/neuface" },
                     { name: "Paper", url: "https://openreview.net/forum?id=zVDMh6JvWc" },
                     { name: "Code", url: "https://github.com/kaist-ami/NeuFace" }
                 ],
@@ -194,7 +194,7 @@
                 cvAuthors: "Kim Youwang, T.-H. Oh, G. Pons-Moll",
                 venue: "CVPR 2024",
                 links: [
-                    { name: "Project page", url: "https://kim-youwang.github.io/paint-it" },
+                    { name: "Project page", url: "https://youwangk.github.io/paint-it" },
                     { name: "Paper", url: "https://arxiv.org/abs/2312.11360" },
                     { name: "Video", url: "https://youtu.be/uSKK-ekVJLg" },
                     { name: "Code", url: "https://github.com/kaist-ami/paint-it" },
@@ -300,7 +300,7 @@
                 cvAuthors: "Kim Youwang, K. Ji-Yeon, K. Joo, T.-H. Oh",
                 venue: "BMVC 2021",
                 links: [
-                    { name: "Project page", url: "https://kim-youwang.github.io/demr" },
+                    { name: "Project page", url: "https://youwangk.github.io/demr" },
                     { name: "Paper", url: "https://arxiv.org/abs/2111.02450" }
                 ],
                 cv: [{

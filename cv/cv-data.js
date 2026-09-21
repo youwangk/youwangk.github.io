@@ -13,7 +13,7 @@ window.CV_DATA = {
     links: [
       { label: "youwangk@nvidia.com", url: "mailto:youwangk@nvidia.com" },
       { label: "youwang.kim@postech.ac.kr", url: "mailto:youwang.kim@postech.ac.kr" },
-      { label: "kim-youwang.github.io", url: "https://kim-youwang.github.io" },
+      { label: "youwangk.github.io", url: "https://youwangk.github.io" },
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" },
     ],
   },
