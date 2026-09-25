@@ -52,7 +52,7 @@ window.CV_DATA = {
     },
     {
       label: "Academic activity",
-      text: "**Area Chair for CVPR 2027**; reviewed ~50 papers for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, NeurIPS, ACM SIGGRAPH & SIGGRAPH Asia, etc}",
+      text: "**Area Chair for CVPR 2027**; reviewed >50 papers for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, SIGGRAPH, SIGGRAPH Asia, NeurIPS, ICLR, etc}",
     },
   ],
 
@@ -258,6 +258,7 @@ window.CV_DATA = {
         { name: "ACM SIGGRAPH Asia", years: "2024, 2026" },
         { name: "European Conference on Computer Vision (ECCV)", years: "2024, 2026" },
         { name: "Conference on Neural Information Processing Systems (NeurIPS)", years: "2024, 2025" },
+        { name: "International Conference on Learning Representations (ICLR)", years: "2027" },
         { name: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)", years: "2026" },
         { name: "British Machine Vision Conference (BMVC)", years: "2024" },
       ],
