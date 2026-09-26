@@ -51,7 +51,7 @@
             return [
                 '<article class="news-item' + extraClass + '"' + hidden + '>',
                 '<time class="news-date" datetime="' + escapeHtml(item.date) + '">' + escapeHtml(formatDate(item.date)) + '</time>',
-                '<p class="news-copy">' + content + badge + '</p>',
+                '<p class="news-copy">' + badge + content + '</p>',
                 '</article>'
             ].join("");
         }).join("");
