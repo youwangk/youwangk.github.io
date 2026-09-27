@@ -26,7 +26,7 @@
             {
                 id: "neumatex",
                 image: "./media/neumatex_teaser.gif",
-                title: "Extracting Neural Materials from Multi-view Images",
+                title: "Extracting Neural Materials from Images",
                 authors: "Kim Youwang, Jon Hasselgren, Peter Kocsis, Andrea Weidlich, Tae-Hyun Oh, Jacob Munkberg",
                 cvAuthors: "Kim Youwang, J. Hasselgren, P. Kocsis, A. Weidlich, T.-H. Oh, J. Munkberg",
                 venue: "NVIDIA Tech Report 2026",
