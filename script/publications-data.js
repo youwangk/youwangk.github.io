@@ -32,9 +32,9 @@
                 venue: "NVIDIA Tech Report 2026",
                 links: [
                     { name: "Project page", url: "https://nvlabs.github.io/neumatex/" },
-                    { name: "Paper", url: "https://arxiv.org/abs/2606.26715" },
-                    { name: "Supp", url: "https://nvlabs.github.io/neumatex/assets/supp.pdf" },
-                    { name: "Video", url: "https://nvlabs.github.io/neumatex/assets/video.mp4" }
+                    { name: "Paper", url: "https://nvlabs.github.io/neumatex/assets/paper.pdf" },
+                    { name: "Video", url: "https://nvlabs.github.io/neumatex/assets/video.mp4" },
+                    { name: "Results", url: "https://nvlabs.github.io/neumatex/results/" }
                 ],
                 cvHighlight: {
                     order: 1,
