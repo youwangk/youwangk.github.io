@@ -159,6 +159,11 @@ html {
     letter-spacing: -0.035em;
 }
 
+/* Big "Y" side bearing makes the name look indented vs. text below */
+@media (min-width: 769px) {
+    .home-page .hero-name { margin-left: -0.04em; }
+}
+
 .home-page .hero-email {
     display: inline-block;
     margin: 4px 0 18px;
