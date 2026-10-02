@@ -259,6 +259,7 @@ window.CV_DATA = {
         { name: "European Conference on Computer Vision (ECCV)", years: "2024, 2026" },
         { name: "Conference on Neural Information Processing Systems (NeurIPS)", years: "2024, 2025" },
         { name: "International Conference on Learning Representations (ICLR)", years: "2027" },
+        { name: "International Conference on 3D Vision (3DV)", years: "2027" },
         { name: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)", years: "2026" },
         { name: "British Machine Vision Conference (BMVC)", years: "2024" },
       ],
