@@ -40,7 +40,7 @@ window.CV_DATA = {
     },
     {
       label: "Industry / academia experience",
-      text: "Research internships at **NVIDIA** (Real-Time Graphics Research) and **Meta** (Codec Avatars Lab); Visiting Ph.D. at **Univ. of Tübingen**",
+      text: "Research internships at **NVIDIA** (Real-Time Graphics Research, 2x) and **Meta** (Codec Avatars Lab); Visiting Ph.D. at **Univ. of Tübingen**",
     },
     // {
     //   label: "Patents & tech transfer",
