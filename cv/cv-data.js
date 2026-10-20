@@ -13,7 +13,7 @@ window.CV_DATA = {
     links: [
       { label: "youwangk@nvidia.com", url: "mailto:youwangk@nvidia.com" },
       { label: "youwang.kim@postech.ac.kr", url: "mailto:youwang.kim@postech.ac.kr" },
-      { label: "youwangk.github.io", url: "https://youwangk.github.io" },
+      { label: "https://youwangk.github.io", url: "https://youwangk.github.io" },
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" },
     ],
   },
@@ -21,7 +21,7 @@ window.CV_DATA = {
   // Bio: tinted block under the header. **double asterisks** bold a phrase; null removes the block.
   bio: [
     "Youwang's research aims to build **photorealistic and interactive 3D/4D digital twins** for **content creation** and **physical AI**.",
-    "Recently, his focus is on **generative neural materials**.",
+    "Recently, his focus is on **generative AI for graphics**.",
   ],
 
   /* Front-page bullet summary. `label` bolds as the lead-in; **double asterisks**
@@ -29,7 +29,7 @@ window.CV_DATA = {
   summary: [
     {
       label: "Expertise",
-      text: "Real-time graphics & 3D vision, Generative models, Neural rendering, Digital twins",
+      text: "Large-scale generative AI for graphics & 3D vision, Neural rendering, Digital humans",
     },
     {
       label: "Publication",
@@ -97,6 +97,7 @@ window.CV_DATA = {
   peopleLinks: {
     "Jacob Munkberg": "https://research.nvidia.com/labs/rtr/author/jacob-munkberg/",
     "Jon Hasselgren": "https://research.nvidia.com/labs/rtr/author/jon-hasselgren/",
+    "Peter Kocsis": "https://peter-kocsis.github.io/",
     "Miloš Hašan": "https://miloshasan.net/",
     "Yaser Sheikh": "https://www.cs.cmu.edu/~yaser/",
     "Chen Cao": "https://sites.google.com/site/zjucaochen/home",
@@ -113,7 +114,7 @@ window.CV_DATA = {
       role: "Research Intern",
       logo: "nvidia",
       location: "Santa Clara, CA, US",
-      detail: "Managers: Jacob Munkberg, Jon Hasselgren, Miloš Hašan",
+      detail: "Working with: Jacob Munkberg, Jon Hasselgren, Peter Kocsis",
       date: "Aug. 2026 – Nov. 2026",
     },
     {
@@ -122,7 +123,7 @@ window.CV_DATA = {
       role: "Research Intern",
       logo: "nvidia",
       location: "Remote, Korea",
-      detail: "Managers: Jacob Munkberg, Jon Hasselgren",
+      detail: "Working with: Jacob Munkberg, Jon Hasselgren, Peter Kocsis",
       date: "Mar. 2026 – Jun. 2026",
     },
     {
