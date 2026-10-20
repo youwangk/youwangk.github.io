@@ -115,7 +115,7 @@ window.CV_DATA = {
       logo: "nvidia",
       location: "Santa Clara, CA, US",
       detail: "Working with: Jacob Munkberg, Jon Hasselgren, Peter Kocsis",
-      date: "Aug. 2026 – Nov. 2026",
+      date: "Aug. 2026 – Present",
     },
     {
       org: "NVIDIA",
