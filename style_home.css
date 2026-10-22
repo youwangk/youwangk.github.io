@@ -257,14 +257,14 @@ html {
 
 .home-page .news-copy {
     margin: 0;
-    color: var(--home-muted);
+    color: var(--home-text);
+    font-weight: 500;
     font-size: 14px;
     line-height: 1.5;
 }
 
 .home-page .news-copy a {
-    color: var(--home-text);
-    font-weight: 500;
+    color: inherit;
 }
 
 .home-page .news-copy a:hover { color: #3c67c2; }
@@ -284,29 +284,6 @@ html {
     text-transform: uppercase;
     vertical-align: 1px;
 }
-
-.home-page .news-toggle {
-    justify-self: start;
-    margin-top: 12px;
-    padding: 6px 12px;
-    border: 1px solid var(--home-border);
-    border-radius: 7px;
-    color: #4d5845;
-    background: #f4f6f1;
-    font: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
-}
-
-.home-page .news-toggle:hover {
-    border-color: rgba(118, 185, 0, 0.65);
-    color: var(--home-green-dark);
-    transform: translateY(-1px);
-}
-
-.home-page .news-toggle-arrow { margin-left: 3px; }
 
 /* Compact horizontal experience */
 .home-page #experience .section-heading {

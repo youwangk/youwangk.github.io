@@ -2,6 +2,12 @@
  * Publication records are shared with the homepage and live only in
  * script/publications-data.js. */
 
+/* One entry per CV listing (J/C number), so a paper in both counts twice. */
+var cvEntries = [];
+window.PUBLICATIONS_DB.items.forEach(function (publication) {
+  (publication.cv || []).forEach(function () { cvEntries.push(publication); });
+});
+
 window.CV_DATA = {
 
   /* --- Header (main.tex) ------------------------------------------------ */
@@ -33,10 +39,10 @@ window.CV_DATA = {
     },
     {
       label: "Publication",
-      text: "**" + window.PUBLICATIONS_DB.items.length + " publications (" +
-        window.PUBLICATIONS_DB.items.filter(function (publication) {
-          return /^Kim Youwang(?:\*|,)/.test(publication.authors);
-        }).length + " as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, etc} and tech reports {NVIDIA, Meta}",
+      text: "**" + cvEntries.length + " publications (" +
+        cvEntries.filter(function (entry) {
+          return /^Kim Youwang(?:\*|,)/.test(entry.authors);
+        }).length + " as 1st author)** in top conferences {CVPR, ECCV, ICLR, AAAI, etc}, journals {TPAMI, IJCV, TMLR, RA-L, etc} and tech reports {NVIDIA, Meta}",
     },
     {
       label: "Industry / academia experience",
@@ -218,10 +224,10 @@ window.CV_DATA = {
 
   // sections/mentoring.tex — bold: true bolds the whole line; boldSpan bolds just that substring.
   mentoring: [
-    { bold: true, text: "Mentored 2 Graduate Juniors & 7 Undergraduate Interns" },
+    { bold: true, text: "Mentored 2 Graduate Juniors & 8 Undergraduate Interns" },
     {
       bold: false,
-      text: "4 mentees' projects led to top-tier publications (IJCV'26, CVPR'25, AAAI'24, ECCV'22, TVCJ'23)",
+      text: "Projects led to top-tier publications (RA-L'26, IJCV'26, CVPR'25, AAAI'24, ECCV'22, TVCJ'23)",
       boldSpan: "top-tier publications",
     },
     { bold: false, text: "Mentored on problem formulation, method design, implementation, and paper writing" },

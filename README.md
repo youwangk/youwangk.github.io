@@ -13,5 +13,5 @@ News data
 
 Edit `script/news-data.js` to add or update homepage news. Use a year-month date
 (`YYYY-MM`); entries are automatically sorted newest-first. Set `isNew: true`
-to show the green New badge. `initialVisible` controls the collapsed count;
-`expandedVisible` controls how many rows fit before the expanded list scrolls.
+to show the green New badge. `visibleCount` controls how many rows show before
+the list scrolls.

@@ -19,6 +19,7 @@
             ["ICLR", "International Conference on Learning Representation"],
             ["AAAI", "AAAI Conference on Artificial Intelligence"],
             ["BMVC", "British Machine Vision Conference"],
+            ["RA-L", "IEEE Robotics and Automation Letters"],
             ["TVCJ", "The Visual Computer Journal"]
         ],
 
@@ -85,16 +86,12 @@
             {
                 id: "robot-state-estimation",
                 image: "./media/robot.png",
-                title: "A Paper on Vision-based Robot State Estimation",
-                authors: "",
-                venue: "Under revision",
+                title: "DRIP: Self-Improving Robot State Estimation In-the-Wild via Dense Robot-Fitting In the LooP",
+                authors: "Kim Ohn, Kim Youwang, Junuk Cha, Tae-Hyun Oh",
+                cvAuthors: "Kim Ohn, Kim Youwang, J. Cha, T.-H. Oh",
+                venue: "RA-L 2026",
                 links: [],
-                cv: [{
-                    category: "journal",
-                    order: 1,
-                    venue: "Under Revision",
-                    citation: "A paper on “Vision-based robot state estimation.”"
-                }]
+                cv: [{ category: "journal", order: 1, venue: "RA-L 2026" }]
             },
             {
                 id: "clip-actor-x",

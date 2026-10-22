@@ -2,16 +2,20 @@
  * Homepage news database.
  *
  * Add new entries to `items` using a year-month date (YYYY-MM). The renderer
- * sorts entries newest-first and formats the date. `initialVisible` controls
- * the collapsed list; `expandedVisible` controls the expanded scroll height.
+ * sorts entries newest-first and formats the date. `visibleCount` is the
+ * number of rows shown before the list scrolls.
  */
 (function () {
     "use strict";
 
     window.NEWS_DB = {
-        initialVisible: 5,
-        expandedVisible: 10,
+        visibleCount: 5,
         items: [
+            {
+                date: "2026-10",
+                title: "DRIP accepted to RA-L 2026",
+                isNew: true
+            },
             {
                 date: "2026-09",
                 title: "Will serve as an Area Chair for CVPR 2027",
