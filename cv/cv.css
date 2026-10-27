@@ -15,11 +15,11 @@
   --cv-blue: #0000ff;           /* xcolor `blue` */
   --cv-link: #3c67c2;           /* homepage link color (style.css) */
   --cv-cornellred: #b31c1c;     /* defined in main.tex but unused — kept for parity */
-  /* Bio block: muted translucent NVIDIA green, alpha-composited onto white so it stays soft. */
+  /* Floating button: muted translucent NVIDIA green, alpha-composited onto white so it stays soft. */
   --cv-nvidia: 118, 185, 0;
-  --cv-tint: rgba(var(--cv-nvidia), 0.07);   /* bio block background   */
-  --cv-accent: rgba(var(--cv-nvidia), 0.7);  /* bio left accent rule   */
-  --cv-slate: #35402f;                       /* bio body text, warm dark gray */
+  --cv-tint: rgba(var(--cv-nvidia), 0.07);   /* button tint            */
+  --cv-accent: rgba(var(--cv-nvidia), 0.7);  /* button border          */
+  --cv-slate: #35402f;                       /* button text, warm dark gray */
   --cv-rule: 1.5pt;             /* \hrule height 1.5pt */
 
   /* \arrayrulewidth. A border this thin vanishes on phones (WebKit quantizes
@@ -153,7 +153,7 @@ a.cv-underline { text-decoration: underline; }
   padding: 9px 13px;
   border: 1px solid var(--cv-accent);
   border-radius: 999px;
-  /* Same translucent tint as the bio block, layered over opaque white since the button floats over the gray page. */
+  /* Translucent tint, layered over opaque white since the button floats over the gray page. */
   background: linear-gradient(var(--cv-tint), var(--cv-tint)), #ffffff;
   color: var(--cv-slate);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.14);
@@ -164,7 +164,7 @@ a.cv-underline { text-decoration: underline; }
   background:
     linear-gradient(rgba(var(--cv-nvidia), 0.16), rgba(var(--cv-nvidia), 0.16)),
     #ffffff;
-  color: #1f2a1c;
+  color: #111;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 .cv-pdf-link:active {
@@ -193,38 +193,37 @@ a.cv-underline { text-decoration: underline; }
   border-top: var(--cv-rule) solid var(--cv-fg);
 }
 
-/* Bio: slate tint block, rounded, left accent rule as a border (not
- * background) so it still reads as a callout when a printer drops graphics. */
+/* Bio: light gray rounded block under the header. */
 .cv-bio {
-  margin-top: 12pt;
-  padding: 12pt 16pt;
-  background: var(--cv-tint);
-  border-left: 2.25pt solid var(--cv-accent);
+  margin-top: 10pt;
+  padding: 10pt 16pt;
+  background: #f4f4f4;
   border-radius: 6px;
-  color: var(--cv-slate);
+  color: #333;
   line-height: 1.6;
 }
 
 /* Keywords marked with **…** in cv-data.js */
 .cv-bio-key {
   font-weight: 700;
-  color: #1f2a1c;
+  color: #111;
 }
 
-/* Sections: \titleformat{\section}{\large\bfseries\uppercase}, \titlespacing*{\section}{0pt}{20pt}{10pt} */
+/* Sections: \titleformat{\section}{\large\bfseries\uppercase}, \titlespacing*{\section}{0pt}{20pt}{10pt}
+ * (trimmed to 18pt/9pt so Education fits on page 1) */
 .cv-section-title {
   font-size: 1.2em;             /* \large == 12pt */
   font-weight: 700;
   text-transform: uppercase;
-  margin: 20pt 0 10pt 0;
+  margin: 18pt 0 9pt 0;
 }
 
 /* Own block formatting context: LaTeX *adds* the 7pt after a \cventry to the
- * 20pt before the next section title, so those margins must not collapse. */
+ * space before the next section title, so those margins must not collapse. */
 .cv-section { display: flow-root; }
 
 /* main.tex applies \vspace{-3mm} after Education */
-.cv-section--tight-top > .cv-section-title { margin-top: calc(20pt - 3mm); }
+.cv-section--tight-top > .cv-section-title { margin-top: calc(18pt - 3mm); }
 
 /* main.tex sets the section bottom spacing to 0pt for Publications only */
 .cv-section--pub > .cv-section-title { margin-bottom: 0; }

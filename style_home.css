@@ -139,20 +139,27 @@ html {
 
 .home-page .hero-grid {
     display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr);
     align-items: start;
     gap: 28px;
 }
 
+/* Spans from the name's cap height to the bottom of the link pills.
+ * contain: size keeps the photo out of the row's height, so the text alone sets it;
+ * the 10px offset is the 42px name's half-leading + ascender gap above the caps. */
 .home-page .hero-photo {
-    width: 220px;
-    height: auto;
+    contain: size;
+    align-self: end;
+    width: 100%;
+    height: calc(100% - 10px);
+    object-fit: cover;
+    object-position: 50% 30%;
     border-radius: var(--home-radius-sm);
     box-shadow: 0 5px 22px rgba(32, 42, 20, 0.13);
 }
 
 .home-page .hero-name {
-    margin: 0 0 5px;
+    margin: 0 0 16px;
     color: var(--home-text);
     font-size: 42px;
     line-height: 1.2;
@@ -163,15 +170,6 @@ html {
 @media (min-width: 769px) {
     .home-page .hero-name { margin-left: -0.04em; }
 }
-
-.home-page .hero-email {
-    display: inline-block;
-    margin: 4px 0 18px;
-    color: #595959;
-    font-size: 16px;
-}
-
-.home-page .hero-email:hover { color: #595959; }
 
 .home-page .hero-links {
     display: flex;
@@ -562,7 +560,7 @@ html {
         text-align: center;
     }
 
-    .home-page .hero-photo { width: 180px; height: auto; margin: 0 auto; }
+    .home-page .hero-photo { contain: none; align-self: auto; width: 180px; height: auto; margin: 0 auto; }
     .home-page .hero-name { font-size: 34px; }
     .home-page .hero-links { justify-content: center; }
     .home-page .hero-bio { text-align: left; }

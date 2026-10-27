@@ -17,17 +17,17 @@ window.CV_DATA = {
     position: "Research Intern at NVIDIA  ·  Ph.D. Student at POSTECH",
     /* Contact line; rendered in order, separated by "|". */
     links: [
-      { label: "youwangk@nvidia.com", url: "mailto:youwangk@nvidia.com" },
+      // { label: "youwangk@nvidia.com", url: "mailto:youwangk@nvidia.com" },
       { label: "youwang.kim@postech.ac.kr", url: "mailto:youwang.kim@postech.ac.kr" },
       { label: "https://youwangk.github.io", url: "https://youwangk.github.io" },
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=gKXTrF8AAAAJ&hl=en" },
     ],
   },
 
-  // Bio: tinted block under the header. **double asterisks** bold a phrase; null removes the block.
+  // Bio: light gray block under the header. **double asterisks** bold a phrase; null removes the block.
   bio: [
-    "Youwang's research aims to build **photorealistic and interactive 3D/4D digital twins** for **content creation** and **physical AI**.",
-    "Recently, his focus is on **generative AI for graphics**.",
+    "Youwang's research aims to **recreate the interactive physical world** by combining **large-scale generative models** with **graphics-native representations**, toward digital twins for content creation and physical AI.",
+    "His recent focus is on neural appearance models for objects and scenes.",
   ],
 
   /* Front-page bullet summary. `label` bolds as the lead-in; **double asterisks**
@@ -58,7 +58,7 @@ window.CV_DATA = {
     },
     {
       label: "Academic activity",
-      text: "**Area Chair for CVPR 2027**; reviewed >50 papers for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, SIGGRAPH, SIGGRAPH Asia, NeurIPS, ICLR, etc}",
+      text: "**Area Chair for CVPR 2027**; reviewed > 50 papers for journals {TPAMI, IJCV, TOG, etc} and conferences {CVPR, ICCV, ECCV, SIGGRAPH, SIGGRAPH Asia, NeurIPS, ICLR, etc}",
     },
   ],
 
