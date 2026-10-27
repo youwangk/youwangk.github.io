@@ -25,6 +25,34 @@
 
         items: [
             {
+                id: "multi-human-object-interaction",
+                image: "./media/hoi.webp",
+                title: "A Paper on 4D Multi-Human-Object Interaction Reconstruction",
+                authors: "",
+                venue: "To be updated",
+                links: [],
+                cv: [{
+                    category: "conference",
+                    order: 1,
+                    venue: "To be updated",
+                    citation: "A paper on “4D multi-human-object interaction reconstruction.”"
+                }]
+            },
+            {
+                id: "casual-selfie-head-avatar",
+                image: "./media/casual_avatar.gif",
+                title: "A Paper on Head Avatar Creation from Casual Photos",
+                authors: "",
+                venue: "To be updated",
+                links: [],
+                cv: [{
+                    category: "conference",
+                    order: 2,
+                    venue: "To be updated",
+                    citation: "A paper on “head avatar creation from casual photos.”"
+                }]
+            },
+            {
                 id: "neumatex",
                 image: "./media/neumatex_teaser.gif",
                 title: "Extracting Neural Materials from Images",
@@ -42,7 +70,7 @@
                     title: "NeuMatEx: Extracting neural materials from images,",
                     collab: "with NVIDIA (Tech report)"
                 },
-                cv: [{ category: "conference", order: 1, venue: "NVIDIA Tech Report 2026" }]
+                cv: [{ category: "conference", order: 3, venue: "NVIDIA Tech Report 2026" }]
             },
             {
                 id: "elite",
@@ -62,7 +90,7 @@
                     title: "ELITE: High-fidelity animatable avatar synthesis,",
                     collab: "with Univ. of Tübingen (CVPR'26)"
                 },
-                cv: [{ category: "conference", order: 3, venue: "CVPR 2026" }]
+                cv: [{ category: "conference", order: 5, venue: "CVPR 2026" }]
             },
             {
                 id: "fica",
@@ -81,7 +109,7 @@
                     title: "FiCA: Feed-forward animatable avatar from a selfie,",
                     collab: "with Meta (Tech report)"
                 },
-                cv: [{ category: "conference", order: 2, venue: "Meta Tech Report 2026" }]
+                cv: [{ category: "conference", order: 4, venue: "Meta Tech Report 2026" }]
             },
             {
                 id: "robot-state-estimation",
@@ -138,7 +166,7 @@
                 ],
                 cv: [{
                     category: "conference",
-                    order: 4,
+                    order: 6,
                     venue: "ICCVW 2025",
                     note: "Oral presentation"
                 }]
@@ -154,7 +182,7 @@
                     { name: "Project page", url: "https://zeroshape-w.github.io/" },
                     { name: "Paper", url: "https://arxiv.org/abs/2403.14539v2" }
                 ],
-                cv: [{ category: "conference", order: 5, venue: "CVPR 2025" }]
+                cv: [{ category: "conference", order: 7, venue: "CVPR 2025" }]
             },
             {
                 id: "neuface",
@@ -177,7 +205,7 @@
                     },
                     {
                         category: "conference",
-                        order: 6,
+                        order: 8,
                         venue: "ICLR 2025",
                         note: "Invited as a poster presentation – Top 5.0% TMLR papers in 2 years invited"
                     }
@@ -204,7 +232,7 @@
                 },
                 cv: [{
                     category: "conference",
-                    order: 8,
+                    order: 10,
                     venue: "CVPR 2024",
                     note: "Best Poster Award at POSTECH-KAIST joint ML workshop 2024"
                 }]
@@ -222,7 +250,7 @@
                 ],
                 cv: [{
                     category: "conference",
-                    order: 7,
+                    order: 9,
                     venue: "BMVC 2024",
                     note: "Best Poster Award at BMVC 2024"
                 }]
@@ -239,7 +267,7 @@
                     { name: "Paper", url: "https://arxiv.org/abs/2401.05516" },
                     { name: "Code", url: "https://github.com/kaist-ami/FPRF" }
                 ],
-                cv: [{ category: "conference", order: 9, venue: "AAAI 2024" }]
+                cv: [{ category: "conference", order: 11, venue: "AAAI 2024" }]
             },
             {
                 id: "rank-pruning",
@@ -269,7 +297,7 @@
                 ],
                 cv: [{
                     category: "conference",
-                    order: 10,
+                    order: 12,
                     venue: "ECCV 2022",
                     note: "Winner of the Electronics Times ICT Paper Awards 2023, Winner of the Qualcomm Innovation Fellowship Korea, 2022"
                 }]
@@ -287,7 +315,7 @@
                     { name: "Code", url: "https://github.com/kaist-ami/FastMETRO" },
                     { name: "Poster", url: "https://www.dropbox.com/s/kzmihz488qcelxi/2116-poster.pdf?dl=0" }
                 ],
-                cv: [{ category: "conference", order: 11, venue: "ECCV 2022" }]
+                cv: [{ category: "conference", order: 13, venue: "ECCV 2022" }]
             },
             {
                 id: "demr",
@@ -302,7 +330,7 @@
                 ],
                 cv: [{
                     category: "conference",
-                    order: 12,
+                    order: 14,
                     venue: "BMVC 2021",
                     note: "Invited to ICVSS 2022"
                 }]

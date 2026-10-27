@@ -339,6 +339,8 @@ a.cv-underline { text-decoration: underline; }
   margin-bottom: 7pt;
 }
 .cv-publist > li:last-child { margin-bottom: 0; }
+/* Extra gap between the Conference Papers list and the Journal Articles title */
+.cv-publist + .cv-subsection-title { margin-top: 16pt; }
 .cv-pub-label {
   flex: 0 0 auto;
   width: 2.6em;                /* \settowidth{\widestlabel}{C99.} */

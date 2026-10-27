@@ -312,11 +312,11 @@
 
     sec.appendChild(renderAbbrevTable(data.abbreviations));
 
-    subsection(sec, "Journal Articles");
-    sec.appendChild(renderPubItems(cvPublicationEntries(data, "journal"), "J"));
-
     subsection(sec, "Conference Papers");
     sec.appendChild(renderPubItems(cvPublicationEntries(data, "conference"), "C"));
+
+    subsection(sec, "Journal Articles");
+    sec.appendChild(renderPubItems(cvPublicationEntries(data, "journal"), "J"));
 
     return sec;
   }
