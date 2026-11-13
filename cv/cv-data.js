@@ -104,7 +104,6 @@ window.CV_DATA = {
     "Jacob Munkberg": "https://research.nvidia.com/labs/rtr/author/jacob-munkberg/",
     "Jon Hasselgren": "https://research.nvidia.com/labs/rtr/author/jon-hasselgren/",
     "Peter Kocsis": "https://peter-kocsis.github.io/",
-    "Miloš Hašan": "https://miloshasan.net/",
     "Yaser Sheikh": "https://www.cs.cmu.edu/~yaser/",
     "Chen Cao": "https://sites.google.com/site/zjucaochen/home",
     "Gerard Pons-Moll": "https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html",
