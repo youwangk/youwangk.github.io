@@ -116,7 +116,7 @@
                 image: "./media/robot.png",
                 title: "DRIP: Self-Improving Robot State Estimation In-the-Wild via Dense Robot-Fitting In the LooP",
                 authors: "Kim Ohn, Kim Youwang, Junuk Cha, Tae-Hyun Oh",
-                cvAuthors: "Kim Ohn, Kim Youwang, J. Cha, T.-H. Oh",
+                cvAuthors: "K. Ohn, Kim Youwang, J. Cha, T.-H. Oh",
                 venue: "RA-L 2026",
                 links: [
                     { name: "Paper", url: "https://ieeexplore.ieee.org/document/11794151" }
