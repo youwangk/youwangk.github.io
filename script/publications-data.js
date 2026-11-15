@@ -118,7 +118,9 @@
                 authors: "Kim Ohn, Kim Youwang, Junuk Cha, Tae-Hyun Oh",
                 cvAuthors: "Kim Ohn, Kim Youwang, J. Cha, T.-H. Oh",
                 venue: "RA-L 2026",
-                links: [],
+                links: [
+                    { name: "Paper", url: "https://ieeexplore.ieee.org/document/11794151" }
+                ],
                 cv: [{ category: "journal", order: 1, venue: "RA-L 2026" }]
             },
             {
