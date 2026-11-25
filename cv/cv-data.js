@@ -46,7 +46,7 @@ window.CV_DATA = {
     },
     {
       label: "Industry / academia experience",
-      text: "Research internships at **NVIDIA** (Real-Time Graphics Research, 2x) and **Meta** (Codec Avatars Lab); Visiting Ph.D. at **Univ. of Tübingen**",
+      text: "Research internships at **NVIDIA** (Real-Time Graphics Research, 3x) and **Meta** (Codec Avatars Lab); Visiting Ph.D. at **Univ. of Tübingen**",
     },
     // {
     //   label: "Patents & tech transfer",
@@ -118,9 +118,18 @@ window.CV_DATA = {
       team: "Real-Time Graphics Research",
       role: "Research Intern",
       logo: "nvidia",
+      location: "Remote, Korea",
+      detail: "Working with: Jacob Munkberg, Jon Hasselgren, Peter Kocsis",
+      date: "Dec. 2026 – Present",
+    },
+    {
+      org: "NVIDIA",
+      team: "Real-Time Graphics Research",
+      role: "Research Intern",
+      logo: "nvidia",
       location: "Santa Clara, CA, US",
       detail: "Working with: Jacob Munkberg, Jon Hasselgren, Peter Kocsis",
-      date: "Aug. 2026 – Present",
+      date: "Aug. 2026 – Nov. 2026",
     },
     {
       org: "NVIDIA",

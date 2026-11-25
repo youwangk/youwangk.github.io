@@ -144,16 +144,13 @@ html {
     gap: 28px;
 }
 
-/* Spans from the name's cap height to the bottom of the link pills.
- * contain: size keeps the photo out of the row's height, so the text alone sets it;
- * the 10px offset is the 42px name's half-leading + ascender gap above the caps. */
+/* Keeps the file's own 3:4 ratio, pinned to the top of the name.
+ * The 10px offset is the 42px name's half-leading + ascender gap above the caps. */
 .home-page .hero-photo {
-    contain: size;
-    align-self: end;
+    align-self: start;
+    margin-top: 10px;
     width: 100%;
-    height: calc(100% - 10px);
-    object-fit: cover;
-    object-position: 50% 30%;
+    height: auto;
     border-radius: var(--home-radius-sm);
     box-shadow: 0 5px 22px rgba(32, 42, 20, 0.13);
 }
@@ -290,7 +287,9 @@ html {
 
 .home-page .affil-timeline {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    /* Fixed column width, free space shared between columns; items wrap instead of squeezing. */
+    grid-template-columns: repeat(6, minmax(0, 166px));
+    justify-content: space-evenly;
     align-items: start;
     gap: 20px 0;
 }
@@ -560,12 +559,11 @@ html {
         text-align: center;
     }
 
-    .home-page .hero-photo { contain: none; align-self: auto; width: 180px; height: auto; margin: 0 auto; }
+    .home-page .hero-photo { width: 180px; margin: 0 auto; }
     .home-page .hero-name { font-size: 34px; }
     .home-page .hero-links { justify-content: center; }
     .home-page .hero-bio { text-align: left; }
 
-    .home-page .affil-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 20px; }
     .home-page .research-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .home-page .pub-grid .item { grid-template-columns: 200px minmax(0, 1fr); }
@@ -590,7 +588,6 @@ html {
     .home-page .news-copy { font-size: 13px; }
     .home-page .news-date { font-size: 11px; }
 
-    .home-page .affil-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-page .research-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px 12px;
@@ -625,8 +622,17 @@ html {
     .home-page .service-row { grid-template-columns: 1fr; gap: 3px; }
 }
 
-@media (max-width: 380px) {
-    .home-page .affil-timeline { grid-template-columns: 1fr; }
+/* 6 x 166px stops fitting below 1044px, 3 x 166px below 530px. */
+@media (max-width: 1043px) {
+    .home-page .affil-timeline { grid-template-columns: repeat(3, minmax(0, 166px)); }
+}
+
+@media (max-width: 529px) {
+    .home-page .affil-timeline { grid-template-columns: repeat(2, minmax(0, 166px)); }
+}
+
+@media (max-width: 363px) {
+    .home-page .affil-timeline { grid-template-columns: minmax(0, 166px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

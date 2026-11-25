@@ -195,7 +195,7 @@ a.cv-underline { text-decoration: underline; }
 
 /* Bio: light gray rounded block under the header. */
 .cv-bio {
-  margin-top: 10pt;
+  margin-top: 18pt;
   padding: 10pt 16pt;
   background: #f4f4f4;
   border-radius: 6px;
@@ -210,13 +210,19 @@ a.cv-underline { text-decoration: underline; }
 }
 
 /* Sections: \titleformat{\section}{\large\bfseries\uppercase}, \titlespacing*{\section}{0pt}{20pt}{10pt}
- * (trimmed to 18pt/9pt so Education fits on page 1) */
+ * (trimmed to 18pt/9pt) */
 .cv-section-title {
   font-size: 1.2em;             /* \large == 12pt */
   font-weight: 700;
   text-transform: uppercase;
   margin: 18pt 0 9pt 0;
 }
+
+/* Page 1 is spaced looser: it ends after Work Experience, Education opens page 2. */
+.cv-sheet:first-child .cv-section-title { margin: 24pt 0 11pt 0; }
+.cv-sheet:first-child .cv-entry { margin-bottom: 9pt; }
+.cv-sheet:first-child :is(.cv-summary-list, .cv-selectedpub) > li { margin-bottom: 7pt; }
+.cv-sheet:first-child :is(.cv-summary-list, .cv-selectedpub) > li:last-child { margin-bottom: 0; }
 
 /* Own block formatting context: LaTeX *adds* the 7pt after a \cventry to the
  * space before the next section title, so those margins must not collapse. */
