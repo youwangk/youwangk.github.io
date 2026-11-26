@@ -14,7 +14,7 @@
             {
                 date: "2026-10",
                 title: "DRIP accepted to RA-L 2026",
-                url: "https://ieeexplore.ieee.org/document/11794151",
+                url: "https://ohn-kim.github.io/drip/",
                 isNew: true
             },
             {

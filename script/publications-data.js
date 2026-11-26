@@ -119,6 +119,7 @@
                 cvAuthors: "K. Ohn, Kim Youwang, J. Cha, T.-H. Oh",
                 venue: "RA-L 2026",
                 links: [
+                    { name: "Project page", url: "https://ohn-kim.github.io/drip/" },
                     { name: "Paper", url: "https://ieeexplore.ieee.org/document/11794151" }
                 ],
                 cv: [{ category: "journal", order: 1, venue: "RA-L 2026" }]
