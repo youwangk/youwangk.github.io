@@ -191,7 +191,7 @@ html {
 }
 
 .home-page .hero-links a:hover {
-    color: #5c8f00;
+    color: #2a7f86;
     border-color: rgba(42, 127, 134, 0.65);
     text-decoration: none;
     transform: translateY(-1px);
@@ -475,7 +475,7 @@ html {
 }
 
 .home-page .pub-link:hover {
-    color: #5c8f00;
+    color: #2a7f86;
     border-color: rgba(42, 127, 134, 0.65);
     text-decoration: none;
 }
