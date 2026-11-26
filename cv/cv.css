@@ -15,11 +15,11 @@
   --cv-blue: #0000ff;           /* xcolor `blue` */
   --cv-link: #3c67c2;           /* homepage link color (style.css) */
   --cv-cornellred: #b31c1c;     /* defined in main.tex but unused — kept for parity */
-  /* Floating button: muted translucent NVIDIA green, alpha-composited onto white so it stays soft. */
-  --cv-nvidia: 118, 185, 0;
-  --cv-tint: rgba(var(--cv-nvidia), 0.07);   /* button tint            */
-  --cv-accent: rgba(var(--cv-nvidia), 0.7);  /* button border          */
-  --cv-slate: #35402f;                       /* button text, warm dark gray */
+  /* Floating button: muted translucent deep teal, alpha-composited onto white so it stays soft. */
+  --cv-theme: 42, 127, 134;
+  --cv-tint: rgba(var(--cv-theme), 0.07);   /* button tint            */
+  --cv-accent: rgba(var(--cv-theme), 0.7);  /* button border          */
+  --cv-slate: #2f3e40;                       /* button text, teal-tinted dark gray */
   --cv-rule: 1.5pt;             /* \hrule height 1.5pt */
 
   /* \arrayrulewidth. A border this thin vanishes on phones (WebKit quantizes
@@ -162,17 +162,17 @@ a.cv-underline { text-decoration: underline; }
 }
 .cv-pdf-link:hover {
   background:
-    linear-gradient(rgba(var(--cv-nvidia), 0.16), rgba(var(--cv-nvidia), 0.16)),
+    linear-gradient(rgba(var(--cv-theme), 0.16), rgba(var(--cv-theme), 0.16)),
     #ffffff;
   color: #111;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 .cv-pdf-link:active {
   background:
-    linear-gradient(rgba(var(--cv-nvidia), 0.24), rgba(var(--cv-nvidia), 0.24)),
+    linear-gradient(rgba(var(--cv-theme), 0.24), rgba(var(--cv-theme), 0.24)),
     #ffffff;
 }
-.cv-pdf-link:focus-visible { outline: 2px solid var(--cv-blue); outline-offset: 2px; }
+.cv-pdf-link:focus-visible { outline: 2px solid rgb(var(--cv-theme)); outline-offset: 2px; }
 .cv-pdf-link svg {
   width: 14px;
   height: 14px;

@@ -4,9 +4,9 @@
     --home-bg-alt: #f7f9f4;
     --home-text: #181c14;
     --home-muted: #5d6655;
-    --home-green: #76b900;
-    --home-green-dark: #527f00;
-    --home-green-soft: rgba(118, 185, 0, 0.10);
+    --home-green: #2a7f86;
+    --home-green-dark: #1d5c61;
+    --home-green-soft: rgba(42, 127, 134, 0.10);
     --home-border: rgba(45, 58, 30, 0.10);
     --home-shadow-sm: 0 1px 4px rgba(32, 42, 20, 0.07);
     --home-shadow-lg: 0 12px 30px rgba(32, 42, 20, 0.11);
@@ -192,7 +192,7 @@ html {
 
 .home-page .hero-links a:hover {
     color: #5c8f00;
-    border-color: rgba(118, 185, 0, 0.65);
+    border-color: rgba(42, 127, 134, 0.65);
     text-decoration: none;
     transform: translateY(-1px);
 }
@@ -268,7 +268,7 @@ html {
     display: inline-block;
     margin-right: 8px;
     padding: 1px 7px;
-    border: 1px solid rgba(118, 185, 0, 0.24);
+    border: 1px solid rgba(42, 127, 134, 0.24);
     border-radius: 999px;
     color: var(--home-green-dark);
     background: var(--home-green-soft);
@@ -401,7 +401,7 @@ html {
 }
 
 .home-page .pub-grid .item:hover {
-    border-color: rgba(118, 185, 0, 0.4);
+    border-color: rgba(42, 127, 134, 0.4);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
 }
@@ -476,7 +476,7 @@ html {
 
 .home-page .pub-link:hover {
     color: #5c8f00;
-    border-color: rgba(118, 185, 0, 0.65);
+    border-color: rgba(42, 127, 134, 0.65);
     text-decoration: none;
 }
 
