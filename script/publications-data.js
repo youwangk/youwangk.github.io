@@ -73,6 +73,19 @@
                 cv: [{ category: "conference", order: 3, venue: "NVIDIA Tech Report 2026" }]
             },
             {
+                id: "robot-state-estimation",
+                image: "./media/robot.png",
+                title: "DRIP: Self-Improving Robot State Estimation In-the-Wild via Dense Robot-Fitting In the LooP",
+                authors: "Kim Ohn, Kim Youwang, Junuk Cha, Tae-Hyun Oh",
+                cvAuthors: "K. Ohn, Kim Youwang, J. Cha, T.-H. Oh",
+                venue: "RA-L 2026",
+                links: [
+                    { name: "Project page", url: "https://ohn-kim.github.io/drip/" },
+                    { name: "Paper", url: "https://ieeexplore.ieee.org/document/11794151" }
+                ],
+                cv: [{ category: "journal", order: 1, venue: "RA-L 2026" }]
+            },
+            {
                 id: "elite",
                 image: "./media/eff_face_avatar.gif",
                 title: "ELITE: Efficient Gaussian Head Avatar from a Monocular Video via Learned Initialization and TEst-time Generative Adaptation",
@@ -110,19 +123,6 @@
                     collab: "with Meta (Tech report)"
                 },
                 cv: [{ category: "conference", order: 4, venue: "Meta Tech Report 2026" }]
-            },
-            {
-                id: "robot-state-estimation",
-                image: "./media/robot.png",
-                title: "DRIP: Self-Improving Robot State Estimation In-the-Wild via Dense Robot-Fitting In the LooP",
-                authors: "Kim Ohn, Kim Youwang, Junuk Cha, Tae-Hyun Oh",
-                cvAuthors: "K. Ohn, Kim Youwang, J. Cha, T.-H. Oh",
-                venue: "RA-L 2026",
-                links: [
-                    { name: "Project page", url: "https://ohn-kim.github.io/drip/" },
-                    { name: "Paper", url: "https://ieeexplore.ieee.org/document/11794151" }
-                ],
-                cv: [{ category: "journal", order: 1, venue: "RA-L 2026" }]
             },
             {
                 id: "clip-actor-x",
