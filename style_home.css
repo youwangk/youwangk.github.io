@@ -215,7 +215,7 @@ html {
     overflow-y: auto;
     overscroll-behavior: contain;
     padding-right: 6px;
-    scrollbar-color: rgba(82, 127, 0, 0.45) transparent;
+    scrollbar-color: rgba(29, 92, 97, 0.45) transparent;
     scrollbar-width: thin;
 }
 
@@ -223,7 +223,7 @@ html {
 .home-page .news-items.is-scrollable::-webkit-scrollbar-track { background: transparent; }
 .home-page .news-items.is-scrollable::-webkit-scrollbar-thumb {
     border-radius: 999px;
-    background: rgba(82, 127, 0, 0.35);
+    background: rgba(29, 92, 97, 0.35);
 }
 
 .home-page .news-item {
