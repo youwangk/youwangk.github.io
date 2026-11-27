@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Overview · Youwang Kim</title>
+<meta name="description" content="Research overview of Youwang Kim: recreating the interactive physical world (people, objects, and scenes) with generative models and graphics-native representations.">
+<link rel="icon" type="image/png" href="./media/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#111;--mute:#666;--line:#e6e6e6;--soft:#f6f6f6;--acc:#2a7f86;--max:1120px}*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.back{display:inline-block;word-spacing:4px;margin-bottom:20px;font:600 13px Inter,sans-serif;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.back:hover{background:var(--soft)}
+header{padding:40px 0 40px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:12px 0 18px;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.lead{font-size:clamp(17px,2.2vw,21px);max-width:820px;margin:0 0 18px}
+.lead em,.why em{font-style:normal;color:var(--acc);font-weight:500}
+.director{font-size:14.5px;color:var(--mute);margin:0}.director a{text-decoration:underline;text-underline-offset:3px}.director a:hover{color:var(--fg)}.director .sep{margin:0 9px}
+nav.toc{border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;flex-direction:column;padding:28px 16px 32px}
+nav.toc a{display:flex;align-items:baseline;gap:14px;padding:10px 0;border-top:1px solid var(--line);font-size:clamp(13px,1.55vw,15.5px);font-weight:600;letter-spacing:-.01em}
+nav.toc a:first-child{border-top:0}
+nav.toc a span{color:var(--mute);font-size:11px;font-weight:600;letter-spacing:.1em;min-width:28px}
+nav.toc a small{color:var(--mute);font-weight:400;font-size:.9em}
+nav.toc a::after{content:"→";margin-left:auto;color:var(--mute);font-weight:400}
+nav.toc a:hover{color:var(--acc)}
+section.group{padding:64px 0 24px;border-bottom:1px solid var(--line)}
+.ghead{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.num{font-size:13px;font-weight:600;color:var(--mute);padding-top:10px;letter-spacing:.1em;min-width:28px}
+h2{font-size:clamp(26px,4vw,40px);margin:0;letter-spacing:-.02em;line-height:1.1;font-weight:600}
+.sub{margin:6px 0 0;color:var(--mute);font-size:17px}
+.why{margin-bottom:28px}.why p{font-size:17px;margin:0;max-width:900px}
+h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;font-weight:600}
+.mediagrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.media{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.media img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .4s}
+a.media:hover img{transform:scale(1.03)}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:36px 12px 10px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.85));color:#fff;font-size:13px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.cap b{white-space:nowrap;font-weight:600;flex-shrink:0}
+.cap em{font-style:normal;opacity:.8;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.papers h3{display:flex;gap:8px;align-items:center;margin:0 0 4px}
+.cnt{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:0 7px;letter-spacing:0}
+.papers ul{list-style:none;margin:0;padding:0}
+.papers li{display:grid;grid-template-columns:96px 150px 1fr auto;gap:16px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;align-items:center}
+.th{width:96px;height:60px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#fff;display:block}
+.pv{color:var(--mute);font-weight:600;font-size:12.5px;line-height:1.4}
+.badge{font-size:10.5px;border:1px solid var(--line);border-radius:999px;padding:0 6px;margin-left:6px;white-space:nowrap;color:var(--acc)}
+.pt{min-width:0}
+.pl{white-space:nowrap}
+.pl a{color:var(--acc);margin-left:10px;font-size:13px}
+.pl a:hover{text-decoration:underline;text-underline-offset:3px}
+details.more summary{cursor:pointer;list-style:none;font-size:13px;font-weight:600;color:var(--mute);padding:10px 0 4px;display:flex;gap:6px;align-items:center}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"▸";display:inline-block;transition:transform .2s}
+details.more[open] summary::before{transform:rotate(90deg)}
+details.more summary:hover{color:var(--fg)}
+.closing{padding:72px 0 96px}
+.closing h2{font-size:clamp(24px,3.5vw,34px);margin-bottom:4px}
+.contact{margin:12px 0 0;font-size:17px;color:var(--mute)}
+.contact a{color:var(--acc);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+footer{border-top:1px solid var(--line);padding:24px 0 48px;color:var(--mute);font-size:13px}
+@media (max-width:560px){.papers li{grid-template-columns:96px 1fr;gap:4px 12px}.pv,.pl{grid-column:2}.th{grid-row:span 3}.pl{white-space:normal}.pl a{margin:0 12px 0 0}header{padding:28px 0 32px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="./">← Home</a>
+  <div class="eyebrow">Youwang Kim - Research Overview</div>
+  <h1>Recreating the Interactive Physical World</h1>
+  <p class="lead">I build AI that recreates the interactive physical world in full detail: <em>People</em> and the <em>Objects and Scenes</em> they interact with. I pursue this by combining large-scale generative models with graphics-native representations that can be <em>animated, relit, and rendered in real time</em>.</p>
+  <p class="director"><b>Youwang Kim</b><span class="sep">·</span>POSTECH & NVIDIA Research<span class="sep">·</span><a href="https://scholar.google.com/citations?user=gKXTrF8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><span class="sep">·</span><a href="./cv.html">CV</a></p>
+</div></header>
+<nav class="toc"><div class="wrap" id="toc"></div></nav>
+<main class="wrap">
+  <div id="groups"></div>
+  <section class="closing" id="contact">
+    <h2>Contact</h2>
+    <p class="contact">Open to research collaborations. Reach me at <a href="mailto:youwang.kim@postech.ac.kr">youwang.kim@postech.ac.kr</a>.</p>
+  </section>
+</main>
+<!-- <footer><div class="wrap">© 2026 Youwang Kim</div></footer> -->
+
+<script src="./script/publications-data.js"></script>
+<script>
+(function () {
+  // Paper metadata comes from publications-data.js; this page only decides grouping and order (newest first).
+  var SHORT = {
+    "casual-selfie-head-avatar": "Blur2Avatar", "elite": "ELITE", "fica": "FiCA", "clip-actor-x": "CLIP-Actor-X",
+    "dress-up": "Dress-up", "neuface": "NeuFace", "clip-actor": "CLIP-Actor",
+    "multi-human-object-interaction": "4D Multi-Human-Object", "robot-state-estimation": "DRIP", "rank-pruning": "Rank Pruning",
+    "fastmetro": "FastMETRO", "demr": "DeMR",
+    "fpgs": "FPGS", "zeroshape-w": "ZeroShape-W", "metta": "MeTTA", "fprf": "FPRF",
+    "neumatex": "NeuMatEx", "paint-it": "Paint-it"
+  };
+  var GROUPS = [
+    {
+      id: "humans", title: "Expressive Digital Humans", sub: "Digital agents that look, talk, and move like the person behind them",
+      what: "People are the center of the world I want to recreate. I build photorealistic, animatable 3D and 4D humans, from heads that capture subtle expressions to fully clothed bodies, that can be created from casual captures: a single portrait, a selfie video, or just a text prompt. Generative priors fill in what the camera never saw, while graphics-native representations keep the result drivable and real-time.",
+      feature: ["elite", "fica", "clip-actor-x", "neuface"],
+      papers: ["elite", "fica", "casual-selfie-head-avatar", "clip-actor-x", "neuface", "dress-up", "clip-actor"]
+    },
+    {
+      id: "objects", title: "Photorealistic 3D Objects and Scenes", sub: "The world around people, from 3D shape to relightable materials",
+      what: "People never act in an empty space. I recreate the objects and environments they interact with, covering both what they are shaped like and how they look. On the geometry side, I reconstruct complete 3D shapes and textured meshes from images. On the appearance side, I synthesize rich relightable materials from photographs or text prompts, and build and re-style large-scale scenes. Together, these produce assets that drop into standard graphics pipelines and look right under any lighting, at real-time rates.",
+      feature: ["neumatex", "fpgs", "zeroshape-w", "paint-it"],
+      papers: ["neumatex", "fpgs", "zeroshape-w", "paint-it", "metta", "fprf"]
+    },
+    {
+      id: "motion", title: "Embodied Motion & Interaction", sub: "How bodies (human, animal, and robot) move and act on the world",
+      what: "A digital twin is only interactive if it moves like the real thing. I recover the 3D pose, shape, and motion of articulated bodies from images and videos, and extend this from single humans to animals, robots, and multiple people interacting with objects in 4D. The same perception that lets us animate avatars also lets physical agents understand and track their own bodies in the wild.",
+      feature: ["multi-human-object-interaction", "robot-state-estimation", "fastmetro", "demr"],
+      papers: ["multi-human-object-interaction", "robot-state-estimation", "rank-pruning", "fastmetro", "demr"]
+    },
+    {
+      id: "vision", title: "Where This Leads", sub: "Digital twins of people and their world, built to be used, not just viewed",
+      what: "I envision these digital twins serving two purposes. First, as a <em>canvas for human creativity</em>: digital humans, objects, and scenes that artists and everyday users can create from a photo or a sentence, then edit, relight, and animate in standard graphics pipelines. Second, as a <em>training ground for physical agents</em>: reconstructions of how people move and interact with objects and scenes, giving embodied agents realistic worlds to learn from.",
+      feature: [], papers: []
+    }
+  ];
+  var SHOW = 5;
+
+  var db = {};
+  window.PUBLICATIONS_DB.items.forEach(function (p) { db[p.id] = p; });
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var VENUE = { "rank-pruning": "TVCJ 2023" }; // page-only short venue names
+  function venue(p) { return esc(VENUE[p.id] || (p.venue === "To be updated" ? "Coming soon" : p.venue)); }
+  function home(p) { var l = p.links.find(function (x) { return x.name === "Project page"; }) || p.links[0]; return l && l.url; }
+  function ext(url) { return /^https?:/.test(url) ? ' target="_blank" rel="noopener"' : ""; }
+
+  function tile(id) {
+    var p = db[id], url = home(p);
+    var inner = '<img src="' + p.image + '" alt="' + esc(SHORT[id]) + '" loading="lazy"><span class="cap"><b>' + esc(SHORT[id]) + '</b> <em>' + venue(p) + '</em></span>';
+    return url ? '<a class="media" href="' + url + '"' + ext(url) + '>' + inner + '</a>' : '<div class="media">' + inner + '</div>';
+  }
+  function row(id) {
+    var p = db[id];
+    var links = p.links.map(function (l) { return '<a href="' + l.url + '"' + ext(l.url) + '>' + esc(l.name) + '</a>'; }).join(" ");
+    var badge = p.websiteNote ? '<span class="badge">' + esc(p.websiteNote) + '</span>' : "";
+    return '<li><img class="th" src="' + p.image + '" alt="" loading="lazy"><span class="pv">' + venue(p) + '</span><span class="pt">' + esc(p.title) + badge + '</span><span class="pl">' + links + '</span></li>';
+  }
+
+  var toc = "", html = "";
+  GROUPS.forEach(function (g, i) {
+    var n = String(i + 1).padStart(2, "0");
+    var rest = g.papers.slice(SHOW);
+    toc += '<a href="#' + g.id + '"><span>' + n + '</span>' + g.title + '</a>';
+    html += '<section class="group" id="' + g.id + '">' +
+      '<div class="ghead"><span class="num">' + n + '</span><div><h2>' + g.title + '</h2><p class="sub">' + g.sub + '</p></div></div>' +
+      '<div class="why"><p>' + g.what + '</p></div>' +
+      (g.feature.length ? '<div class="mediagrid">' + g.feature.map(tile).join("") + '</div>' : "") +
+      (g.papers.length ? '<div class="papers"><h3>Papers <span class="cnt">' + g.papers.length + '</span></h3><ul>' + g.papers.slice(0, SHOW).map(row).join("") + '</ul>' +
+        (rest.length ? '<details class="more"><summary>Show ' + rest.length + ' more</summary><ul>' + rest.map(row).join("") + '</ul></details>' : "") + '</div>' : "") +
+      '</section>';
+  });
+  document.getElementById("toc").innerHTML = toc;
+  document.getElementById("groups").innerHTML = html;
+})();
+</script>
+</body>
+</html>

@@ -12,6 +12,12 @@
         visibleCount: 5,
         items: [
             {
+                date: "2026-11",
+                title: "Updated an overview of my research and papers",
+                url: "./research.html",
+                isNew: true
+            },
+            {
                 date: "2026-10",
                 title: "DRIP accepted to RA-L 2026",
                 url: "https://ohn-kim.github.io/drip/",
@@ -27,19 +33,16 @@
                 date: "2026-08",
                 title: "Started a 2nd internship at NVIDIA Research",
                 url: "https://research.nvidia.com/labs/rtr/author/youwang-kim/",
-                isNew: true
             },
             {
                 date: "2026-06",
                 title: "NeuMatEx released as an NVIDIA Technical Report",
                 url: "https://nvlabs.github.io/neumatex/",
-                isNew: true
             },
             {
                 date: "2026-06",
                 title: "FiCA released as a Meta Technical Report",
                 url: "https://youwangk.github.io/FiCA",
-                isNew: true
             },
             {
                 date: "2026-03",
